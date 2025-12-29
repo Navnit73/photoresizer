@@ -1,6 +1,13 @@
 import { useCallback, useState } from 'react';
 import { ImageState } from '@/types/editor';
 
+interface CropData {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
 const initialState: ImageState = {
   file: null,
   originalUrl: null,
@@ -20,13 +27,18 @@ const initialState: ImageState = {
 export function useImageEditor() {
   const [imageState, setImageState] = useState<ImageState>(initialState);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [history, setHistory] = useState<ImageState[]>([]);
+
+  const saveToHistory = useCallback((state: ImageState) => {
+    setHistory(prev => [...prev.slice(-9), state]);
+  }, []);
 
   const loadImage = useCallback((file: File) => {
     const url = URL.createObjectURL(file);
     const img = new Image();
     
     img.onload = () => {
-      setImageState({
+      const newState: ImageState = {
         file,
         originalUrl: url,
         editedUrl: url,
@@ -40,7 +52,9 @@ export function useImageEditor() {
         format: 'jpeg',
         fileSize: file.size,
         originalFileSize: file.size,
-      });
+      };
+      setImageState(newState);
+      setHistory([newState]);
     };
     
     img.src = url;
@@ -48,21 +62,30 @@ export function useImageEditor() {
 
   const updateDimensions = useCallback((width: number, height: number, maintainRatio: boolean = false) => {
     setImageState(prev => {
+      let newWidth = width;
+      let newHeight = height;
+      
       if (maintainRatio && prev.originalWidth && prev.originalHeight) {
         const ratio = prev.originalWidth / prev.originalHeight;
         if (width !== prev.width) {
-          height = Math.round(width / ratio);
+          newHeight = Math.round(width / ratio);
         } else {
-          width = Math.round(height * ratio);
+          newWidth = Math.round(height * ratio);
         }
       }
-      return { ...prev, width, height };
+      
+      const newState = { ...prev, width: newWidth, height: newHeight };
+      return newState;
     });
   }, []);
 
   const setRotation = useCallback((rotation: number) => {
-    setImageState(prev => ({ ...prev, rotation: rotation % 360 }));
-  }, []);
+    setImageState(prev => {
+      const newState = { ...prev, rotation: ((rotation % 360) + 360) % 360 };
+      saveToHistory(prev);
+      return newState;
+    });
+  }, [saveToHistory]);
 
   const setBackgroundColor = useCallback((backgroundColor: string) => {
     setImageState(prev => ({ ...prev, backgroundColor }));
@@ -77,8 +100,75 @@ export function useImageEditor() {
   }, []);
 
   const applyPreset = useCallback((width: number, height: number) => {
-    setImageState(prev => ({ ...prev, width, height }));
-  }, []);
+    setImageState(prev => {
+      saveToHistory(prev);
+      return { ...prev, width, height };
+    });
+  }, [saveToHistory]);
+
+  const applyCrop = useCallback(async (cropData: CropData) => {
+    if (!imageState.originalUrl) return;
+    
+    setIsProcessing(true);
+    saveToHistory(imageState);
+    
+    try {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      
+      await new Promise<void>((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = reject;
+        img.src = imageState.originalUrl!;
+      });
+
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d')!;
+      
+      // Scale crop coordinates to actual image dimensions
+      const scaleX = img.naturalWidth / imageState.width;
+      const scaleY = img.naturalHeight / imageState.height;
+      
+      const actualX = cropData.x * scaleX;
+      const actualY = cropData.y * scaleY;
+      const actualWidth = cropData.width * scaleX;
+      const actualHeight = cropData.height * scaleY;
+      
+      canvas.width = actualWidth;
+      canvas.height = actualHeight;
+      
+      ctx.drawImage(
+        img,
+        actualX, actualY, actualWidth, actualHeight,
+        0, 0, actualWidth, actualHeight
+      );
+      
+      const newUrl = canvas.toDataURL('image/png');
+      
+      setImageState(prev => ({
+        ...prev,
+        originalUrl: newUrl,
+        editedUrl: newUrl,
+        width: Math.round(cropData.width),
+        height: Math.round(cropData.height),
+        originalWidth: Math.round(actualWidth),
+        originalHeight: Math.round(actualHeight),
+      }));
+      
+    } catch (error) {
+      console.error('Error applying crop:', error);
+    } finally {
+      setIsProcessing(false);
+    }
+  }, [imageState, saveToHistory]);
+
+  const undo = useCallback(() => {
+    if (history.length > 1) {
+      const previousState = history[history.length - 2];
+      setHistory(prev => prev.slice(0, -1));
+      setImageState(previousState);
+    }
+  }, [history]);
 
   const processAndDownload = useCallback(async () => {
     if (!imageState.originalUrl) return;
@@ -98,20 +188,17 @@ export function useImageEditor() {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d')!;
       
-      // Handle rotation
       const radians = (imageState.rotation * Math.PI) / 180;
       const isRotated90or270 = imageState.rotation === 90 || imageState.rotation === 270;
       
       canvas.width = isRotated90or270 ? imageState.height : imageState.width;
       canvas.height = isRotated90or270 ? imageState.width : imageState.height;
       
-      // Fill background
       if (imageState.backgroundColor !== 'transparent') {
         ctx.fillStyle = imageState.backgroundColor;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
       
-      // Apply rotation and draw
       ctx.translate(canvas.width / 2, canvas.height / 2);
       ctx.rotate(radians);
       
@@ -126,7 +213,6 @@ export function useImageEditor() {
         drawHeight
       );
       
-      // Export
       const mimeType = `image/${imageState.format}`;
       const quality = imageState.format === 'png' ? 1 : imageState.quality / 100;
       
@@ -136,7 +222,7 @@ export function useImageEditor() {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `edited-image.${imageState.format}`;
+            a.download = `edited-image-${imageState.width}x${imageState.height}.${imageState.format}`;
             a.click();
             URL.revokeObjectURL(url);
           }
@@ -203,11 +289,13 @@ export function useImageEditor() {
       URL.revokeObjectURL(imageState.originalUrl);
     }
     setImageState(initialState);
+    setHistory([]);
   }, [imageState.originalUrl]);
 
   return {
     imageState,
     isProcessing,
+    history,
     loadImage,
     updateDimensions,
     setRotation,
@@ -215,6 +303,8 @@ export function useImageEditor() {
     setQuality,
     setFormat,
     applyPreset,
+    applyCrop,
+    undo,
     processAndDownload,
     generatePreview,
     reset,
