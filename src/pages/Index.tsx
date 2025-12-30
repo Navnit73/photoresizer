@@ -2,6 +2,8 @@ import { useImageEditor } from '@/hooks/useImageEditor';
 import { UploadZone } from '@/components/editor/UploadZone';
 import { EditorControls } from '@/components/editor/EditorControls';
 import { InteractiveCanvas } from '@/components/editor/InteractiveCanvas';
+import { LivePreview } from '@/components/editor/LivePreview';
+import { DownloadButton } from '@/components/editor/DownloadButton';
 import { AdPlaceholder } from '@/components/layout/AdPlaceholder';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -10,7 +12,7 @@ import { SEO } from '@/components/SEO';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Undo2 } from 'lucide-react';
+import { Undo2, RotateCcw } from 'lucide-react';
 
 const Index = () => {
   const {
@@ -43,7 +45,7 @@ const Index = () => {
 
         {/* Main Editor Section */}
         <main className="container flex-1 py-6">
-          <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+          <div className="grid lg:grid-cols-[1fr_320px] gap-6">
             {/* Left: Editor Area */}
             <div className="space-y-6">
               {!imageState.originalUrl ? (
@@ -54,19 +56,32 @@ const Index = () => {
                   animate={{ opacity: 1 }}
                   className="space-y-6"
                 >
-                  {/* Undo Button */}
-                  {history.length > 1 && (
-                    <div className="flex justify-end">
-                      <Button variant="outline" size="sm" onClick={undo}>
-                        <Undo2 className="w-4 h-4 mr-1" />
-                        Undo ({history.length - 1})
+                  {/* Action Bar */}
+                  <div className="flex items-center justify-between gap-4 flex-wrap">
+                    <div className="flex items-center gap-2">
+                      {history.length > 1 && (
+                        <Button variant="outline" size="sm" onClick={undo}>
+                          <Undo2 className="w-4 h-4 mr-1" />
+                          Undo
+                        </Button>
+                      )}
+                      <Button variant="ghost" size="sm" onClick={reset}>
+                        <RotateCcw className="w-4 h-4 mr-1" />
+                        Start Over
                       </Button>
                     </div>
-                  )}
+                  </div>
 
-                  <div className="grid xl:grid-cols-[280px_1fr] gap-6">
+                  {/* Main Editor Grid */}
+                  <div className="grid xl:grid-cols-[1fr_280px] gap-6">
+                    {/* Interactive Canvas */}
+                    <InteractiveCanvas
+                      imageState={imageState}
+                      onCropApply={applyCrop}
+                    />
+
                     {/* Controls Panel */}
-                    <Card variant="bordered" className="p-4 h-fit order-2 xl:order-1">
+                    <Card variant="bordered" className="p-4 h-fit">
                       <EditorControls
                         imageState={imageState}
                         isProcessing={isProcessing}
@@ -76,28 +91,31 @@ const Index = () => {
                         onQualityChange={setQuality}
                         onFormatChange={setFormat}
                         onApplyPreset={applyPreset}
-                        onDownload={processAndDownload}
-                        onReset={reset}
                       />
+                      
+                      {/* Download Button */}
+                      <div className="mt-6 pt-4 border-t border-border">
+                        <DownloadButton
+                          onDownload={processAndDownload}
+                          isProcessing={isProcessing}
+                        />
+                      </div>
                     </Card>
-
-                    {/* Interactive Canvas */}
-                    <div className="order-1 xl:order-2">
-                      <InteractiveCanvas
-                        imageState={imageState}
-                        onDimensionsChange={updateDimensions}
-                        onCropApply={applyCrop}
-                      />
-                    </div>
                   </div>
                 </motion.div>
               )}
             </div>
 
-            {/* Right: Sidebar Ad */}
-            <aside className="hidden lg:block space-y-4">
+            {/* Right: Sidebar */}
+            <aside className="space-y-4">
+              {/* Live Preview */}
+              {imageState.originalUrl && (
+                <LivePreview imageState={imageState} />
+              )}
+              
+              {/* Sidebar Ads */}
               <AdPlaceholder position="sidebar" />
-              <AdPlaceholder position="sidebar" />
+              {!imageState.originalUrl && <AdPlaceholder position="sidebar" />}
             </aside>
           </div>
         </main>
