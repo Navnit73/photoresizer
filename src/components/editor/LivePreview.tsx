@@ -3,7 +3,7 @@ import { ImageState } from '@/types/editor';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
-import { Eye, ArrowRight, ImageIcon } from 'lucide-react';
+import { Eye, ImageIcon } from 'lucide-react';
 
 interface LivePreviewProps {
   imageState: ImageState;
@@ -60,8 +60,8 @@ export function LivePreview({ imageState }: LivePreviewProps) {
 
   if (!imageState.originalUrl) return null;
 
-  const maxSize = 180;
-  const originalScale = Math.min(maxSize / imageState.originalWidth, maxSize / imageState.originalHeight, 1);
+
+  const maxSize = 200;
   const editedScale = Math.min(maxSize / imageState.width, maxSize / imageState.height, 1);
 
   return (
@@ -72,64 +72,31 @@ export function LivePreview({ imageState }: LivePreviewProps) {
       </div>
 
       <div className="space-y-4">
-        {/* Comparison View */}
-        <div className="flex items-center justify-between gap-3">
-          {/* Original */}
-          <div className="flex-1 text-center">
-            <p className="text-xs text-muted-foreground mb-2">Original</p>
-            <div 
-              className="mx-auto rounded border border-border/50 overflow-hidden bg-muted/30"
-              style={{ 
-                width: imageState.originalWidth * originalScale,
-                height: imageState.originalHeight * originalScale,
-              }}
-            >
+        {/* Edited Preview Only */}
+        <div className="text-center">
+          <div 
+            className="mx-auto rounded-lg border-2 border-primary overflow-hidden shadow-md"
+            style={{ 
+              width: Math.min(imageState.width * editedScale, 200),
+              height: Math.min(imageState.height * editedScale, 200),
+              backgroundColor: imageState.backgroundColor === 'transparent' ? undefined : imageState.backgroundColor,
+            }}
+          >
+            {previewUrl ? (
               <img
-                src={imageState.originalUrl}
-                alt="Original"
+                src={previewUrl}
+                alt="Edited preview"
                 className="w-full h-full object-contain"
               />
-            </div>
-            <p className="text-xs text-muted-foreground mt-1 font-mono">
-              {imageState.originalWidth}×{imageState.originalHeight}
-            </p>
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-muted/30">
+                <ImageIcon className="w-8 h-8 text-muted-foreground animate-pulse" />
+              </div>
+            )}
           </div>
-
-          {/* Arrow */}
-          <motion.div
-            animate={{ x: [0, 4, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
-            <ArrowRight className="w-5 h-5 text-muted-foreground" />
-          </motion.div>
-
-          {/* Edited */}
-          <div className="flex-1 text-center">
-            <p className="text-xs text-muted-foreground mb-2">Edited</p>
-            <div 
-              className="mx-auto rounded border-2 border-primary overflow-hidden shadow-sm"
-              style={{ 
-                width: imageState.width * editedScale,
-                height: imageState.height * editedScale,
-                backgroundColor: imageState.backgroundColor === 'transparent' ? undefined : imageState.backgroundColor,
-              }}
-            >
-              {previewUrl ? (
-                <img
-                  src={previewUrl}
-                  alt="Edited preview"
-                  className="w-full h-full object-contain"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <ImageIcon className="w-6 h-6 text-muted-foreground animate-pulse" />
-                </div>
-              )}
-            </div>
-            <p className="text-xs text-primary mt-1 font-mono font-medium">
-              {imageState.width}×{imageState.height}
-            </p>
-          </div>
+          <p className="text-sm text-primary mt-2 font-mono font-medium">
+            {imageState.width} × {imageState.height} px
+          </p>
         </div>
 
         {/* Stats */}
