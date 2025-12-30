@@ -32,8 +32,6 @@ interface EditorControlsProps {
   onQualityChange: (quality: number) => void;
   onFormatChange: (format: 'jpeg' | 'png' | 'webp') => void;
   onApplyPreset: (width: number, height: number) => void;
-  onDownload: () => void;
-  onReset: () => void;
 }
 
 export function EditorControls({
@@ -45,8 +43,6 @@ export function EditorControls({
   onQualityChange,
   onFormatChange,
   onApplyPreset,
-  onDownload,
-  onReset,
 }: EditorControlsProps) {
   const [lockAspectRatio, setLockAspectRatio] = useState(true);
   
@@ -362,29 +358,6 @@ export function EditorControls({
           </Card>
         </TabsContent>
       </Tabs>
-
-      {/* Action Buttons */}
-      <div className="space-y-2 pt-2">
-        <Button
-          variant="hero"
-          size="lg"
-          className="w-full"
-          onClick={onDownload}
-          disabled={isProcessing}
-        >
-          <Download className="w-4 h-4 mr-2" />
-          {isProcessing ? 'Processing...' : `Download ${imageState.format.toUpperCase()}`}
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          className="w-full"
-          onClick={onReset}
-        >
-          <Trash2 className="w-4 h-4 mr-2" />
-          Clear & Start Over
-        </Button>
-      </div>
     </motion.div>
   );
 }
