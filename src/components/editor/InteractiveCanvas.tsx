@@ -304,28 +304,29 @@ export function InteractiveCanvas({ imageState, onCropApply }: InteractiveCanvas
           </div>
         </div>
 
-        {/* Crop Action Buttons */}
-        {isCropMode && (
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-background/95 backdrop-blur-sm p-2 rounded-lg shadow-lg border"
-          >
-            <Button size="sm" variant="default" onClick={handleApplyCrop}>
-              <Check className="w-4 h-4 mr-1" />
-              Apply Crop
-            </Button>
-            <Button size="sm" variant="outline" onClick={handleResetCrop}>
-              <RotateCcw className="w-4 h-4 mr-1" />
-              Reset
-            </Button>
-            <Button size="sm" variant="ghost" onClick={() => setIsCropMode(false)}>
-              <X className="w-4 h-4 mr-1" />
-              Cancel
-            </Button>
-          </motion.div>
-        )}
       </Card>
+
+      {/* Crop Action Buttons - Below the canvas */}
+      {isCropMode && (
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex justify-center gap-3 pt-2"
+        >
+          <Button size="sm" variant="default" onClick={handleApplyCrop}>
+            <Check className="w-4 h-4 mr-1" />
+            Apply Crop
+          </Button>
+          <Button size="sm" variant="outline" onClick={handleResetCrop}>
+            <RotateCcw className="w-4 h-4 mr-1" />
+            Reset
+          </Button>
+          <Button size="sm" variant="ghost" onClick={() => setIsCropMode(false)}>
+            <X className="w-4 h-4 mr-1" />
+            Cancel
+          </Button>
+        </motion.div>
+      )}
 
       {/* Helper text */}
       <p className="text-xs text-muted-foreground text-center">
