@@ -1,339 +1,311 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
-import { ImageState } from '@/types/editor';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { motion } from 'framer-motion';
-import { Crop, Check, X, RotateCcw, Grid3X3, Move as MoveIcon } from 'lucide-react';
-
-interface InteractiveCanvasProps {
-  imageState: ImageState;
-  onCropApply: (cropData: CropData) => void;
-}
+import { useState, useRef, useEffect } from 'react'
+import { ImageState } from '@/types/editor'
+import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Check, X, RotateCcw, Crop, Move } from 'lucide-react'
 
 interface CropData {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
+  x: number
+  y: number
+  width: number
+  height: number
 }
 
-type CropHandle = 'nw' | 'n' | 'ne' | 'e' | 'se' | 's' | 'sw' | 'w' | 'move' | null;
+type Handle =
+  | 'move'
+  | 'nw' | 'ne' | 'sw' | 'se'
+  | null
 
-export function InteractiveCanvas({ imageState, onCropApply }: InteractiveCanvasProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isCropMode, setIsCropMode] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const [activeHandle, setActiveHandle] = useState<CropHandle>(null);
-  const [cropArea, setCropArea] = useState<CropData>({ x: 0, y: 0, width: 100, height: 100 });
-  
-  const startPosRef = useRef({ x: 0, y: 0 });
-  const startCropRef = useRef<CropData>({ x: 0, y: 0, width: 0, height: 0 });
+export function InteractiveCanvas({
+  imageState,
+  onCropApply
+}: {
+  imageState: ImageState
+  onCropApply: (crop: CropData) => void
+}) {
+  const [isCropMode, setIsCropMode] = useState(false)
+  const [activeHandle, setActiveHandle] = useState<Handle>(null)
 
-  // Calculate display scale to fit in container
-  const containerWidth = 480;
-  const containerHeight = 380;
+  const pointerId = useRef<number | null>(null)
+  const raf = useRef<number | null>(null)
+
+  const start = useRef({
+    x: 0,
+    y: 0,
+    crop: {} as CropData
+  })
+
+  const [crop, setCrop] = useState<CropData>({
+    x: 0,
+    y: 0,
+    width: imageState.width,
+    height: imageState.height
+  })
+
+  const CANVAS_W = 520
+  const CANVAS_H = 400
+
   const scale = Math.min(
-    containerWidth / imageState.width,
-    containerHeight / imageState.height,
+    CANVAS_W / imageState.width,
+    CANVAS_H / imageState.height,
     1
-  );
-  
-  const displayWidth = imageState.width * scale;
-  const displayHeight = imageState.height * scale;
+  )
+
+  const displayW = imageState.width * scale
+  const displayH = imageState.height * scale
+
+  const clamp = (v: number, min: number, max: number) =>
+    Math.max(min, Math.min(max, v))
 
   useEffect(() => {
-    setCropArea({ x: 0, y: 0, width: imageState.width, height: imageState.height });
-  }, [imageState.width, imageState.height]);
+    setCrop({
+      x: imageState.width * 0.1,
+      y: imageState.height * 0.1,
+      width: imageState.width * 0.8,
+      height: imageState.height * 0.8
+    })
+  }, [imageState.width, imageState.height])
 
-  const handleMouseDown = useCallback((e: React.MouseEvent, handle: CropHandle) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(true);
-    setActiveHandle(handle);
-    startPosRef.current = { x: e.clientX, y: e.clientY };
-    startCropRef.current = { ...cropArea };
-  }, [cropArea]);
+  const onPointerDown = (
+    e: React.PointerEvent,
+    handle: Handle
+  ) => {
+    e.preventDefault()
+    e.stopPropagation()
 
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!isDragging || !isCropMode) return;
+    pointerId.current = e.pointerId
+    setActiveHandle(handle)
 
-    const deltaX = (e.clientX - startPosRef.current.x) / scale;
-    const deltaY = (e.clientY - startPosRef.current.y) / scale;
+    start.current = {
+      x: e.clientX,
+      y: e.clientY,
+      crop: { ...crop }
+    }
+  }
 
-    let newCrop = { ...startCropRef.current };
+  const updateCrop = (x: number, y: number) => {
+    const dx = (x - start.current.x) / scale
+    const dy = (y - start.current.y) / scale
+    const minSize = 30
+
+    let next = { ...start.current.crop }
 
     if (activeHandle === 'move') {
-      // Move the entire crop area
-      newCrop.x = Math.max(0, Math.min(imageState.width - newCrop.width, startCropRef.current.x + deltaX));
-      newCrop.y = Math.max(0, Math.min(imageState.height - newCrop.height, startCropRef.current.y + deltaY));
-    } else if (activeHandle) {
-      const minSize = 30;
-      
-      switch (activeHandle) {
-        case 'e':
-          newCrop.width = Math.max(minSize, Math.min(imageState.width - newCrop.x, startCropRef.current.width + deltaX));
-          break;
-        case 'w': {
-          const newX = Math.max(0, Math.min(startCropRef.current.x + startCropRef.current.width - minSize, startCropRef.current.x + deltaX));
-          newCrop.width = startCropRef.current.width + (startCropRef.current.x - newX);
-          newCrop.x = newX;
-          break;
-        }
-        case 's':
-          newCrop.height = Math.max(minSize, Math.min(imageState.height - newCrop.y, startCropRef.current.height + deltaY));
-          break;
-        case 'n': {
-          const newY = Math.max(0, Math.min(startCropRef.current.y + startCropRef.current.height - minSize, startCropRef.current.y + deltaY));
-          newCrop.height = startCropRef.current.height + (startCropRef.current.y - newY);
-          newCrop.y = newY;
-          break;
-        }
-        case 'se':
-          newCrop.width = Math.max(minSize, Math.min(imageState.width - newCrop.x, startCropRef.current.width + deltaX));
-          newCrop.height = Math.max(minSize, Math.min(imageState.height - newCrop.y, startCropRef.current.height + deltaY));
-          break;
-        case 'nw': {
-          const nwX = Math.max(0, Math.min(startCropRef.current.x + startCropRef.current.width - minSize, startCropRef.current.x + deltaX));
-          const nwY = Math.max(0, Math.min(startCropRef.current.y + startCropRef.current.height - minSize, startCropRef.current.y + deltaY));
-          newCrop.width = startCropRef.current.width + (startCropRef.current.x - nwX);
-          newCrop.height = startCropRef.current.height + (startCropRef.current.y - nwY);
-          newCrop.x = nwX;
-          newCrop.y = nwY;
-          break;
-        }
-        case 'ne': {
-          newCrop.width = Math.max(minSize, Math.min(imageState.width - newCrop.x, startCropRef.current.width + deltaX));
-          const neY = Math.max(0, Math.min(startCropRef.current.y + startCropRef.current.height - minSize, startCropRef.current.y + deltaY));
-          newCrop.height = startCropRef.current.height + (startCropRef.current.y - neY);
-          newCrop.y = neY;
-          break;
-        }
-        case 'sw': {
-          const swX = Math.max(0, Math.min(startCropRef.current.x + startCropRef.current.width - minSize, startCropRef.current.x + deltaX));
-          newCrop.width = startCropRef.current.width + (startCropRef.current.x - swX);
-          newCrop.x = swX;
-          newCrop.height = Math.max(minSize, Math.min(imageState.height - newCrop.y, startCropRef.current.height + deltaY));
-          break;
-        }
-      }
+      next.x = clamp(
+        start.current.crop.x + dx,
+        0,
+        imageState.width - next.width
+      )
+      next.y = clamp(
+        start.current.crop.y + dy,
+        0,
+        imageState.height - next.height
+      )
     }
 
-    setCropArea({
-      x: Math.round(newCrop.x),
-      y: Math.round(newCrop.y),
-      width: Math.round(newCrop.width),
-      height: Math.round(newCrop.height),
-    });
-  }, [isDragging, activeHandle, scale, imageState.width, imageState.height, isCropMode]);
+    if (activeHandle === 'se') {
+      next.width = clamp(
+        start.current.crop.width + dx,
+        minSize,
+        imageState.width - next.x
+      )
+      next.height = clamp(
+        start.current.crop.height + dy,
+        minSize,
+        imageState.height - next.y
+      )
+    }
 
-  const handleMouseUp = useCallback(() => {
-    setIsDragging(false);
-    setActiveHandle(null);
-  }, []);
+    if (activeHandle === 'nw') {
+      const nx = clamp(
+        start.current.crop.x + dx,
+        0,
+        start.current.crop.x + start.current.crop.width - minSize
+      )
+      const ny = clamp(
+        start.current.crop.y + dy,
+        0,
+        start.current.crop.y + start.current.crop.height - minSize
+      )
+      next.width += start.current.crop.x - nx
+      next.height += start.current.crop.y - ny
+      next.x = nx
+      next.y = ny
+    }
 
-  const handleApplyCrop = () => {
-    onCropApply(cropArea);
-    setIsCropMode(false);
-  };
+    if (activeHandle === 'ne') {
+      next.width = clamp(
+        start.current.crop.width + dx,
+        minSize,
+        imageState.width - next.x
+      )
+      const ny = clamp(
+        start.current.crop.y + dy,
+        0,
+        start.current.crop.y + start.current.crop.height - minSize
+      )
+      next.height += start.current.crop.y - ny
+      next.y = ny
+    }
 
-  const handleResetCrop = () => {
-    setCropArea({ x: 0, y: 0, width: imageState.width, height: imageState.height });
-  };
+    if (activeHandle === 'sw') {
+      const nx = clamp(
+        start.current.crop.x + dx,
+        0,
+        start.current.crop.x + start.current.crop.width - minSize
+      )
+      next.width += start.current.crop.x - nx
+      next.x = nx
+      next.height = clamp(
+        start.current.crop.height + dy,
+        minSize,
+        imageState.height - next.y
+      )
+    }
 
-  const handleStartCrop = () => {
-    setIsCropMode(true);
-    setCropArea({ 
-      x: imageState.width * 0.1, 
-      y: imageState.height * 0.1, 
-      width: imageState.width * 0.8, 
-      height: imageState.height * 0.8 
-    });
-  };
+    setCrop({
+      x: Math.round(next.x),
+      y: Math.round(next.y),
+      width: Math.round(next.width),
+      height: Math.round(next.height)
+    })
+  }
 
-  const estimatedSize = Math.round((imageState.width * imageState.height * 3 * (imageState.quality / 100)) / 1024);
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (pointerId.current !== e.pointerId) return
+    if (raf.current) cancelAnimationFrame(raf.current)
 
-  const handleClasses = "absolute w-4 h-4 bg-white border-2 border-primary rounded-sm shadow-lg z-20 hover:scale-110 transition-transform";
+    raf.current = requestAnimationFrame(() =>
+      updateCrop(e.clientX, e.clientY)
+    )
+  }
 
-  if (!imageState.originalUrl) return null;
+  const onPointerUp = () => {
+    pointerId.current = null
+    setActiveHandle(null)
+  }
+
+  const applyCrop = () => {
+    onCropApply({ ...crop })
+    setIsCropMode(false)
+  }
+
+  if (!imageState.originalUrl) return null
 
   return (
-    <div className="space-y-4">
-      {/* Toolbar */}
-      <div className="flex items-center justify-between flex-wrap gap-3">
-        <div className="flex items-center gap-2">
-          {!isCropMode ? (
-            <Button
-              variant="tool"
-              size="sm"
-              onClick={handleStartCrop}
-            >
-              <Crop className="w-4 h-4 mr-2" />
-              Crop Image
-            </Button>
-          ) : (
-            <Badge variant="secondary" className="px-3 py-1.5 text-sm bg-primary/10 text-primary border-primary/20">
-              <Grid3X3 className="w-4 h-4 mr-2" />
-              Crop Mode Active
-            </Badge>
-          )}
-        </div>
-
-        {/* Live Dimensions */}
-        <motion.div
-          key={`${imageState.width}-${imageState.height}`}
-          initial={{ scale: 0.95 }}
-          animate={{ scale: 1 }}
-          className="flex flex-wrap gap-2"
-        >
-          <Badge variant="default" className="text-sm px-3 py-1.5 font-mono bg-foreground text-background">
-            {imageState.width} × {imageState.height} px
-          </Badge>
-          <Badge variant="secondary" className="text-sm px-3 py-1.5">
-            ~{estimatedSize > 1024 ? `${(estimatedSize / 1024).toFixed(1)} MB` : `${estimatedSize} KB`}
-          </Badge>
-        </motion.div>
+    <div className="space-y-3">
+      <div className="flex items-center justify-between">
+        <Button size="sm" onClick={() => setIsCropMode(true)}>
+          <Crop className="w-4 h-4 mr-2" />
+          Crop
+        </Button>
       </div>
 
-      {/* Crop dimensions indicator */}
-      {isCropMode && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/20"
-        >
-          <MoveIcon className="w-4 h-4 text-primary" />
-          <span className="text-sm text-muted-foreground">Selection:</span>
-          <Badge variant="outline" className="font-mono">
-            {Math.round(cropArea.width)} × {Math.round(cropArea.height)} px
-          </Badge>
-          <span className="text-xs text-muted-foreground">
-            Position: ({Math.round(cropArea.x)}, {Math.round(cropArea.y)})
-          </span>
-        </motion.div>
-      )}
-
-      {/* Canvas */}
-      <Card 
-        variant="bordered" 
-        className="relative overflow-hidden select-none bg-muted/30"
-        ref={containerRef}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+      <Card
+        className="relative overflow-hidden"
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerLeave={onPointerUp}
       >
-        <div 
-          className="relative flex items-center justify-center p-6 min-h-[420px]"
-          style={{
-            backgroundColor: imageState.backgroundColor === 'transparent' ? undefined : imageState.backgroundColor,
-            backgroundImage: imageState.backgroundColor === 'transparent'
-              ? 'repeating-conic-gradient(hsl(var(--muted)) 0% 25%, hsl(var(--background)) 0% 50%)'
-              : undefined,
-            backgroundSize: '16px 16px',
-          }}
-        >
-          <div className="relative" style={{ width: displayWidth, height: displayHeight }}>
-            {/* Main Image */}
+        <div className="relative flex justify-center p-2 bg-muted/30">
+          <div
+            className="relative"
+            style={{ width: displayW, height: displayH }}
+          >
             <img
               src={imageState.originalUrl}
-              alt="Editable preview"
-              className="w-full h-full object-contain pointer-events-none rounded"
-              style={{ transform: `rotate(${imageState.rotation}deg)` }}
               draggable={false}
+              className="rounded-lg shadow-sm pointer-events-none"
+              style={{
+                width: displayW,
+                height: displayH,
+                transform: `rotate(${imageState.rotation}deg)`
+              }}
             />
 
-            {/* Crop Overlay */}
             {isCropMode && (
               <>
-                {/* Dark overlay outside crop area */}
-                <div 
-                  className="absolute inset-0 bg-foreground/60 pointer-events-none transition-all duration-150"
-                  style={{
-                    clipPath: `polygon(
-                      0% 0%, 
-                      0% 100%, 
-                      ${(cropArea.x / imageState.width) * 100}% 100%, 
-                      ${(cropArea.x / imageState.width) * 100}% ${(cropArea.y / imageState.height) * 100}%, 
-                      ${((cropArea.x + cropArea.width) / imageState.width) * 100}% ${(cropArea.y / imageState.height) * 100}%, 
-                      ${((cropArea.x + cropArea.width) / imageState.width) * 100}% ${((cropArea.y + cropArea.height) / imageState.height) * 100}%, 
-                      ${(cropArea.x / imageState.width) * 100}% ${((cropArea.y + cropArea.height) / imageState.height) * 100}%, 
-                      ${(cropArea.x / imageState.width) * 100}% 100%, 
-                      100% 100%, 
-                      100% 0%
-                    )`
-                  }}
-                />
-                
-                {/* Crop selection area */}
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] pointer-events-none" />
+
                 <div
-                  className="absolute border-2 border-white shadow-xl cursor-move transition-all duration-75"
+                  className="absolute z-20 rounded-xl border-2 border-white shadow-2xl cursor-move"
                   style={{
-                    left: `${(cropArea.x / imageState.width) * 100}%`,
-                    top: `${(cropArea.y / imageState.height) * 100}%`,
-                    width: `${(cropArea.width / imageState.width) * 100}%`,
-                    height: `${(cropArea.height / imageState.height) * 100}%`,
+                    left: `${(crop.x / imageState.width) * 100}%`,
+                    top: `${(crop.y / imageState.height) * 100}%`,
+                    width: `${(crop.width / imageState.width) * 100}%`,
+                    height: `${(crop.height / imageState.height) * 100}%`
                   }}
-                  onMouseDown={(e) => handleMouseDown(e, 'move')}
+                  onPointerDown={e => onPointerDown(e, 'move')}
                 >
-                  {/* Rule of thirds grid */}
-                  <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 pointer-events-none">
+                  <div className="absolute inset-0 grid grid-cols-3 grid-rows-3">
                     {[...Array(9)].map((_, i) => (
-                      <div key={i} className="border border-white/40" />
+                      <div key={i} className="border border-white/25" />
                     ))}
                   </div>
 
-                  {/* Corner handles */}
-                  <div className={`${handleClasses} -top-2 -left-2 cursor-nw-resize`} onMouseDown={(e) => handleMouseDown(e, 'nw')} />
-                  <div className={`${handleClasses} -top-2 -right-2 cursor-ne-resize`} onMouseDown={(e) => handleMouseDown(e, 'ne')} />
-                  <div className={`${handleClasses} -bottom-2 -right-2 cursor-se-resize`} onMouseDown={(e) => handleMouseDown(e, 'se')} />
-                  <div className={`${handleClasses} -bottom-2 -left-2 cursor-sw-resize`} onMouseDown={(e) => handleMouseDown(e, 'sw')} />
-                  
-                  {/* Edge handles */}
-                  <div className={`${handleClasses} -top-2 left-1/2 -translate-x-1/2 cursor-n-resize`} onMouseDown={(e) => handleMouseDown(e, 'n')} />
-                  <div className={`${handleClasses} top-1/2 -right-2 -translate-y-1/2 cursor-e-resize`} onMouseDown={(e) => handleMouseDown(e, 'e')} />
-                  <div className={`${handleClasses} -bottom-2 left-1/2 -translate-x-1/2 cursor-s-resize`} onMouseDown={(e) => handleMouseDown(e, 's')} />
-                  <div className={`${handleClasses} top-1/2 -left-2 -translate-y-1/2 cursor-w-resize`} onMouseDown={(e) => handleMouseDown(e, 'w')} />
+                  {[
+                    ['nw', '-top-2 -left-2'],
+                    ['ne', '-top-2 -right-2'],
+                    ['sw', '-bottom-2 -left-2'],
+                    ['se', '-bottom-2 -right-2']
+                  ].map(([h, pos]) => (
+                    <div
+                      key={h}
+                      onPointerDown={e =>
+                        onPointerDown(e, h as Handle)
+                      }
+                      className={`absolute ${pos} w-4 h-4 rounded-full bg-white shadow-lg border border-primary cursor-pointer`}
+                    />
+                  ))}
+
+                  <div className="absolute top-2 left-2 bg-black/50 text-white rounded px-2 py-1 text-xs flex items-center gap-1 pointer-events-none">
+                    <Move className="w-3 h-3" />
+                    Drag
+                  </div>
                 </div>
               </>
             )}
-
-            {/* Normal state border */}
-            {!isCropMode && (
-              <div className="absolute inset-0 border border-border/50 rounded pointer-events-none" />
-            )}
           </div>
         </div>
-
       </Card>
 
-      {/* Crop Action Buttons - Below the canvas */}
       {isCropMode && (
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex justify-center gap-3 pt-2"
-        >
-          <Button size="sm" variant="default" onClick={handleApplyCrop}>
+        <div className="flex justify-center gap-2">
+          <Button size="sm" onClick={applyCrop}>
             <Check className="w-4 h-4 mr-1" />
-            Apply Crop
+            Apply
           </Button>
-          <Button size="sm" variant="outline" onClick={handleResetCrop}>
+
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() =>
+              setCrop({
+                x: 0,
+                y: 0,
+                width: imageState.width,
+                height: imageState.height
+              })
+            }
+          >
             <RotateCcw className="w-4 h-4 mr-1" />
             Reset
           </Button>
-          <Button size="sm" variant="ghost" onClick={() => setIsCropMode(false)}>
+
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => setIsCropMode(false)}
+          >
             <X className="w-4 h-4 mr-1" />
             Cancel
           </Button>
-        </motion.div>
+        </div>
       )}
 
-      {/* Helper text */}
       <p className="text-xs text-muted-foreground text-center">
-        {isCropMode 
-          ? 'Drag corners or edges to adjust. Drag inside to move selection. Click Apply when done.'
-          : 'Click "Crop Image" to select the area you want to keep.'}
+        Drag to move • Resize from corners • Clean, non-destructive crop
       </p>
     </div>
-  );
+  )
 }

@@ -1,18 +1,18 @@
-import { useImageEditor } from '@/hooks/useImageEditor';
-import { UploadZone } from '@/components/editor/UploadZone';
-import { EditorControls } from '@/components/editor/EditorControls';
-import { InteractiveCanvas } from '@/components/editor/InteractiveCanvas';
-import { LivePreview } from '@/components/editor/LivePreview';
-import { DownloadButton } from '@/components/editor/DownloadButton';
-import { AdPlaceholder } from '@/components/layout/AdPlaceholder';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { ContentSections } from '@/components/sections/ContentSections';
-import { SEO } from '@/components/SEO';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { Undo2, RotateCcw } from 'lucide-react';
+import { useImageEditor } from "@/hooks/useImageEditor";
+import { UploadZone } from "@/components/editor/UploadZone";
+import { EditorControls } from "@/components/editor/EditorControls";
+import { InteractiveCanvas } from "@/components/editor/InteractiveCanvas";
+import { LivePreview } from "@/components/editor/LivePreview";
+import { DownloadButton } from "@/components/editor/DownloadButton";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { ContentSections } from "@/components/sections/ContentSections";
+import { SEO } from "@/components/SEO";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { motion } from "framer-motion";
+import { Undo2, RotateCcw } from "lucide-react";
 
 const Index = () => {
   const {
@@ -35,99 +35,109 @@ const Index = () => {
   return (
     <>
       <SEO />
-      <div className="min-h-screen flex flex-col bg-background">
+      <div className="min-h-screen">
         <Header />
-        
-        {/* Top Ad Banner */}
-        <div className="container py-4">
-          <AdPlaceholder position="top" />
-        </div>
 
-        {/* Main Editor Section */}
-        <main className="container flex-1 py-6">
-          <div className="grid lg:grid-cols-[1fr_320px] gap-6">
-            {/* Left: Editor Area */}
-            <div className="space-y-6">
-              {!imageState.originalUrl ? (
-                <UploadZone onFileSelect={loadImage} />
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="space-y-6"
-                >
-                  {/* Action Bar */}
-                  <div className="flex items-center justify-between gap-4 flex-wrap">
-                    <div className="flex items-center gap-2">
-                      {history.length > 1 && (
-                        <Button variant="outline" size="sm" onClick={undo}>
-                          <Undo2 className="w-4 h-4 mr-1" />
-                          Undo
-                        </Button>
-                      )}
-                      <Button variant="ghost" size="sm" onClick={reset}>
-                        <RotateCcw className="w-4 h-4 mr-1" />
-                        Start Over
+        <main className="container max-w-8xl mx-auto px-2 py-4">
+          {!imageState.originalUrl ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="max-w-2xl mx-auto py-8"
+            >
+              <UploadZone onFileSelect={loadImage} />
+            </motion.div>
+          ) : (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            
+                {/* Top Bar */}
+                <div className="flex items-center justify-between px-4 py-2 bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
+                  <div className="flex items-center gap-2">
+                    {history.length > 1 && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={undo}
+                        className="h-7 px-2 text-xs"
+                      >
+                        <Undo2 className="w-3 h-3 mr-1" />
+                        Undo
                       </Button>
-                    </div>
+                    )}
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={reset}
+                      className="h-7 px-2 text-xs"
+                    >
+                      <RotateCcw className="w-3 h-3 mr-1" />
+                      Reset
+                    </Button>
                   </div>
+                </div>
 
-                  {/* Main Editor Grid */}
-                  <div className="grid xl:grid-cols-[1fr_280px] gap-6">
-                    {/* Interactive Canvas */}
-                    <InteractiveCanvas
-                      imageState={imageState}
-                      onCropApply={applyCrop}
-                    />
-
-                    {/* Controls Panel */}
-                    <Card variant="bordered" className="p-4 h-fit">
-                      <EditorControls
-                        imageState={imageState}
-                        isProcessing={isProcessing}
-                        onUpdateDimensions={updateDimensions}
-                        onRotate={setRotation}
-                        onBackgroundChange={setBackgroundColor}
-                        onQualityChange={setQuality}
-                        onFormatChange={setFormat}
-                        onApplyPreset={applyPreset}
-                      />
-                      
-                      {/* Download Button */}
-                      <div className="mt-6 pt-4 border-t border-border">
-                        <DownloadButton
-                          onDownload={processAndDownload}
+                {/* Main Content - Ultra Compact */}
+                <div className="p-1">
+                  <div className="grid lg:grid-cols-[1fr_1fr_320px] gap-3">
+                    {/* === Shared Card: Interactive + Preview === */}
+                    <div className="space-y-2">
+                 
+                      <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700">
+                             <div className="text-[10px] font-medium text-slate-500 pb-2 dark:text-slate-400 uppercase tracking-wide px-1">
+                        Settings
+                      </div>
+                        <EditorControls
+                          imageState={imageState}
                           isProcessing={isProcessing}
+                          onUpdateDimensions={updateDimensions}
+                          onRotate={setRotation}
+                          onBackgroundChange={setBackgroundColor}
+                          onQualityChange={setQuality}
+                          onFormatChange={setFormat}
+                          onApplyPreset={applyPreset}
                         />
                       </div>
-                    </Card>
-                  </div>
-                </motion.div>
-              )}
-            </div>
+                    </div>
+                    <div className="lg:col-span-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {/* Interactive */}
+                        <div className="space-y-2">
+                          <div className="text-[10px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+                            Original
+                          </div>
 
-            {/* Right: Sidebar */}
-            <aside className="space-y-4">
-              {/* Live Preview */}
-              {imageState.originalUrl && (
-                <LivePreview imageState={imageState} />
-              )}
-              
-              {/* Sidebar Ads */}
-              <AdPlaceholder position="sidebar" />
-              {!imageState.originalUrl && <AdPlaceholder position="sidebar" />}
-            </aside>
-          </div>
+                          <InteractiveCanvas
+                            imageState={imageState}
+                            onCropApply={applyCrop}
+                          />
+                        </div>
+
+                        {/* Live Preview */}
+                        <div className="space-y-2">
+                          <div className="text-[10px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+                            Preview
+                          </div>
+                          <DownloadButton
+                            onDownload={processAndDownload}
+                            isProcessing={isProcessing}
+                          />
+                          <LivePreview imageState={imageState} />
+                        </div>
+                      </div>
+                      
+                      
+                    </div>
+
+                    {/* Controls */}
+                    
+                  </div>
+                </div>
+             
+            </motion.div>
+          )}
         </main>
 
-        {/* Bottom Ad */}
-        <div className="container pb-6">
-          <AdPlaceholder position="bottom" />
-        </div>
-
-        {/* SEO Content Sections */}
         <ContentSections />
-
         <Footer />
       </div>
     </>

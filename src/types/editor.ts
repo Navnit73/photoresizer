@@ -9,7 +9,7 @@ export interface ImageState {
   rotation: number;
   backgroundColor: string;
   quality: number;
-  format: 'jpeg' | 'png' | 'webp';
+    format: 'jpeg' | 'jpg' | 'png' | 'webp' | 'svg';
   fileSize: number;
   originalFileSize: number;
 }
@@ -51,7 +51,10 @@ export const BACKGROUND_COLORS = [
 ];
 
 export const FORMAT_OPTIONS = [
-  { value: 'jpeg', label: 'JPG', mime: 'image/jpeg' },
+  { value: 'jpeg', label: 'JPEG', mime: 'image/jpeg' },
+  { value: 'jpg', label: 'JPG', mime: 'image/jpeg' }, // alias
   { value: 'png', label: 'PNG', mime: 'image/png' },
   { value: 'webp', label: 'WEBP', mime: 'image/webp' },
+  { value: 'svg', label: 'SVG', mime: 'image/svg+xml' },
 ] as const;
+
