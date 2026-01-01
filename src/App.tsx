@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AppRoutes } from "@/routes/AppRoutes";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -14,6 +14,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <SpeedInsights/>
         <BrowserRouter>
           <AppRoutes />
         </BrowserRouter>
