@@ -40,6 +40,9 @@ const Index = () => {
 
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
+        <h1 className="sr-only">
+          Free Photo Resizer for SSC, UPSC, Banking & Government Exam Forms
+        </h1>
 
         <main className="flex-1 w-full max-w-8xl mx-auto px-2 sm:px-4 py-3">
           <AnimatePresence mode="wait">

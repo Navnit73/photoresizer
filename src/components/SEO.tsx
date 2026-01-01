@@ -3,76 +3,86 @@ import { Helmet } from 'react-helmet-async';
 interface SEOProps {
   title?: string;
   description?: string;
-  keywords?: string;
 }
 
 export function SEO({
-  title = 'SSC Photo Resizer & Government Exam Image Resizer Online Free',
-  description = 'Free online photo & image resizer for SSC, UPSC, Banking, Railway, Defence and all government exams. Resize photos for Passport, PAN Card, Aadhaar, Visa, job applications and exam forms. Supports JPG, PNG, WEBP. 100% private.',
-  keywords = `
-    ssc photo resizer,
-    ssc image resizer,
-    upsc photo resizer,
-    government exam photo resizer,
-    govt exam image resizer,
-    banking exam photo resize,
-    ibps photo resizer,
-    sbi po photo resize,
-    rrb photo resizer,
-    railway exam photo size,
-    defence exam photo resize,
-    nda photo resizer,
-    cds photo resizer,
-    afcat photo resize,
-    state government exam photo resizer,
-    police exam photo size,
-    teacher exam photo resizer,
-    ctet photo resize,
-    tet photo size,
-    passport photo resizer online,
-    pan card photo size,
-    aadhaar photo resize,
-    visa photo editor,
-    job application photo resizer,
-    online image resizer india,
-    photo resize for government forms
-  `
+  title = 'Free Photo Resizer for SSC, UPSC & Government Exam Forms Online',
+  description = 'Resize and compress photos for SSC, UPSC, IBPS, Banking, Railway and all government exams. Reduce photo size to 20KB, 50KB or exact dimensions like 200x230px. Supports Passport, PAN, Aadhaar, Visa photos. 100% free & private.',
 }: SEOProps) {
+  const canonicalUrl =
+    typeof window !== 'undefined'
+      ? window.location.origin + window.location.pathname
+      : '';
 
-  const structuredData = {
+  /* -------------------- Software Application Schema -------------------- */
+  const softwareAppSchema = {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+    '@type': 'SoftwareApplication',
     name: 'Government Exam Photo Resizer',
     description,
-    applicationCategory: 'UtilityApplication',
+    applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'All',
+    browserRequirements: 'Requires JavaScript. Works offline after page load.',
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'INR',
     },
     featureList: [
-      'SSC photo resizer',
-      'UPSC exam photo resize',
-      'Banking & Railway exam image resizer',
-      'Defence exam photo editor',
-      'Passport, PAN, Aadhaar photo resize',
-      'Exact size & KB control',
+      'Photo resizer for SSC CGL exam online free',
+      'Reduce photo size to 20KB and 50KB for government forms',
+      'UPSC exam photo dimensions and size',
+      'Signature size reducer for IBPS exams',
+      'Passport, PAN Card, Aadhaar, Visa photo editor',
+      'Exact pixel size control like 200x230px',
       'JPG, PNG, WEBP support',
-      'Client-side processing (no upload)'
+      'Client-side processing (no upload)',
     ],
   };
 
-  const faqStructuredData = {
+  /* -------------------- FAQ Schema -------------------- */
+  const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'Can I resize photo for SSC and other government exams?',
+        name: 'How to resize photo for SSC CGL exam online free?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes, this tool supports photo resizing for SSC, UPSC, Banking, Railway, Defence, Police, Teaching and all government exams as per required size and format.',
+          text: 'Upload your photo, select SSC preset or custom dimensions, adjust file size if required, and download instantly. No registration needed.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How can I reduce photo size to 50KB for government forms?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Use the quality control to compress your photo until it reaches 50KB while maintaining clarity. Preview updates in real time.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I compress photo to 20KB for exam forms?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. You can reduce photo size to 20KB or any custom size required by SSC, UPSC, IBPS, Banking and Railway exams.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What are UPSC exam photo dimensions and size?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'UPSC photo requirements vary by form, but usually include specific pixel dimensions and KB limits. This tool lets you set both precisely.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I resize signature image for IBPS exam?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. You can resize and compress signature images as per IBPS and other banking exam specifications.',
         },
       },
       {
@@ -80,56 +90,66 @@ export function SEO({
         name: 'Is this photo resizer safe for government forms?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. All image processing happens in your browser. Photos are never uploaded to any server, making it completely safe and private.',
+          text: 'Yes. All processing happens locally in your browser. Images are never uploaded to any server.',
         },
       },
+    ],
+  };
+
+  /* -------------------- HowTo Schema -------------------- */
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to Resize Photo for Government Exam Forms',
+    description,
+    step: [
       {
-        '@type': 'Question',
-        name: 'Which formats are supported for exam photo upload?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'You can resize and convert photos in JPG, JPEG, PNG and WEBP formats for government exam and form submissions.',
-        },
+        '@type': 'HowToStep',
+        name: 'Upload Photo',
+        text: 'Upload your photo in JPG, PNG or WEBP format.',
       },
       {
-        '@type': 'Question',
-        name: 'Can I resize passport, PAN and Aadhaar photos?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes, the tool includes preset and custom sizes for Passport, PAN Card, Aadhaar, Visa and other official documents.',
-        },
+        '@type': 'HowToStep',
+        name: 'Set Required Size',
+        text: 'Choose SSC, UPSC, IBPS or custom dimensions and file size like 20KB or 50KB.',
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'Download',
+        text: 'Preview and download your resized photo instantly.',
       },
     ],
   };
 
   return (
     <Helmet>
-      {/* Primary SEO */}
+      {/* ---------- Primary SEO ---------- */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
       <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={canonicalUrl} />
 
-      {/* Open Graph */}
+      {/* ---------- Open Graph ---------- */}
+      <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Government Exam Photo Resizer" />
+      <meta property="og:url" content={canonicalUrl} />
 
-      {/* Twitter */}
+      {/* ---------- Twitter ---------- */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
 
-      {/* Canonical (SPA-safe) */}
-      <link rel="canonical" href={typeof window !== 'undefined' ? window.location.href : ''} />
-
-      {/* Structured Data */}
+      {/* ---------- Structured Data ---------- */}
       <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
+        {JSON.stringify(softwareAppSchema)}
       </script>
       <script type="application/ld+json">
-        {JSON.stringify(faqStructuredData)}
+        {JSON.stringify(faqSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(howToSchema)}
       </script>
     </Helmet>
   );

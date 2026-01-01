@@ -25,6 +25,10 @@ export function Footer() {
         <div className="border-t border-background/10 mt-6 pt-6 text-center text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Government Form Image Editor. All rights reserved.</p>
           <p className="mt-1">Your images are processed locally and never uploaded to any server.</p>
+          <p className="text-xs mt-2 text-muted-foreground">
+  Popular uses: SSC photo resizer · UPSC exam photo resize · PAN card photo size · Aadhaar photo editor · Passport size photo maker
+</p>
+
         </div>
       </div>
     </footer>

@@ -79,6 +79,13 @@ export function ContentSections() {
         >
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold font-heading mb-3">How It Works</h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto text-sm mt-4">
+  This free online photo resizer helps candidates resize photos for SSC CGL,
+  UPSC, IBPS, Banking, Railway and other government exams. Easily reduce photo
+  size to 20KB, 50KB or exact dimensions like 200×230 pixels as required in
+  official forms.
+</p>
+
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Edit your photos for government forms in three simple steps
             </p>
