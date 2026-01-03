@@ -192,29 +192,27 @@ export function InteractiveCanvas({
     }
   }, [aspectRatio])
 
-  const onPointerDown = (
-    e: React.PointerEvent,
-    handle: Handle
-  ) => {
-    e.preventDefault()
-    e.stopPropagation()
+const onPointerDown = (e: React.PointerEvent, handle: Handle) => {
+  if (!isCropMode) return
 
-    // Haptic feedback on touch start
-    hapticFeedback('medium')
+  e.preventDefault()
+  e.stopPropagation()
 
-    // Capture pointer for mobile support
-    const target = e.currentTarget as HTMLElement
-    target.setPointerCapture(e.pointerId)
+  hapticFeedback('medium')
 
-    pointerId.current = e.pointerId
-    setActiveHandle(handle)
+  const target = e.currentTarget as HTMLElement
+  target.setPointerCapture(e.pointerId)
 
-    start.current = {
-      x: e.clientX,
-      y: e.clientY,
-      crop: { ...crop }
-    }
+  pointerId.current = e.pointerId
+  setActiveHandle(handle)
+
+  start.current = {
+    x: e.clientX,
+    y: e.clientY,
+    crop: { ...crop }
   }
+}
+
 
   const updateCrop = (x: number, y: number) => {
     const dx = (x - start.current.x) / scale
@@ -307,16 +305,19 @@ export function InteractiveCanvas({
     })
   }
 
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (pointerId.current !== e.pointerId) return
-    e.preventDefault()
-    
-    if (raf.current) cancelAnimationFrame(raf.current)
+ const onPointerMove = (e: React.PointerEvent) => {
+  if (!isCropMode) return
+  if (pointerId.current !== e.pointerId) return
 
-    raf.current = requestAnimationFrame(() =>
-      updateCrop(e.clientX, e.clientY)
-    )
-  }
+  e.preventDefault() // ✅ only when actively dragging
+
+  if (raf.current) cancelAnimationFrame(raf.current)
+
+  raf.current = requestAnimationFrame(() =>
+    updateCrop(e.clientX, e.clientY)
+  )
+}
+
 
   const onPointerUp = (e: React.PointerEvent) => {
     if (pointerId.current === null) return
@@ -421,14 +422,14 @@ export function InteractiveCanvas({
       )}
 
       <Card
-        ref={cardRef}
-        className="relative overflow-hidden"
-        style={{ touchAction: 'none' }}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerLeave={onPointerUp}
-        onPointerCancel={onPointerUp}
-      >
+  ref={cardRef}
+  className="relative overflow-hidden"
+  onPointerMove={isCropMode ? onPointerMove : undefined}
+  onPointerUp={isCropMode ? onPointerUp : undefined}
+  onPointerLeave={isCropMode ? onPointerUp : undefined}
+  onPointerCancel={isCropMode ? onPointerUp : undefined}
+>
+
         <div className="relative flex justify-center p-2 bg-muted/30">
           <div
             className="relative"
@@ -450,20 +451,19 @@ export function InteractiveCanvas({
             {isCropMode && (
               <>
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] pointer-events-none" />
+<div
+  ref={cropBoxRef}
+  className="absolute z-20 rounded-xl border-2 border-white shadow-2xl cursor-move"
+  style={{
+    touchAction: 'none', // ✅ correct place
+    left: `${(crop.x / imageState.width) * 100}%`,
+    top: `${(crop.y / imageState.height) * 100}%`,
+    width: `${(crop.width / imageState.width) * 100}%`,
+    height: `${(crop.height / imageState.height) * 100}%`
+  }}
+  onPointerDown={e => onPointerDown(e, 'move')}
+>
 
-                <div
-                  ref={cropBoxRef}
-                  className="absolute z-20 rounded-xl border-2 border-white shadow-2xl cursor-move transition-shadow"
-                  style={{
-                    left: `${(crop.x / imageState.width) * 100}%`,
-                    top: `${(crop.y / imageState.height) * 100}%`,
-                    width: `${(crop.width / imageState.width) * 100}%`,
-                    height: `${(crop.height / imageState.height) * 100}%`,
-                    touchAction: 'none',
-                    boxShadow: activeHandle === 'move' ? '0 0 0 2px rgba(59, 130, 246, 0.5)' : undefined
-                  }}
-                  onPointerDown={e => onPointerDown(e, 'move')}
-                >
                   <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 pointer-events-none">
                     {[...Array(9)].map((_, i) => (
                       <div key={i} className="border border-white/25" />
@@ -482,16 +482,16 @@ export function InteractiveCanvas({
                       className={`absolute ${pos} w-7 h-7 rounded-full bg-white shadow-lg border-2 border-primary ${cursor} transition-all`}
                       style={{ 
                         touchAction: 'none',
-                        transform: activeHandle === h ? 'scale(1.2)' : 'scale(1)',
-                        boxShadow: activeHandle === h ? '0 0 0 3px rgba(59, 130, 246, 0.3)' : undefined
+                        // transform: activeHandle === h ? 'scale(1.2)' : 'scale(1)',
+                        // boxShadow: activeHandle === h ? '0 0 0 3px rgba(59, 130, 246, 0.3)' : undefined
                       }}
                     />
                   ))}
 
-                  <div className="absolute top-2 left-2 bg-black/70 text-white rounded px-2 py-1 text-xs flex items-center gap-1 pointer-events-none backdrop-blur-sm">
+                  {/* <div className="absolute top-2 left-2 bg-black/70 text-white rounded px-2 py-1 text-xs flex items-center gap-1 pointer-events-none backdrop-blur-sm">
                     <Move className="w-3 h-3" />
                     Drag to move
-                  </div>
+                  </div> */}
                 </div>
               </>
             )}

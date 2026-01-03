@@ -88,7 +88,7 @@ export function LivePreview({ imageState }: LivePreviewProps) {
   );
 
   return (
-    <Card variant="bordered" className="p-4 space-y-4">
+    <Card variant="bordered" className="p-4 space-y-3">
       {/* Header */}
       <div className="flex items-center gap-2 text-sm font-medium">
         <Eye className="w-4 h-4 text-primary" />

@@ -153,6 +153,8 @@ const Index = () => {
                           imageState={imageState}
                           onCropApply={applyCrop}
                         />
+                        
+                        <LivePreview imageState={imageState} />
                       </motion.div>
 
                       <div className="sticky bottom-3 z-20">
@@ -166,7 +168,7 @@ const Index = () => {
                     </div>
 
                     {/* -------- DESKTOP -------- */}
-                    <div className="hidden lg:grid lg:grid-cols-2 gap-3">
+                    <div className="hidden lg:grid lg:grid-cols-2 gap-2">
                       {/* Original */}
                       <motion.div
                         initial={{ opacity: 0, x: -8 }}
@@ -187,7 +189,7 @@ const Index = () => {
                       <motion.div
                         initial={{ opacity: 0, x: 8 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="space-y-2"
+                        className="space-y-1"
                       >
                         <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">
                           Preview
