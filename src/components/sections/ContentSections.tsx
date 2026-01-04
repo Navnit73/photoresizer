@@ -94,16 +94,16 @@ const faqs = [
 
 export function ContentSections() {
   return (
-    <section className="py-16 bg-secondary/30">
-      <div className="container space-y-20">
+    <section className="py-10 sm:py-16 bg-secondary/30">
+      <div className="container space-y-16 sm:space-y-20 px-4 sm:px-6">
 
-        {/* ================= HERO SEO SECTION ================= */}
+        {/* HERO SEO SECTION */}
         <section className="text-center space-y-4">
-          <h1 className="text-4xl font-bold font-heading">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading leading-tight">
             Photo Resizer & Image Resizer for Government Forms in India
           </h1>
 
-          <p className="text-muted-foreground max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-4xl mx-auto">
             Free online photo resizer for SSC, UPSC, PAN Card, Aadhaar Card,
             Passport, Visa, and job application forms. Resize images to exact
             dimensions, reduce photo size to 20KB or 50KB, and convert JPEG to
@@ -111,32 +111,32 @@ export function ContentSections() {
           </p>
         </section>
 
-        {/* ================= HOW IT WORKS ================= */}
+        {/* HOW IT WORKS */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
         >
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold font-heading mb-3">
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading mb-3">
               How the Photo Resizer Works
             </h2>
-            <p className="text-muted-foreground max-w-3xl mx-auto text-sm">
+            <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
               Resize photos for SSC photo resize, PAN Card photo size,
               Aadhaar photo resize, passport photo resizer online, visa photo
               editor, and job application photo resize in three simple steps.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {steps.map((step, index) => (
               <Card key={step.title} variant="elevated" className="text-center">
                 <CardHeader>
-                  <div className="w-14 h-14 rounded-xl gradient-hero flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="w-7 h-7 text-primary-foreground" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl gradient-hero flex items-center justify-center mx-auto mb-4">
+                    <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
                   </div>
-                  <CardTitle className="text-lg">
+                  <CardTitle className="text-base sm:text-lg">
                     {index + 1}. {step.title}
                   </CardTitle>
                 </CardHeader>
@@ -150,26 +150,26 @@ export function ContentSections() {
           </div>
         </motion.div>
 
-        {/* ================= USE CASES ================= */}
+        {/* USE CASES */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
         >
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold font-heading">
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading">
               Perfect for Government & Exam Forms
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {useCases.map(useCase => (
               <Card key={useCase.title} variant="tool">
-                <CardHeader className="flex-row gap-4">
-                  <useCase.icon className="w-6 h-6 text-primary" />
+                <CardHeader className="flex-row gap-4 items-start">
+                  <useCase.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mt-1" />
                   <div>
-                    <CardTitle className="text-base">
+                    <CardTitle className="text-sm sm:text-base">
                       {useCase.title}
                     </CardTitle>
                     <p className="text-sm text-muted-foreground">
@@ -182,9 +182,9 @@ export function ContentSections() {
           </div>
         </motion.div>
 
-        {/* ================= IMAGE CONVERTER SEO ================= */}
+        {/* IMAGE CONVERTER SEO */}
         <section className="max-w-5xl mx-auto text-sm text-muted-foreground space-y-4">
-          <h2 className="text-2xl font-bold text-center text-foreground">
+          <h2 className="text-xl sm:text-2xl font-bold text-center text-foreground">
             Image Converter & Format Support
           </h2>
           <p>
@@ -194,17 +194,17 @@ export function ContentSections() {
           </p>
         </section>
 
-        {/* ================= FAQ ================= */}
+        {/* FAQ */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="text-center mb-10">
+          <div className="text-center mb-8 sm:mb-10">
             <HelpCircle className="w-6 h-6 text-primary mx-auto mb-2" />
-            <h2 className="text-3xl font-bold font-heading">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading">
               Frequently Asked Questions
             </h2>
           </div>
@@ -214,10 +214,10 @@ export function ContentSections() {
               <Accordion type="single" collapsible>
                 {faqs.map((faq, i) => (
                   <AccordionItem key={i} value={`faq-${i}`}>
-                    <AccordionTrigger className="px-6 text-left">
+                    <AccordionTrigger className="px-4 sm:px-6 text-left text-sm sm:text-base">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-4">
+                    <AccordionContent className="px-4 sm:px-6 pb-4 text-sm">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -227,19 +227,20 @@ export function ContentSections() {
           </Card>
         </motion.div>
 
-        {/* ================= FEATURES ================= */}
+        {/* FEATURES */}
         <Card className="gradient-hero text-primary-foreground">
-          <CardContent className="py-8 grid md:grid-cols-4 gap-6 text-center">
+          <CardContent className="py-6 sm:py-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center text-sm">
             {['100% Free', 'No Watermarks', 'Client-Side Only', 'All Formats Supported'].map(
               feature => (
                 <div key={feature} className="flex items-center justify-center gap-2">
-                  <Check className="w-5 h-5" />
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>{feature}</span>
                 </div>
               )
             )}
           </CardContent>
         </Card>
+
       </div>
     </section>
   )

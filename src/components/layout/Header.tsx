@@ -1,5 +1,13 @@
-import { FileImage, Shield, Zap, Globe } from "lucide-react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import {
+  FileImage,
+  Shield,
+  Zap,
+  Globe,
+  Menu,
+  X,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Badge({ icon: Icon, label }: { icon: any; label: string }) {
   return (
@@ -10,7 +18,16 @@ function Badge({ icon: Icon, label }: { icon: any; label: string }) {
   );
 }
 
+const navLinks = [
+  ["SSC Photo", "/ssc-photo-resizer"],
+  ["UPSC", "/upsc-photo-size"],
+  ["50KB", "/reduce-photo-size-50kb"],
+  ["IBPS Sign", "/signature-resize-ibps"],
+];
+
 export function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -8 }}
@@ -34,7 +51,9 @@ export function Header() {
               <h1 className="text-sm md:text-lg font-semibold tracking-tight">
                 Government Photo Editor
               </h1>
-              <p className="text-[10px] text-white/75">Free · No Upload</p>
+              <p className="text-[10px] text-white/75">
+                Free · No Upload
+              </p>
               <p className="hidden md:block text-xs text-white/70">
                 Passport · Aadhaar · PAN · Visa
               </p>
@@ -43,57 +62,70 @@ export function Header() {
 
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex items-center gap-4 text-sm text-white/80">
-            <a
-              href="/ssc-photo-resizer"
-              className="hover:text-white transition"
-            >
-              SSC Photo
-            </a>
-            <a
-              href="/upsc-photo-size"
-              className="hover:text-white transition"
-            >
-              UPSC
-            </a>
-            <a
-              href="/reduce-photo-size-50kb"
-              className="hover:text-white transition"
-            >
-              50KB
-            </a>
-            <a
-              href="/signature-resize-ibps"
-              className="hover:text-white transition"
-            >
-              IBPS
-            </a>
+            {navLinks.map(([label, href]) => (
+              <a
+                key={href}
+                href={href}
+                className="hover:text-white transition"
+              >
+                {label}
+              </a>
+            ))}
           </nav>
 
-          {/* RIGHT: TRUST SIGNALS */}
+          {/* RIGHT: TRUST SIGNALS (DESKTOP) */}
           <div className="hidden md:flex items-center gap-2">
             <Badge icon={Shield} label="Private" />
             <Badge icon={Zap} label="Fast" />
             <Badge icon={Globe} label="Offline" />
           </div>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden text-white p-2 rounded-lg bg-white/10 border border-white/20"
+            aria-label="Toggle menu"
+          >
+            {open ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
+          </button>
         </div>
 
-        {/* MOBILE NAV */}
-        <nav className="md:hidden mt-3 flex gap-2 overflow-x-auto text-xs text-white/80">
-          {[
-            ["SSC Photo", "/ssc-photo-resizer"],
-            ["UPSC", "/upsc-photo-size"],
-            ["50KB", "/reduce-photo-size-50kb"],
-            ["IBPS Sign", "/signature-resize-ibps"],
-          ].map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              className="px-3 py-1 rounded-full bg-white/10 border border-white/20 whitespace-nowrap"
+        {/* MOBILE DROPDOWN MENU */}
+        <AnimatePresence>
+          {open && (
+            <motion.nav
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden mt-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 overflow-hidden"
             >
-              {label}
-            </a>
-          ))}
-        </nav>
+              <div className="flex flex-col divide-y divide-white/10">
+                {navLinks.map(([label, href]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    className="px-4 py-3 text-sm text-white/90 hover:bg-white/10 transition"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+
+              {/* MOBILE TRUST BADGES */}
+              <div className="flex gap-2 px-4 py-3 border-t border-white/10">
+                <Badge icon={Shield} label="Private" />
+                <Badge icon={Zap} label="Fast" />
+                <Badge icon={Globe} label="Offline" />
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );
