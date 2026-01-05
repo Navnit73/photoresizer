@@ -44,6 +44,10 @@ const Index = () => {
           Free Photo Resizer for SSC, UPSC, Banking & Government Exam Forms
         </h1>
 
+        <p className="sr-only">
+          This online photo resizer and photo compressor helps you resize and compress images easily for government and exam forms in India. Using this photo resizer online, you can adjust image size in KB, pixel, or cm, making it ideal for photo resizer 20KB, photo resizer 50KB, photo resizer 100KB, and exact requirements like PAN card photo resizer, SSC photo resizer, UPSC photo resizer, TNPSC photo compressor, Aadhaar photo resize, and passport photo resizer online. The tool also works as a powerful photo compressor in KB, allowing you to compress images to 10KB, 15KB, 20KB, 30KB, 40KB, 50KB, 100KB, 200KB, or even 500KB, making it a reliable online photo compressor and image size reducer in India. Whether you need a JPG photo compressor, JPEG to JPG converter, JPG to JPEG converter, or a fast online image resizer free, this tool ensures accurate compression, high quality, and instant download—without uploads or watermarks.
+        </p>
+
         <main className="flex-1 w-full max-w-8xl mx-auto px-2 sm:px-4 py-3">
           <AnimatePresence mode="wait">
             {!imageState.originalUrl ? (

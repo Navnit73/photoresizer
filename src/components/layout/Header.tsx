@@ -21,7 +21,11 @@ function Badge({ icon: Icon, label }: { icon: any; label: string }) {
 const navLinks = [
   ["SSC Photo", "/ssc-photo-resizer"],
   ["UPSC", "/upsc-photo-size"],
-  ["50KB", "/reduce-photo-size-50kb"],
+  ["Photo compressor", "/reduce-photo-size-50kb"],
+  ["Photo size reducer", "/reduce-photo-size-50kb"],
+  ["Photo size in kb mb", "/reduce-photo-size-50kb"],
+
+
   ["IBPS Sign", "/signature-resize-ibps"],
 ];
 

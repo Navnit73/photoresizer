@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 interface SEOProps {
   title?: string;
@@ -6,91 +6,91 @@ interface SEOProps {
 }
 
 export function SEO({
-  title = 'Free Photo Resizer for SSC, UPSC & Government Exam Forms Online',
-  description = 'Resize and compress photos for SSC, UPSC, IBPS, Banking, Railway and all government exams. Reduce photo size to 20KB, 50KB or exact dimensions like 200x230px. Supports Passport, PAN, Aadhaar, Visa photos. 100% free & private.',
+  title = "Free Photo Resizer for SSC, UPSC & Government Exam Forms Online, photo resizer, photo compressor, photo reduce",
+  description = "Resize and compress photos for SSC, UPSC, IBPS, Banking, Railway and all government exams. Reduce photo size to 20KB, 50KB or exact dimensions like 200x230px. Supports Passport, PAN, Aadhaar, Visa photos. 100% free & private. This online photo resizer and photo compressor helps you resize and compress images easily for government and exam forms in India. Using this photo resizer online, you can adjust image size in KB, pixel, or cm, making it ideal for photo resizer 20KB, photo resizer 50KB, photo resizer 100KB, and exact requirements like PAN card photo resizer, SSC photo resizer, UPSC photo resizer, TNPSC photo compressor, Aadhaar photo resize, and passport photo resizer online. The tool also works as a powerful photo compressor in KB, allowing you to compress images to 10KB, 15KB, 20KB, 30KB, 40KB, 50KB, 100KB, 200KB, or even 500KB, making it a reliable online photo compressor and image size reducer in India. Whether you need a JPG photo compressor, JPEG to JPG converter, JPG to JPEG converter, or a fast online image resizer free, this tool ensures accurate compression, high quality, and instant download—without uploads or watermarks.",
 }: SEOProps) {
   const canonicalUrl =
-    typeof window !== 'undefined'
+    typeof window !== "undefined"
       ? window.location.origin + window.location.pathname
-      : '';
+      : "";
 
   /* -------------------- Software Application Schema -------------------- */
   const softwareAppSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Government Exam Photo Resizer',
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Government Exam Photo Resizer",
     description,
-    applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'All',
-    browserRequirements: 'Requires JavaScript. Works offline after page load.',
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    browserRequirements: "Requires JavaScript. Works offline after page load.",
     offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'INR',
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "INR",
     },
     featureList: [
-      'Photo resizer for SSC CGL exam online free',
-      'Reduce photo size to 20KB and 50KB for government forms',
-      'UPSC exam photo dimensions and size',
-      'Signature size reducer for IBPS exams',
-      'Passport, PAN Card, Aadhaar, Visa photo editor',
-      'Exact pixel size control like 200x230px',
-      'JPG, PNG, WEBP support',
-      'Client-side processing (no upload)',
+      "Photo resizer for SSC CGL exam online free",
+      "Reduce photo size to 20KB and 50KB for government forms",
+      "UPSC exam photo dimensions and size",
+      "Signature size reducer for IBPS exams",
+      "Passport, PAN Card, Aadhaar, Visa photo editor",
+      "Exact pixel size control like 200x230px",
+      "JPG, PNG, WEBP support",
+      "Client-side processing (no upload)",
     ],
   };
 
   /* -------------------- FAQ Schema -------------------- */
   const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
     mainEntity: [
       {
-        '@type': 'Question',
-        name: 'How to resize photo for SSC CGL exam online free?',
+        "@type": "Question",
+        name: "How to resize photo for SSC CGL exam online free?",
         acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Upload your photo, select SSC preset or custom dimensions, adjust file size if required, and download instantly. No registration needed.',
+          "@type": "Answer",
+          text: "Upload your photo, select SSC preset or custom dimensions, adjust file size if required, and download instantly. No registration needed.",
         },
       },
       {
-        '@type': 'Question',
-        name: 'How can I reduce photo size to 50KB for government forms?',
+        "@type": "Question",
+        name: "How can I reduce photo size to 50KB for government forms?",
         acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Use the quality control to compress your photo until it reaches 50KB while maintaining clarity. Preview updates in real time.',
+          "@type": "Answer",
+          text: "Use the quality control to compress your photo until it reaches 50KB while maintaining clarity. Preview updates in real time.",
         },
       },
       {
-        '@type': 'Question',
-        name: 'Can I compress photo to 20KB for exam forms?',
+        "@type": "Question",
+        name: "Can I compress photo to 20KB for exam forms?",
         acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. You can reduce photo size to 20KB or any custom size required by SSC, UPSC, IBPS, Banking and Railway exams.',
+          "@type": "Answer",
+          text: "Yes. You can reduce photo size to 20KB or any custom size required by SSC, UPSC, IBPS, Banking and Railway exams.",
         },
       },
       {
-        '@type': 'Question',
-        name: 'What are UPSC exam photo dimensions and size?',
+        "@type": "Question",
+        name: "What are UPSC exam photo dimensions and size?",
         acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'UPSC photo requirements vary by form, but usually include specific pixel dimensions and KB limits. This tool lets you set both precisely.',
+          "@type": "Answer",
+          text: "UPSC photo requirements vary by form, but usually include specific pixel dimensions and KB limits. This tool lets you set both precisely.",
         },
       },
       {
-        '@type': 'Question',
-        name: 'Can I resize signature image for IBPS exam?',
+        "@type": "Question",
+        name: "Can I resize signature image for IBPS exam?",
         acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. You can resize and compress signature images as per IBPS and other banking exam specifications.',
+          "@type": "Answer",
+          text: "Yes. You can resize and compress signature images as per IBPS and other banking exam specifications.",
         },
       },
       {
-        '@type': 'Question',
-        name: 'Is this photo resizer safe for government forms?',
+        "@type": "Question",
+        name: "Is this photo resizer safe for government forms?",
         acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. All processing happens locally in your browser. Images are never uploaded to any server.',
+          "@type": "Answer",
+          text: "Yes. All processing happens locally in your browser. Images are never uploaded to any server.",
         },
       },
     ],
@@ -98,25 +98,25 @@ export function SEO({
 
   /* -------------------- HowTo Schema -------------------- */
   const howToSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: 'How to Resize Photo for Government Exam Forms',
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Resize Photo for Government Exam Forms",
     description,
     step: [
       {
-        '@type': 'HowToStep',
-        name: 'Upload Photo',
-        text: 'Upload your photo in JPG, PNG or WEBP format.',
+        "@type": "HowToStep",
+        name: "Upload Photo",
+        text: "Upload your photo in JPG, PNG or WEBP format.",
       },
       {
-        '@type': 'HowToStep',
-        name: 'Set Required Size',
-        text: 'Choose SSC, UPSC, IBPS or custom dimensions and file size like 20KB or 50KB.',
+        "@type": "HowToStep",
+        name: "Set Required Size",
+        text: "Choose SSC, UPSC, IBPS or custom dimensions and file size like 20KB or 50KB.",
       },
       {
-        '@type': 'HowToStep',
-        name: 'Download',
-        text: 'Preview and download your resized photo instantly.',
+        "@type": "HowToStep",
+        name: "Download",
+        text: "Preview and download your resized photo instantly.",
       },
     ],
   };
@@ -145,12 +145,8 @@ export function SEO({
       <script type="application/ld+json">
         {JSON.stringify(softwareAppSchema)}
       </script>
-      <script type="application/ld+json">
-        {JSON.stringify(faqSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(howToSchema)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(howToSchema)}</script>
     </Helmet>
   );
 }

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Free Photo Resizer for Government Exam Forms | SSC, UPSC, IBPS"
+        title="Free Photo Resizer for Government Exam Forms | SSC, UPSC, IBPS Photo Resizer Reduce Image Size to 20KB, 50KB, 100KB"
         description="Resize and compress photos for SSC, UPSC, IBPS, Banking, Railway and government exam forms. Reduce photo size to 20KB, 50KB or exact dimensions like 200x230px. 100% free & private."
       />
 
