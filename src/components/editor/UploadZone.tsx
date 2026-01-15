@@ -1,6 +1,6 @@
-import { useCallback } from 'react';
-import { Upload, Image as ImageIcon } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useCallback } from "react";
+import { Upload, Image as ImageIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface UploadZoneProps {
   onFileSelect: (file: File) => void;
@@ -11,7 +11,7 @@ export function UploadZone({ onFileSelect }: UploadZoneProps) {
     (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       const file = e.dataTransfer.files[0];
-      if (file && file.type.startsWith('image/')) {
+      if (file && file.type.startsWith("image/")) {
         onFileSelect(file);
       }
     },
@@ -39,40 +39,45 @@ export function UploadZone({ onFileSelect }: UploadZoneProps) {
       transition={{ duration: 0.5 }}
       className="relative"
     >
-      <div
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-        className="relative border-2 border-dashed border-primary/30 rounded-2xl p-12 text-center bg-secondary/30 hover:bg-secondary/50 hover:border-primary/50 transition-all duration-300 cursor-pointer group"
-      >
-        {/* Visual content */}
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-20 h-20 rounded-2xl gradient-hero flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <Upload className="w-10 h-10 text-primary-foreground" />
-          </div>
-
-          <div>
-            <h3 className="text-xl font-semibold font-heading text-foreground mb-2">
-              Upload Your Image
-            </h3>
-            <p className="text-muted-foreground text-sm">
-              Drag & drop or click to browse
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2 text-xs text-muted-foreground mt-2">
-            <ImageIcon className="w-4 h-4" />
-            <span>Supports JPG, PNG, WEBP</span>
-          </div>
-        </div>
-
-        {/* Invisible input on top */}
-        <input
-          type="file"
-          accept="image/jpeg,image/png,image/webp,image/jpg"
-          onChange={handleFileInput}
-          className="absolute inset-0 z-10 w-full h-full opacity-0 cursor-pointer"
-        />
+     <label
+  className="relative block border-2 border-dashed border-primary/30 rounded-2xl p-12 text-center bg-secondary/30 hover:bg-secondary/50 hover:border-primary/50 transition-all duration-300 cursor-pointer group"
+>
+  {/* Drop zone */}
+  <div
+    onDrop={handleDrop}
+    onDragOver={handleDragOver}
+    className="relative"
+  >
+    <div className="flex flex-col items-center gap-4">
+      <div className="w-20 h-20 rounded-2xl gradient-hero flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+        <Upload className="w-10 h-10 text-primary-foreground" />
       </div>
+
+      <div>
+        <h2 className="text-xl font-semibold font-heading text-foreground mb-2">
+          Upload Your Image to Resize and Compress
+        </h2>
+        <p className="text-muted-foreground text-sm">
+          Drag & drop or click to browse
+        </p>
+      </div>
+
+      <div className="flex items-center gap-2 text-xs text-muted-foreground mt-2">
+        <ImageIcon className="w-4 h-4" />
+        <span>Supports JPG, PNG, WEBP</span>
+      </div>
+    </div>
+
+    {/* The actual input */}
+    <input
+      type="file"
+      accept="image/jpeg,image/png,image/webp,image/jpg"
+      onChange={handleFileInput}
+      className="absolute inset-0 z-10 w-full h-full opacity-0 cursor-pointer"
+    />
+  </div>
+</label>
+
     </motion.div>
   );
 }
