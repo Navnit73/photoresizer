@@ -1,9 +1,4 @@
-import {
-  ImageState,
-  PRESET_SIZES,
-  BACKGROUND_COLORS,
-  FORMAT_OPTIONS,
-} from "@/types/editor";
+import { ImageState, PRESET_SIZES, FORMAT_OPTIONS } from "@/types/editor";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,7 +19,6 @@ import {
   Image as ImageIcon,
   RotateCw,
   RotateCcw,
-  Palette,
   FileImage,
   Gauge,
   Link2,
@@ -39,7 +33,6 @@ interface EditorControlsProps {
   isProcessing: boolean;
   onUpdateDimensions: (width: number, height: number) => void;
   onRotate: (rotation: number) => void;
-  onBackgroundChange: (color: string) => void;
   onQualityChange: (quality: number) => void;
   onFormatChange: (format: "jpeg" | "png" | "webp") => void;
   onApplyPreset: (width: number, height: number) => void;
@@ -50,18 +43,20 @@ export function EditorControls({
   isProcessing,
   onUpdateDimensions,
   onRotate,
-  onBackgroundChange,
   onQualityChange,
   onFormatChange,
   onApplyPreset,
 }: EditorControlsProps) {
   const [lockAspectRatio, setLockAspectRatio] = useState(true);
 
-  const groupedPresets = PRESET_SIZES.reduce((acc, preset) => {
-    acc[preset.category] ??= [];
-    acc[preset.category].push(preset);
-    return acc;
-  }, {} as Record<string, typeof PRESET_SIZES>);
+  const groupedPresets = PRESET_SIZES.reduce(
+    (acc, preset) => {
+      acc[preset.category] ??= [];
+      acc[preset.category].push(preset);
+      return acc;
+    },
+    {} as Record<string, typeof PRESET_SIZES>,
+  );
 
   const handleWidthChange = (width: number) => {
     if (
@@ -116,19 +111,45 @@ export function EditorControls({
         <TabsContent value="basic" className="space-y-4 mt-4">
           {/* Dimensions */}
           <Card variant="tool">
-            <CardHeader className="pb-3">
-              <CardTitle className="flex items-center justify-between">
-                <span className="flex items-center gap-2">
-                  <Maximize2 className="w-4 h-4 text-primary" />
-                  Dimensions
+            <CardHeader className="pb-3 space-y-3">
+              {/* Title ONLY */}
+              <CardTitle className="flex items-center gap-2">
+                <Maximize2 className="w-4 h-4 text-primary" />
+                Dimensions
+              </CardTitle>
+
+              {/* Info + Toggle BELOW title */}
+              <div className="flex items-start sm:items-center gap-4 flex-wrap">
+                <span
+                  className={`text-[11px] sm:text-xs leading-tight px-2 py-1 rounded border ${
+                    lockAspectRatio
+                      ? "text-red-600 bg-red-50 border-red-200"
+                      : "text-gray-600 bg-gray-50 border-gray-200"
+                  }`}
+                >
+                  {lockAspectRatio ? (
+                    <>
+                      🔒 <b>Size Locked</b> (比例 सुरक्षित)
+                      <br />
+                      Width बदलने पर Height अपने-आप बदलेगी
+                    </>
+                  ) : (
+                    <>
+                      🔓 <b>Size Free</b> (比例 खुला)
+                      <br />
+                      Width और Height अलग-अलग बदल सकते हैं
+                    </>
+                  )}
                 </span>
+
                 <button
                   onClick={() => setLockAspectRatio(!lockAspectRatio)}
-                  className={`p-1.5 rounded-md ${
+                  className={`p-1.5 rounded-md shrink-0 transition ${
                     lockAspectRatio
                       ? "bg-primary/10 text-primary"
                       : "bg-secondary"
                   }`}
+                  aria-label="Toggle size lock"
                 >
                   {lockAspectRatio ? (
                     <Link2 className="w-4 h-4" />
@@ -136,7 +157,7 @@ export function EditorControls({
                     <Link2Off className="w-4 h-4" />
                   )}
                 </button>
-              </CardTitle>
+              </div>
             </CardHeader>
 
             <CardContent className="space-y-4">
@@ -173,7 +194,7 @@ export function EditorControls({
                     onClick={() =>
                       onUpdateDimensions(
                         Math.round(imageState.originalWidth * (p / 100)),
-                        Math.round(imageState.originalHeight * (p / 100))
+                        Math.round(imageState.originalHeight * (p / 100)),
                       )
                     }
                   >
@@ -236,8 +257,6 @@ export function EditorControls({
               </Select>
             </CardContent>
           </Card>
-
-         
         </TabsContent>
 
         {/* ================= PRESETS ================= */}
@@ -245,51 +264,42 @@ export function EditorControls({
           {Object.entries(groupedPresets).map(([category, presets]) => (
             <Card key={category} variant="tool">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-semibold tracking-wide uppercase text-muted-foreground">
+                <CardTitle className="text-sm uppercase text-muted-foreground">
                   {category}
                 </CardTitle>
               </CardHeader>
+              <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {presets.map((preset) => {
+                  const isActive =
+                    imageState.width === preset.width &&
+                    imageState.height === preset.height;
 
-              <CardContent>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {presets.map((preset) => {
-                    const isActive =
-                      imageState.width === preset.width &&
-                      imageState.height === preset.height;
-
-                    return (
-                      <button
-                        key={preset.name}
-                        onClick={() =>
-                          onApplyPreset(preset.width, preset.height)
-                        }
-                        className={`
-                  group w-full rounded-lg border px-3 py-3 text-left transition-all
-                  ${
-                    isActive
-                      ? "border-primary bg-primary/10 shadow-sm"
-                      : "border-border bg-background hover:border-primary/50 hover:bg-secondary"
-                  }
-                `}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm font-medium">
-                            {preset.name}
+                  return (
+                    <button
+                      key={preset.name}
+                      onClick={() => onApplyPreset(preset.width, preset.height)}
+                      className={`rounded-lg border px-3 py-3 text-left transition ${
+                        isActive
+                          ? "border-primary bg-primary/10"
+                          : "hover:border-primary/50"
+                      }`}
+                    >
+                      <div className="flex justify-between">
+                        <span className="text-sm font-medium">
+                          {preset.name}
+                        </span>
+                        {isActive && (
+                          <span className="text-[10px] px-2 py-0.5 rounded bg-primary text-primary-foreground">
+                            Active
                           </span>
-                          {isActive && (
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary text-primary-foreground">
-                              Active
-                            </span>
-                          )}
-                        </div>
-
-                        <div className="mt-1 text-xs text-muted-foreground font-mono">
-                          {preset.width} × {preset.height}px
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
+                        )}
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-1">
+                        {preset.width} × {preset.height}px
+                      </div>
+                    </button>
+                  );
+                })}
               </CardContent>
             </Card>
           ))}
@@ -305,16 +315,10 @@ export function EditorControls({
               </CardTitle>
             </CardHeader>
             <CardContent className="flex gap-2">
-              <Button
-                variant="tool"
-                onClick={() => onRotate(imageState.rotation - 90)}
-              >
+              <Button onClick={() => onRotate(imageState.rotation - 90)}>
                 <RotateCcw className="w-4 h-4 mr-1" /> -90°
               </Button>
-              <Button
-                variant="tool"
-                onClick={() => onRotate(imageState.rotation + 90)}
-              >
+              <Button onClick={() => onRotate(imageState.rotation + 90)}>
                 <RotateCw className="w-4 h-4 mr-1" /> +90°
               </Button>
             </CardContent>
