@@ -66,6 +66,46 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Beautiful purple shades
+        purple: {
+          50: '#faf5ff',
+          100: '#f3e8ff',
+          200: '#e9d5ff',
+          300: '#d8b4fe',
+          400: '#c084fc',
+          500: '#a855f7',
+          600: '#9333ea',
+          700: '#7e22ce',
+          800: '#6b21a8',
+          900: '#581c87',
+          950: '#3b0764',
+        },
+        // Vibrant accent purples
+        amethyst: {
+          50: '#fdf4ff',
+          100: '#fae8ff',
+          200: '#f5d0fe',
+          300: '#f0abfc',
+          400: '#e879f9',
+          500: '#d946ef',
+          600: '#c026d3',
+          700: '#a21caf',
+          800: '#86198f',
+          900: '#701a75',
+        },
+        // Deep royal purples
+        royal: {
+          50: '#f5f3ff',
+          100: '#ede9fe',
+          200: '#ddd6fe',
+          300: '#c4b5fd',
+          400: '#a78bfa',
+          500: '#8b5cf6',
+          600: '#7c3aed',
+          700: '#6d28d9',
+          800: '#5b21b6',
+          900: '#4c1d95',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -75,6 +115,8 @@ export default {
       boxShadow: {
         'elegant': 'var(--shadow-lg)',
         'glow': 'var(--shadow-glow)',
+        'purple': '0 4px 14px 0 rgba(168, 85, 247, 0.4)',
+        'purple-lg': '0 10px 40px 0 rgba(168, 85, 247, 0.35)',
       },
       keyframes: {
         "accordion-down": {

@@ -1,15 +1,10 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion'
+} from "@/components/ui/accordion";
 import {
   Upload,
   Settings,
@@ -19,84 +14,83 @@ import {
   FileImage,
   CreditCard,
   FileText,
-} from 'lucide-react'
-import { motion } from 'framer-motion'
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 const steps = [
   {
     icon: Upload,
-    title: 'Upload Your Photo',
+    title: "Upload Your Photo",
     description:
-      'Upload your image using drag & drop or file picker. Supports JPG, JPEG, PNG, and WEBP formats.',
+      "Upload your image using drag & drop or file picker. Supports JPG, JPEG, PNG, and WEBP formats.",
   },
   {
     icon: Settings,
-    title: 'Resize & Adjust',
+    title: "Resize & Adjust",
     description:
-      'Select preset sizes for SSC, PAN Card, Aadhaar, Passport, Visa, or enter custom dimensions. Adjust background color and image quality.',
+      "Select preset sizes for SSC, PAN Card, Aadhaar, Passport, Visa, or enter custom dimensions. Adjust background color and image quality.",
   },
   {
     icon: Download,
-    title: 'Download Instantly',
+    title: "Download Instantly",
     description:
-      'Preview your resized photo in real time and download it instantly in JPG, JPEG, PNG, or WEBP format.',
+      "Preview your resized photo in real time and download it instantly in JPG, JPEG, PNG, or WEBP format.",
   },
-]
+];
 
 const useCases = [
   {
     icon: FileText,
-    title: 'SSC, UPSC & Job Applications',
+    title: "SSC, UPSC & Job Applications",
     description:
-      'Resize photos for SSC CGL, UPSC, IBPS, Banking, Railway, and all job application forms.',
+      "Resize photos for SSC CGL, UPSC, IBPS, Banking, Railway, and all job application forms.",
   },
   {
     icon: CreditCard,
-    title: 'PAN Card & Aadhaar Card',
+    title: "PAN Card & Aadhaar Card",
     description:
-      'Create perfectly sized photos for PAN Card, Aadhaar Card, Voter ID, and other government IDs.',
+      "Create perfectly sized photos for PAN Card, Aadhaar Card, Voter ID, and other government IDs.",
   },
   {
     icon: FileImage,
-    title: 'Passport & Visa Photos',
+    title: "Passport & Visa Photos",
     description:
-      'Resize passport and visa photos with correct dimensions, background, and file size.',
+      "Resize passport and visa photos with correct dimensions, background, and file size.",
   },
-]
+];
 
 const faqs = [
   {
-    question: 'Is this photo resizer suitable for SSC and UPSC forms?',
+    question: "Is this photo resizer suitable for SSC and UPSC forms?",
     answer:
-      'Yes. This tool is specifically designed for SSC, UPSC, IBPS, Banking, Railway, and other competitive exam forms. You can resize photos to exact dimensions and reduce file size to 20KB, 50KB, or any required limit.',
+      "Yes. This tool is specifically designed for SSC, UPSC, IBPS, Banking, Railway, and other competitive exam forms. You can resize photos to exact dimensions and reduce file size to 20KB, 50KB, or any required limit.",
   },
   {
-    question: 'Can I resize photos for PAN Card and Aadhaar Card?',
+    question: "Can I resize photos for PAN Card and Aadhaar Card?",
     answer:
-      'Absolutely. You can resize PAN Card and Aadhaar Card photos to the officially required size, change background color, and compress images without losing quality.',
+      "Absolutely. You can resize PAN Card and Aadhaar Card photos to the officially required size, change background color, and compress images without losing quality.",
   },
   {
-    question: 'Does this tool support JPEG to JPG conversion?',
+    question: "Does this tool support JPEG to JPG conversion?",
     answer:
-      'Yes. You can easily convert JPEG to JPG, JPG to JPEG, PNG to JPG, and WEBP formats while resizing your image.',
+      "Yes. You can easily convert JPEG to JPG, JPG to JPEG, PNG to JPG, and WEBP formats while resizing your image.",
   },
   {
-    question: 'Are my photos uploaded to any server?',
+    question: "Are my photos uploaded to any server?",
     answer:
-      'No. All image processing happens locally in your browser. Your photos are never uploaded to any server, ensuring complete privacy and security.',
+      "No. All image processing happens locally in your browser. Your photos are never uploaded to any server, ensuring complete privacy and security.",
   },
   {
-    question: 'What is the recommended quality for government forms?',
+    question: "What is the recommended quality for government forms?",
     answer:
-      'For most government forms, 80–90% quality is ideal. It provides excellent clarity while keeping file size within upload limits.',
+      "For most government forms, 80–90% quality is ideal. It provides excellent clarity while keeping file size within upload limits.",
   },
-]
+];
 
 export function ContentSections() {
   return (
     <section className="py-10 sm:py-16 bg-secondary/30">
       <div className="container space-y-16 sm:space-y-20 px-4 sm:px-6">
-
         {/* HERO SEO SECTION */}
         <section className="text-center space-y-4">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading leading-tight">
@@ -107,7 +101,8 @@ export function ContentSections() {
             Free online photo resizer for SSC, UPSC, PAN Card, Aadhaar Card,
             Passport, Visa, and job application forms. Resize images to exact
             dimensions, reduce photo size to 20KB or 50KB, and convert JPEG to
-            JPG, JPG to JPEG, PNG, or WEBP instantly — 100% secure and browser-based.
+            JPG, JPG to JPEG, PNG, or WEBP instantly — 100% secure and
+            browser-based.
           </p>
         </section>
 
@@ -123,9 +118,9 @@ export function ContentSections() {
               How the Photo Resizer Works
             </h2>
             <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
-              Resize photos for SSC photo resize, PAN Card photo size,
-              Aadhaar photo resize, passport photo resizer online, visa photo
-              editor, and job application photo resize in three simple steps.
+              Resize photos for SSC photo resize, PAN Card photo size, Aadhaar
+              photo resize, passport photo resizer online, visa photo editor,
+              and job application photo resize in three simple steps.
             </p>
           </div>
 
@@ -133,7 +128,11 @@ export function ContentSections() {
             {steps.map((step, index) => (
               <Card key={step.title} variant="elevated" className="text-center">
                 <CardHeader>
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl gradient-hero flex items-center justify-center mx-auto mb-4">
+                  <div
+                    className=" bg-gradient-to-br from-purple-600 to-purple-500  w-12 h-12 sm:w-14 sm:h-14 rounded-xl                   shadow-[0_12px_30px_rgba(109,40,217,0.45)]
+                  group-hover:scale-110
+ flex items-center justify-center mx-auto mb-4 "
+                  >
                     <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
                   </div>
                   <CardTitle className="text-base sm:text-lg">
@@ -164,7 +163,7 @@ export function ContentSections() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {useCases.map(useCase => (
+            {useCases.map((useCase) => (
               <Card key={useCase.title} variant="tool">
                 <CardHeader className="flex-row gap-4 items-start">
                   <useCase.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mt-1" />
@@ -230,18 +229,23 @@ export function ContentSections() {
         {/* FEATURES */}
         <Card className="gradient-hero text-primary-foreground">
           <CardContent className="py-6 sm:py-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center text-sm">
-            {['100% Free', 'No Watermarks', 'Client-Side Only', 'All Formats Supported'].map(
-              feature => (
-                <div key={feature} className="flex items-center justify-center gap-2">
-                  <Check className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>{feature}</span>
-                </div>
-              )
-            )}
+            {[
+              "100% Free",
+              "No Watermarks",
+              "Client-Side Only",
+              "All Formats Supported",
+            ].map((feature) => (
+              <div
+                key={feature}
+                className="flex items-center justify-center gap-2"
+              >
+                <Check className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span>{feature}</span>
+              </div>
+            ))}
           </CardContent>
         </Card>
-
       </div>
     </section>
-  )
+  );
 }

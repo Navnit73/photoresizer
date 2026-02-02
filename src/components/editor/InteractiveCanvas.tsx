@@ -375,6 +375,7 @@ export function InteractiveCanvas({
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between gap-2">
+        
         <Button
           size="sm"
           onClick={() => {
@@ -385,9 +386,26 @@ export function InteractiveCanvas({
           <Crop className="w-4 h-4 mr-2" />
           Crop
         </Button>
+        {!isCropMode && (
+  <div className="mt-1 rounded-md border border-red-300 bg-red-50 px-2 py-1.5">
+    <p className="text-[11px] leading-tight text-red-700">
+      <b>Crop:</b> Select area • Resize • Move • Apply
+    </p>
+
+    <p className="text-[11px] leading-tight text-red-700 mt-0.5">
+      <b>क्रॉप:</b> हिस्सा चुनें • कोने से साइज बदलें • घुमाएँ • सेव करें
+    </p>
+
+    <p className="text-[11px] leading-tight text-red-700 mt-0.5">
+      <b>裁剪：</b> 选择区域 • 拖动调整 • 改变大小 • 应用
+    </p>
+  </div>
+)}
+
       </div>
 
       {isCropMode && (
+        
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-xs font-medium text-muted-foreground">
