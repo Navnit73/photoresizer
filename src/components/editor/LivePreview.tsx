@@ -14,61 +14,13 @@ export function LivePreview({ imageState }: LivePreviewProps) {
   const [previewUrl, setPreviewUrl] = useState('');
   const [isRendering, setIsRendering] = useState(false);
 
-  useEffect(() => {
-    if (!imageState.originalUrl) return;
+  // Low-end device optimization: NO Canvas rendering. Use CSS.
+  // We use the originalUrl (or editedUrl) and apply CSS logic.
+  
+  // NOTE: Quality preview is unfortunately NOT possible with CSS only.
+  // But avoiding a crash is more important.
+  // We can show a tooltip saying "Quality will be applied on download".
 
-    const render = async () => {
-      setIsRendering(true);
-
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-
-      img.onload = () => {
-        canvas.width = imageState.width;
-        canvas.height = imageState.height;
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        if (imageState.backgroundColor !== 'transparent') {
-          ctx.fillStyle = imageState.backgroundColor;
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
-
-        ctx.save();
-        ctx.translate(canvas.width / 2, canvas.height / 2);
-        ctx.rotate((imageState.rotation * Math.PI) / 180);
-        ctx.drawImage(
-          img,
-          -canvas.width / 2,
-          -canvas.height / 2,
-          canvas.width,
-          canvas.height
-        );
-        ctx.restore();
-
-        const quality = imageState.quality / 100;
-        const type =
-          imageState.format === 'jpeg'
-            ? 'image/jpeg'
-            : imageState.format === 'png'
-            ? 'image/png'
-            : 'image/webp';
-
-        setPreviewUrl(canvas.toDataURL(type, quality));
-        setIsRendering(false);
-      };
-
-      img.src = imageState.originalUrl;
-    };
-
-    render();
-  }, [imageState]);
 
   if (!imageState.originalUrl) return null;
 
@@ -104,7 +56,7 @@ export function LivePreview({ imageState }: LivePreviewProps) {
       {/* Preview */}
       <div className="flex justify-center">
         <div
-          className="relative rounded-xl border overflow-hidden shadow-sm"
+          className="relative rounded-xl border overflow-hidden shadow-sm flex items-center justify-center"
           style={{
             width: imageState.width * scale,
             height: imageState.height * scale,
@@ -115,16 +67,22 @@ export function LivePreview({ imageState }: LivePreviewProps) {
           }}
         >
           <AnimatePresence mode="wait">
-            {previewUrl ? (
+            {imageState.originalUrl ? (
               <motion.img
-                key={previewUrl}
-                src={previewUrl}
+                key={imageState.originalUrl}
+                src={imageState.originalUrl}
                 alt="Preview"
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain transition-transform duration-300"
+                style={{
+                    transform: `rotate(${imageState.rotation}deg)`,
+                    // Maximize size within the container
+                    maxWidth: '100%',
+                    maxHeight: '100%'
+                }}
               />
             ) : (
               <motion.div

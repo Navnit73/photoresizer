@@ -1,4 +1,4 @@
-import { ImageState, PRESET_SIZES, FORMAT_OPTIONS } from "@/types/editor";
+import { ImageState, FORMAT_OPTIONS } from "@/types/editor";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,16 +13,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import {
-  Maximize2,
-  FileImage,
-  Gauge,
-  Link2,
-  Link2Off,
-} from "lucide-react";
-
+import { Maximize2, Gauge } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 interface EditorControlsProps {
   imageState: ImageState;
@@ -38,37 +30,15 @@ export function EditorControls({
   imageState,
   isProcessing,
   onUpdateDimensions,
-  onRotate,
   onQualityChange,
   onFormatChange,
-  onApplyPreset,
 }: EditorControlsProps) {
-  const [lockAspectRatio, setLockAspectRatio] = useState(true);
-
   const handleWidthChange = (width: number) => {
-    if (
-      lockAspectRatio &&
-      imageState.originalWidth &&
-      imageState.originalHeight
-    ) {
-      const ratio = imageState.originalHeight / imageState.originalWidth;
-      onUpdateDimensions(width, Math.round(width * ratio));
-    } else {
-      onUpdateDimensions(width, imageState.height);
-    }
+    onUpdateDimensions(width, imageState.height);
   };
 
   const handleHeightChange = (height: number) => {
-    if (
-      lockAspectRatio &&
-      imageState.originalWidth &&
-      imageState.originalHeight
-    ) {
-      const ratio = imageState.originalWidth / imageState.originalHeight;
-      onUpdateDimensions(Math.round(height * ratio), height);
-    } else {
-      onUpdateDimensions(imageState.width, height);
-    }
+    onUpdateDimensions(imageState.width, height);
   };
 
   return (
@@ -80,52 +50,15 @@ export function EditorControls({
     >
       {/* ================= DIMENSIONS ================= */}
       <Card variant="tool">
-        <CardHeader className="pb-3 space-y-3">
+        <CardHeader className="pb-3 space-y-2">
           <CardTitle className="flex items-center gap-2">
             <Maximize2 className="w-4 h-4 text-primary" />
             Dimensions
           </CardTitle>
 
-          {/* Info + Toggle */}
-          <div className="flex items-start sm:items-center gap-4 flex-wrap">
-            <span
-              className={`text-[11px] sm:text-xs leading-tight px-2 py-1 rounded border ${
-                lockAspectRatio
-                  ? "text-red-600 bg-red-50 border-red-200"
-                  : "text-gray-600 bg-gray-50 border-gray-200"
-              }`}
-            >
-              {lockAspectRatio ? (
-                <>
-                  🔒 <b>Size Locked</b> (比例 सुरक्षित)
-                  <br />
-                  Width बदलने पर Height अपने-आप बदलेगी
-                </>
-              ) : (
-                <>
-                  🔓 <b>Size Free</b> (比例 खुला)
-                  <br />
-                  Width और Height अलग-अलग बदल सकते हैं
-                </>
-              )}
-            </span>
-
-            <button
-              onClick={() => setLockAspectRatio(!lockAspectRatio)}
-              className={`p-1.5 rounded-md shrink-0 transition ${
-                lockAspectRatio
-                  ? "bg-primary/10 text-primary"
-                  : "bg-secondary"
-              }`}
-              aria-label="Toggle size lock"
-            >
-              {lockAspectRatio ? (
-                <Link2 className="w-4 h-4" />
-              ) : (
-                <Link2Off className="w-4 h-4" />
-              )}
-            </button>
-          </div>
+          <span className="text-xs px-2 py-1 rounded border text-green-700 bg-green-50 border-green-200">
+            🔓 <b>Size Free</b> — Width & Height independent
+          </span>
         </CardHeader>
 
         <CardContent className="space-y-4">
@@ -138,8 +71,10 @@ export function EditorControls({
                 onChange={(e) =>
                   handleWidthChange(Number(e.target.value) || 0)
                 }
+                disabled={isProcessing}
               />
             </div>
+
             <div>
               <Label className="text-xs">Height</Label>
               <Input
@@ -148,10 +83,12 @@ export function EditorControls({
                 onChange={(e) =>
                   handleHeightChange(Number(e.target.value) || 0)
                 }
+                disabled={isProcessing}
               />
             </div>
           </div>
 
+          {/* Percentage resize (free scaling) */}
           <div className="flex gap-2 flex-wrap">
             {[25, 50, 75, 100].map((p) => (
               <Button
@@ -159,6 +96,7 @@ export function EditorControls({
                 size="sm"
                 variant="outline"
                 className="text-xs"
+                disabled={isProcessing}
                 onClick={() =>
                   onUpdateDimensions(
                     Math.round(imageState.originalWidth * (p / 100)),
@@ -181,40 +119,38 @@ export function EditorControls({
             Quality
           </CardTitle>
         </CardHeader>
-        <CardContent>
+
+        <CardContent className="space-y-3">
           <Slider
             value={[imageState.quality]}
             min={10}
             max={100}
             step={5}
             onValueChange={([v]) => onQualityChange(v)}
+            disabled={isProcessing}
           />
-          <div className="flex justify-between text-xs mt-2">
+
+          <div className="flex justify-between text-xs">
             <span>Smaller</span>
             <span className="font-mono">{imageState.quality}%</span>
             <span>Better</span>
           </div>
-        </CardContent>
-      </Card>
 
-      {/* ================= FORMAT ================= */}
-      <Card variant="tool">
-        <CardHeader className="pb-3">
-          <CardTitle className="flex items-center gap-2">
-            <FileImage className="w-4 h-4 text-primary" />
-            Format
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
+          <div className="text-sm font-medium mt-2">
+            Select Export Format
+          </div>
+
           <Select
             value={imageState.format}
             onValueChange={(v) =>
               onFormatChange(v as "jpeg" | "png" | "webp")
             }
+            disabled={isProcessing}
           >
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
+
             <SelectContent>
               {FORMAT_OPTIONS.map((f) => (
                 <SelectItem key={f.value} value={f.value}>

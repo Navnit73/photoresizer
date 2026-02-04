@@ -89,7 +89,9 @@ const faqs = [
 
 export function ContentSections() {
   return (
-    <section className="py-10 sm:py-16 bg-secondary/30">
+<section className="relative py-10 sm:py-16 bg-secondary/30 overflow-hidden bg-gradient-to-b from-purple-500/10 via-transparent to-purple-600/10">
+
+
       <div className="container space-y-16 sm:space-y-20 px-4 sm:px-6">
         {/* HERO SEO SECTION */}
         <section className="text-center space-y-4">
@@ -227,7 +229,7 @@ export function ContentSections() {
         </motion.div>
 
         {/* FEATURES */}
-        <Card className="gradient-hero text-primary-foreground">
+        <Card className="bg-gradient-to-r from-purple-300 to-purple-500 text-primary-foreground">
           <CardContent className="py-6 sm:py-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center text-sm">
             {[
               "100% Free",

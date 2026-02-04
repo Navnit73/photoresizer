@@ -383,20 +383,20 @@ export function InteractiveCanvas({
             setIsCropMode(true);
           }}
         >
-          <Crop className="w-4 h-4 mr-2" />
+          <Crop className="w-4 h-4 mr-2 " />
           Crop
         </Button>
         {!isCropMode && (
-  <div className="mt-1 rounded-md border border-red-300 bg-red-50 px-2 py-1.5">
-    <p className="text-[11px] leading-tight text-red-700">
+  <div className="text-xs px-2 py-1 rounded border text-green-700 bg-green-50 border-green-200">
+    <p className="text-[11px] leading-tight ">
       <b>Crop:</b> Select area • Resize • Move • Apply
     </p>
 
-    <p className="text-[11px] leading-tight text-red-700 mt-0.5">
+    <p className="text-[11px] leading-tight mt-0.5">
       <b>क्रॉप:</b> हिस्सा चुनें • कोने से साइज बदलें • घुमाएँ • सेव करें
     </p>
 
-    <p className="text-[11px] leading-tight text-red-700 mt-0.5">
+    <p className="text-[11px] leading-tight  mt-0.5">
       <b>裁剪：</b> 选择区域 • 拖动调整 • 改变大小 • 应用
     </p>
   </div>
