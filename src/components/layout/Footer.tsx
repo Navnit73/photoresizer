@@ -1,40 +1,148 @@
-import { FileImage, Heart } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { FileImage, Shield, Zap, Globe } from "lucide-react";
+
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background py-10">
-      <div className="container">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <FileImage className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <div>
-              <p className="font-heading font-semibold">
-                Government Form Image Editor
-              </p>
-              <p className="text-sm text-background/70">
-                Free online photo resizer for official documents
-              </p>
-            </div>
+    <footer className="bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+      <div className="container px-4 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+          {/* Column 1: Photo Tools */}
+          <div>
+            <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Photo Tools</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/compress-image" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Compress Image
+                </Link>
+              </li>
+              <li>
+                <Link to="/jpeg-to-jpg" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  JPEG to JPG
+                </Link>
+              </li>
+              <li>
+                <Link to="/jpg-to-png" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  JPG to PNG
+                </Link>
+              </li>
+              <li>
+                <Link to="/passport-photo-editor" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Passport Photo
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          <div className="flex items-center gap-1 text-sm text-background/70">
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-destructive fill-destructive" />
-            <span>for hassle-free form submissions</span>
+          {/* Column 2: Size Tools */}
+          <div>
+            <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Resize Tools</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/resize-photo-20kb" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Resize to 20KB
+                </Link>
+              </li>
+              <li>
+                <Link to="/resize-photo-50kb" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Resize to 50KB
+                </Link>
+              </li>
+              <li>
+                <Link to="/ssc-photo-resizer" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  SSC Photo
+                </Link>
+              </li>
+              <li>
+                <Link to="/upsc-photo-size" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  UPSC Photo
+                </Link>
+              </li>
+              <li>
+                <Link to="/signature-resize-ibps" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  IBPS Signature
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Company */}
+          <div>
+            <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Company</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/about" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Legal */}
+          <div>
+            <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Legal</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/privacy-policy" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms-of-service" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-background/15 mt-6 pt-6 text-center text-xs text-background/60">
-          <p>
-            © {new Date().getFullYear()} Government Form Image Editor. All rights reserved.
-          </p>
-          <p className="mt-1">
-            Your images are processed locally and never uploaded to any server.
-          </p>
-          <p className="mt-2">
-            Popular uses: SSC photo resizer · UPSC exam photo resize · PAN card photo size · Aadhaar photo editor · Passport size photo maker
-          </p>
+        {/* Bottom Section */}
+        <div className="border-t border-slate-200 dark:border-slate-800 pt-8 mt-12">
+          <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
+            {/* Contact Info */}
+            <div className="space-y-2">
+              <h4 className="font-semibold text-slate-900 dark:text-white mb-2">Contact Developer</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                <span className="font-medium text-slate-900 dark:text-gray-300">Navnit Rai</span>
+              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                <a href="mailto:navnitrai5389@gmail.com">navnitrai5389@gmail.com</a>
+              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                <a href="tel:+917355087072">+91 7355087072</a>
+              </p>
+            </div>
+
+            {/* Trust Signals */}
+            <div className="flex flex-wrap gap-6 md:justify-end text-sm text-slate-600 dark:text-slate-400">
+              <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800">
+                <Shield className="w-4 h-4 text-green-500" />
+                100% Private
+              </span>
+              <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800">
+                <Zap className="w-4 h-4 text-amber-500" />
+                Fast Processing
+              </span>
+              <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800">
+                <Globe className="w-4 h-4 text-blue-500" />
+                Offline Capable
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-500">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center">
+                <FileImage className="w-4 h-4" />
+              </div>
+              <span>© {new Date().getFullYear()} Photo Resizer. All rights reserved.</span>
+            </div>
+            <p>Designed & Developed with ❤️ by Navnit Rai</p>
+          </div>
         </div>
       </div>
     </footer>

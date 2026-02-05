@@ -1,0 +1,420 @@
+/* ==========================================
+   DESIGN SYSTEM - Photo Resizer
+   Modern, Premium, Production-Grade
+   ========================================== */
+
+:root {
+  /* ===== COLOR PALETTE ===== */
+  /* Primary - Vibrant Blue-Purple Gradient */
+  --color-primary-50: hsl(250, 100%, 98%);
+  --color-primary-100: hsl(248, 95%, 95%);
+  --color-primary-200: hsl(248, 95%, 88%);
+  --color-primary-300: hsl(248, 92%, 78%);
+  --color-primary-400: hsl(248, 88%, 68%);
+  --color-primary-500: hsl(248, 85%, 58%);
+  --color-primary-600: hsl(248, 75%, 48%);
+  --color-primary-700: hsl(248, 70%, 38%);
+  --color-primary-800: hsl(248, 65%, 28%);
+  --color-primary-900: hsl(248, 60%, 18%);
+
+  /* Secondary - Vibrant Cyan */
+  --color-secondary-50: hsl(190, 100%, 97%);
+  --color-secondary-100: hsl(190, 95%, 92%);
+  --color-secondary-200: hsl(190, 92%, 82%);
+  --color-secondary-300: hsl(190, 88%, 72%);
+  --color-secondary-400: hsl(190, 85%, 62%);
+  --color-secondary-500: hsl(190, 82%, 52%);
+  --color-secondary-600: hsl(190, 75%, 42%);
+  --color-secondary-700: hsl(190, 70%, 32%);
+  --color-secondary-800: hsl(190, 65%, 22%);
+  --color-secondary-900: hsl(190, 60%, 12%);
+
+  /* Accent - Vibrant Pink */
+  --color-accent-50: hsl(330, 100%, 98%);
+  --color-accent-100: hsl(330, 95%, 94%);
+  --color-accent-200: hsl(330, 92%, 86%);
+  --color-accent-300: hsl(330, 88%, 76%);
+  --color-accent-400: hsl(330, 85%, 66%);
+  --color-accent-500: hsl(330, 82%, 56%);
+  --color-accent-600: hsl(330, 75%, 46%);
+  --color-accent-700: hsl(330, 70%, 36%);
+  --color-accent-800: hsl(330, 65%, 26%);
+  --color-accent-900: hsl(330, 60%, 16%);
+
+  /* Success - Vibrant Green */
+  --color-success-50: hsl(145, 100%, 97%);
+  --color-success-500: hsl(145, 75%, 50%);
+  --color-success-700: hsl(145, 70%, 35%);
+
+  /* Warning - Vibrant Orange */
+  --color-warning-50: hsl(30, 100%, 97%);
+  --color-warning-500: hsl(30, 95%, 55%);
+  --color-warning-700: hsl(30, 85%, 45%);
+
+  /* Error - Vibrant Red */
+  --color-error-50: hsl(0, 100%, 97%);
+  --color-error-500: hsl(0, 85%, 60%);
+  --color-error-700: hsl(0, 75%, 45%);
+
+  /* Neutrals - Modern Gray Scale */
+  --color-neutral-50: hsl(220, 25%, 98%);
+  --color-neutral-100: hsl(220, 20%, 95%);
+  --color-neutral-200: hsl(220, 18%, 88%);
+  --color-neutral-300: hsl(220, 15%, 75%);
+  --color-neutral-400: hsl(220, 12%, 60%);
+  --color-neutral-500: hsl(220, 10%, 45%);
+  --color-neutral-600: hsl(220, 12%, 35%);
+  --color-neutral-700: hsl(220, 15%, 25%);
+  --color-neutral-800: hsl(220, 18%, 15%);
+  --color-neutral-900: hsl(220, 20%, 10%);
+
+  /* ===== GRADIENTS ===== */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primary-500) 0%,
+    var(--color-secondary-500) 100%
+  );
+  --gradient-primary-vibrant: linear-gradient(
+    135deg,
+    hsl(250, 85%, 15%) 0%,
+    hsl(220, 90%, 20%) 50%,
+    hsl(270, 85%, 20%) 100%
+  );
+  --gradient-secondary: linear-gradient(
+    135deg,
+    var(--color-secondary-400) 0%,
+    var(--color-primary-400) 100%
+  );
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--color-accent-500) 0%,
+    var(--color-primary-500) 100%
+  );
+  --gradient-success: linear-gradient(
+    135deg,
+    var(--color-success-500) 0%,
+    var(--color-secondary-500) 100%
+  );
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+
+  /* ===== GLASSMORPHISM ===== */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-strong: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --glass-blur: 12px;
+
+  /* ===== SHADOWS ===== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-base:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  --shadow-glow-primary: 0 0 20px rgba(124, 58, 237, 0.5);
+  --shadow-glow-secondary: 0 0 20px rgba(6, 182, 212, 0.5);
+  --shadow-glow-accent: 0 0 20px rgba(236, 72, 153, 0.5);
+
+  /* ===== TYPOGRAPHY ===== */
+  --font-family-base:
+    "Inter", "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-family-display:
+    "Outfit", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-family-mono: "Fira Code", "Courier New", monospace;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+  --text-6xl: 3.75rem; /* 60px */
+
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* ===== SPACING ===== */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
+
+  /* ===== BORDER RADIUS ===== */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-base: 0.5rem; /* 8px */
+  --radius-md: 0.75rem; /* 12px */
+  --radius-lg: 1rem; /* 16px */
+  --radius-xl: 1.5rem; /* 24px */
+  --radius-2xl: 2rem; /* 32px */
+  --radius-full: 9999px;
+
+  /* ===== TRANSITIONS ===== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ===== Z-INDEX LAYERS ===== */
+  --z-base: 1;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-modal-backdrop: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-tooltip: 1600;
+  --z-notification: 1700;
+  --z-max: 9999;
+}
+
+/* ===== DARK MODE OVERRIDES ===== */
+.dark {
+  /* Dark mode glass effects */
+  --glass-bg: rgba(0, 0, 0, 0.3);
+  --glass-bg-strong: rgba(0, 0, 0, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Dark mode shadows */
+  --shadow-glow-primary: 0 0 30px rgba(124, 58, 237, 0.3);
+  --shadow-glow-secondary: 0 0 30px rgba(6, 182, 212, 0.3);
+  --shadow-glow-accent: 0 0 30px rgba(236, 72, 153, 0.3);
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Glass Effects */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(calc(var(--glass-blur) * 1.5));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * 1.5));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: var(--gradient-primary-vibrant);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient Backgrounds */
+.gradient-bg-primary {
+  background: var(--gradient-primary);
+}
+
+.gradient-bg-vibrant {
+  background: var(--gradient-primary-vibrant);
+}
+
+.gradient-bg-secondary {
+  background: var(--gradient-secondary);
+}
+
+/* Glow Effects */
+.glow-primary {
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.glow-secondary {
+  box-shadow: var(--shadow-glow-secondary);
+}
+
+.glow-accent {
+  box-shadow: var(--shadow-glow-accent);
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn var(--transition-base);
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--transition-base);
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown var(--transition-base);
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--transition-base);
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--transition-base);
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft var(--transition-base);
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* 
+  sm: 640px
+  md: 768px
+  lg: 1024px
+  xl: 1280px
+  2xl: 1536px
+*/
