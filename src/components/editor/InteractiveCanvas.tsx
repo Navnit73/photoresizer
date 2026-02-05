@@ -473,7 +473,7 @@ export function InteractiveCanvas({
 
             {isCropMode && (
               <>
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] pointer-events-none" />
+                <div className="absolute inset-0 bg-black/40 pointer-events-none" />
                 <div
                   ref={cropBoxRef}
                   className="absolute z-20 rounded-xl border-2 border-white shadow-2xl cursor-move"

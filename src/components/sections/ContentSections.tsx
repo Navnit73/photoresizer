@@ -134,7 +134,7 @@ export function ContentSections() {
               <Card key={step.title} variant="elevated" className="text-center">
                 <CardHeader>
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl gradient-hero flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
+                    <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                   </div>
                   <CardTitle className="text-base sm:text-lg">
                     {index + 1}. {step.title}
@@ -209,15 +209,15 @@ export function ContentSections() {
             </h2>
           </div>
 
-          <Card>
+          <Card className="border-none shadow-none bg-transparent">
             <CardContent className="p-0">
-              <Accordion type="single" collapsible>
+              <Accordion type="single" collapsible className="space-y-4">
                 {faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`faq-${i}`}>
-                    <AccordionTrigger className="px-4 sm:px-6 text-left text-sm sm:text-base">
+                  <AccordionItem key={i} value={`faq-${i}`} className="border rounded-xl bg-white dark:bg-slate-800 px-4">
+                    <AccordionTrigger className="text-left text-sm sm:text-base font-semibold text-slate-900 dark:text-white [&>svg]:text-slate-500 dark:[&>svg]:text-slate-400">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="px-4 sm:px-6 pb-4 text-sm">
+                    <AccordionContent className="text-sm text-slate-600 dark:text-slate-300 pb-4">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -228,13 +228,13 @@ export function ContentSections() {
         </motion.div>
 
         {/* FEATURES */}
-        <Card className="gradient-hero text-primary-foreground">
+        <Card className="bg-slate-900 dark:bg-slate-800 text-white border-none">
           <CardContent className="py-6 sm:py-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center text-sm">
             {['100% Free', 'No Watermarks', 'Client-Side Only', 'All Formats Supported'].map(
               feature => (
                 <div key={feature} className="flex items-center justify-center gap-2">
-                  <Check className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>{feature}</span>
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+                  <span className="font-medium">{feature}</span>
                 </div>
               )
             )}

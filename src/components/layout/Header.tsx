@@ -26,7 +26,7 @@ function Badge({ icon: Icon, label }: { icon: any; label: string }) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-strong text-white text-xs font-medium shadow-md"
+      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-medium shadow-md backdrop-blur-md"
     >
       <Icon className="w-3.5 h-3.5" />
       {label}
@@ -65,7 +65,7 @@ export function Header() {
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="relative overflow-hidden backdrop-blur-md z-50 rounded-b-[2.5rem] shadow-2xl border-b border-white/10"
+      className="relative bg-white dark:bg-slate-900 border-b border-border z-50 rounded-b-[0.5rem] shadow-sm"
     >
       {/* Honeycomb Pattern Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -137,7 +137,7 @@ export function Header() {
                   <ChevronDown className="w-4 h-4" />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="glass-strong backdrop-blur-xl border-white/20 max-h-96 overflow-y-auto">
+              <DropdownMenuContent align="start" className="bg-white dark:bg-slate-900 border-border max-h-96 overflow-y-auto">
                 {toolsLinks.map(({ label, href }) => (
                   <DropdownMenuItem key={href} asChild>
                     <Link to={href} className="cursor-pointer">
@@ -176,7 +176,7 @@ export function Header() {
                   <span className="sr-only">Toggle theme</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="glass-strong backdrop-blur-xl border-white/20">
+              <DropdownMenuContent align="end" className="bg-white dark:bg-slate-900 border-border">
                 <DropdownMenuItem onClick={() => setTheme('light')} className="cursor-pointer">
                   <Sun className="w-4 h-4 mr-2" />
                   Light

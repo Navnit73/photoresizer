@@ -76,7 +76,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
-      className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden glass"
+      className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-sm"
     >
       <button
         onClick={() => setIsOpen(!isOpen)}

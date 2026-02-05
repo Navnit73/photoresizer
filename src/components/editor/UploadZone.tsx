@@ -137,7 +137,7 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
                     ? "bg-gradient-to-br from-primary-500 to-secondary-500"
                     : isValidFile
                     ? "bg-gradient-to-br from-green-500 to-emerald-500"
-                    : "bg-gradient-to-br from-primary-500 to-secondary-500 group-hover:shadow-glow-primary"
+                    : "bg-primary/5 text-primary"
                 }`}
               >
                 <AnimatePresence mode="wait">
@@ -166,7 +166,7 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
                       animate={{ scale: 1 }}
                       className="group-hover:scale-110 transition-transform"
                     >
-                      <Upload className="w-12 h-12 text-white" />
+                      <Upload className="w-12 h-12 text-primary" />
                     </motion.div>
                   )}
                 </AnimatePresence>

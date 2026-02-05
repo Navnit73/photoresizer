@@ -44,7 +44,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="mb-16 p-10 rounded-3xl glass border border-slate-200/50 dark:border-slate-700/50"
+              className="mb-16 p-10 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm"
             >
               <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Our Mission</h2>
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -83,7 +83,7 @@ export default function About() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
-                    className="p-8 rounded-2xl glass border border-slate-200/50 dark:border-slate-700/50 text-center"
+                    className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center shadow-sm hover:shadow-md transition-shadow"
                   >
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-4">
                       <value.icon className="w-8 h-8 text-white" />
@@ -100,7 +100,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mb-16 p-10 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+              className="mb-16 p-10 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm"
             >
               <div className="flex items-center gap-3 mb-6">
                 <Code className="w-8 h-8 text-primary" />
@@ -144,7 +144,7 @@ export default function About() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.7 + index * 0.05 }}
-                    className="text-center p-6 rounded-2xl glass border border-slate-200/50 dark:border-slate-700/50"
+                    className="text-center p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm"
                   >
                     <div className="text-4xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent mb-2">
                       {stat.value}

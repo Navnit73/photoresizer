@@ -69,6 +69,7 @@ export default function CompressImage() {
     undo,
     processAndDownload,
     reset,
+    lastUploadedFile,
   } = useImageEditor();
 
   return (

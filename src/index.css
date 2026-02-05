@@ -7,78 +7,68 @@
 
 @layer base {
   :root {
-    /* Government Blue Theme - Professional & Trustworthy */
-    --background: 210 25% 98%;
-    --foreground: 215 28% 17%;
+    /* Professional Government/Utility Theme */
+    --background: 210 20% 99%; /* Very subtle off-white, almost white */
+    --foreground: 222 47% 11%; /* Deep Navy for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 28% 17%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Primary: Deep Government Blue */
-    --primary: 215 72% 35%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary: Deep Professional Navy */
+    --primary: 222 47% 31%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Secondary: Light Slate */
-    --secondary: 210 20% 94%;
-    --secondary-foreground: 215 28% 17%;
+    /* Secondary: Slate Grey */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
 
-    /* Muted: Soft Grey */
-    --muted: 210 15% 92%;
-    --muted-foreground: 215 15% 45%;
+    /* Muted: Neutral Grey */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
 
-    /* Accent: Sky Blue */
-    --accent: 205 85% 55%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent: Subtle Blue for interactions */
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 214 20% 88%;
-    --input: 214 20% 88%;
-    --ring: 215 72% 35%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 47% 31%;
 
-    --radius: 0.625rem;
+    --radius: 0.5rem;
 
-    /* Custom Design Tokens */
+    /* Simplified Design Tokens */
     --gradient-hero: linear-gradient(
-      135deg,
-      hsl(215 72% 35%) 0%,
-      hsl(205 85% 45%) 100%
-    );
-    --gradient-card: linear-gradient(
       180deg,
-      hsl(0 0% 100%) 0%,
-      hsl(210 25% 98%) 100%
+      hsl(210 20% 99%) 0%,
+      hsl(210 20% 96%) 100%
     );
-    --gradient-subtle: linear-gradient(
-      135deg,
-      hsl(210 25% 98%) 0%,
-      hsl(210 20% 94%) 100%
-    );
+    --gradient-card: none; /* Removed for cleaner look */
+    --gradient-subtle: none;
 
-    --shadow-sm: 0 1px 2px 0 hsl(215 28% 17% / 0.05);
+    /* Clean Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md:
-      0 4px 6px -1px hsl(215 28% 17% / 0.08),
-      0 2px 4px -2px hsl(215 28% 17% / 0.05);
+      0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg:
-      0 10px 15px -3px hsl(215 28% 17% / 0.08),
-      0 4px 6px -4px hsl(215 28% 17% / 0.05);
+      0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl:
-      0 20px 25px -5px hsl(215 28% 17% / 0.1),
-      0 8px 10px -6px hsl(215 28% 17% / 0.08);
-    --shadow-glow: 0 0 40px hsl(215 72% 35% / 0.15);
+      0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 0 transparent; /* Removed glow */
 
     /* Tool Colors */
-    --tool-success: 145 65% 42%;
+    --tool-success: 142 76% 36%;
     --tool-warning: 38 92% 50%;
-    --tool-info: 205 85% 55%;
+    --tool-info: 221 83% 53%;
 
     /* Ad Placeholder */
-    --ad-bg: 210 15% 96%;
-    --ad-border: 210 15% 88%;
+    --ad-bg: 210 20% 96%;
+    --ad-border: 210 20% 88%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -91,36 +81,37 @@
   }
 
   .dark {
-    --background: 215 28% 10%;
-    --foreground: 210 25% 98%;
+    /* Neutral Dark Mode - No Blue Tint */
+    --background: 222 47% 11%; /* Deep Navy/Black */
+    --foreground: 210 40% 98%;
 
-    --card: 215 25% 13%;
-    --card-foreground: 210 25% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 215 25% 13%;
-    --popover-foreground: 210 25% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 205 85% 55%;
-    --primary-foreground: 215 28% 10%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
 
-    --secondary: 215 20% 18%;
-    --secondary-foreground: 210 25% 98%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 215 20% 20%;
-    --muted-foreground: 215 15% 60%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 205 85% 55%;
-    --accent-foreground: 215 28% 10%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 215 20% 22%;
-    --input: 215 20% 22%;
-    --ring: 205 85% 55%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212.7 26.8% 83.9%;
 
-    --ad-bg: 215 20% 15%;
-    --ad-border: 215 20% 25%;
+    --ad-bg: 217 33% 13%;
+    --ad-border: 217 33% 20%;
   }
 }
 
@@ -214,10 +205,11 @@
 }
 
 /* Animations */
+/* Animations - Simplified for Performance */
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -225,35 +217,8 @@
   }
 }
 
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes pulse-soft {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
 .animate-fade-up {
-  animation: fade-up 0.5s ease-out forwards;
+  animation: fade-up 0.3s ease-out forwards;
 }
 
-.animate-scale-in {
-  animation: scale-in 0.3s ease-out forwards;
-}
-
-.animate-pulse-soft {
-  animation: pulse-soft 2s ease-in-out infinite;
-}
+/* Removed heavy pulse and scale animations */
