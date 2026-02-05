@@ -126,7 +126,10 @@ export default function CompressImage() {
                     <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-slate-900 dark:text-white">
                       Upload Image to Compress
                     </h2>
-                    <UploadZone onFileSelect={loadImage} />
+                    <UploadZone 
+                      onFileSelect={loadImage} 
+                      recentFile={lastUploadedFile}
+                    />
                   </motion.div>
                 ) : (
                   <motion.div key="editor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">

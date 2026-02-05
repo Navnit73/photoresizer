@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface UploadZoneProps {
   onFileSelect: (file: File) => void;
+  recentFile?: File | null;
 }
 
-export function UploadZone({ onFileSelect }: UploadZoneProps) {
+export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [isValidFile, setIsValidFile] = useState(false);
 
@@ -54,8 +55,37 @@ export function UploadZone({ onFileSelect }: UploadZoneProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative"
+      className="relative space-y-4"
     >
+      {/* Recently Uploaded File Option */}
+      {recentFile && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="flex items-center justify-between p-4 bg-primary/5 border border-primary/20 rounded-2xl"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+              <ImageIcon className="w-5 h-5" />
+            </div>
+            <div className="text-left">
+              <p className="text-sm font-medium text-slate-900 dark:text-white">
+                Edit {recentFile.name} again?
+              </p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                {(recentFile.size / 1024).toFixed(1)} KB • Previously uploaded
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => onFileSelect(recentFile)}
+            className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-xl transition-colors shadow-lg shadow-primary/20"
+          >
+            Load Image
+          </button>
+        </motion.div>
+      )}
+
       <label
         className={`relative block border-2 border-dashed rounded-3xl p-12 md:p-16 text-center transition-all duration-300 cursor-pointer group overflow-hidden ${
           isDragging

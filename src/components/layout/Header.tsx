@@ -112,9 +112,9 @@ export function Header() {
           <Link to="/" className="flex items-center gap-3 shrink-0 group">
             <motion.div
               whileHover={{ rotate: 5, scale: 1.05 }}
-              className="w-11 h-11 rounded-2xl glass-strong flex items-center justify-center border-2 border-white/40 shadow-lg"
+              className="w-11 h-11 rounded-2xl  flex items-center justify-center"
             >
-              <FileImage className="w-6 h-6 text-white" />
+              <img src="/image-editing.png" alt="Logo" className="w-14 h-14 object-contain" />
             </motion.div>
 
             <div className="text-white leading-tight">
@@ -260,45 +260,13 @@ export function Header() {
                 ))}
                 
                 {/* Footer Links in Mobile */}
-                <div className="px-5 py-2 text-xs font-semibold text-white/50 uppercase tracking-wider">
-                  More
-                </div>
-                <Link
-                  to="/about"
-                  onClick={() => setOpen(false)}
-                  className="px-5 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-white transition-all font-medium active:bg-white/15"
-                >
-                  About
-                </Link>
-                <Link
-                  to="/faq"
-                  onClick={() => setOpen(false)}
-                  className="px-5 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-white transition-all font-medium active:bg-white/15"
-                >
-                  FAQ
-                </Link>
-                <Link
-                  to="/privacy-policy"
-                  onClick={() => setOpen(false)}
-                  className="px-5 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-white transition-all font-medium active:bg-white/15"
-                >
-                  Privacy
-                </Link>
-                <Link
-                  to="/terms-of-service"
-                  onClick={() => setOpen(false)}
-                  className="px-5 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-white transition-all font-medium active:bg-white/15"
-                >
-                  Terms
-                </Link>
+                {/* Footer Links in Mobile - REMOVED as per request */}
               </div>
 
               {/* MOBILE THEME + TRUST BADGES */}
               <div className="p-4 border-t border-white/10 space-y-3">
                 <div className="flex gap-2">
-                  <Badge icon={Shield} label="Private" />
-                  <Badge icon={Zap} label="Fast" />
-                  <Badge icon={Globe} label="Offline" />
+                  {/* Badges REMOVED as per request */}
                 </div>
 
                 {/* Mobile Theme Selector */}

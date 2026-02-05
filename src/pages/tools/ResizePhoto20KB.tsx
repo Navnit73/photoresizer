@@ -68,6 +68,7 @@ export default function ResizePhoto20KB() {
     undo,
     processAndDownload,
     reset,
+    lastUploadedFile,
   } = useImageEditor();
 
   return (
@@ -125,7 +126,10 @@ export default function ResizePhoto20KB() {
                     <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-slate-900 dark:text-white">
                       Upload Photo to Resize to 20KB
                     </h2>
-                    <UploadZone onFileSelect={loadImage} />
+                    <UploadZone 
+                      onFileSelect={loadImage} 
+                      recentFile={lastUploadedFile}
+                    />
                   </motion.div>
                 ) : (
                   <motion.div key="editor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">

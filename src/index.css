@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
-@import './styles/design-system.css';
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap");
+@import "./styles/design-system.css";
 
 @tailwind base;
 @tailwind components;
@@ -44,21 +43,39 @@
     --radius: 0.625rem;
 
     /* Custom Design Tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(215 72% 35%) 0%, hsl(205 85% 45%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 25% 98%) 100%);
-    --gradient-subtle: linear-gradient(135deg, hsl(210 25% 98%) 0%, hsl(210 20% 94%) 100%);
-    
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(215 72% 35%) 0%,
+      hsl(205 85% 45%) 100%
+    );
+    --gradient-card: linear-gradient(
+      180deg,
+      hsl(0 0% 100%) 0%,
+      hsl(210 25% 98%) 100%
+    );
+    --gradient-subtle: linear-gradient(
+      135deg,
+      hsl(210 25% 98%) 0%,
+      hsl(210 20% 94%) 100%
+    );
+
     --shadow-sm: 0 1px 2px 0 hsl(215 28% 17% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(215 28% 17% / 0.08), 0 2px 4px -2px hsl(215 28% 17% / 0.05);
-    --shadow-lg: 0 10px 15px -3px hsl(215 28% 17% / 0.08), 0 4px 6px -4px hsl(215 28% 17% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(215 28% 17% / 0.1), 0 8px 10px -6px hsl(215 28% 17% / 0.08);
+    --shadow-md:
+      0 4px 6px -1px hsl(215 28% 17% / 0.08),
+      0 2px 4px -2px hsl(215 28% 17% / 0.05);
+    --shadow-lg:
+      0 10px 15px -3px hsl(215 28% 17% / 0.08),
+      0 4px 6px -4px hsl(215 28% 17% / 0.05);
+    --shadow-xl:
+      0 20px 25px -5px hsl(215 28% 17% / 0.1),
+      0 8px 10px -6px hsl(215 28% 17% / 0.08);
     --shadow-glow: 0 0 40px hsl(215 72% 35% / 0.15);
-    
+
     /* Tool Colors */
     --tool-success: 145 65% 42%;
     --tool-warning: 38 92% 50%;
     --tool-info: 205 85% 55%;
-    
+
     /* Ad Placeholder */
     --ad-bg: 210 15% 96%;
     --ad-border: 210 15% 88%;
@@ -114,13 +131,30 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-feature-settings: 'cv11', 'ss01';
+    font-family:
+      "Inter",
+      "Outfit",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
+    font-feature-settings: "cv11", "ss01";
     font-optical-sizing: auto;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', system-ui, sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Outfit", system-ui, sans-serif;
     @apply font-semibold tracking-tight;
   }
 }
@@ -129,19 +163,19 @@
   .gradient-hero {
     background: var(--gradient-hero);
   }
-  
+
   .gradient-card {
     background: var(--gradient-card);
   }
-  
+
   .gradient-subtle {
     background: var(--gradient-subtle);
   }
-  
+
   .shadow-elegant {
     box-shadow: var(--shadow-lg);
   }
-  
+
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
@@ -203,7 +237,8 @@
 }
 
 @keyframes pulse-soft {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {

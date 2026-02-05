@@ -69,6 +69,7 @@ export default function JpegToJpg() {
     undo,
     processAndDownload,
     reset,
+    lastUploadedFile,
   } = useImageEditor();
 
   return (
@@ -127,7 +128,10 @@ export default function JpegToJpg() {
                     <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-slate-900 dark:text-white">
                       Upload Your JPEG Image
                     </h2>
-                    <UploadZone onFileSelect={loadImage} />
+                    <UploadZone 
+                      onFileSelect={loadImage} 
+                      recentFile={lastUploadedFile}
+                    />
                   </motion.div>
                 ) : (
                   <motion.div

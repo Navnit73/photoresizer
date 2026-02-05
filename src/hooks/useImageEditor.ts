@@ -44,6 +44,8 @@ export function useImageEditor() {
     setHistory((prev) => [...prev.slice(-9), state]);
   }, []);
 
+  const [lastUploadedFile, setLastUploadedFile] = useState<File | null>(null);
+
   /**
    * Load image with proper error handling and memory optimization
    */
@@ -52,6 +54,9 @@ export function useImageEditor() {
       console.error("Invalid file type");
       return;
     }
+
+    // Save for persistence across resets
+    setLastUploadedFile(file);
 
     const url = URL.createObjectURL(file);
     const img = new Image();
@@ -448,5 +453,6 @@ export function useImageEditor() {
     processAndDownload,
     generatePreview,
     reset,
+    lastUploadedFile,
   };
 }
