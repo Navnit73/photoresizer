@@ -114,6 +114,11 @@
     --ad-border: 217 33% 20%;
   }
 }
+.header-nav-btn {
+  @apply flex items-center gap-1 px-4 py-2 rounded-lg
+         text-white font-medium
+         hover:bg-white/10 transition;
+}
 
 @layer base {
   * {
