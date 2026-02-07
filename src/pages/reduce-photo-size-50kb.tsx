@@ -165,7 +165,7 @@ export default function ImageCompressor() {
   /* ---------------------------------- UI ---------------------------------- */
 
   return (
-    <div className="min-h-screen bg-secondary/30">
+    <div className="min-h-screen bg-background">
       <SEO
         title="Photo Compressor – Reduce Image Size to 50KB Online"
         description="Compress images to exact KB or MB size instantly. Free, fast & secure photo compressor for government forms."
@@ -173,12 +173,12 @@ export default function ImageCompressor() {
 
       <Header />
 
-      <main className="container px-4 py-12 space-y-12">
+      <main className="container px-4 py-8 lg:py-12 space-y-8 lg:space-y-12">
         <header className="text-center space-y-3">
-          <h1 className="text-3xl font-bold font-heading">
+          <h1 className="text-2xl lg:text-3xl font-bold font-heading text-foreground">
             Free Online Photo Compressor
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto px-4">
             Reduce photo size to 10KB, 20KB, 50KB, 100KB or any custom size.
             Works fully in your browser.
           </p>
@@ -188,13 +188,13 @@ export default function ImageCompressor() {
           {/* LEFT */}
           <div className="space-y-6">
             {/* Upload */}
-            <div className="bg-white rounded-2xl shadow p-6">
-              <h2 className="font-semibold mb-4">Upload Image</h2>
+            <div className="bg-card border text-card-foreground rounded-2xl shadow-sm p-4 lg:p-6">
+              <h2 className="font-semibold mb-4 text-foreground">Upload Image</h2>
 
               <div
                 onDrop={handleDrop}
                 onDragOver={(e) => e.preventDefault()}
-                className="border-2 border-dashed border-border rounded-xl p-10 text-center bg-secondary/40 cursor-pointer"
+                className="border-2 border-dashed border-border rounded-xl p-6 lg:p-10 text-center bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer"
               >
                 <input
                   type="file"
@@ -203,21 +203,23 @@ export default function ImageCompressor() {
                   className="hidden"
                   onChange={handleFileChange}
                 />
-                <label htmlFor="upload" className="cursor-pointer space-y-2">
-                  <div className="text-5xl">📸</div>
-                  <p className="font-medium">
-                    Click to upload or drag & drop
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    JPG, PNG, WEBP • Max 50MB
-                  </p>
+                <label htmlFor="upload" className="cursor-pointer space-y-3 block">
+                  <div className="text-4xl lg:text-5xl">📸</div>
+                  <div className="space-y-1">
+                    <p className="font-medium text-foreground">
+                      Click to upload or drag & drop
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      JPG, PNG, WEBP • Max 50MB
+                    </p>
+                  </div>
                 </label>
               </div>
             </div>
 
             {/* Settings */}
-            <div className="bg-white rounded-2xl shadow p-6 space-y-5">
-              <h2 className="font-semibold">Compression Settings</h2>
+            <div className="bg-card border text-card-foreground rounded-2xl shadow-sm p-4 lg:p-6 space-y-5">
+              <h2 className="font-semibold text-foreground">Compression Settings</h2>
 
               <div className="grid grid-cols-2 gap-3">
                 {(["target", "quality"] as Mode[]).map((m) => (
@@ -225,10 +227,10 @@ export default function ImageCompressor() {
                     key={m}
                     disabled={loading}
                     onClick={() => setMode(m)}
-                    className={`py-3 rounded-xl font-medium transition ${
+                    className={`py-3 rounded-xl font-medium transition text-sm lg:text-base ${
                       mode === m
-                        ? "gradient-hero text-primary-foreground"
-                        : "bg-secondary"
+                        ? "gradient-hero text-primary-foreground shadow-sm"
+                        : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                     } ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
                   >
                     {m === "target" ? "Target Size" : "Quality"}
@@ -238,7 +240,7 @@ export default function ImageCompressor() {
 
               {mode === "target" && (
                 <>
-                  <div className="grid grid-cols-5 gap-2">
+                  <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                     {quickSizes.map((s) => (
                       <button
                         key={s}
@@ -246,7 +248,7 @@ export default function ImageCompressor() {
                           setTargetValue(s);
                           setTargetUnit("KB");
                         }}
-                        className="border rounded-lg py-2 text-sm hover:bg-secondary"
+                        className="border bg-background hover:bg-muted text-foreground rounded-lg py-2 text-sm transition-colors"
                       >
                         {s}KB
                       </button>
@@ -260,14 +262,14 @@ export default function ImageCompressor() {
                       onChange={(e) =>
                         setTargetValue(Math.max(1, +e.target.value))
                       }
-                      className="flex-1 border rounded-xl px-4 py-3"
+                      className="flex-1 border bg-background text-foreground rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 outline-none"
                     />
                     <select
                       value={targetUnit}
                       onChange={(e) =>
                         setTargetUnit(e.target.value as "KB" | "MB")
                       }
-                      className="border rounded-xl px-4 py-3 bg-white"
+                      className="border bg-background text-foreground rounded-xl px-4 py-3 outline-none"
                     >
                       <option>KB</option>
                       <option>MB</option>
@@ -278,7 +280,7 @@ export default function ImageCompressor() {
 
               {mode === "quality" && (
                 <>
-                  <div className="flex justify-between text-sm">
+                  <div className="flex justify-between text-sm text-foreground">
                     <span>Image Quality</span>
                     <b>{quality}%</b>
                   </div>
@@ -288,7 +290,7 @@ export default function ImageCompressor() {
                     max={100}
                     value={quality}
                     onChange={(e) => setQuality(+e.target.value)}
-                    className="w-full"
+                    className="w-full accent-primary"
                   />
                 </>
               )}
@@ -296,11 +298,11 @@ export default function ImageCompressor() {
               <button
                 onClick={compressImage}
                 disabled={!file || loading}
-                className="w-full gradient-hero text-primary-foreground py-4 rounded-xl font-semibold"
+                className="w-full gradient-hero text-primary-foreground py-4 rounded-xl font-semibold shadow-lg shadow-primary/20 transition-transform active:scale-[0.98]"
               >
                 {loading ? (
                   <span className="flex justify-center items-center gap-3">
-                    <span className="h-4 w-4 rounded-full bg-primary animate-pulse" />
+                    <span className="h-4 w-4 rounded-full bg-primary-foreground animate-pulse" />
                     Optimizing image…
                   </span>
                 ) : (
@@ -313,7 +315,7 @@ export default function ImageCompressor() {
               </p>
 
               {error && (
-                <div className="border border-destructive/30 bg-destructive/10 rounded-xl p-3 text-sm">
+                <div className="border border-destructive/30 bg-destructive/10 text-destructive rounded-xl p-3 text-sm">
                   {error}
                 </div>
               )}
@@ -321,33 +323,37 @@ export default function ImageCompressor() {
           </div>
 
           {/* RIGHT */}
-          <div className="bg-white rounded-2xl shadow p-6 space-y-4">
-            <h2 className="font-semibold">Preview & Result</h2>
+          <div className="bg-card border text-card-foreground rounded-2xl shadow-sm p-4 lg:p-6 space-y-4">
+            <h2 className="font-semibold text-foreground">Preview & Result</h2>
 
-            <div className="border rounded-xl h-[420px] flex items-center justify-center bg-secondary/30">
+            <div className="border rounded-xl min-h-[300px] lg:h-[420px] flex items-center justify-center bg-muted/20 relative overflow-hidden">
               {preview ? (
                 <img
                   src={preview}
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-full object-contain p-2"
+                  alt="Preview"
                 />
               ) : (
-                <span className="text-muted-foreground">No image selected</span>
+                <span className="text-muted-foreground flex flex-col items-center gap-2">
+                  <span className="text-4xl opacity-50">🖼️</span>
+                  <span>No image selected</span>
+                </span>
               )}
             </div>
 
             {preview && (
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-secondary/40 rounded-xl p-4">
+                <div className="bg-muted/30 border rounded-xl p-4">
                   <p className="text-xs text-muted-foreground">Original</p>
-                  <p className="text-xl font-bold">
+                  <p className="text-lg lg:text-xl font-bold text-foreground">
                     {formatBytes(originalSize)}
                   </p>
                 </div>
 
                 {result && (
-                  <div className="bg-secondary/40 rounded-xl p-4">
+                  <div className="bg-muted/30 border rounded-xl p-4">
                     <p className="text-xs text-muted-foreground">Compressed</p>
-                    <p className="text-xl font-bold">
+                    <p className="text-lg lg:text-xl font-bold text-foreground">
                       {formatBytes(result.size)}
                     </p>
                   </div>
@@ -356,11 +362,11 @@ export default function ImageCompressor() {
             )}
 
             {compressionRatio && (
-              <div className="bg-secondary/40 rounded-xl p-6 text-center">
+              <div className="bg-muted/30 border rounded-xl p-6 text-center">
                 <p className="text-sm text-muted-foreground">
                   Compression achieved
                 </p>
-                <p className="text-4xl font-bold">
+                <p className="text-3xl lg:text-4xl font-bold text-foreground">
                   {compressionRatio}% smaller
                 </p>
               </div>
@@ -369,7 +375,7 @@ export default function ImageCompressor() {
             {result && (
               <button
                 onClick={downloadImage}
-                className="w-full gradient-hero text-primary-foreground py-4 rounded-xl font-semibold"
+                className="w-full gradient-hero text-primary-foreground py-4 rounded-xl font-semibold shadow-lg shadow-primary/20 transition-transform active:scale-[0.98]"
               >
                 Download Image
               </button>

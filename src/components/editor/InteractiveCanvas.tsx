@@ -528,7 +528,6 @@ export function InteractiveCanvas({
         className="relative overflow-hidden w-full"
         onPointerMove={isCropMode ? onPointerMove : undefined}
         onPointerUp={isCropMode ? onPointerUp : undefined}
-        onPointerLeave={isCropMode ? onPointerUp : undefined}
         onPointerCancel={isCropMode ? onPointerUp : undefined}
       >
         <div className="relative flex justify-center items-center p-2 bg-muted/30 min-h-[200px]">

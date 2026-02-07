@@ -12,7 +12,17 @@ interface LivePreviewProps {
 export function LivePreview({ imageState }: LivePreviewProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [previewUrl, setPreviewUrl] = useState('');
+  const [blobSize, setBlobSize] = useState<number>(0);
   const [isRendering, setIsRendering] = useState(false);
+
+  // Cleanup object URLs to avoid memory leaks
+  useEffect(() => {
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [previewUrl]);
 
   useEffect(() => {
     if (!imageState.originalUrl) return;
@@ -23,45 +33,77 @@ export function LivePreview({ imageState }: LivePreviewProps) {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext('2d', {
+        alpha: imageState.format === 'png',
+        willReadFrequently: false,
+      });
       if (!ctx) return;
+
+      // Enable high-quality rendering to match output
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
 
       const img = new Image();
       img.crossOrigin = 'anonymous';
 
       img.onload = () => {
-        canvas.width = imageState.width;
-        canvas.height = imageState.height;
+        const radians = (imageState.rotation * Math.PI) / 180;
+        const isRotated90or270 =
+          imageState.rotation === 90 || imageState.rotation === 270;
+
+        canvas.width = isRotated90or270 ? imageState.height : imageState.width;
+        canvas.height = isRotated90or270 ? imageState.width : imageState.height;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (imageState.backgroundColor !== 'transparent') {
+        // Apply background if not transparent
+        if (
+          imageState.backgroundColor !== 'transparent' &&
+          imageState.format !== 'png'
+        ) {
           ctx.fillStyle = imageState.backgroundColor;
           ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
 
         ctx.save();
         ctx.translate(canvas.width / 2, canvas.height / 2);
-        ctx.rotate((imageState.rotation * Math.PI) / 180);
+        ctx.rotate(radians);
+
+        const drawWidth = isRotated90or270
+          ? imageState.height
+          : imageState.width;
+        const drawHeight = isRotated90or270
+          ? imageState.width
+          : imageState.height;
+
         ctx.drawImage(
           img,
-          -canvas.width / 2,
-          -canvas.height / 2,
-          canvas.width,
-          canvas.height
+          -drawWidth / 2,
+          -drawHeight / 2,
+          drawWidth,
+          drawHeight
         );
         ctx.restore();
 
-        const quality = imageState.quality / 100;
-        const type =
-          imageState.format === 'jpeg'
-            ? 'image/jpeg'
-            : imageState.format === 'png'
-            ? 'image/png'
-            : 'image/webp';
+        const quality =
+          imageState.format === 'png' ? 1 : imageState.quality / 100;
+        const type = `image/${imageState.format}`;
 
-        setPreviewUrl(canvas.toDataURL(type, quality));
-        setIsRendering(false);
+        canvas.toBlob(
+          (blob) => {
+            if (blob) {
+              const newUrl = URL.createObjectURL(blob);
+              setPreviewUrl((prev) => {
+                if (prev) URL.revokeObjectURL(prev);
+                return newUrl;
+              });
+              setBlobSize(blob.size);
+            }
+            setIsRendering(false);
+          },
+          type,
+          quality
+        );
       };
 
       img.src = imageState.originalUrl;
@@ -77,14 +119,6 @@ export function LivePreview({ imageState }: LivePreviewProps) {
     maxPreview / imageState.width,
     maxPreview / imageState.height,
     1
-  );
-
-  const estimatedSize = Math.round(
-    (imageState.width *
-      imageState.height *
-      3 *
-      (imageState.quality / 100)) /
-      1024
   );
 
   return (
@@ -153,11 +187,11 @@ export function LivePreview({ imageState }: LivePreviewProps) {
         <span className="text-muted-foreground">Quality</span>
         <span className="font-medium">{imageState.quality}%</span>
 
-        <span className="text-muted-foreground">Est. Size</span>
-        <span className="font-mono">
-          {estimatedSize > 1024
-            ? `${(estimatedSize / 1024).toFixed(1)} MB`
-            : `${estimatedSize} KB`}
+        <span className="text-muted-foreground">Actual Size</span>
+        <span className="font-mono font-bold text-primary">
+          {blobSize > 1024 * 1024
+            ? `${(blobSize / (1024 * 1024)).toFixed(2)} MB`
+            : `${(blobSize / 1024).toFixed(1)} KB`}
         </span>
 
         {imageState.rotation !== 0 && (
