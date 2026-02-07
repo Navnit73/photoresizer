@@ -102,7 +102,7 @@ export function EditorControls({
           </CardTitle>
 
           <div className="flex items-start sm:items-center gap-4 flex-wrap">
-            <span
+            {/* <span
               className={`text-[11px] sm:text-xs leading-tight px-2 py-1 rounded border ${
                 lockAspectRatio
                   ? "text-red-600 bg-red-50 border-red-200"
@@ -122,9 +122,9 @@ export function EditorControls({
                   Width और Height अलग-अलग बदल सकते हैं
                 </>
               )}
-            </span>
+            </span> */}
 
-            <button
+            {/* <button
               onClick={() => setLockAspectRatio(!lockAspectRatio)}
               className={`p-1.5 rounded-md shrink-0 transition ${
                 lockAspectRatio
@@ -138,7 +138,7 @@ export function EditorControls({
               ) : (
                 <Link2Off className="w-4 h-4" />
               )}
-            </button>
+            </button> */}
           </div>
         </CardHeader>
 

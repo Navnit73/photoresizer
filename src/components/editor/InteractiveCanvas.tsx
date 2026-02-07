@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { ImageState } from "@/types/editor";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -28,6 +28,14 @@ const ASPECT_RATIOS: {
   { value: "9:16", label: "9:16", ratio: 9 / 16 },
 ];
 
+// Minimum canvas height to prevent tiny previews on mobile for wide images
+const MIN_CANVAS_HEIGHT = 200;
+// Maximum canvas dimensions for desktop
+const MAX_CANVAS_W = 520;
+const MAX_CANVAS_H = 400;
+// Padding inside the card
+const CANVAS_PADDING = 16;
+
 // Haptic feedback helper
 const hapticFeedback = (style: "light" | "medium" | "heavy" = "light") => {
   if ("vibrate" in navigator) {
@@ -47,10 +55,12 @@ export function InteractiveCanvas({
   const [activeHandle, setActiveHandle] = useState<Handle>(null);
   const [aspectRatio, setAspectRatio] = useState<AspectRatio>("free");
   const [isLocked, setIsLocked] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(MAX_CANVAS_W);
 
   const pointerId = useRef<number | null>(null);
   const raf = useRef<number | null>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const cropBoxRef = useRef<HTMLDivElement>(null);
   const lockedRatio = useRef<number | null>(null);
 
@@ -67,12 +77,41 @@ export function InteractiveCanvas({
     height: imageState.height,
   });
 
-  const CANVAS_W = 520;
-  const CANVAS_H = 400;
+  // Responsive canvas dimensions
+  const updateContainerWidth = useCallback(() => {
+    if (containerRef.current) {
+      const width = containerRef.current.offsetWidth - CANVAS_PADDING * 2;
+      setContainerWidth(Math.min(width, MAX_CANVAS_W));
+    }
+  }, []);
+
+  // Listen for container resize
+  useEffect(() => {
+    updateContainerWidth();
+    
+    const resizeObserver = new ResizeObserver(() => {
+      updateContainerWidth();
+    });
+    
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+    
+    window.addEventListener('resize', updateContainerWidth);
+    
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', updateContainerWidth);
+    };
+  }, [updateContainerWidth]);
+
+  // Calculate responsive canvas dimensions
+  const canvasW = containerWidth;
+  const canvasH = Math.max(MIN_CANVAS_HEIGHT, Math.min(MAX_CANVAS_H, containerWidth * 0.75));
 
   const scale = Math.min(
-    CANVAS_W / imageState.width,
-    CANVAS_H / imageState.height,
+    canvasW / imageState.width,
+    canvasH / imageState.height,
     1
   );
 
@@ -373,10 +412,11 @@ export function InteractiveCanvas({
   if (!imageState.originalUrl) return null;
 
   return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between gap-2">
+    <div ref={containerRef} className="space-y-3 w-full">
+      <div className="flex items-center  gap-2">
         <Button
           size="sm"
+          className="bg-red-500"
           onClick={() => {
             hapticFeedback("medium");
             setIsCropMode(true);
@@ -385,6 +425,44 @@ export function InteractiveCanvas({
           <Crop className="w-4 h-4 mr-2" />
           Crop
         </Button>
+        {isCropMode && (
+        <div className="flex justify-center gap-2">
+          <Button size="sm" onClick={applyCrop}>
+            <Check className="w-4 h-4 mr-1" />
+            Apply
+          </Button>
+
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => {
+              hapticFeedback("light");
+              setCrop({
+                x: 0,
+                y: 0,
+                width: imageState.width,
+                height: imageState.height,
+              });
+            }}
+          >
+            <RotateCcw className="w-4 h-4 mr-1" />
+            Reset
+          </Button>
+
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => {
+              hapticFeedback("light");
+              setIsCropMode(false);
+            }}
+          >
+            <X className="w-4 h-4 mr-1" />
+            Cancel
+          </Button>
+        </div>
+      )}
+
       </div>
 
       {isCropMode && (
@@ -447,13 +525,13 @@ export function InteractiveCanvas({
 
       <Card
         ref={cardRef}
-        className="relative overflow-hidden"
+        className="relative overflow-hidden w-full"
         onPointerMove={isCropMode ? onPointerMove : undefined}
         onPointerUp={isCropMode ? onPointerUp : undefined}
         onPointerLeave={isCropMode ? onPointerUp : undefined}
         onPointerCancel={isCropMode ? onPointerUp : undefined}
       >
-        <div className="relative flex justify-center p-2 bg-muted/30">
+        <div className="relative flex justify-center items-center p-2 bg-muted/30 min-h-[200px]">
           <div
             className="relative"
             style={{ width: displayW, height: displayH }}
@@ -521,44 +599,7 @@ export function InteractiveCanvas({
         </div>
       </Card>
 
-      {isCropMode && (
-        <div className="flex justify-center gap-2">
-          <Button size="sm" onClick={applyCrop}>
-            <Check className="w-4 h-4 mr-1" />
-            Apply
-          </Button>
-
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => {
-              hapticFeedback("light");
-              setCrop({
-                x: 0,
-                y: 0,
-                width: imageState.width,
-                height: imageState.height,
-              });
-            }}
-          >
-            <RotateCcw className="w-4 h-4 mr-1" />
-            Reset
-          </Button>
-
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => {
-              hapticFeedback("light");
-              setIsCropMode(false);
-            }}
-          >
-            <X className="w-4 h-4 mr-1" />
-            Cancel
-          </Button>
-        </div>
-      )}
-
+      
       <p className="text-xs text-muted-foreground text-center">
         {isCropMode
           ? "Drag to move • Resize from corners • Select aspect ratio above"
