@@ -2122,5 +2122,73 @@ export const blogData: BlogPost[] = [
       { title: "YouTube Thumbnail Size", path: "/youtube-thumbnail-size-guide" },
       { title: "OBS Overlay Maker", path: "/stream-overlay-maker" }
     ]
-  }
+  },
+  {
+  slug: "photoshop-2026-known-issues-fixes",
+  title: "Photoshop 2026 Known Issues & Fixes: WebP Bug, Crashes & Lag",
+  category: "Software Troubleshooting",
+  metaTitle: "Photoshop 2026 Bugs Solved | Fix WebP Open With, Scratch Disk & Crashes",
+  metaDescription: "Facing issues with Photoshop 2026? Fix the 'Open With' WebP bug, startup freezes, Remove Tool UI glitches, and scratch disk errors with our updated Jan 2026 troubleshooting guide.",
+  lastUpdated: "January 16, 2026",
+  specifications: {
+    dimensions: "Adobe Photoshop 2026 (v27.0) & 2025",
+    fileSize: "Windows 10/11, macOS Sequoia",
+    format: "Startup, File Association, Tools"
+  },
+  content: `
+    <h2>Navigating the Bumpy Road of Photoshop 2026 Updates</h2>
+    <p>While Adobe Photoshop 2026 brings powerful generative AI features, the January 2026 patch has introduced a series of frustrating bugs for desktop users. From the inability to set default apps for WebP files to mysterious scratch disk errors, these issues can halt a creative workflow instantly. Based on the latest official Adobe logs and user reports, here is a comprehensive guide to fixing the most common bugs affecting versions 26.11 through 27.0.</p>
+
+    <h3>1. The "Open With" WebP & RAW File Bug</h3>
+    <p><strong>The Issue:</strong> This is currently the most reported problem on Windows 11. After upgrading to Photoshop 2026, users find they cannot set it as the default app for <code>.webp</code> or RAW camera files. Right-clicking "Open With" and selecting Photoshop 2026 does nothing, or the setting simply doesn't stick.</p>
+    <p><strong>The Cause:</strong> This usually happens if you uninstalled the older version (2025) <em>after</em> installing the new one. The uninstaller aggressively removes file associations for "Photoshop" in general.</p>
+    <p><strong>The Fixes:</strong></p>
+    <ul>
+      <li><strong>Method A (Registry Fix):</strong> Open the Registry Editor (RegEdit). Navigate to <code>HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.webp</code>. Delete this key, restart your PC, and try assigning the default app again.</li>
+      <li><strong>Method B (Legacy Control Panel):</strong> Windows 11 Settings are often buggy. Go to the old <strong>Control Panel > Default Programs</strong>. Manually select the <code>.webp</code> extension and point it directly to the executable file (usually <code>C:\\Program Files\\Adobe\\Adobe Photoshop 2026\\Photoshop.exe</code>).</li>
+    </ul>
+
+    <h3>2. Startup Freezes on "Reading Brushes"</h3>
+    <p><strong>The Issue:</strong> Photoshop 26.11 hangs indefinitely at the splash screen while "Reading Brushes" or "Building Color Conversion Tables."</p>
+    <p><strong>The Solution:</strong> This is often caused by corrupted preference files or incompatible third-party plugins.</p>
+    <ol>
+      <li>Hold down the <strong>Shift</strong> key immediately after clicking the Photoshop icon to launch it. This forces the app to skip loading third-party plugins.</li>
+      <li>If that fails, navigate to your Photoshop Settings folder and delete the <code>Brushes.psp</code> file. Photoshop will generate a fresh, non-corrupted version upon the next launch.</li>
+    </ol>
+
+    <h3>3. The "Scratch Disk Full" & Lag Mystery</h3>
+    <p><strong>The Issue:</strong> Users report extreme lag when using the Text or Transform tools, or receive "Scratch Disk Full" errors despite having 200GB+ free on their SSD.</p>
+    <p><strong>The Diagnosis:</strong> While sometimes a hardware bottleneck, a common user error has been identified in the 2025/2026 updates. When creating a new file, the default units may have switched from <strong>Pixels</strong> to <strong>Centimeters</strong>.</p>
+    <p><strong>Check Your Canvas:</strong> If you type "1920 x 1080" thinking it is pixels, but the setting is on centimeters, you are creating a massive 20GB document that will instantly choke your RAM and Scratch Disk. Always double-check your unit settings in the "New Document" window.</p>
+
+    <h3>4. Remove Tool UI & Generative Fill Glitches</h3>
+    <p><strong>The Issue:</strong> In Photoshop 27.0, the options bar for the Remove Tool (the checkmark and cancel icons) appears cut off or truncated, making it impossible to apply changes.</p>
+    <p><strong>The Workaround:</strong> Go to <strong>Preferences > Workspace</strong> and check the box for <strong>"Enable Narrow Options Bar."</strong> This forces the UI to resize, bringing the missing buttons back into view.</p>
+
+    <h3>5. Connectivity & Crash Fixes</h3>
+    <ul>
+      <li><strong>Deeplink Failures:</strong> On certain Wi-Fi networks (specifically reported in Germany), in-app tutorials open an "Install Photoshop" web page instead of the feature. <strong>Fix:</strong> Connect to a mobile hotspot to verify the license, then switch back to Wi-Fi.</li>
+      <li><strong>Object Selection Crashes:</strong> If Photoshop crashes immediately when using the Object Selection or Select Subject tools, your GPU drivers are likely outdated. Visit the Nvidia or AMD website directly (do not use Windows Update) to get the latest studio drivers.</li>
+    </ul>
+  `,
+  faq: [
+    {
+      question: "Why does Photoshop 2026 keep opening the old version?",
+      answer: "If you have both 2025 and 2026 installed, Windows may default to the older version's file paths. It is recommended to uninstall the old version first, restart, and then install the new version to keep registry keys clean."
+    },
+    {
+      question: "How do I fix the 'Program Error' when saving?",
+      answer: "This is often a GPU issue. Go to Edit > Preferences > Performance and uncheck 'Use Graphics Processor'. If this fixes the save error, your GPU drivers need an update or your card is no longer supported."
+    },
+    {
+      question: "Is it safe to delete the Brushes.psp file?",
+      answer: "Yes. This is a settings preference file. If you delete it, Photoshop will simply create a new default one. However, you may lose custom brush organizations that you haven't exported."
+    }
+  ],
+  relatedLinks: [
+    { title: "Optimize Scratch Disks", path: "/photoshop-scratch-disk-full-fix" },
+    { title: "Download Nvidia Studio Drivers", path: "https://www.nvidia.com/Download/driverResults.aspx" },
+    { title: "Adobe Creative Cloud Cleaner Tool", path: "/adobe-cc-cleaner-guide" }
+  ]
+}
 ];

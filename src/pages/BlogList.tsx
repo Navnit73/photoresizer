@@ -16,7 +16,7 @@ export default function BlogList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ["All", "UPSC", "SSC", "Banking", "State Exams", "Official IDs", "Technical Tools", "Social Media", "Tools & Utilities"];
+  const categories = ["All", "UPSC", "SSC", "Banking", "State Exams", "Official IDs", "Technical Tools", "Social Media", "Tools & Utilities","Software Troubleshooting"];
 
   // Filter logic
   const filteredPosts = blogData.filter(post => {
