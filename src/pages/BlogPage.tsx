@@ -78,7 +78,7 @@ export default function BlogPage() {
             "datePublished": new Date().toISOString(), // Mock date, normally from post.date
             "dateModified": new Date().toISOString()
           },
-          {
+          ...(post.faq.length > 0 ? [{
             "@context": "https://schema.org",
             "@type": "FAQPage",
             "mainEntity": post.faq.map(f => ({
@@ -89,7 +89,7 @@ export default function BlogPage() {
                 "text": f.answer
               }
             }))
-          }
+          }] : [])
         ]}
       />
       
