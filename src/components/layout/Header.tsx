@@ -97,6 +97,10 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
+            <Link to="/blog" className="header-nav-btn">
+              Blog
+            </Link> 
+
             <Link to="/about" className="header-nav-btn">
               About
             </Link>
@@ -175,6 +179,33 @@ export function Header() {
                     {t.label}
                   </Link>
                 ))}
+                
+                <div className="border-t border-slate-100 my-2 pt-2">
+                  <div className="px-5 py-2 text-xs font-semibold uppercase text-slate-400">
+                    Pages
+                  </div>
+                  <Link
+                    to="/blog"
+                    onClick={() => setOpen(false)}
+                    className="block px-5 py-3 text-sm hover:bg-slate-100"
+                  >
+                    Blog
+                  </Link>
+                   <Link
+                    to="/about"
+                    onClick={() => setOpen(false)}
+                    className="block px-5 py-3 text-sm hover:bg-slate-100"
+                  >
+                    About
+                  </Link>
+                  <Link
+                    to="/faq"
+                    onClick={() => setOpen(false)}
+                    className="block px-5 py-3 text-sm hover:bg-slate-100"
+                  >
+                    FAQ
+                  </Link>
+                </div>
               </div>
             </motion.nav>
           )}

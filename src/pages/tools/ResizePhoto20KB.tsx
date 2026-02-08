@@ -97,20 +97,6 @@ export default function ResizePhoto20KB() {
         />
 
         <main className="flex-1">
-          {/* Features */}
-          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
-            <div className="container px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
-                Why Use Our 20KB Photo Resizer?
-              </h2>
-              <FeatureGrid>
-                {features.map((feature, index) => (
-                  <FeatureCard key={index} {...feature} index={index} />
-                ))}
-              </FeatureGrid>
-            </div>
-          </section>
-
           {/* Editor */}
           <section className="py-12 md:py-16">
             <div className="container px-2 sm:px-4">
@@ -184,6 +170,20 @@ export default function ResizePhoto20KB() {
                   </motion.div>
                 )}
               </AnimatePresence>
+            </div>
+          </section>
+
+          {/* Features */}
+          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
+            <div className="container px-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
+                Why Use Our 20KB Photo Resizer?
+              </h2>
+              <FeatureGrid>
+                {features.map((feature, index) => (
+                  <FeatureCard key={index} {...feature} index={index} />
+                ))}
+              </FeatureGrid>
             </div>
           </section>
 

@@ -29,7 +29,7 @@ export default function About() {
               className="text-center mb-16"
             >
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-6">
-                <Heart className="w-10 h-10 text-white" />
+                <Heart className="w-10 h-10 text-red-500" />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
                 About Photo Resizer
@@ -162,13 +162,13 @@ export default function About() {
               transition={{ delay: 0.8 }}
               className="text-center p-10 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
-              <p className="text-white/90 text-lg mb-6 max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-grey-500 mb-4">Ready to Get Started?</h2>
+              <p className="text-grey-500 text-lg mb-6 max-w-2xl mx-auto">
                 Join thousands of users who trust Photo Resizer for their image editing needs.
               </p>
               <Link
                 to="/"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-full font-semibold hover:shadow-2xl transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-green-200 text-primary rounded-full font-semibold hover:shadow-2xl transition-all hover:scale-105"
               >
                 <Target className="w-5 h-5" />
                 Start Editing Photos

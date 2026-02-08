@@ -98,20 +98,6 @@ export default function CompressImage() {
         />
 
         <main className="flex-1">
-          {/* Features */}
-          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
-            <div className="container px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
-                Powerful Image Compression
-              </h2>
-              <FeatureGrid>
-                {features.map((feature, index) => (
-                  <FeatureCard key={index} {...feature} index={index} />
-                ))}
-              </FeatureGrid>
-            </div>
-          </section>
-
           {/* Editor Section */}
           <section className="py-12 md:py-16">
             <div className="container px-2 sm:px-4">
@@ -156,7 +142,6 @@ export default function CompressImage() {
                           isProcessing={isProcessing}
                           onUpdateDimensions={updateDimensions}
                           onRotate={setRotation}
-                          onBackgroundChange={setBackgroundColor}
                           onQualityChange={setQuality}
                           onFormatChange={setFormat}
                           onApplyPreset={applyPreset}
@@ -169,20 +154,34 @@ export default function CompressImage() {
                             <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
                           </div>
                           <div>
-                            <DownloadButton onDownload={processAndDownload} isProcessing={isProcessing} />
+                            <DownloadButton onDownload={processAndDownload} />
                             <LivePreview imageState={imageState} />
                           </div>
                         </div>
                         <div className="block lg:hidden space-y-3">
                           <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
                           <LivePreview imageState={imageState} />
-                          <DownloadButton onDownload={processAndDownload} isProcessing={isProcessing} />
+                          <DownloadButton onDownload={processAndDownload} />
                         </div>
                       </div>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
+            </div>
+          </section>
+
+          {/* Features */}
+          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
+            <div className="container px-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
+                Powerful Image Compression
+              </h2>
+              <FeatureGrid>
+                {features.map((feature, index) => (
+                  <FeatureCard key={index} {...feature} index={index} />
+                ))}
+              </FeatureGrid>
             </div>
           </section>
 

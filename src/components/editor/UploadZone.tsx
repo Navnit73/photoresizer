@@ -79,7 +79,7 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
           </div>
           <button
             onClick={() => onFileSelect(recentFile)}
-            className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-xl transition-colors shadow-lg shadow-primary/20"
+            className="px-4 py-2 text-sm font-medium text-white bg-red-400 hover:bg-red-500/90 rounded-xl transition-colors shadow-lg shadow-primary/20"
           >
             Load Image
           </button>
@@ -92,7 +92,7 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
             ? "border-primary bg-primary/10 scale-[1.02]"
             : isValidFile
             ? "border-green-500 bg-green-500/10"
-            : "border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-800/50 hover:border-primary hover:bg-primary/5"
+            : "border-purple-500/30 hover:border-purple-500 bg-slate-50 dark:bg-slate-800/50 hover:bg-purple-500/5"
         }`}
       >
         {/* Animated Background */}
@@ -101,13 +101,13 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
             className="absolute top-0 left-0 w-full h-full"
             animate={{
               background: [
-                "radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.1) 0%, transparent 50%)",
-                "radial-gradient(circle at 100% 100%, rgba(6, 182, 212, 0.1) 0%, transparent 50%)",
-                "radial-gradient(circle at 0% 100%, rgba(236, 72, 153, 0.1) 0%, transparent 50%)",
-                "radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.1) 0%, transparent 50%)",
+                "radial-gradient(circle at 0% 0%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)",
+                "radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.1) 0%, transparent 50%)",
+                "radial-gradient(circle at 0% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 50%)",
+                "radial-gradient(circle at 100% 0%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)",
               ],
             }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
           />
         </div>
 
@@ -134,10 +134,10 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
               <div
                 className={`w-24 h-24 rounded-3xl flex items-center justify-center shadow-2xl transition-all duration-300 ${
                   isDragging
-                    ? "bg-gradient-to-br from-primary-500 to-secondary-500"
+                    ? "bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white"
                     : isValidFile
-                    ? "bg-gradient-to-br from-green-500 to-emerald-500"
-                    : "bg-primary/5 text-primary"
+                    ? "bg-gradient-to-br from-green-500 to-emerald-500 text-white"
+                    : "bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white shadow-purple-500/20"
                 }`}
               >
                 <AnimatePresence mode="wait">

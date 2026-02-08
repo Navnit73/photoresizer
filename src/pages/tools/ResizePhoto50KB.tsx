@@ -97,19 +97,6 @@ export default function ResizePhoto50KB() {
         />
 
         <main className="flex-1">
-          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
-            <div className="container px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
-                Professional 50KB Photo Compression
-              </h2>
-              <FeatureGrid>
-                {features.map((feature, index) => (
-                  <FeatureCard key={index} {...feature} index={index} />
-                ))}
-              </FeatureGrid>
-            </div>
-          </section>
-
           <section className="py-12 md:py-16">
             <div className="container px-2 sm:px-4">
               <AnimatePresence mode="wait">
@@ -176,6 +163,19 @@ export default function ResizePhoto50KB() {
                   </motion.div>
                 )}
               </AnimatePresence>
+            </div>
+          </section>
+
+          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
+            <div className="container px-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
+                Professional 50KB Photo Compression
+              </h2>
+              <FeatureGrid>
+                {features.map((feature, index) => (
+                  <FeatureCard key={index} {...feature} index={index} />
+                ))}
+              </FeatureGrid>
             </div>
           </section>
 

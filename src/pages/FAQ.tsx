@@ -128,7 +128,7 @@ export default function FAQ() {
               className="text-center mb-12"
             >
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-6">
-                <HelpCircle className="w-10 h-10 text-white" />
+                <HelpCircle className="w-10 h-10 text-green-600" />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
                 Frequently Asked Questions
@@ -152,8 +152,8 @@ export default function FAQ() {
               transition={{ delay: 0.5 }}
               className="mt-16 p-8 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 text-center"
             >
-              <h2 className="text-2xl font-bold text-white mb-3">Still have questions?</h2>
-              <p className="text-white/90 mb-6">
+              <h2 className="text-2xl font-bold text-grey-500 mb-3">Still have questions?</h2>
+              <p className="text-grey-500 mb-6">
                 Can't find the answer you're looking for? We're here to help!
               </p>
               <a

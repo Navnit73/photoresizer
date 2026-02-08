@@ -98,20 +98,6 @@ export default function JpegToJpg() {
         />
 
         <main className="flex-1">
-          {/* Features Section */}
-          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
-            <div className="container px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
-                Why Use Our JPEG to JPG Converter?
-              </h2>
-              <FeatureGrid>
-                {features.map((feature, index) => (
-                  <FeatureCard key={index} {...feature} index={index} />
-                ))}
-              </FeatureGrid>
-            </div>
-          </section>
-
           {/* Editor Section */}
           <section className="py-12 md:py-16">
             <div className="container px-2 sm:px-4">
@@ -169,7 +155,6 @@ export default function JpegToJpg() {
                           isProcessing={isProcessing}
                           onUpdateDimensions={updateDimensions}
                           onRotate={setRotation}
-                          onBackgroundChange={setBackgroundColor}
                           onQualityChange={setQuality}
                           onFormatChange={setFormat}
                           onApplyPreset={applyPreset}
@@ -185,7 +170,7 @@ export default function JpegToJpg() {
                           </div>
                           <div className="space-y-1">
                             <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Preview</div>
-                            <DownloadButton onDownload={processAndDownload} isProcessing={isProcessing} />
+                            <DownloadButton onDownload={processAndDownload} />
                             <LivePreview imageState={imageState} />
                           </div>
                         </div>
@@ -195,7 +180,7 @@ export default function JpegToJpg() {
                           <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
                           <LivePreview imageState={imageState} />
                           <div className="sticky bottom-3">
-                            <DownloadButton onDownload={processAndDownload} isProcessing={isProcessing} />
+                            <DownloadButton onDownload={processAndDownload} />
                           </div>
                         </div>
                       </div>
@@ -203,6 +188,20 @@ export default function JpegToJpg() {
                   </motion.div>
                 )}
               </AnimatePresence>
+            </div>
+          </section>
+
+          {/* Features Section */}
+          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
+            <div className="container px-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
+                Why Use Our JPEG to JPG Converter?
+              </h2>
+              <FeatureGrid>
+                {features.map((feature, index) => (
+                  <FeatureCard key={index} {...feature} index={index} />
+                ))}
+              </FeatureGrid>
             </div>
           </section>
 

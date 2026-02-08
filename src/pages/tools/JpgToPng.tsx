@@ -97,20 +97,6 @@ export default function JpgToPng() {
         />
 
         <main className="flex-1">
-          {/* Features Section */}
-          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
-            <div className="container px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
-                Why Convert JPG to PNG?
-              </h2>
-              <FeatureGrid>
-                {features.map((feature, index) => (
-                  <FeatureCard key={index} {...feature} index={index} />
-                ))}
-              </FeatureGrid>
-            </div>
-          </section>
-
           {/* Editor Section */}
           <section className="py-12 md:py-16">
             <div className="container px-2 sm:px-4">
@@ -183,6 +169,22 @@ export default function JpgToPng() {
               </AnimatePresence>
             </div>
           </section>
+
+          {/* Features Section */}
+          <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
+            <div className="container px-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
+                Why Convert JPG to PNG?
+              </h2>
+              <FeatureGrid>
+                {features.map((feature, index) => (
+                  <FeatureCard key={index} {...feature} index={index} />
+                ))}
+              </FeatureGrid>
+            </div>
+          </section>
+
+          {/* Editor Section was here */}
 
           <HowToGuide steps={steps} title="How to Convert JPG to PNG" />
 

@@ -8,6 +8,8 @@ import UPSCPhotoSize from '@/pages/upsc-photo-size';
 import ReducePhotoSize50KB from '@/pages/reduce-photo-size-50kb';
 import SignatureResizeIBPS from '@/pages/signature-resize-ibps';
 import NotFound from '@/pages/NotFound';
+import BlogPage from '@/pages/BlogPage';
+import BlogList from '@/pages/BlogList';
 
 // Lazy load new SEO pages for better performance
 const JpegToJpg = lazy(() => import('@/pages/tools/JpegToJpg'));
@@ -61,6 +63,10 @@ export function AppRoutes() {
         {/* Info pages */}
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/blog" element={<BlogList />} />
+
+        {/* Dynamic Blog Pages */}
+        <Route path="/:slug" element={<BlogPage />} />
         
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
