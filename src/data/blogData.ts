@@ -24,19 +24,19 @@ export interface BlogPost {
 
 export const blogData: BlogPost[] = [
   // ==================== CATEGORY 1: UPSC ====================
-{
-  slug: "upsc-photo-signature-resizer-2026",
-  title: "How to Resize Photo and Signature for UPSC 2026: Step-by-Step Guide",
-  category: "UPSC",
-  metaTitle: "UPSC Photo & Signature Resizer 2026 | Resize to 20KB-50KB Online",
-  metaDescription: "Resize photo and signature for UPSC 2026 exams (CSE, NDA, CDS). Official dimensions 3.5x4.5cm, 20-50KB size. Free online tool for UPSC application forms.",
-  lastUpdated: "February 2026",
-  specifications: {
-    dimensions: "3.5 cm x 4.5 cm (Photo), 3.5 cm x 1.5 cm (Signature)",
-    fileSize: "20 KB - 50 KB (Photo), 10 KB - 20 KB (Signature)",
-    format: "JPG / JPEG"
-  },
-  content: `
+  {
+    slug: "upsc-photo-signature-resizer-2026",
+    title: "How to Resize Photo and Signature for UPSC 2026: Step-by-Step Guide",
+    category: "UPSC",
+    metaTitle: "UPSC Photo & Signature Resizer 2026 | Resize to 20KB-50KB Online",
+    metaDescription: "Resize photo and signature for UPSC 2026 exams (CSE, NDA, CDS). Official dimensions 3.5x4.5cm, 20-50KB size. Free online tool for UPSC application forms.",
+    lastUpdated: "February 2026",
+    specifications: {
+      dimensions: "3.5 cm x 4.5 cm (Photo), 3.5 cm x 1.5 cm (Signature)",
+      fileSize: "20 KB - 50 KB (Photo), 10 KB - 20 KB (Signature)",
+      format: "JPG / JPEG"
+    },
+    content: `
     <h2>Complete Guide to UPSC Photo and Signature Requirements 2026</h2>
     <p>Every year, thousands of UPSC (Union Public Service Commission) aspirants face application rejections due to incorrect photograph and signature specifications. The UPSC photo resizer tool becomes crucial for ensuring your application meets the strict digital requirements for Civil Services Examination (CSE), NDA, CDS, and other UPSC-recruited posts. This comprehensive guide walks you through every requirement, common mistakes, and step-by-step solutions to ensure your UPSC 2026 application proceeds without technical hitches.</p>
     
@@ -150,53 +150,53 @@ export const blogData: BlogPost[] = [
       <strong>Pro Tip:</strong> Create multiple versions with slight compression variations. If one file gets rejected, you have alternatives ready without rushing.
     </div>
   `,
-  faq: [
-    {
-      question: "What is the exact pixel size for UPSC photo 2026?",
-      answer: "While UPSC specifies physical dimensions (3.5×4.5 cm), the pixel equivalent at 300 DPI is 413×531 pixels. However, the key requirement is the file size (20-50KB) and aspect ratio. Our tool automatically converts to appropriate pixel dimensions while maintaining compliance."
-    },
-    {
-      question: "Can I use a photo with spectacles for UPSC application?",
-      answer: "Yes, but with strict conditions: 1) No tinted glasses, 2) Eyes must be clearly visible without glare, 3) Frames should not cover any part of eyes, 4) No sunglasses or photochromic lenses. For safest compliance, consider taking photos without glasses."
-    },
-    {
-      question: "How to compress signature below 20KB without making it illegible?",
-      answer: "Use our signature-specific compression algorithm: 1) Start with high-contrast scan (black ink on white paper), 2) Crop tightly around signature, 3) Use 'Signature Mode' in our tool which prioritizes line clarity, 4) Adjust quality slider until size shows 15-20KB range while maintaining sharp edges."
-    },
-    {
-      question: "What if my UPSC photo exceeds 50KB after multiple attempts?",
-      answer: "Try this systematic approach: 1) Convert to grayscale if color isn't critical, 2) Reduce resolution to 200 DPI if currently higher, 3) Remove metadata/exif data, 4) Use 'Advanced Compression' in our tool with 'Ultra Optimization' preset. The tool will find optimal balance between size and quality."
-    },
-    {
-      question: "Is there any difference in requirements for UPSC CSE vs NDA?",
-      answer: "Core specifications remain identical: 3.5×4.5 cm dimensions, 20-50KB file size, JPG format. However, NDA may have additional requirements like recentness (within 1 month) and specific dress codes. Always check the particular exam notification for any variations."
-    },
-    {
-      question: "Can I edit my photo after uploading to UPSC portal?",
-      answer: "No. Once submitted, you cannot edit photos or signatures. Any discrepancies found later may lead to disqualification. This makes initial preparation crucial. Use our tool's preview feature extensively before final submission."
-    }
-  ],
-  relatedLinks: [
-    { title: "Resize for SSC Exams", path: "/ssc-cgl-photo-signature-resizer" },
-    { title: "Resize for IBPS PO/Clerk", path: "/ibps-photo-resizer" },
-    { title: "Aadhar Card Photo Change", path: "/aadhar-card-photo-resizer" },
-    { title: "UPSC Name & Date Rules", path: "/correct-upsc-photo-specifications-name-date" },
-    { title: "Passport Size Photo Maker", path: "/passport-size-photo-maker-35x45" }
-  ]
-},
-{
-  slug: "correct-upsc-photo-specifications-name-date",
-  title: "UPSC Photo Specifications 2026: Name and Date on Photo Requirements",
-  category: "UPSC",
-  metaTitle: "UPSC Photo Name & Date Rules 2026 | Official Specifications",
-  metaDescription: "Latest UPSC 2026 rules for name and date on application photos. Learn how to add name/date and resize to 3.5x4.5cm correctly.",
-  lastUpdated: "February 2026",
-  specifications: {
-    dimensions: "3.5 cm x 4.5 cm",
-    fileSize: "20 KB - 300 KB (varies by notification)",
-    format: "JPG / JPEG"
+    faq: [
+      {
+        question: "What is the exact pixel size for UPSC photo 2026?",
+        answer: "While UPSC specifies physical dimensions (3.5×4.5 cm), the pixel equivalent at 300 DPI is 413×531 pixels. However, the key requirement is the file size (20-50KB) and aspect ratio. Our tool automatically converts to appropriate pixel dimensions while maintaining compliance."
+      },
+      {
+        question: "Can I use a photo with spectacles for UPSC application?",
+        answer: "Yes, but with strict conditions: 1) No tinted glasses, 2) Eyes must be clearly visible without glare, 3) Frames should not cover any part of eyes, 4) No sunglasses or photochromic lenses. For safest compliance, consider taking photos without glasses."
+      },
+      {
+        question: "How to compress signature below 20KB without making it illegible?",
+        answer: "Use our signature-specific compression algorithm: 1) Start with high-contrast scan (black ink on white paper), 2) Crop tightly around signature, 3) Use 'Signature Mode' in our tool which prioritizes line clarity, 4) Adjust quality slider until size shows 15-20KB range while maintaining sharp edges."
+      },
+      {
+        question: "What if my UPSC photo exceeds 50KB after multiple attempts?",
+        answer: "Try this systematic approach: 1) Convert to grayscale if color isn't critical, 2) Reduce resolution to 200 DPI if currently higher, 3) Remove metadata/exif data, 4) Use 'Advanced Compression' in our tool with 'Ultra Optimization' preset. The tool will find optimal balance between size and quality."
+      },
+      {
+        question: "Is there any difference in requirements for UPSC CSE vs NDA?",
+        answer: "Core specifications remain identical: 3.5×4.5 cm dimensions, 20-50KB file size, JPG format. However, NDA may have additional requirements like recentness (within 1 month) and specific dress codes. Always check the particular exam notification for any variations."
+      },
+      {
+        question: "Can I edit my photo after uploading to UPSC portal?",
+        answer: "No. Once submitted, you cannot edit photos or signatures. Any discrepancies found later may lead to disqualification. This makes initial preparation crucial. Use our tool's preview feature extensively before final submission."
+      }
+    ],
+    relatedLinks: [
+      { title: "Resize for SSC Exams", path: "/ssc-cgl-photo-signature-resizer" },
+      { title: "Resize for IBPS PO/Clerk", path: "/ibps-photo-resizer" },
+      { title: "Aadhar Card Photo Change", path: "/aadhar-card-photo-resizer" },
+      { title: "UPSC Name & Date Rules", path: "/correct-upsc-photo-specifications-name-date" },
+      { title: "Passport Size Photo Maker", path: "/passport-size-photo-maker-35x45" }
+    ]
   },
-  content: `
+  {
+    slug: "correct-upsc-photo-specifications-name-date",
+    title: "UPSC Photo Specifications 2026: Name and Date on Photo Requirements",
+    category: "UPSC",
+    metaTitle: "UPSC Photo Name & Date Rules 2026 | Official Specifications",
+    metaDescription: "Latest UPSC 2026 rules for name and date on application photos. Learn how to add name/date and resize to 3.5x4.5cm correctly.",
+    lastUpdated: "February 2026",
+    specifications: {
+      dimensions: "3.5 cm x 4.5 cm",
+      fileSize: "20 KB - 300 KB (varies by notification)",
+      format: "JPG / JPEG"
+    },
+    content: `
     <h2>Complete Guide to UPSC Photo Name and Date Requirements 2026</h2>
     <p>The requirement for candidate name and date on UPSC photographs is one of the most confusing aspects for aspirants. While not universal across all UPSC exams, when specified, it becomes a critical compliance factor that can make or break your application. This comprehensive guide clarifies the exact requirements, variations across different UPSC examinations, and provides step-by-step instructions for perfect compliance.</p>
     
@@ -320,54 +320,54 @@ export const blogData: BlogPost[] = [
     
     <p>Remember, while name and date requirements might seem bureaucratic, they're part of UPSC's comprehensive verification system. Taking the extra time to get this right demonstrates attention to detail - a quality that serves you well throughout the civil services journey.</p>
   `,
-  faq: [
-    {
-      question: "Is date on photo mandatory for UPSC 2026?",
-      answer: "For UPSC Civil Services Examination 2026, yes - the notification typically requires date on photograph. For other UPSC exams like Engineering Services or Combined Medical Services, check specific notifications. When in doubt, include both name and date following standard format: 'Name: [Your Name] | Date: DD/MM/YYYY' at bottom of photo."
-    },
-    {
-      question: "What if my photo is older than 3 months?",
-      answer: "UPSC requires recent photographs to ensure your appearance matches at the exam center. Using an old photo can lead to disqualification during document verification. If your photo exceeds 3 months, retake it with current appearance. The date printed should reflect when the NEW photo was taken, not the original date."
-    },
-    {
-      question: "Can I use different name formats (initials vs full name)?",
-      answer: "Use the exact name format from your application form. If form says 'A. B. Sharma', match that. If using full name, ensure it matches educational certificates. Consistency across all documents is crucial. When in doubt, use the name exactly as it appears on your primary ID proof (usually Class 10 certificate)."
-    },
-    {
-      question: "What font color is best for name/date on white background?",
-      answer: "Use pure black (#000000) or very dark gray (#333333) for maximum contrast and readability. Avoid colors that may appear faint when compressed. Ensure the text is opaque (100% opacity) not transparent. Test print a small version to verify legibility."
-    },
-    {
-      question: "How much space should I leave at bottom for text?",
-      answer: "Extend the white background area by 10-15% at bottom specifically for text. For a 3.5×4.5 cm photo, this means approximately 4-6 mm extra space. The text should occupy the bottom 3-5% of total image height. Never place text over the facial area or required 70-80% face coverage zone."
-    },
-    {
-      question: "Can I add name/date after resizing to 20KB?",
-      answer: "No, this often pushes file size over limit or degrades quality. Always: 1) Take high-quality photo, 2) Add name/date in editing software, 3) Then resize/compress to 20-50KB using our tool. This preserves text clarity while meeting size requirements."
-    }
-  ],
-  relatedLinks: [
-    { title: "Fix 75% Face Coverage", path: "/fix-75-percent-face-coverage-upsc" },
-    { title: "Compress Signature for UPSC", path: "/upsc-signature-resizer-compress-20kb" },
-    { title: "UPSC Main Photo Guide", path: "/upsc-photo-signature-resizer-2026" },
-    { title: "SSC Photo Requirements", path: "/ssc-cgl-photo-signature-resizer" },
-    { title: "Professional Photo Editing", path: "/photo-and-signature-joiner-online" }
-  ]
-},
-  // ==================== CATEGORY 2: SSC ====================
-{
-  slug: "ssc-cgl-photo-signature-resizer",
-  title: "SSC CGL Photo and Signature Resizer: Official Specifications 2026",
-  category: "SSC",
-  metaTitle: "SSC CGL Photo Resizer 2026 | Resize & Compress to 20-50KB",
-  metaDescription: "Online tool to resize photo and signature for SSC CGL 2026. Convert to 3.5x4.5cm and 20-50KB instantly. Avoid form rejection.",
-  lastUpdated: "February 2026",
-  specifications: {
-    dimensions: "3.5 cm x 4.5 cm (Photo), 4.0 cm x 2.0 cm (Signature)",
-    fileSize: "20 KB - 50 KB (Photo), 10 KB - 20 KB (Signature)",
-    format: "JPEG / JPG"
+    faq: [
+      {
+        question: "Is date on photo mandatory for UPSC 2026?",
+        answer: "For UPSC Civil Services Examination 2026, yes - the notification typically requires date on photograph. For other UPSC exams like Engineering Services or Combined Medical Services, check specific notifications. When in doubt, include both name and date following standard format: 'Name: [Your Name] | Date: DD/MM/YYYY' at bottom of photo."
+      },
+      {
+        question: "What if my photo is older than 3 months?",
+        answer: "UPSC requires recent photographs to ensure your appearance matches at the exam center. Using an old photo can lead to disqualification during document verification. If your photo exceeds 3 months, retake it with current appearance. The date printed should reflect when the NEW photo was taken, not the original date."
+      },
+      {
+        question: "Can I use different name formats (initials vs full name)?",
+        answer: "Use the exact name format from your application form. If form says 'A. B. Sharma', match that. If using full name, ensure it matches educational certificates. Consistency across all documents is crucial. When in doubt, use the name exactly as it appears on your primary ID proof (usually Class 10 certificate)."
+      },
+      {
+        question: "What font color is best for name/date on white background?",
+        answer: "Use pure black (#000000) or very dark gray (#333333) for maximum contrast and readability. Avoid colors that may appear faint when compressed. Ensure the text is opaque (100% opacity) not transparent. Test print a small version to verify legibility."
+      },
+      {
+        question: "How much space should I leave at bottom for text?",
+        answer: "Extend the white background area by 10-15% at bottom specifically for text. For a 3.5×4.5 cm photo, this means approximately 4-6 mm extra space. The text should occupy the bottom 3-5% of total image height. Never place text over the facial area or required 70-80% face coverage zone."
+      },
+      {
+        question: "Can I add name/date after resizing to 20KB?",
+        answer: "No, this often pushes file size over limit or degrades quality. Always: 1) Take high-quality photo, 2) Add name/date in editing software, 3) Then resize/compress to 20-50KB using our tool. This preserves text clarity while meeting size requirements."
+      }
+    ],
+    relatedLinks: [
+      { title: "Fix 75% Face Coverage", path: "/fix-75-percent-face-coverage-upsc" },
+      { title: "Compress Signature for UPSC", path: "/upsc-signature-resizer-compress-20kb" },
+      { title: "UPSC Main Photo Guide", path: "/upsc-photo-signature-resizer-2026" },
+      { title: "SSC Photo Requirements", path: "/ssc-cgl-photo-signature-resizer" },
+      { title: "Professional Photo Editing", path: "/photo-and-signature-joiner-online" }
+    ]
   },
-  content: `
+  // ==================== CATEGORY 2: SSC ====================
+  {
+    slug: "ssc-cgl-photo-signature-resizer",
+    title: "SSC CGL Photo and Signature Resizer: Official Specifications 2026",
+    category: "SSC",
+    metaTitle: "SSC CGL Photo Resizer 2026 | Resize & Compress to 20-50KB",
+    metaDescription: "Online tool to resize photo and signature for SSC CGL 2026. Convert to 3.5x4.5cm and 20-50KB instantly. Avoid form rejection.",
+    lastUpdated: "February 2026",
+    specifications: {
+      dimensions: "3.5 cm x 4.5 cm (Photo), 4.0 cm x 2.0 cm (Signature)",
+      fileSize: "20 KB - 50 KB (Photo), 10 KB - 20 KB (Signature)",
+      format: "JPEG / JPG"
+    },
+    content: `
     <h2>Complete SSC CGL 2026 Photo and Signature Specifications Guide</h2>
     <p>The Staff Selection Commission Combined Graduate Level (SSC CGL) examination attracts millions of applicants annually, with a significant percentage facing technical rejection due to non-compliant photographs and signatures. Understanding and implementing SSC's exact digital document requirements is not just about compliance—it's about securing your opportunity in one of India's most competitive examinations. This 800+ word guide provides exhaustive details, expert insights, and step-by-step solutions for perfect SSC CGL 2026 application documents.</p>
     
@@ -537,40 +537,40 @@ export const blogData: BlogPost[] = [
     
     <p>Remember, your SSC CGL photo and signature are more than just application requirements—they become part of your official government record if selected. Investing time in perfect compliance demonstrates the attention to detail expected in government service and ensures your journey begins without technical obstacles.</p>
   `,
-  faq: [
-    {
-      question: "My SSC photo has glasses, will it be rejected?",
-      answer: "Yes, absolutely. SSC is exceptionally strict about the 'no spectacles' rule. Even if you have medical necessity or high prescription, photos with any type of glasses (including clear lenses, blue-light glasses, or non-prescription frames) will be rejected. The only exception is for candidates with specific disabilities where glasses are permanently attached - even then, prior approval from SSC is required."
-    },
-    {
-      question: "What is the date requirement for SSC photos?",
-      answer: "The photo should not be more than 3 months old from the date of publication of the Notice of Examination. For SSC CGL 2026, if notification publishes in April 2026, your photo should be taken in January 2026 or later. The 'date' refers to when the photo was physically taken, not when it was edited or compressed. Some candidates write date on photo physically - this is optional unless specifically mentioned in notification."
-    },
-    {
-      question: "Can I wear formal attire with coat for SSC photo?",
-      answer: "Yes, formal attire including coats, blazers, or traditional formal wear is acceptable and often recommended. However, avoid uniforms of any organization (school, college, corporate, military). Light-colored formal shirts with dark coats work well against white backgrounds. Ensure attire doesn't blend with background (avoid white shirts on white background)."
-    },
-    {
-      question: "How to handle facial hair (beard/mustache) for SSC photo?",
-      answer: "Maintain consistent facial hair throughout examination process. If you have beard in photo, you must maintain it through all exam stages and document verification. Significant changes in appearance may raise verification issues. If clean-shaven in photo, avoid growing beard until after final selection. Document any medical or religious reasons for changes."
-    },
-    {
-      question: "What if my signature exceeds 20KB after multiple attempts?",
-      answer: "Try these specific techniques: 1) Scan at 200 DPI instead of 300 DPI, 2) Convert to pure black and white (1-bit) instead of grayscale, 3) Use 'Signature Optimize' mode in our tool which uses vector-like compression, 4) Ensure signature occupies 80-90% of frame (minimize white space), 5) Save as JPEG with quality 60-70%. Most signatures can reach 15-18KB with perfect clarity."
-    },
-    {
-      question: "Can I use same photo for SSC CGL and other SSC exams?",
-      answer: "Yes, provided it meets all specifications and is still within 3-month recency requirement. However, for exams with different specifications (like SSC CHSL may have different size requirements), always check individual notifications. Create a master high-resolution photo and generate exam-specific versions as needed using our tool's presets."
-    }
-  ],
-  relatedLinks: [
-    { title: "Resize for SSC GD Constable", path: "/ssc-gd-constable-photo-resizer" },
-    { title: "SSC MTS Photo Size Tool", path: "/ssc-mts-photo-signature-size" },
-    { title: "UPSC Photo Resizer", path: "/upsc-photo-signature-resizer-2026" },
-    { title: "Banking Exam Photos", path: "/ibps-po-clerk-photo-resizer" },
-    { title: "Passport Size Maker", path: "/passport-size-photo-maker-35x45" }
-  ]
-},
+    faq: [
+      {
+        question: "My SSC photo has glasses, will it be rejected?",
+        answer: "Yes, absolutely. SSC is exceptionally strict about the 'no spectacles' rule. Even if you have medical necessity or high prescription, photos with any type of glasses (including clear lenses, blue-light glasses, or non-prescription frames) will be rejected. The only exception is for candidates with specific disabilities where glasses are permanently attached - even then, prior approval from SSC is required."
+      },
+      {
+        question: "What is the date requirement for SSC photos?",
+        answer: "The photo should not be more than 3 months old from the date of publication of the Notice of Examination. For SSC CGL 2026, if notification publishes in April 2026, your photo should be taken in January 2026 or later. The 'date' refers to when the photo was physically taken, not when it was edited or compressed. Some candidates write date on photo physically - this is optional unless specifically mentioned in notification."
+      },
+      {
+        question: "Can I wear formal attire with coat for SSC photo?",
+        answer: "Yes, formal attire including coats, blazers, or traditional formal wear is acceptable and often recommended. However, avoid uniforms of any organization (school, college, corporate, military). Light-colored formal shirts with dark coats work well against white backgrounds. Ensure attire doesn't blend with background (avoid white shirts on white background)."
+      },
+      {
+        question: "How to handle facial hair (beard/mustache) for SSC photo?",
+        answer: "Maintain consistent facial hair throughout examination process. If you have beard in photo, you must maintain it through all exam stages and document verification. Significant changes in appearance may raise verification issues. If clean-shaven in photo, avoid growing beard until after final selection. Document any medical or religious reasons for changes."
+      },
+      {
+        question: "What if my signature exceeds 20KB after multiple attempts?",
+        answer: "Try these specific techniques: 1) Scan at 200 DPI instead of 300 DPI, 2) Convert to pure black and white (1-bit) instead of grayscale, 3) Use 'Signature Optimize' mode in our tool which uses vector-like compression, 4) Ensure signature occupies 80-90% of frame (minimize white space), 5) Save as JPEG with quality 60-70%. Most signatures can reach 15-18KB with perfect clarity."
+      },
+      {
+        question: "Can I use same photo for SSC CGL and other SSC exams?",
+        answer: "Yes, provided it meets all specifications and is still within 3-month recency requirement. However, for exams with different specifications (like SSC CHSL may have different size requirements), always check individual notifications. Create a master high-resolution photo and generate exam-specific versions as needed using our tool's presets."
+      }
+    ],
+    relatedLinks: [
+      { title: "Resize for SSC GD Constable", path: "/ssc-gd-constable-photo-resizer" },
+      { title: "SSC MTS Photo Size Tool", path: "/ssc-mts-photo-signature-size" },
+      { title: "UPSC Photo Resizer", path: "/upsc-photo-signature-resizer-2026" },
+      { title: "Banking Exam Photos", path: "/ibps-po-clerk-photo-resizer" },
+      { title: "Passport Size Maker", path: "/passport-size-photo-maker-35x45" }
+    ]
+  },
   // ==================== CATEGORY 3: BANKING & INSURANCE ====================
   {
     slug: "ibps-po-clerk-photo-resizer",
@@ -2124,18 +2124,18 @@ export const blogData: BlogPost[] = [
     ]
   },
   {
-  slug: "photoshop-2026-known-issues-fixes",
-  title: "Photoshop 2026 Known Issues & Fixes: WebP Bug, Crashes & Lag",
-  category: "Software Troubleshooting",
-  metaTitle: "Photoshop 2026 Bugs Solved | Fix WebP Open With, Scratch Disk & Crashes",
-  metaDescription: "Facing issues with Photoshop 2026? Fix the 'Open With' WebP bug, startup freezes, Remove Tool UI glitches, and scratch disk errors with our updated Jan 2026 troubleshooting guide.",
-  lastUpdated: "January 16, 2026",
-  specifications: {
-    dimensions: "Adobe Photoshop 2026 (v27.0) & 2025",
-    fileSize: "Windows 10/11, macOS Sequoia",
-    format: "Startup, File Association, Tools"
-  },
-  content: `
+    slug: "photoshop-2026-known-issues-fixes",
+    title: "Photoshop 2026 Known Issues & Fixes: WebP Bug, Crashes & Lag",
+    category: "Software Troubleshooting",
+    metaTitle: "Photoshop 2026 Bugs Solved | Fix WebP Open With, Scratch Disk & Crashes",
+    metaDescription: "Facing issues with Photoshop 2026? Fix the 'Open With' WebP bug, startup freezes, Remove Tool UI glitches, and scratch disk errors with our updated Jan 2026 troubleshooting guide.",
+    lastUpdated: "January 16, 2026",
+    specifications: {
+      dimensions: "Adobe Photoshop 2026 (v27.0) & 2025",
+      fileSize: "Windows 10/11, macOS Sequoia",
+      format: "Startup, File Association, Tools"
+    },
+    content: `
     <h2>Navigating the Bumpy Road of Photoshop 2026 Updates</h2>
     <p>While Adobe Photoshop 2026 brings powerful generative AI features, the January 2026 patch has introduced a series of frustrating bugs for desktop users. From the inability to set default apps for WebP files to mysterious scratch disk errors, these issues can halt a creative workflow instantly. Based on the latest official Adobe logs and user reports, here is a comprehensive guide to fixing the most common bugs affecting versions 26.11 through 27.0.</p>
 
@@ -2171,39 +2171,39 @@ export const blogData: BlogPost[] = [
       <li><strong>Object Selection Crashes:</strong> If Photoshop crashes immediately when using the Object Selection or Select Subject tools, your GPU drivers are likely outdated. Visit the Nvidia or AMD website directly (do not use Windows Update) to get the latest studio drivers.</li>
     </ul>
   `,
-  faq: [
-    {
-      question: "Why does Photoshop 2026 keep opening the old version?",
-      answer: "If you have both 2025 and 2026 installed, Windows may default to the older version's file paths. It is recommended to uninstall the old version first, restart, and then install the new version to keep registry keys clean."
-    },
-    {
-      question: "How do I fix the 'Program Error' when saving?",
-      answer: "This is often a GPU issue. Go to Edit > Preferences > Performance and uncheck 'Use Graphics Processor'. If this fixes the save error, your GPU drivers need an update or your card is no longer supported."
-    },
-    {
-      question: "Is it safe to delete the Brushes.psp file?",
-      answer: "Yes. This is a settings preference file. If you delete it, Photoshop will simply create a new default one. However, you may lose custom brush organizations that you haven't exported."
-    }
-  ],
-  relatedLinks: [
-    { title: "Optimize Scratch Disks", path: "/photoshop-scratch-disk-full-fix" },
-    { title: "Download Nvidia Studio Drivers", path: "https://www.nvidia.com/Download/driverResults.aspx" },
-    { title: "Adobe Creative Cloud Cleaner Tool", path: "/adobe-cc-cleaner-guide" }
-  ]
-},
-{
-  "slug": "rrb-level-1-recruitment-2026-cen-09-2025",
-  "title": "RRB Level 1 Recruitment 2026 for 22,195 Posts: Apply Online CEN 09/2025",
-  "category": "Railway Jobs",
-  "metaTitle": "RRB Level 1 Recruitment 2026 | 22195 Vacancies | Apply Online for CEN 09/2025",
-  "metaDescription": "Apply online for RRB Level 1 Recruitment 2026 (CEN 09/2025). 22,195 vacancies across India. Last date: 02 March 2026. Age 18-33 years, 10th pass eligible.",
-  "lastUpdated": "February 2026",
-  "specifications": {
-    "dimensions": "Application Form: Digital Upload | Live Photo Required",
-    "fileSize": "Signature: 30-49 KB | Certificates: Under 400 KB",
-    "format": "JPG/JPEG (Photo & Signature), PDF (Documents)"
+    faq: [
+      {
+        question: "Why does Photoshop 2026 keep opening the old version?",
+        answer: "If you have both 2025 and 2026 installed, Windows may default to the older version's file paths. It is recommended to uninstall the old version first, restart, and then install the new version to keep registry keys clean."
+      },
+      {
+        question: "How do I fix the 'Program Error' when saving?",
+        answer: "This is often a GPU issue. Go to Edit > Preferences > Performance and uncheck 'Use Graphics Processor'. If this fixes the save error, your GPU drivers need an update or your card is no longer supported."
+      },
+      {
+        question: "Is it safe to delete the Brushes.psp file?",
+        answer: "Yes. This is a settings preference file. If you delete it, Photoshop will simply create a new default one. However, you may lose custom brush organizations that you haven't exported."
+      }
+    ],
+    relatedLinks: [
+      { title: "Optimize Scratch Disks", path: "/photoshop-scratch-disk-full-fix" },
+      { title: "Download Nvidia Studio Drivers", path: "https://www.nvidia.com/Download/driverResults.aspx" },
+      { title: "Adobe Creative Cloud Cleaner Tool", path: "/adobe-cc-cleaner-guide" }
+    ]
   },
-  "content": `
+  {
+    "slug": "rrb-level-1-recruitment-2026-cen-09-2025",
+    "title": "RRB Level 1 Recruitment 2026 for 22,195 Posts: Apply Online CEN 09/2025",
+    "category": "Railway Jobs",
+    "metaTitle": "RRB Level 1 Recruitment 2026 | 22195 Vacancies | Apply Online for CEN 09/2025",
+    "metaDescription": "Apply online for RRB Level 1 Recruitment 2026 (CEN 09/2025). 22,195 vacancies across India. Last date: 02 March 2026. Age 18-33 years, 10th pass eligible.",
+    "lastUpdated": "February 2026",
+    "specifications": {
+      "dimensions": "Application Form: Digital Upload | Live Photo Required",
+      "fileSize": "Signature: 30-49 KB | Certificates: Under 400 KB",
+      "format": "JPG/JPEG (Photo & Signature), PDF (Documents)"
+    },
+    "content": `
     <h2>RRB Level 1 Recruitment 2026: Complete Guide to 22,195 Vacancies (CEN 09/2025)</h2>
     <p>The Railway Recruitment Boards (RRBs) have launched one of the largest government job drives of 2026. Centralised Employment Notification (CEN) No. 09/2025 announces <strong>22,195 vacancies</strong> for various posts in Level 1 of the 7th Central Pay Commission matrix across all Indian Railway zones. This is a golden opportunity for candidates with a 10th pass or ITI qualification seeking stable employment with attractive benefits in the world's largest railway network.</p>
     
@@ -2443,53 +2443,1335 @@ export const blogData: BlogPost[] = [
     
     <p><strong>Disclaimer:</strong> This guide summarizes the official CEN No. 09/2025 for candidate convenience. Always refer to the original notification on RRB websites for complete and authoritative information.</p>
   `,
-  "faq": [
-    {
-      "question": "What is the last date to apply for RRB Level 1 Recruitment 2026?",
-      "answer": "The last date to submit online applications for RRB Level 1 CEN 09/2025 is 02 March 2026 (23:59 hours). The fee payment deadline is 04 March 2026. The modification window for corrections is open from 05-14 March 2026 with a fee of ₹250 per correction."
+    "faq": [
+      {
+        "question": "What is the last date to apply for RRB Level 1 Recruitment 2026?",
+        "answer": "The last date to submit online applications for RRB Level 1 CEN 09/2025 is 02 March 2026 (23:59 hours). The fee payment deadline is 04 March 2026. The modification window for corrections is open from 05-14 March 2026 with a fee of ₹250 per correction."
+      },
+      {
+        "question": "Can 12th pass candidates apply for RRB Level 1 posts?",
+        "answer": "Yes, 12th pass candidates can definitely apply as they meet the minimum educational qualification requirement (10th pass or equivalent). The notification requires candidates to have passed 10th standard OR ITI/NAC, so higher qualifications are acceptable. However, candidates must ensure they possess the required qualification on or before 02 March 2026."
+      },
+      {
+        "question": "How many times can I apply for RRB Level 1 Recruitment?",
+        "answer": "You can submit ONLY ONE application to ONE Railway Recruitment Board (RRB). If you apply to multiple RRBs or submit multiple applications to the same RRB, ALL your applications will be rejected, and you may be debarred from future RRB exams. Choose your preferred RRB/Railway zone carefully as this choice cannot be changed later."
+      },
+      {
+        "question": "Is there negative marking in the RRB Level 1 CBT?",
+        "answer": "Yes, there is negative marking in the Computer Based Test. For each wrong answer, ⅓ mark will be deducted from your total score. There is no negative marking for unanswered questions. This makes accuracy crucial - avoid random guessing if you're unsure of the correct answer."
+      },
+      {
+        "question": "What is the salary for RRB Level 1 posts after 7th Pay Commission?",
+        "answer": "The initial pay for RRB Level 1 posts is ₹18,000/- per month as per Level 1 of the 7th CPC Pay Matrix. In addition to basic pay, employees receive various allowances including Dearness Allowance (DA), House Rent Allowance (HRA), Transport Allowance, and other benefits as per railway rules. The approximate in-hand salary starts from ₹25,000-30,000 depending on location and allowances."
+      },
+      {
+        "question": "Can candidates with glasses apply for all RRB Level 1 posts?",
+        "answer": "No, candidates with glasses cannot apply for posts with A-2 medical standard (like Pointsman) which require perfect vision without glasses (6/9, 6/9). However, they can apply for posts with A-3, B-1, or C-1 medical standards which allow vision correction. Always check Annexure-A of the notification for the specific medical standard of each post. Candidates who have undergone LASIK surgery are not eligible for A-2 and A-3 posts."
+      }
+    ],
+    "relatedLinks": [
+      {
+        "title": "RRB ALP Technician Recruitment 2026",
+        "path": "/rrb-alp-technician-recruitment-2026"
+      },
+      {
+        "title": "How to Prepare for Railway Group D Exams",
+        "path": "/railway-group-d-exam-preparation-guide"
+      },
+      {
+        "title": "SSC GD Constable Recruitment 2026",
+        "path": "/ssc-gd-constable-recruitment-2026"
+      },
+      {
+        "title": "Free Online Test Series for Government Exams",
+        "path": "/free-online-test-series-government-exams"
+      },
+      {
+        "title": "Documents Required for Government Job Applications",
+        "path": "/documents-required-government-job-application"
+      }
+    ]
+  },
+  {
+    "slug": "pnb-apprenticeship-2025-26-recruitment",
+    "title": "PNB Apprenticeship 2025-26: Apply Online for 5138 Graduate Apprentice Posts",
+    "category": "Banking Jobs",
+    "metaTitle": "PNB Apprenticeship 2025-26 Recruitment | 5138 Graduate Apprentice Vacancies",
+    "metaDescription": "Apply online for Punjab National Bank Apprenticeship 2025-26. 5138 graduate apprentice vacancies across India. Stipend up to ₹15,000/month. Last date: 24 Feb 2026.",
+    "lastUpdated": "February 2026",
+    "specifications": {
+      "dimensions": "Documents: JPEG/PDF | Photo: Passport Size",
+      "fileSize": "Each document: Less than 1 MB",
+      "format": "JPEG (Photos), PDF (Certificates)"
     },
-    {
-      "question": "Can 12th pass candidates apply for RRB Level 1 posts?",
-      "answer": "Yes, 12th pass candidates can definitely apply as they meet the minimum educational qualification requirement (10th pass or equivalent). The notification requires candidates to have passed 10th standard OR ITI/NAC, so higher qualifications are acceptable. However, candidates must ensure they possess the required qualification on or before 02 March 2026."
+    "content": `
+    <h2>PNB Apprenticeship 2025-26: Golden Opportunity for Graduates</h2>
+    <p>Punjab National Bank (PNB), one of India's largest public sector banks, has announced a massive recruitment drive for apprentices under the Apprentices Act, 1961. With <strong>5,138 vacancies</strong> across all states and union territories, this apprenticeship program offers fresh graduates a unique opportunity to gain valuable banking experience with a monthly stipend of up to ₹15,000. If you're a graduate looking to kickstart your career in banking, this could be your perfect entry point.</p>
+    
+    <h3>Essential Notification Details at a Glance</h3>
+    <p>Before diving into the details, here are the most critical facts every applicant must know:</p>
+    <table>
+      <tr>
+        <th><strong>Particular</strong></th>
+        <th><strong>Details</strong></th>
+      </tr>
+      <tr>
+        <td>Notification Number</td>
+        <td>HRD/APPRENTICE/ADVT/2025-26</td>
+      </tr>
+      <tr>
+        <td>Total Vacancies</td>
+        <td>5,138 Apprentice Posts</td>
+      </tr>
+      <tr>
+        <td>Application Start Date</td>
+        <td>08 February 2026</td>
+      </tr>
+      <tr>
+        <td>Application Last Date</td>
+        <td><strong>24 February 2026</strong></td>
+      </tr>
+      <tr>
+        <td>Tentative Exam Date</td>
+        <td>1st Week of March 2026</td>
+      </tr>
+      <tr>
+        <td>Age & Qualification Cut-off</td>
+        <td>01 January 2026</td>
+      </tr>
+      <tr>
+        <td>Training Duration</td>
+        <td>1 Year (12 Months)</td>
+      </tr>
+      <tr>
+        <td>Stipend Range</td>
+        <td>₹12,300 - ₹15,000 per month</td>
+      </tr>
+    </table>
+    
+    <h3>Eligibility Criteria: Check If You Qualify</h3>
+    
+    <h4>1. Nationality/Citizenship</h4>
+    <p>You must be either:</p>
+    <ul>
+      <li>A citizen of India, OR</li>
+      <li>A subject of Nepal/Bhutan, OR</li>
+      <li>A Tibetan refugee who came to India before 01.01.1962, OR</li>
+      <li>A person of Indian origin from specified countries</li>
+    </ul>
+    <p><em>Note: Candidates belonging to categories other than Indian citizens must possess a certificate of eligibility issued by the Government of India.</em></p>
+    
+    <h4>2. Age Limit (as on 01.01.2026)</h4>
+    <p>The basic age requirement is 20 to 28 years (born between 02.01.1998 and 01.01.2006). Age relaxation is available for reserved categories:</p>
+    <table>
+      <tr>
+        <th><strong>Category</strong></th>
+        <th><strong>Age Relaxation</strong></th>
+        <th><strong>Maximum Age Limit</strong></th>
+      </tr>
+      <tr>
+        <td>Scheduled Caste/Scheduled Tribe</td>
+        <td>5 Years</td>
+        <td>33 Years</td>
+      </tr>
+      <tr>
+        <td>Other Backward Classes (Non-Creamy Layer)</td>
+        <td>3 Years</td>
+        <td>31 Years</td>
+      </tr>
+      <tr>
+        <td>Persons with Benchmark Disability</td>
+        <td>10 Years</td>
+        <td>38 Years</td>
+      </tr>
+      <tr>
+        <td>Widows/Divorced Women</td>
+        <td>Up to age 35 (GEN/EWS)</td>
+        <td>As per category norms</td>
+      </tr>
+    </table>
+    <p><strong>Important:</strong> Age relaxation is allowed on cumulative basis with only one other eligible category. The maximum age cannot exceed 34 years for applicants under NAPS.</p>
+    
+    <h4>3. Educational Qualification</h4>
+    <p>The educational requirement is straightforward but strict:</p>
+    <ul>
+      <li><strong>Mandatory:</strong> Graduate degree in any discipline from a recognized university/institute</li>
+      <li><strong>Result Declaration:</strong> Graduation result must have been declared <strong>on or before 31.12.2025</strong></li>
+      <li><strong>NATS Registered Candidates:</strong> Date of passing should not be more than 4 years preceding 01.01.2026</li>
+      <li><strong>Language Proficiency:</strong> Must be proficient in the local language of the State/UT applied for</li>
+    </ul>
+    
+    <h3>State-wise Vacancy Distribution</h3>
+    <p>With vacancies spread across India, here are the top states with maximum opportunities:</p>
+    <ul>
+      <li><strong>Uttar Pradesh:</strong> 814 seats (Largest allocation)</li>
+      <li><strong>Delhi:</strong> 417 seats</li>
+      <li><strong>West Bengal:</strong> 532 seats</li>
+      <li><strong>Punjab:</strong> 462 seats</li>
+      <li><strong>Haryana:</strong> 348 seats</li>
+      <li><strong>Bihar:</strong> 310 seats</li>
+      <li><strong>Maharashtra:</strong> 232 seats</li>
+      <li><strong>Rajasthan:</strong> 363 seats</li>
+    </ul>
+    <p>Detailed circle-wise and category-wise vacancies are provided in the official notification. Candidates should check specific vacancies for their preferred state/circle before applying.</p>
+    
+    <h3>Step-by-Step Application Process</h3>
+    <p>Follow these steps carefully to ensure successful application submission:</p>
+    
+    <h4>Step 1: Document Preparation</h4>
+    <p>Keep these scanned documents ready (all under 1 MB each):</p>
+    <ol>
+      <li>Aadhaar Card (Front & Back) - JPEG format</li>
+      <li>Passport Size Photograph - JPEG format</li>
+      <li>Graduation Marksheet/Degree Certificate - PDF format</li>
+      <li>Caste Certificate (if applicable) - PDF format</li>
+      <li>PwBD Certificate (if applicable) - PDF format</li>
+      <li>PAN Card - JPEG format</li>
+    </ol>
+    
+    <h4>Step 2: Online Registration</h4>
+    <p>Apply through the official portals only:</p>
+    <ul>
+      <li><strong>Primary Portal:</strong> <a href="https://bfsissc.com" target="_blank">https://bfsissc.com</a></li>
+      <li><strong>Bank Website:</strong> <a href="https://www.pnb.bank.in/Recruitments.aspx" target="_blank">https://www.pnb.bank.in/Recruitments.aspx</a></li>
+    </ul>
+    <p>Navigate to: Employment Opportunities → Apprenticeship Opportunities → Punjab National Bank → PNB Apprenticeship Program 2025-26</p>
+    
+    <h4>Step 3: Mandatory Portal Registrations</h4>
+    <p><strong>NAPS Registration (Mandatory for all):</strong></p>
+    <ul>
+      <li>Register on <a href="https://www.apprenticeshipindia.gov.in" target="_blank">https://www.apprenticeshipindia.gov.in</a></li>
+      <li>Use the same email and mobile number as BFSI SSC registration</li>
+      <li>Search for "Punjab National Bank" and apply</li>
+    </ul>
+    
+    <p><strong>NATS Registration (For graduates passed after 01.01.2022):</strong></p>
+    <ul>
+      <li>Register on <a href="https://nats.education.gov.in" target="_blank">https://nats.education.gov.in</a></li>
+      <li>Apply for "Apprenticeship with Punjab National Bank"</li>
+    </ul>
+    
+    <h4>Step 4: Fee Payment</h4>
+    <p>Application fees are non-refundable and must be paid online (08-24 Feb 2026):</p>
+    <table>
+      <tr>
+        <th><strong>Category</strong></th>
+        <th><strong>Total Fee (Incl. GST)</strong></th>
+        <th><strong>Breakdown</strong></th>
+      </tr>
+      <tr>
+        <td>GEN/OBC/EWS (Male)</td>
+        <td>₹944</td>
+        <td>₹800 + 18% GST</td>
+      </tr>
+      <tr>
+        <td>GEN/OBC/EWS (Female)</td>
+        <td>₹708</td>
+        <td>₹600 + 18% GST</td>
+      </tr>
+      <tr>
+        <td>SC/ST/PwBD/Transgender</td>
+        <td>₹236</td>
+        <td>₹200 + 18% GST</td>
+      </tr>
+    </table>
+    
+    <h3>Selection Process: 4 Crucial Stages</h3>
+    
+    <h4>1. Online Written Examination</h4>
+    <p>The computer-based test will consist of 100 MCQs (100 marks total, 60 minutes duration):</p>
+    <table>
+      <tr>
+        <th><strong>Section</strong></th>
+        <th><strong>Questions</strong></th>
+        <th><strong>Marks</strong></th>
+      </tr>
+      <tr>
+        <td>General/Financial Awareness</td>
+        <td>25</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>General English</td>
+        <td>25</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>Quantitative & Reasoning Aptitude</td>
+        <td>25</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>Computer Knowledge</td>
+        <td>25</td>
+        <td>25</td>
+      </tr>
+    </table>
+    <p><strong>Key Points:</strong></p>
+    <ul>
+      <li>Minimum aggregate marks required (with 5% relaxation for SC/ST/OBC/PwBD)</li>
+      <li>No minimum marks for individual subjects</li>
+      <li>Exam conducted in English/Hindi</li>
+      <li>Merit-based selection with age as tie-breaker</li>
+    </ul>
+    
+    <h4>2. Document Verification</h4>
+    <p>Shortlisted candidates must produce original documents including:</p>
+    <ul>
+      <li>Printout of online application with call letter</li>
+      <li>Date of Birth proof (10th certificate/birth certificate)</li>
+      <li>Photo ID proof (Aadhaar, PAN, Voter ID, etc.)</li>
+      <li>All graduation mark sheets and degree certificate</li>
+      <li>Caste/EWS/PwBD certificates (if applicable) in prescribed format</li>
+    </ul>
+    
+    <h4>3. Local Language Test</h4>
+    <p>Candidates must be proficient in the local language of the applied state. Exemption for candidates with 10th/12th marksheet showing study of that language.</p>
+    
+    <h4>4. Medical Examination</h4>
+    <p>Final engagement is subject to medical fitness certificate from an MBBS doctor.</p>
+    
+    <h3>Stipend and Training Details</h3>
+    <p>Selected apprentices will receive:</p>
+    <ul>
+      <li><strong>Rural/Semi-Urban/Urban Branches:</strong> ₹12,300 per month</li>
+      <li><strong>Metro Branches:</strong> ₹15,000 per month</li>
+    </ul>
+    <p><strong>Training Duration:</strong> 1 year (2 weeks basic training + 50 weeks on-the-job training)</p>
+    <p><strong>Important Conditions:</strong></p>
+    <ul>
+      <li>Apprentices are NOT bank employees</li>
+      <li>No right to claim employment after training</li>
+      <li>No PF, ESI, bonus, or other employee benefits</li>
+      <li>One casual leave per month of completed apprenticeship</li>
+      <li>No transport/hostel accommodation provided</li>
+    </ul>
+    
+    <h3>Important Instructions & Warnings</h3>
+    <ul>
+      <li><strong>Single Application:</strong> Submit only one application. Multiple applications will lead to disqualification</li>
+      <li><strong>No Changes:</strong> No modification allowed after final submission</li>
+      <li><strong>Keep Credentials Active:</strong> Registered email and mobile must remain active throughout selection</li>
+      <li><strong>Beware of Fraud:</strong> PNB does not charge any fee beyond the published application fee</li>
+      <li><strong>Regular Updates:</strong> Check <a href="https://bfsissc.com" target="_blank">bfsissc.com</a> and <a href="https://www.pnb.bank.in" target="_blank">pnb.bank.in</a> regularly for updates</li>
+    </ul>
+    
+    <h3>Key State-wise Local Language Requirements</h3>
+    <p>Since language proficiency is mandatory, here are key state requirements:</p>
+    <table>
+      <tr>
+        <th><strong>State/UT</strong></th>
+        <th><strong>Required Language(s)</strong></th>
+      </tr>
+      <tr>
+        <td>Andhra Pradesh</td>
+        <td>Telugu / Urdu</td>
+      </tr>
+      <tr>
+        <td>Assam</td>
+        <td>Assamese / Bengali / Bodo</td>
+      </tr>
+      <tr>
+        <td>Bihar</td>
+        <td>Hindi / Urdu</td>
+      </tr>
+      <tr>
+        <td>Gujarat</td>
+        <td>Gujarati</td>
+      </tr>
+      <tr>
+        <td>Karnataka</td>
+        <td>Kannada</td>
+      </tr>
+      <tr>
+        <td>Kerala</td>
+        <td>Malayalam</td>
+      </tr>
+      <tr>
+        <td>Maharashtra</td>
+        <td>Marathi</td>
+      </tr>
+      <tr>
+        <td>Punjab</td>
+        <td>Punjabi / Hindi</td>
+      </tr>
+      <tr>
+        <td>Tamil Nadu</td>
+        <td>Tamil</td>
+      </tr>
+      <tr>
+        <td>West Bengal</td>
+        <td>Bengali / Nepali</td>
+      </tr>
+    </table>
+    
+    <h3>Pro Tips for Successful Application</h3>
+    <ol>
+      <li><strong>Early Application:</strong> Apply well before 24 Feb 2026 to avoid last-minute technical issues</li>
+      <li><strong>Document Verification:</strong> Ensure all certificates are in prescribed formats (see Annexures in notification)</li>
+      <li><strong>Multiple Portal Registration:</strong> Complete BFSI SSC, NAPS, and NATS registrations carefully</li>
+      <li><strong>Exam Preparation:</strong> Focus on banking awareness, basic mathematics, English grammar, and computer fundamentals</li>
+      <li><strong>Local Language:</strong> If not proficient, start learning the required language immediately</li>
+    </ol>
+    
+    <div class="note-box">
+      <strong>Final Reminder:</strong> The PNB Apprenticeship 2025-26 offers a fantastic opportunity for fresh graduates to gain banking experience with a reputable public sector bank. With 5,138 vacancies nationwide, your chances are significant. Start your application process today, ensure all documents are ready, and apply before the deadline of 24 February 2026.
+    </div>
+  `,
+    "faq": [
+      {
+        "question": "What is the last date to apply for PNB Apprenticeship 2025-26?",
+        "answer": "The last date to apply for PNB Apprenticeship 2025-26 is 24 February 2026. The online application portal will be open from 08 February to 24 February 2026. The fee payment must also be completed within this period. No applications will be accepted after the deadline."
+      },
+      {
+        "question": "What is the stipend for PNB Apprentices?",
+        "answer": "PNB Apprentices receive a monthly stipend based on their posting location: ₹12,300 per month for Rural/Semi-Urban/Urban branches and ₹15,000 per month for Metro branches. The stipend is paid monthly after adjusting for any unauthorized absence. No other allowances or benefits are provided to apprentices."
+      },
+      {
+        "question": "Can final year students apply for PNB Apprenticeship?",
+        "answer": "No, final year students cannot apply. Candidates must have already passed their graduation degree, and the result must have been declared on or before 31 December 2025. Those awaiting results are not eligible. Additionally, candidates registered under NATS must have passed graduation within the last 4 years from 01 January 2026."
+      },
+      {
+        "question": "Is there any age relaxation for OBC candidates?",
+        "answer": "Yes, OBC (Non-Creamy Layer) candidates get 3 years of age relaxation. The basic age limit is 20-28 years (as on 01.01.2026), so OBC candidates can apply up to 31 years of age. However, OBC candidates coming under the creamy layer are not entitled to this relaxation and must apply under the Unreserved category."
+      },
+      {
+        "question": "What is the selection process for PNB Apprentices?",
+        "answer": "The selection process involves four stages: 1) Online Written Test (100 MCQs covering General Awareness, English, Quantitative & Reasoning Aptitude, and Computer Knowledge), 2) Document Verification, 3) Local Language Proficiency Test, and 4) Medical Examination. Candidates must clear all stages to be engaged as apprentices."
+      },
+      {
+        "question": "Do PNB Apprentices get a job after training completion?",
+        "answer": "No, PNB Apprentices do not have any right to claim employment in the bank after completing their training. The apprenticeship is purely a training program under the Apprentices Act, 1961. However, the banking experience and certificate can enhance your resume for future banking job applications."
+      }
+    ],
+    "relatedLinks": [
+      {
+        "title": "SBI Apprentice Recruitment 2026",
+        "path": "/sbi-apprentice-recruitment-2026"
+      },
+      {
+        "title": "How to Prepare for Banking Exams",
+        "path": "/banking-exam-preparation-guide"
+      },
+      {
+        "title": "IBPS Clerk Recruitment 2026",
+        "path": "/ibps-clerk-recruitment-2026"
+      },
+      {
+        "title": "Banking Awareness Study Material",
+        "path": "/banking-awareness-study-material"
+      },
+      {
+        "title": "Government Apprenticeship Schemes in India",
+        "path": "/government-apprenticeship-schemes-india"
+      }
+    ]
+  },
+  {
+    "slug": "mp-dccb-officer-recruitment-2026",
+    "title": "MP DCCB Officer Recruitment 2026: Apply for 313 Officer Grade Posts in 38 District Cooperative Banks",
+    "category": "Banking Jobs",
+    "metaTitle": "MP DCCB Officer Recruitment 2026 | 313 Officer Grade Vacancies in 38 District Cooperative Banks",
+    "metaDescription": "MP Rajya Sahakari Bank invites online applications for 313 Officer Grade posts in 38 District Central Cooperative Banks. Apply from 06 Jan to 05 Feb 2026. 7th Pay Scale benefits.",
+    "lastUpdated": "February 2026",
+    "specifications": {
+      "dimensions": "Photo: 4.5cm × 3.5cm | Signature: Black Ink | Documents: As per guidelines",
+      "fileSize": "Photo: 20-50KB | Signature: 10-20KB | Thumb Impression: 20-50KB | Declaration: 50-100KB",
+      "format": "JPEG/JPG for all uploads"
     },
-    {
-      "question": "How many times can I apply for RRB Level 1 Recruitment?",
-      "answer": "You can submit ONLY ONE application to ONE Railway Recruitment Board (RRB). If you apply to multiple RRBs or submit multiple applications to the same RRB, ALL your applications will be rejected, and you may be debarred from future RRB exams. Choose your preferred RRB/Railway zone carefully as this choice cannot be changed later."
+    "content": `
+    <h2>MP DCCB Officer Recruitment 2026: Golden Opportunity in Cooperative Banking</h2>
+    <p>Madhya Pradesh Rajya Sahakari Bank (Apex Bank) has announced a massive recruitment drive for <strong>313 Officer Grade posts</strong> across <strong>38 District Central Cooperative Banks (DCCBs)</strong> in Madhya Pradesh. This is a prestigious opportunity for banking professionals and graduates to secure stable government-sector banking jobs with attractive 7th Pay Scale benefits. With vacancies ranging from Senior Management to Middle Management positions, this recruitment offers diverse career paths in the cooperative banking sector.</p>
+    
+    <h3>Essential Notification Details at a Glance</h3>
+    <p>Before proceeding with your application, here are the critical details every candidate must know:</p>
+    <table>
+      <tr>
+        <th><strong>Particular</strong></th>
+        <th><strong>Details</strong></th>
+      </tr>
+      <tr>
+        <td>Advertisement Reference</td>
+        <td>MPRSB Officer Recruitment 2026</td>
+      </tr>
+      <tr>
+        <td>Total Vacancies</td>
+        <td>313 Officer Grade Posts</td>
+      </tr>
+      <tr>
+        <td>Application Start Date</td>
+        <td>06 January 2026</td>
+      </tr>
+      <tr>
+        <td>Application Last Date</td>
+        <td><strong>05 February 2026</strong></td>
+      </tr>
+      <tr>
+        <td>Fee Payment Period</td>
+        <td>06 Jan - 05 Feb 2026</td>
+      </tr>
+      <tr>
+        <td>Age & Qualification Cut-off</td>
+        <td>30 November 2025</td>
+      </tr>
+      <tr>
+        <td>Number of DCCBs</td>
+        <td>38 District Cooperative Banks</td>
+      </tr>
+      <tr>
+        <td>Pay Scale</td>
+        <td>7th Pay Commission (Level 8-12)</td>
+      </tr>
+    </table>
+    
+    <h3>Post-wise Vacancy Distribution</h3>
+    <p>Here's a detailed breakdown of all 313 vacancies across different officer categories:</p>
+    <table>
+      <tr>
+        <th><strong>Post Name</strong></th>
+        <th><strong>Grade</strong></th>
+        <th><strong>Total Vacancies</strong></th>
+        <th><strong>Key Eligibility</strong></th>
+      </tr>
+      <tr>
+        <td>Computer Programmer</td>
+        <td>Senior Management Grade-2</td>
+        <td>17</td>
+        <td>BE/B.Tech (CS/IT) + 2 years experience</td>
+      </tr>
+      <tr>
+        <td>Financial Analyst</td>
+        <td>Senior Management Grade-2</td>
+        <td>34</td>
+        <td>Graduation + CA/ICWA/MBA + 2 years experience</td>
+      </tr>
+      <tr>
+        <td>Internal Auditor</td>
+        <td>Senior Management Grade-2</td>
+        <td>1</td>
+        <td>Graduation + CA/ICWA/MBA + 2 years experience</td>
+      </tr>
+      <tr>
+        <td>Branch Manager</td>
+        <td>Middle Management Grade-1</td>
+        <td>209</td>
+        <td>Graduation + MBA + 1 year experience</td>
+      </tr>
+      <tr>
+        <td>Computer Programmer-2</td>
+        <td>Middle Management Grade-2</td>
+        <td>5</td>
+        <td>BE/B.Tech/B.Sc (CS/IT) + 2 years experience</td>
+      </tr>
+      <tr>
+        <td>Accountant</td>
+        <td>Middle Management Grade-2</td>
+        <td>47</td>
+        <td>Graduation + MBA</td>
+      </tr>
+    </table>
+    
+    <h3>Eligibility Criteria: Check If You Qualify</h3>
+    
+    <h4>1. Nationality/Citizenship</h4>
+    <p>You must be an Indian citizen to apply for these positions.</p>
+    
+    <h4>2. Age Limit (as on 30.11.2025)</h4>
+    <p>The basic age requirement is 18 to 35 years (born between 01.12.1990 and 30.11.2007). Age relaxation is available for Madhya Pradesh domicile candidates:</p>
+    <table>
+      <tr>
+        <th><strong>Category</strong></th>
+        <th><strong>Age Relaxation</strong></th>
+        <th><strong>Maximum Age Limit</strong></th>
+      </tr>
+      <tr>
+        <td>Female Candidates</td>
+        <td>5 Years</td>
+        <td>40 Years</td>
+      </tr>
+      <tr>
+        <td>Scheduled Caste/Scheduled Tribe</td>
+        <td>5 Years</td>
+        <td>40 Years</td>
+      </tr>
+      <tr>
+        <td>Other Backward Classes</td>
+        <td>5 Years</td>
+        <td>40 Years</td>
+      </tr>
+      <tr>
+        <td>Persons With Benchmark Disabilities</td>
+        <td>5 Years</td>
+        <td>40 Years</td>
+      </tr>
+      <tr>
+        <td>Existing Bank Employees (MP)</td>
+        <td>5 Years</td>
+        <td>40 Years</td>
+      </tr>
+      <tr>
+        <td>Ex-servicemen/Home Guard</td>
+        <td>5 Years</td>
+        <td>40 Years</td>
+      </tr>
+    </table>
+    <p><strong>Important:</strong> Age relaxation benefits are only for candidates with valid Madhya Pradesh domicile certificates. Relaxations cannot be combined.</p>
+    
+    <h4>3. Educational Qualification & Experience</h4>
+    <p>Each post has specific educational and experience requirements:</p>
+    <table>
+      <tr>
+        <th><strong>Post</strong></th>
+        <th><strong>Educational Qualification</strong></th>
+        <th><strong>Experience Required</strong></th>
+      </tr>
+      <tr>
+        <td>Computer Programmer (SMG-2)</td>
+        <td>BE/B.Tech (CS/IT) or M.Sc (CS/IT) or MCA</td>
+        <td>2 years programming experience</td>
+      </tr>
+      <tr>
+        <td>Financial Analyst (SMG-2)</td>
+        <td>1st Class Graduate or 2nd Class PG or MBA/CA/ICWA</td>
+        <td>2 years relevant experience in RBI licensed organization</td>
+      </tr>
+      <tr>
+        <td>Internal Auditor (SMG-2)</td>
+        <td>1st Class Graduate or 2nd Class PG or MBA/CA/ICWA</td>
+        <td>2 years relevant experience in RBI licensed organization</td>
+      </tr>
+      <tr>
+        <td>Branch Manager (MMG-1)</td>
+        <td>1st Class Graduate or 2nd Class PG or MBA</td>
+        <td>1 year relevant experience in RBI licensed organization</td>
+      </tr>
+      <tr>
+        <td>Computer Programmer-2 (MMG-2)</td>
+        <td>BE/B.Tech/B.Sc (CS/IT) or M.Sc (CS/IT) or MCA</td>
+        <td>2 years programming experience</td>
+      </tr>
+      <tr>
+        <td>Accountant (MMG-2)</td>
+        <td>1st Class Graduate or 2nd Class PG or MBA</td>
+        <td>No experience mentioned</td>
+      </tr>
+    </table>
+    <p><strong>Note:</strong> All qualifications must be from recognized universities. Final results must be declared on or before 30.11.2025.</p>
+    
+    <h3>Major District-wise Vacancy Highlights</h3>
+    <p>Here are key districts with significant vacancies:</p>
+    <ul>
+      <li><strong>Khargone DCCB:</strong> 21 vacancies (Highest for Branch Manager)</li>
+      <li><strong>Shahdol DCCB:</strong> 18 vacancies</li>
+      <li><strong>Mandla DCCB:</strong> 20 vacancies</li>
+      <li><strong>Indore DCCB:</strong> 8 vacancies</li>
+      <li><strong>Ujjain DCCB:</strong> 10 vacancies</li>
+      <li><strong>Bhopal DCCB:</strong> 2 vacancies</li>
+      <li><strong>Jabalpur DCCB:</strong> 8 vacancies</li>
+      <li><strong>Gwalior DCCB:</strong> 6 vacancies</li>
+    </ul>
+    <p>Each DCCB has specific category-wise vacancies. Candidates should check the detailed district-wise tables in the official notification before applying.</p>
+    
+    <h3>Step-by-Step Application Process</h3>
+    <p>Follow these steps carefully to ensure successful application submission:</p>
+    
+    <h4>Step 1: Document Preparation</h4>
+    <p>Keep these scanned documents ready as per specifications:</p>
+    <ol>
+      <li><strong>Photograph:</strong> Recent passport size (4.5cm × 3.5cm, 20-50KB, JPEG)</li>
+      <li><strong>Signature:</strong> Black ink on white paper (10-20KB, JPEG)</li>
+      <li><strong>Left Thumb Impression:</strong> Black/blue ink on white paper (20-50KB, JPEG)</li>
+      <li><strong>Handwritten Declaration:</strong> English, black ink on white paper (50-100KB, JPEG)</li>
+      <li><strong>Educational Certificates:</strong> For verification during interview</li>
+      <li><strong>Caste/Domicile Certificates:</strong> For reserved category candidates</li>
+    </ol>
+    
+    <h4>Step 2: Online Registration</h4>
+    <p>Apply only through the official website:</p>
+    <ul>
+      <li><strong>Official Website:</strong> <a href="https://www.apexbankmp.bank.in" target="_blank">https://www.apexbankmp.bank.in</a></li>
+      <li><strong>Application Period:</strong> 06 January to 05 February 2026</li>
+      <li><strong>Important:</strong> Candidates can apply for ONLY ONE DISTRICT BANK and ONE POST</li>
+    </ul>
+    
+    <h4>Step 3: Fee Payment (06 Jan - 05 Feb 2026)</h4>
+    <p>Application fees are non-refundable and must be paid online:</p>
+    <table>
+      <tr>
+        <th><strong>Category</strong></th>
+        <th><strong>Total Fee (Incl. GST)</strong></th>
+        <th><strong>Breakdown</strong></th>
+      </tr>
+      <tr>
+        <td>General/OBC/EWS Candidates</td>
+        <td>₹1,298</td>
+        <td>₹1,100 + 18% GST</td>
+      </tr>
+      <tr>
+        <td>SC/ST/PwBD Candidates</td>
+        <td>₹944</td>
+        <td>₹800 + 18% GST</td>
+      </tr>
+    </table>
+    <p>Payment modes: Debit Cards, Credit Cards, Internet Banking, IMPS, Mobile Wallets</p>
+    
+    <h3>Selection Process: 2 Crucial Stages</h3>
+    
+    <h4>1. Online Written Examination</h4>
+    <p>The computer-based test will be conducted separately for different grade posts:</p>
+    
+    <p><strong>For Senior Management Grade-2:</strong> (200 questions, 140 minutes)</p>
+    <table>
+      <tr>
+        <th><strong>Section</strong></th>
+        <th><strong>Questions</strong></th>
+        <th><strong>Marks</strong></th>
+        <th><strong>Time</strong></th>
+      </tr>
+      <tr>
+        <td>Professional Knowledge</td>
+        <td>40</td>
+        <td>40</td>
+        <td>30 min</td>
+      </tr>
+      <tr>
+        <td>Reasoning</td>
+        <td>40</td>
+        <td>40</td>
+        <td>30 min</td>
+      </tr>
+      <tr>
+        <td>English Language</td>
+        <td>40</td>
+        <td>40</td>
+        <td>30 min</td>
+      </tr>
+      <tr>
+        <td>General Awareness</td>
+        <td>40</td>
+        <td>40</td>
+        <td>20 min</td>
+      </tr>
+      <tr>
+        <td>Quantitative Aptitude</td>
+        <td>40</td>
+        <td>40</td>
+        <td>30 min</td>
+      </tr>
+    </table>
+    
+    <p><strong>For Middle Management Grade-1 & 2:</strong> (200 questions, 140 minutes)</p>
+    <table>
+      <tr>
+        <th><strong>Section</strong></th>
+        <th><strong>Questions</strong></th>
+        <th><strong>Marks</strong></th>
+        <th><strong>Time</strong></th>
+      </tr>
+      <tr>
+        <td>Computer Knowledge</td>
+        <td>40</td>
+        <td>40</td>
+        <td>25 min</td>
+      </tr>
+      <tr>
+        <td>Reasoning</td>
+        <td>40</td>
+        <td>40</td>
+        <td>30 min</td>
+      </tr>
+      <tr>
+        <td>English Language</td>
+        <td>40</td>
+        <td>40</td>
+        <td>30 min</td>
+      </tr>
+      <tr>
+        <td>General Awareness</td>
+        <td>40</td>
+        <td>40</td>
+        <td>25 min</td>
+      </tr>
+      <tr>
+        <td>Quantitative Aptitude</td>
+        <td>40</td>
+        <td>40</td>
+        <td>30 min</td>
+      </tr>
+    </table>
+    
+    <p><strong>Key Examination Details:</strong></p>
+    <ul>
+      <li>Negative marking: 0.25 marks for each wrong answer</li>
+      <li>Question paper in English and Hindi</li>
+      <li>For each post, top 3 candidates will be called for interview</li>
+      <li>EWS candidates get 10% relaxation in cutoff (MP domicile only)</li>
+      <li>Minimum 10 times applications required for each post to conduct exam</li>
+    </ul>
+    
+    <h4>2. Personal Interview</h4>
+    <p>Shortlisted candidates will face personal interview (20 marks):</p>
+    <ul>
+      <li><strong>SMG-2:</strong> Minimum 40% in Professional Knowledge + 40% overall in online exam</li>
+      <li><strong>MMG-1 & 2:</strong> Minimum 40% overall in online exam</li>
+      <li>Interview will be conducted at respective DCCBs</li>
+      <li>Original documents verification during interview</li>
+    </ul>
+    
+    <h3>Pay Scale and Benefits</h3>
+    <p>Selected officers will receive attractive salaries as per 7th Pay Commission:</p>
+    <table>
+      <tr>
+        <th><strong>Grade</strong></th>
+        <th><strong>Pay Scale (Most DCCBs)</strong></th>
+        <th><strong>Level</strong></th>
+      </tr>
+      <tr>
+        <td>Senior Management Grade-2</td>
+        <td>₹42,700 - ₹1,35,100</td>
+        <td>Level 10</td>
+      </tr>
+      <tr>
+        <td>Middle Management Grade-1</td>
+        <td>₹36,200 - ₹1,14,800</td>
+        <td>Level 9</td>
+      </tr>
+      <tr>
+        <td>Middle Management Grade-2</td>
+        <td>₹32,800 - ₹1,03,600</td>
+        <td>Level 8</td>
+      </tr>
+    </table>
+    <p><strong>Note:</strong> Khargone DCCB offers higher scales (Level 10-12). Some DCCBs follow 6th Pay Commission.</p>
+    
+    <h3>Examination Centers</h3>
+    <p>Candidates must select 4 centers from these options:</p>
+    <ol>
+      <li>Bhopal</li>
+      <li>Gwalior</li>
+      <li>Indore</li>
+      <li>Jabalpur</li>
+      <li>Sagar</li>
+      <li>Ujjain</li>
+      <li>Satna</li>
+    </ol>
+    
+    <h3>Important Instructions & Warnings</h3>
+    <ul>
+      <li><strong>Single Application:</strong> Apply for only one district bank and one post. Multiple applications will lead to disqualification</li>
+      <li><strong>MP Domicile Required:</strong> Reservation benefits only for candidates with valid MP domicile certificate</li>
+      <li><strong>OBC Certificate:</strong> Non-creamy layer certificate issued within 1 year from application date</li>
+      <li><strong>Document Verification:</strong> All original documents must be produced at interview</li>
+      <li><strong>Probation Period:</strong> 12 months (extendable up to 24 months)</li>
+      <li><strong>Service Bond:</strong> Minimum 5 years service mandatory</li>
+      <li><strong>Regular Updates:</strong> Check <a href="https://www.apexbankmp.bank.in" target="_blank">apexbankmp.bank.in</a> regularly</li>
+    </ul>
+    
+    <h3>Key DCCBs with Maximum Vacancies</h3>
+    <table>
+      <tr>
+        <th><strong>DCCB Name</strong></th>
+        <th><strong>Total Posts</strong></th>
+        <th><strong>Key Positions</strong></th>
+      </tr>
+      <tr>
+        <td>Khargone DCCB</td>
+        <td>21</td>
+        <td>Branch Manager (20), Financial Analyst (1)</td>
+      </tr>
+      <tr>
+        <td>Shahdol DCCB</td>
+        <td>18</td>
+        <td>Accountant (10), Branch Manager (7), Financial Analyst (1)</td>
+      </tr>
+      <tr>
+        <td>Mandla DCCB</td>
+        <td>20</td>
+        <td>Accountant (14), Branch Manager (6)</td>
+      </tr>
+      <tr>
+        <td>Ujjain DCCB</td>
+        <td>10</td>
+        <td>Branch Manager (8), Computer Programmer (1), Financial Analyst (1)</td>
+      </tr>
+      <tr>
+        <td>Indore DCCB</td>
+        <td>8</td>
+        <td>Branch Manager (7), Financial Analyst (1)</td>
+      </tr>
+    </table>
+    
+    <h3>Pro Tips for Successful Application</h3>
+    <ol>
+      <li><strong>Early Application:</strong> Apply well before 05 Feb 2026 to avoid last-minute technical issues</li>
+      <li><strong>Document Preparation:</strong> Ensure all certificates (caste, domicile, experience) are in prescribed formats</li>
+      <li><strong>Photo/Signature Quality:</strong> Strictly follow size and format specifications to avoid rejection</li>
+      <li><strong>Exam Preparation:</strong> Focus on professional knowledge, banking awareness, and quantitative aptitude</li>
+      <li><strong>District Choice:</strong> Research district-wise vacancies before selecting your preferred DCCB</li>
+      <li><strong>Reservation Documents:</strong> EWS/OBC/SC/ST candidates must have valid MP certificates</li>
+    </ol>
+    
+    <div class="note-box">
+      <strong>Final Reminder:</strong> The MP DCCB Officer Recruitment 2026 offers 313 regular officer posts with attractive 7th Pay Commission benefits. This is a rare opportunity to secure a permanent banking position in Madhya Pradesh's cooperative banking sector. With applications open from 06 January to 05 February 2026, ensure you complete all requirements and submit your application before the deadline.
+    </div>
+  `,
+    "faq": [
+      {
+        "question": "What is the last date to apply for MP DCCB Officer Recruitment 2026?",
+        "answer": "The last date to apply for MP DCCB Officer Recruitment 2026 is 05 February 2026. The online application portal will be open from 06 January 2026 to 05 February 2026. The fee payment must also be completed within this period. No applications will be accepted after the deadline."
+      },
+      {
+        "question": "Can I apply for multiple DCCBs or multiple posts?",
+        "answer": "No, candidates can apply for ONLY ONE DISTRICT BANK and ONLY ONE POST. If a candidate applies for more than one post or district bank, only the latest application will be considered and all previous applications will be rejected. Choose your preferred DCCB and post carefully before applying."
+      },
+      {
+        "question": "What is the selection process for MP DCCB Officer posts?",
+        "answer": "The selection process involves two stages: 1) Online Written Examination (200 marks) covering different subjects based on the grade, and 2) Personal Interview (20 marks). For each post, the top 3 candidates from the online exam will be called for interview. Final selection is based on combined marks of online exam and interview."
+      },
+      {
+        "question": "Is MP domicile mandatory for all candidates?",
+        "answer": "MP domicile is mandatory ONLY for candidates seeking reservation benefits and age relaxation. General category candidates without reservation claims can apply without MP domicile. However, SC/ST/OBC/EWS/PwBD candidates must possess valid MP domicile certificate to avail reservation benefits."
+      },
+      {
+        "question": "What is the pay scale for Branch Manager position?",
+        "answer": "For most DCCBs, Branch Manager (Middle Management Grade-1) receives pay scale of ₹36,200 - ₹1,14,800 (Level 9, 7th Pay Commission). However, Khargone DCCB offers higher scale of ₹49,100 - ₹1,55,800 (Level 11), while some DCCBs follow 6th Pay Commission (₹9,300-34,800 + ₹3,600 GP)."
+      },
+      {
+        "question": "Is there any bond period after selection?",
+        "answer": "Yes, selected candidates must serve the appointed DCCB for a minimum period of five years from the date of appointment. If a candidate fails to complete this tenure, they will have to deposit the entire expenditure incurred on their training. This bond is strictly enforced."
+      }
+    ],
+    "relatedLinks": [
+      {
+        "title": "IBPS SO Recruitment 2026",
+        "path": "/ibps-so-recruitment-2026"
+      },
+      {
+        "title": "RBI Grade B Officer Recruitment",
+        "path": "/rbi-grade-b-recruitment"
+      },
+      {
+        "title": "NABARD Grade A Exam Guide",
+        "path": "/nabard-grade-a-exam-guide"
+      },
+      {
+        "title": "Cooperative Bank Exams Preparation",
+        "path": "/cooperative-bank-exams-preparation"
+      },
+      {
+        "title": "Banking Interview Questions & Answers",
+        "path": "/banking-interview-questions-answers"
+      }
+    ]
+  },
+  {
+    "slug": "bihar-inter-level-exam-2025",
+    "title": "Bihar Inter Level Combined Competitive Examination 2025: Apply for 23175 Posts",
+    "category": "Government Jobs",
+    "metaTitle": "Bihar SSC Inter Level Exam 2025 | 23175 Lower Division Clerk & Other Posts | Apply Online",
+    "metaDescription": "Bihar Staff Selection Commission invites online applications for 23175 Inter Level posts in various departments. Application dates: 15 Oct - 27 Nov 2025. Pay Level 2-4.",
+    "lastUpdated": "October 2025",
+    "specifications": {
+      "dimensions": "Photo: Passport Size | Signature: Clear scan",
+      "fileSize": "As per online form specifications",
+      "format": "JPEG/PDF for documents"
     },
-    {
-      "question": "Is there negative marking in the RRB Level 1 CBT?",
-      "answer": "Yes, there is negative marking in the Computer Based Test. For each wrong answer, ⅓ mark will be deducted from your total score. There is no negative marking for unanswered questions. This makes accuracy crucial - avoid random guessing if you're unsure of the correct answer."
-    },
-    {
-      "question": "What is the salary for RRB Level 1 posts after 7th Pay Commission?",
-      "answer": "The initial pay for RRB Level 1 posts is ₹18,000/- per month as per Level 1 of the 7th CPC Pay Matrix. In addition to basic pay, employees receive various allowances including Dearness Allowance (DA), House Rent Allowance (HRA), Transport Allowance, and other benefits as per railway rules. The approximate in-hand salary starts from ₹25,000-30,000 depending on location and allowances."
-    },
-    {
-      "question": "Can candidates with glasses apply for all RRB Level 1 posts?",
-      "answer": "No, candidates with glasses cannot apply for posts with A-2 medical standard (like Pointsman) which require perfect vision without glasses (6/9, 6/9). However, they can apply for posts with A-3, B-1, or C-1 medical standards which allow vision correction. Always check Annexure-A of the notification for the specific medical standard of each post. Candidates who have undergone LASIK surgery are not eligible for A-2 and A-3 posts."
-    }
-  ],
-  "relatedLinks": [
-    {
-      "title": "RRB ALP Technician Recruitment 2026",
-      "path": "/rrb-alp-technician-recruitment-2026"
-    },
-    {
-      "title": "How to Prepare for Railway Group D Exams",
-      "path": "/railway-group-d-exam-preparation-guide"
-    },
-    {
-      "title": "SSC GD Constable Recruitment 2026",
-      "path": "/ssc-gd-constable-recruitment-2026"
-    },
-    {
-      "title": "Free Online Test Series for Government Exams",
-      "path": "/free-online-test-series-government-exams"
-    },
-    {
-      "title": "Documents Required for Government Job Applications",
-      "path": "/documents-required-government-job-application"
-    }
-  ]
-},
+    "content": `
+    <h2>Bihar Inter Level Combined Competitive Examination 2025: Massive Recruitment Opportunity</h2>
+    <p>Bihar Staff Selection Commission (BSSC) has announced a massive recruitment drive for <strong>23,175 Inter Level posts</strong> across various departments of Bihar Government. This is the Second Inter Level Combined Competitive Examination (Advertisement No. 02/23(A)) offering opportunities for candidates with Intermediate qualification. With vacancies spread across multiple departments including Panchayati Raj, Revenue, Home, and others, this is one of the largest government job recruitments in Bihar.</p>
+    
+    <h3>Essential Notification Details at a Glance</h3>
+    <p>Here are the critical details every candidate must know before applying:</p>
+    <table>
+      <tr>
+        <th><strong>Particular</strong></th>
+        <th><strong>Details</strong></th>
+      </tr>
+      <tr>
+        <td>Advertisement Number</td>
+        <td>02/23(A) (Revised Advertisement)</td>
+      </tr>
+      <tr>
+        <td>Total Vacancies</td>
+        <td>23,175 Inter Level Posts</td>
+      </tr>
+      <tr>
+        <td>Online Registration Start Date</td>
+        <td>15 October 2025</td>
+      </tr>
+      <tr>
+        <td>Online Registration Last Date</td>
+        <td><strong>27 November 2025</strong> (11:59 PM Server Time)</td>
+      </tr>
+      <tr>
+        <td>Fee Payment Last Date</td>
+        <td>25 November 2025</td>
+      </tr>
+      <tr>
+        <td>Age & Qualification Cut-off</td>
+        <td>01 August 2025</td>
+      </tr>
+      <tr>
+        <td>Examination Fee</td>
+        <td>₹100 + Processing Charges</td>
+      </tr>
+      <tr>
+        <td>Pay Scale</td>
+        <td>Level 2, 3, 4 (7th Pay Commission)</td>
+      </tr>
+    </table>
+    
+    <h3>Major Post-wise Vacancy Distribution</h3>
+    <p>Here are the key posts with significant vacancies:</p>
+    <table>
+      <tr>
+        <th><strong>Post Name</strong></th>
+        <th><strong>Department</strong></th>
+        <th><strong>Total Vacancies</strong></th>
+        <th><strong>Pay Level</strong></th>
+      </tr>
+      <tr>
+        <td>Lower Division Clerk (LDC)</td>
+        <td>Panchayati Raj Department</td>
+        <td>8,298</td>
+        <td>Level 2</td>
+      </tr>
+      <tr>
+        <td>Panchayat Secretary</td>
+        <td>Panchayati Raj Department</td>
+        <td>3,559</td>
+        <td>Level 3</td>
+      </tr>
+      <tr>
+        <td>Lower Division Clerk (LDC)</td>
+        <td>Urban Development Department</td>
+        <td>2,039</td>
+        <td>Level 2</td>
+      </tr>
+      <tr>
+        <td>Revenue Employee</td>
+        <td>Revenue & Land Reforms Dept</td>
+        <td>1,746</td>
+        <td>Level 2</td>
+      </tr>
+      <tr>
+        <td>Lower Division Clerk (LDC)</td>
+        <td>Various Departments</td>
+        <td>7,533 (Combined)</td>
+        <td>Level 2</td>
+      </tr>
+      <tr>
+        <td>Livestock Assistant</td>
+        <td>Animal & Fisheries Dept</td>
+        <td>528</td>
+        <td>Level 2</td>
+      </tr>
+    </table>
+    
+    <h3>Eligibility Criteria: Check If You Qualify</h3>
+    
+    <h4>1. Nationality/Citizenship</h4>
+    <p>You must be an Indian citizen to apply.</p>
+    
+    <h4>2. Age Limit (as on 01.08.2025)</h4>
+    <p>The age requirements vary by category:</p>
+    <table>
+      <tr>
+        <th><strong>Category</strong></th>
+        <th><strong>Maximum Age Limit</strong></th>
+        <th><strong>Remarks</strong></th>
+      </tr>
+      <tr>
+        <td>Unreserved (Male)</td>
+        <td>37 Years</td>
+        <td>Born on/after 02.08.1988</td>
+      </tr>
+      <tr>
+        <td>Unreserved (Female)</td>
+        <td>40 Years</td>
+        <td>Born on/after 02.08.1985</td>
+      </tr>
+      <tr>
+        <td>OBC & EBC (Male/Female)</td>
+        <td>40 Years</td>
+        <td>Born on/after 02.08.1985</td>
+      </tr>
+      <tr>
+        <td>SC/ST (Male/Female)</td>
+        <td>42 Years</td>
+        <td>Born on/after 02.08.1983</td>
+      </tr>
+      <tr>
+        <td>PwBD (All Categories)</td>
+        <td>Additional 10 years relaxation</td>
+        <td>Over and above category limit</td>
+      </tr>
+    </table>
+    <p><strong>Age Relaxation:</strong> Ex-servicemen get 3 years + service period, NCC instructors get relaxation, and government servants get 5 years relaxation (maximum 5 attempts after joining service).</p>
+    
+    <h4>3. Educational Qualification</h4>
+    <p>The basic requirement for all posts is:</p>
+    <ul>
+      <li><strong>Essential:</strong> Intermediate (10+2) or equivalent from a recognized board</li>
+      <li><strong>Technical Qualification:</strong> For most LDC posts - Computer operation and computer typing knowledge (Hindi/English)</li>
+      <li><strong>Additional Requirements:</strong> Some posts require specific subjects (e.g., Mathematics/Economics for Statistics Dept, Biology for Livestock Assistant)</li>
+      <li><strong>Note:</strong> All qualifications must be obtained before the last date of application submission</li>
+    </ul>
+    
+    <h3>Major Department-wise Vacancy Highlights</h3>
+    <p>Here are departments with maximum vacancies:</p>
+    <ul>
+      <li><strong>Panchayati Raj Department:</strong> 11,857 vacancies (Largest allocation)</li>
+      <li><strong>Revenue & Land Reforms Department:</strong> 1,746 vacancies</li>
+      <li><strong>Urban Development Department:</strong> 2,039 vacancies</li>
+      <li><strong>Home Department:</strong> 1,329 vacancies (Combined)</li>
+      <li><strong>Animal & Fisheries Resources Department:</strong> 548 vacancies</li>
+      <li><strong>Labour Resources Department:</strong> 530 vacancies</li>
+      <li><strong>Planning & Development Department:</strong> 534 vacancies</li>
+      <li><strong>Scheduled Caste & Tribe Welfare Department:</strong> 309 vacancies</li>
+    </ul>
+    
+    <h3>Step-by-Step Application Process</h3>
+    <p>Follow these steps carefully for successful application:</p>
+    
+    <h4>Step 1: Document Preparation</h4>
+    <p>Keep these documents ready for online application:</p>
+    <ol>
+      <li><strong>Matriculation Certificate:</strong> For date of birth proof</li>
+      <li><strong>Intermediate Marksheet & Certificate:</strong> Educational qualification proof</li>
+      <li><strong>Computer/Typing Certificate:</strong> If applicable</li>
+      <li><strong>Category Certificate:</strong> SC/ST/OBC/EBC/PwBD as applicable</li>
+      <li><strong>Domicile Certificate:</strong> For reservation benefits</li>
+      <li><strong>Income & Asset Certificate:</strong> For EWS category</li>
+      <li><strong>Freedom Fighter Certificate:</strong> For FF quota candidates</li>
+      <li><strong>Passport Size Photo:</strong> Recent photograph</li>
+      <li><strong>Signature:</strong> Scanned signature</li>
+    </ol>
+    
+    <h4>Step 2: Online Registration</h4>
+    <p>Apply only through the official website:</p>
+    <ul>
+      <li><strong>Official Website:</strong> <a href="https://bssc.bihar.gov.in" target="_blank">https://bssc.bihar.gov.in</a></li>
+      <li><strong>Registration Period:</strong> 15 October to 27 November 2025</li>
+      <li><strong>Important:</strong> Candidates who applied under Advt. No. 02/23 need NOT apply again</li>
+    </ul>
+    
+    <h4>Step 3: Fee Payment (15 Oct - 25 Nov 2025)</h4>
+    <p>Examination fee is nominal:</p>
+    <table>
+      <tr>
+        <th><strong>Particular</strong></th>
+        <th><strong>Amount</strong></th>
+      </tr>
+      <tr>
+        <td>Examination Fee for All Candidates</td>
+        <td>₹100</td>
+      </tr>
+      <tr>
+        <td>Processing Charges</td>
+        <td>Additional (as applicable)</td>
+      </tr>
+      <tr>
+        <td>Service Tax</td>
+        <td>Additional (as applicable)</td>
+      </tr>
+    </table>
+    <p>Payment modes: Credit Card, Debit Card, UPI, Net Banking</p>
+    
+    <h3>Selection Process: Multiple Stages</h3>
+    
+    <h4>1. Preliminary Examination (Objective Type)</h4>
+    <p>Will be conducted if applications exceed 40,000:</p>
+    <table>
+      <tr>
+        <th><strong>Section</strong></th>
+        <th><strong>Topics</strong></th>
+        <th><strong>Questions</strong></th>
+        <th><strong>Marks</strong></th>
+      </tr>
+      <tr>
+        <td>General Studies</td>
+        <td>Current affairs, History, Geography, Polity, Economy, Bihar's contribution</td>
+        <td>50</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>General Science & Mathematics</td>
+        <td>Physics, Chemistry, Biology, Geography, Arithmetic</td>
+        <td>50</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>Mental Ability Test</td>
+        <td>Reasoning, Comprehension, Logic, Analogy, Series</td>
+        <td>50</td>
+        <td>200</td>
+      </tr>
+    </table>
+    <p><strong>Total:</strong> 150 questions, 600 marks, 2 hours 15 minutes duration</p>
+    <p><strong>Marking Scheme:</strong> +4 for correct answer, -1 for wrong answer</p>
+    <p><strong>Book Allowed:</strong> Candidates can carry NCERT/State Board textbooks (one book per section)</p>
+    
+    <h4>2. Main Examination</h4>
+    <p>Top 5 times candidates from each category will qualify for Main Exam. Separate advertisement will be issued.</p>
+    
+    <h4>3. Typing/Computer Test</h4>
+    <p>Qualified candidates will undergo typing/computer skill test as per post requirements.</p>
+    
+    <h4>4. Document Verification</h4>
+    <p>Final selection subject to verification of all original documents.</p>
+    
+    <h3>Minimum Qualifying Marks</h3>
+    <table>
+      <tr>
+        <th><strong>Category</strong></th>
+        <th><strong>Qualifying Marks</strong></th>
+      </tr>
+      <tr>
+        <td>General Category</td>
+        <td>40%</td>
+      </tr>
+      <tr>
+        <td>OBC Category</td>
+        <td>36.5%</td>
+      </tr>
+      <tr>
+        <td>EBC Category</td>
+        <td>34%</td>
+      </tr>
+      <tr>
+        <td>SC/ST Category</td>
+        <td>32%</td>
+      </tr>
+      <tr>
+        <td>Women (All Categories)</td>
+        <td>32%</td>
+      </tr>
+      <tr>
+        <td>PwBD (All Categories)</td>
+        <td>32%</td>
+      </tr>
+    </table>
+    
+    <h3>Reservation Policy</h3>
+    <p>Reservation as per Bihar Government rules:</p>
+    <ul>
+      <li><strong>Horizontal Reservation:</strong> 35% for women (Bihar domicile only)</li>
+      <li><strong>PwBD Reservation:</strong> 4% horizontal reservation</li>
+      <li><strong>Freedom Fighter Quota:</strong> 2% for grandchildren of freedom fighters</li>
+      <li><strong>EWS Reservation:</strong> 10% for economically weaker sections</li>
+      <li><strong>Important:</strong> Reservation benefits ONLY for Bihar domicile candidates</li>
+      <li><strong>Contract Employees:</strong> Preference marks (up to 25 marks) for contract employees</li>
+    </ul>
+    
+    <h3>Important Instructions</h3>
+    <ul>
+      <li><strong>Single Application:</strong> Submit only one application. Multiple applications will lead to disqualification</li>
+      <li><strong>Bihar Domicile Required:</strong> Reservation benefits only for candidates with valid Bihar domicile certificate</li>
+      <li><strong>OBC Certificate:</strong> Non-creamy layer certificate required for OBC/EBC candidates</li>
+      <li><strong>Married Women:</strong> Caste certificate should be in father's name, not husband's name</li>
+      <li><strong>PwBD Certificate:</strong> Must be issued by Government Medical College/Hospital</li>
+      <li><strong>Biometric Verification:</strong> May be conducted during examination</li>
+      <li><strong>Scribe Facility:</strong> Available for PwBD candidates (indicate in online form)</li>
+      <li><strong>Book-based Exam:</strong> Preliminary exam will be conducted with books (textbooks only)</li>
+    </ul>
+    
+    <h3>Key Posts and Technical Requirements</h3>
+    <table>
+      <tr>
+        <th><strong>Post</strong></th>
+        <th><strong>Technical Requirement</strong></th>
+        <th><strong>Preferred Qualification</strong></th>
+      </tr>
+      <tr>
+        <td>Lower Division Clerk</td>
+        <td>Computer Operation & Typing</td>
+        <td>Hindi/English Typing speed</td>
+      </tr>
+      <tr>
+        <td>Panchayat Secretary</td>
+        <td>Computer Typing & MS Office</td>
+        <td>MS Word, Excel knowledge</td>
+      </tr>
+      <tr>
+        <td>Revenue Employee</td>
+        <td>Computer Operation & Typing</td>
+        <td>Local language proficiency</td>
+      </tr>
+      <tr>
+        <td>Livestock Assistant</td>
+        <td>Intermediate with Biology</td>
+        <td>Science background</td>
+      </tr>
+      <tr>
+        <td>Accountant/Assistant</td>
+        <td>Computer Operation</td>
+        <td>Accounting knowledge</td>
+      </tr>
+    </table>
+    
+    <h3>Pro Tips for Successful Application</h3>
+    <ol>
+      <li><strong>Early Application:</strong> Apply well before 27 Nov 2025 to avoid last-minute technical issues</li>
+      <li><strong>Document Verification:</strong> Ensure all certificates are in prescribed formats</li>
+      <li><strong>Category Selection:</strong> Carefully select correct category as per your certificates</li>
+      <li><strong>Exam Preparation:</strong> Focus on Bihar-specific general knowledge, basic mathematics, and reasoning</li>
+      <li><strong>Book Selection:</strong> For preliminary exam, carry only permitted textbooks (NCERT/State Board)</li>
+      <li><strong>Typing Practice:</strong> Start practicing Hindi and English typing for skill test</li>
+      <li><strong>Regular Updates:</strong> Check <a href="https://bssc.bihar.gov.in" target="_blank">bssc.bihar.gov.in</a> regularly for updates</li>
+    </ol>
+    
+    <div class="note-box">
+      <strong>Final Reminder:</strong> This is one of the largest recruitment drives in Bihar with 23,175 vacancies across various departments. The application process is completely online from 15 October to 27 November 2025. Ensure you have all required documents ready and apply well before the deadline. Candidates who already applied under Advertisement No. 02/23 need not apply again.
+    </div>
+  `,
+    "faq": [
+      {
+        "question": "What is the last date to apply for Bihar Inter Level Exam 2025?",
+        "answer": "The last date to apply for Bihar Inter Level Exam 2025 is 27 November 2025 (11:59 PM Server Time). The online registration starts from 15 October 2025. The fee payment must be completed by 25 November 2025. No applications will be accepted after the deadline."
+      },
+      {
+        "question": "I already applied under Advertisement No. 02/23. Do I need to apply again?",
+        "answer": "No, candidates who have already submitted their online application under Advertisement No. 02/23 need NOT apply again. Their applications will be considered for the revised advertisement 02/23(A) automatically. They will compete for all posts mentioned in the revised advertisement."
+      },
+      {
+        "question": "What is the examination fee for Bihar Inter Level Exam?",
+        "answer": "The examination fee is ₹100 for all candidates, plus processing charges and service tax as applicable. The fee payment can be made online through Credit Card, Debit Card, UPI, or Net Banking from 15 October to 25 November 2025."
+      },
+      {
+        "question": "Is Bihar domicile mandatory for all candidates?",
+        "answer": "Bihar domicile is mandatory ONLY for candidates seeking reservation benefits (SC/ST/OBC/EBC/EWS/Women/PwBD). General category candidates can apply without Bihar domicile, but they will not get any reservation benefits."
+      },
+      {
+        "question": "What is the selection process for Bihar Inter Level posts?",
+        "answer": "The selection process involves: 1) Preliminary Examination (Objective, 150 questions) if applications exceed 40,000, 2) Main Examination for top 5 times candidates from each category, 3) Typing/Computer Skill Test, and 4) Document Verification. Preliminary exam will be conducted with books (textbooks only)."
+      },
+      {
+        "question": "What is the age relaxation for PwBD candidates?",
+        "answer": "Persons with Benchmark Disabilities (PwBD) get additional 10 years age relaxation over and above their category's maximum age limit. For example, an SC PwBD candidate can apply up to 52 years (42+10). The disability certificate must be issued by a Government Medical College/Hospital."
+      }
+    ],
+    "relatedLinks": [
+      {
+        "title": "Bihar BPSC 69th Combined Exam",
+        "path": "/bihar-bpsc-69th-exam"
+      },
+      {
+        "title": "Bihar Police SI Recruitment 2025",
+        "path": "/bihar-police-si-recruitment-2025"
+      },
+      {
+        "title": "SSC CHSL 2025 Recruitment",
+        "path": "/ssc-chsl-recruitment-2025"
+      },
+      {
+        "title": "Bihar Teacher Recruitment 2025",
+        "path": "/bihar-teacher-recruitment-2025"
+      },
+      {
+        "title": "How to Prepare for State SSC Exams",
+        "path": "/state-ssc-exams-preparation"
+      }
+    ]
+  }
 ];
