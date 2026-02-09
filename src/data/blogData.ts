@@ -2190,5 +2190,306 @@ export const blogData: BlogPost[] = [
     { title: "Download Nvidia Studio Drivers", path: "https://www.nvidia.com/Download/driverResults.aspx" },
     { title: "Adobe Creative Cloud Cleaner Tool", path: "/adobe-cc-cleaner-guide" }
   ]
-}
+},
+{
+  "slug": "rrb-level-1-recruitment-2026-cen-09-2025",
+  "title": "RRB Level 1 Recruitment 2026 for 22,195 Posts: Apply Online CEN 09/2025",
+  "category": "Railway Jobs",
+  "metaTitle": "RRB Level 1 Recruitment 2026 | 22195 Vacancies | Apply Online for CEN 09/2025",
+  "metaDescription": "Apply online for RRB Level 1 Recruitment 2026 (CEN 09/2025). 22,195 vacancies across India. Last date: 02 March 2026. Age 18-33 years, 10th pass eligible.",
+  "lastUpdated": "February 2026",
+  "specifications": {
+    "dimensions": "Application Form: Digital Upload | Live Photo Required",
+    "fileSize": "Signature: 30-49 KB | Certificates: Under 400 KB",
+    "format": "JPG/JPEG (Photo & Signature), PDF (Documents)"
+  },
+  "content": `
+    <h2>RRB Level 1 Recruitment 2026: Complete Guide to 22,195 Vacancies (CEN 09/2025)</h2>
+    <p>The Railway Recruitment Boards (RRBs) have launched one of the largest government job drives of 2026. Centralised Employment Notification (CEN) No. 09/2025 announces <strong>22,195 vacancies</strong> for various posts in Level 1 of the 7th Central Pay Commission matrix across all Indian Railway zones. This is a golden opportunity for candidates with a 10th pass or ITI qualification seeking stable employment with attractive benefits in the world's largest railway network.</p>
+    
+    <h3>Key Highlights of RRB Level 1 CEN 09/2025</h3>
+    <p>This recruitment is for multiple technical and non-technical posts including Track Maintainer, Assistant (various departments), Pointsman, and more. The selection offers a starting pay of ₹18,000/- per month plus allowances as per the 7th CPC. With positions available in every corner of the country, this represents one of the most accessible central government employment opportunities.</p>
+    
+    <h3>Important Dates: Mark Your Calendar</h3>
+    <p>Timing is crucial for this recruitment. Missing these deadlines could mean waiting another year for similar opportunities.</p>
+    <ul>
+      <li><strong>Notification Publication:</strong> 27 December 2025 (Employment News)</li>
+      <li><strong>Online Application Start:</strong> 31 January 2026 (00:00 Hours)</li>
+      <li><strong>Last Date to Apply:</strong> 02 March 2026 (23:59 Hours) - Don't wait till last moment!</li>
+      <li><strong>Fee Payment Deadline:</strong> 04 March 2026</li>
+      <li><strong>Application Correction Window:</strong> 05-14 March 2026 (with ₹250 fee per correction)</li>
+      <li><strong>Scribe Registration Window:</strong> 15-19 March 2026 (for eligible PwBD candidates)</li>
+    </ul>
+    <p><em>CBT dates and other recruitment stages will be announced separately on RRB websites.</em></p>
+    
+    <h3>Eligibility Criteria: Check Before You Apply</h3>
+    
+    <h4>Age Limit (as on 01 January 2026)</h4>
+    <p>The basic age requirement is 18-33 years, with relaxations for reserved categories:</p>
+    <ul>
+      <li><strong>UR/EWS:</strong> 18-33 years</li>
+      <li><strong>OBC-NCL:</strong> 18-36 years (3 years relaxation)</li>
+      <li><strong>SC/ST:</strong> 18-38 years (5 years relaxation)</li>
+      <li><strong>PwBD (UR):</strong> 18-43 years</li>
+      <li><strong>PwBD (OBC-NCL):</strong> 18-46 years</li>
+      <li><strong>PwBD (SC/ST):</strong> 18-48 years</li>
+    </ul>
+    <p><strong>Important:</strong> Age relaxation is applicable on only one ground (maximum benefit), not cumulative.</p>
+    
+    <h4>Educational Qualification</h4>
+    <p>The minimum educational requirement is straightforward but strictly enforced:</p>
+    <ul>
+      <li><strong>Essential:</strong> 10th pass (SSLC/Matriculation) <strong>OR</strong> ITI/NAC granted by NCVT</li>
+      <li><strong>Critical Condition:</strong> You must possess the required qualification <strong>on or before 02 March 2026</strong></li>
+      <li><strong>Not Eligible:</strong> Candidates awaiting results of their final examination</li>
+    </ul>
+    
+    <h4>Medical Standards</h4>
+    <p>Different posts have different medical fitness requirements categorized as A-2, A-3, B-1, and C-1. For example:</p>
+    <ul>
+      <li><strong>A-2 (Stringent):</strong> Required for Pointsman - perfect vision without glasses (6/9, 6/9)</li>
+      <li><strong>B-1/C-1 (Relaxed):</strong> For many assistant posts - allows vision correction with glasses</li>
+    </ul>
+    <p><strong>Pro Tip:</strong> Always check Annexure-A of the official notification for the specific medical standard of your desired post. Candidates who have undergone LASIK surgery are <strong>not eligible</strong> for A-2 and A-3 posts.</p>
+    
+    <h3>Application Fee Structure</h3>
+    <p>The application fee is reasonable, with refund provisions for candidates who appear for the CBT:</p>
+    <table>
+      <tr>
+        <th><strong>Category</strong></th>
+        <th><strong>Application Fee</strong></th>
+        <th><strong>Refund After CBT</strong></th>
+      </tr>
+      <tr>
+        <td>General, OBC, EWS</td>
+        <td>₹500</td>
+        <td>₹400 (after bank charges)</td>
+      </tr>
+      <tr>
+        <td>SC, ST, Ex-Servicemen, PwBD, Female, Transgender, Minorities, EBC*</td>
+        <td>₹250</td>
+        <td>Full ₹250 (after bank charges)</td>
+      </tr>
+    </table>
+    <p>*EBC (Economically Backward Class) candidates must have annual family income below ₹50,000 with valid certificate.</p>
+    <p><strong>Payment Mode:</strong> Online only via Net Banking, Credit/Debit Cards, or UPI.</p>
+    
+    <h3>Step-by-Step Application Guide</h3>
+    <p>Follow these steps carefully to avoid application rejection:</p>
+    
+    <h4>Step 1: Account Creation (Most Critical)</h4>
+    <ol>
+      <li>Visit the official RRB website (listed in Para 24.0 of notification)</li>
+      <li>Click "Create an Account" for CEN 09/2025</li>
+      <li>Enter <strong>exact details</strong> as per your 10th certificate: Name, Father's Name, Date of Birth</li>
+      <li>Provide an <strong>active personal mobile number and email</strong> (cannot be changed later)</li>
+      <li><strong>Highly Recommended:</strong> Authenticate using Aadhaar/DigiLocker for faster processing</li>
+    </ol>
+    
+    <h4>Step 2: Live Photo Capture & Signature Upload</h4>
+    <p>This is a <strong>new mandatory feature</strong> introduced this year:</p>
+    <ul>
+      <li><strong>Live Photograph:</strong> System will capture photo via webcam/mobile camera during application
+        <ul>
+          <li>Ensure good lighting, plain background</li>
+          <li>Look straight at camera, neutral expression</li>
+          <li><strong>No spectacles, caps, or masks</strong></li>
+        </ul>
+      </li>
+      <li><strong>Scanned Signature:</strong>
+        <ul>
+          <li>Sign with <strong>black ink on white paper</strong></li>
+          <li>Scan clearly, save as JPG/JPEG (30-49 KB)</li>
+          <li>Dimensions: Minimum 140x60 pixels</li>
+          <li><strong>CRITICAL:</strong> Signature must be in <strong>running handwriting</strong>. BLOCK CAPITAL LETTERS WILL LEAD TO REJECTION</li>
+        </ul>
+      </li>
+    </ul>
+    
+    <h4>Step 3: Form Filling & Final Submission</h4>
+    <ol>
+      <li><strong>Choose ONE RRB/Railway Zone</strong> - This selection is FINAL and cannot be changed</li>
+      <li>Select posts you're eligible for within that Railway</li>
+      <li>Fill all personal, educational, category details accurately</li>
+      <li>Review thoroughly, then proceed to payment</li>
+      <li>Application is complete <strong>only after successful fee payment</strong></li>
+    </ol>
+    
+    <h3>Selection Process: 4 Stages to Your Railway Job</h3>
+    
+    <h4>1. Computer Based Test (CBT)</h4>
+    <ul>
+      <li><strong>Duration:</strong> 90 minutes (120 minutes for scribe users)</li>
+      <li><strong>Questions:</strong> 100 Multiple Choice Questions (1 mark each)</li>
+      <li><strong>Sections:</strong>
+        <ul>
+          <li>Mathematics: 25 questions</li>
+          <li>General Intelligence & Reasoning: 30 questions</li>
+          <li>General Science: 25 questions</li>
+          <li>General Awareness & Current Affairs: 20 questions</li>
+        </ul>
+      </li>
+      <li><strong>Marking:</strong> +1 for correct, -⅓ for wrong answer</li>
+      <li><strong>Qualifying Marks:</strong> UR/EWS: 40%, OBC/SC/ST: 30%</li>
+    </ul>
+    
+    <h4>2. Physical Efficiency Test (PET)</h4>
+    <table>
+      <tr>
+        <th><strong>Test</strong></th>
+        <th><strong>Male Candidates</strong></th>
+        <th><strong>Female Candidates</strong></th>
+      </tr>
+      <tr>
+        <td>Weight Carry</td>
+        <td>35 Kg for 100 m in 2 minutes</td>
+        <td>20 Kg for 100 m in 2 minutes</td>
+      </tr>
+      <tr>
+        <td>Running</td>
+        <td>1000 m in 4 minutes 15 seconds</td>
+        <td>1000 m in 5 minutes 40 seconds</td>
+      </tr>
+    </table>
+    <p><strong>Exempted:</strong> PwBD candidates, Course Completed Act Apprentices (CCAA), Ex-Servicemen</p>
+    
+    <h4>3. Document Verification (DV)</h4>
+    <p>Carry <strong>all original certificates</strong> in prescribed formats (see Annexures in notification):</p>
+    <ul>
+      <li>Educational certificates (10th/ITI marksheet & certificate)</li>
+      <li>Caste/Category certificate (if applicable)</li>
+      <li>Income certificate for EWS/EBC</li>
+      <li>Disability certificate for PwBD</li>
+      <li>Ex-Servicemen discharge certificate</li>
+      <li>Domicile certificate (if required)</li>
+    </ul>
+    
+    <h4>4. Medical Examination</h4>
+    <p>Final appointment is subject to passing the medical standards prescribed for your allotted post.</p>
+    
+    <h3>Common Reasons for Application Rejection</h3>
+    <p>Avoid these mistakes that disqualify thousands of applicants each year:</p>
+    <ul>
+      <li><strong>Multiple Applications:</strong> Submitting more than one application leads to rejection of ALL applications and possible ban</li>
+      <li><strong>Incorrect Photo/Signature:</strong> Not following live photo guidelines or using block letters in signature</li>
+      <li><strong>Age/Qualification Mismatch:</strong> Details not matching original certificates</li>
+      <li><strong>Wrong Category Certificate:</strong> Certificate not in prescribed format or from incompetent authority</li>
+      <li><strong>Last Minute Rush:</strong> Server overload on final day causing incomplete submission</li>
+    </ul>
+    
+    <h3>Special Provisions & Reservations</h3>
+    
+    <h4>For Persons with Benchmark Disabilities (PwBD)</h4>
+    <ul>
+      <li>Age relaxation up to 10 years for UR, 13 for OBC-NCL, 15 for SC/ST</li>
+      <li>Fee concession (₹250)</li>
+      <li>Scribe facility with compensatory time (20 minutes extra per hour)</li>
+      <li>Scribes must register separately at rrbapply.gov.in</li>
+      <li>Exemption from Physical Efficiency Test (PET)</li>
+    </ul>
+    
+    <h4>For Ex-Servicemen</h4>
+    <ul>
+      <li>Age relaxation: UR/EWS: 3 years, OBC-NCL: 6 years, SC/ST: 8 years (after deducting service period)</li>
+      <li>Fee concession (₹250)</li>
+      <li>Exemption from Physical Efficiency Test (PET)</li>
+      <li>Horizontal reservation in addition to vertical category reservation</li>
+    </ul>
+    
+    <h4>For Course Completed Act Apprentices (CCAA)</h4>
+    <ul>
+      <li>Age relaxation equal to apprenticeship period (max 3 years for UR)</li>
+      <li>Weightage of NCVT marks in final merit (⅓ weightage)</li>
+      <li>Exemption from Physical Efficiency Test (PET)</li>
+      <li>Horizontal reservation in identified posts</li>
+    </ul>
+    
+    <h3>Important Notes & Warnings</h3>
+    <ul>
+      <li><strong>Beware of Fraud:</strong> RRB never appoints agents or coaching centers. Beware of fake websites and job racketeers</li>
+      <li><strong>Single Application Only:</strong> Apply to only ONE RRB. Multiple applications mean instant disqualification</li>
+      <li><strong>Certificate Validity:</strong> All category certificates must be valid and in prescribed format (see Annexures)</li>
+      <li><strong>Keep Documents Ready:</strong> Scan and keep all documents ready before starting application</li>
+      <li><strong>Check Official Websites:</strong> For updates, only trust websites listed in Para 24.0 of notification</li>
+    </ul>
+    
+    <h3>Preparation Strategy for CBT</h3>
+    <p>With competition intense, a smart preparation approach is essential:</p>
+    <ul>
+      <li><strong>Mathematics:</strong> Focus on basics - Number System, Percentage, Ratio, Time & Work, Simple Interest</li>
+      <li><strong>General Intelligence:</strong> Practice analogies, coding-decoding, series, syllogism daily</li>
+      <li><strong>General Science:</strong> Revise NCERT 10th standard Physics, Chemistry, Biology fundamentals</li>
+      <li><strong>General Awareness:</strong> Follow current affairs, sports, awards, Indian geography and polity</li>
+      <li><strong>Mock Tests:</strong> RRB will provide practice tests on their portal - utilize them fully</li>
+    </ul>
+    
+    <h3>Final Checklist Before Application</h3>
+    <ol>
+      <li>✅ 10th/ITI certificate scanned (for reference)</li>
+      <li>✅ Category certificate (if applicable) in prescribed format</li>
+      <li>✅ Aadhaar card for authentication (recommended)</li>
+      <li>✅ Active mobile number and email ID</li>
+      <li>✅ Black pen and white paper for signature</li>
+      <li>✅ Scanner/Good camera phone for signature scan</li>
+      <li>✅ Webcam/mobile camera for live photo</li>
+      <li>✅ Net banking/UPI/Card details for fee payment</li>
+    </ol>
+    
+    <div class="note-box">
+      <strong>Pro Tip:</strong> Apply at least 3-4 days before the deadline. Last minute applications face server issues and don't allow time for correction if errors are found.
+    </div>
+    
+    <p>The RRB Level 1 Recruitment 2026 offers a life-changing opportunity for lakhs of candidates. With 22,195 vacancies across India, your chances are better than many other competitive exams. Start your preparation today, gather your documents, and apply well before the 02 March 2026 deadline. Remember, the first step to a secure railway job is a perfect application.</p>
+    
+    <p><strong>Disclaimer:</strong> This guide summarizes the official CEN No. 09/2025 for candidate convenience. Always refer to the original notification on RRB websites for complete and authoritative information.</p>
+  `,
+  "faq": [
+    {
+      "question": "What is the last date to apply for RRB Level 1 Recruitment 2026?",
+      "answer": "The last date to submit online applications for RRB Level 1 CEN 09/2025 is 02 March 2026 (23:59 hours). The fee payment deadline is 04 March 2026. The modification window for corrections is open from 05-14 March 2026 with a fee of ₹250 per correction."
+    },
+    {
+      "question": "Can 12th pass candidates apply for RRB Level 1 posts?",
+      "answer": "Yes, 12th pass candidates can definitely apply as they meet the minimum educational qualification requirement (10th pass or equivalent). The notification requires candidates to have passed 10th standard OR ITI/NAC, so higher qualifications are acceptable. However, candidates must ensure they possess the required qualification on or before 02 March 2026."
+    },
+    {
+      "question": "How many times can I apply for RRB Level 1 Recruitment?",
+      "answer": "You can submit ONLY ONE application to ONE Railway Recruitment Board (RRB). If you apply to multiple RRBs or submit multiple applications to the same RRB, ALL your applications will be rejected, and you may be debarred from future RRB exams. Choose your preferred RRB/Railway zone carefully as this choice cannot be changed later."
+    },
+    {
+      "question": "Is there negative marking in the RRB Level 1 CBT?",
+      "answer": "Yes, there is negative marking in the Computer Based Test. For each wrong answer, ⅓ mark will be deducted from your total score. There is no negative marking for unanswered questions. This makes accuracy crucial - avoid random guessing if you're unsure of the correct answer."
+    },
+    {
+      "question": "What is the salary for RRB Level 1 posts after 7th Pay Commission?",
+      "answer": "The initial pay for RRB Level 1 posts is ₹18,000/- per month as per Level 1 of the 7th CPC Pay Matrix. In addition to basic pay, employees receive various allowances including Dearness Allowance (DA), House Rent Allowance (HRA), Transport Allowance, and other benefits as per railway rules. The approximate in-hand salary starts from ₹25,000-30,000 depending on location and allowances."
+    },
+    {
+      "question": "Can candidates with glasses apply for all RRB Level 1 posts?",
+      "answer": "No, candidates with glasses cannot apply for posts with A-2 medical standard (like Pointsman) which require perfect vision without glasses (6/9, 6/9). However, they can apply for posts with A-3, B-1, or C-1 medical standards which allow vision correction. Always check Annexure-A of the notification for the specific medical standard of each post. Candidates who have undergone LASIK surgery are not eligible for A-2 and A-3 posts."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "title": "RRB ALP Technician Recruitment 2026",
+      "path": "/rrb-alp-technician-recruitment-2026"
+    },
+    {
+      "title": "How to Prepare for Railway Group D Exams",
+      "path": "/railway-group-d-exam-preparation-guide"
+    },
+    {
+      "title": "SSC GD Constable Recruitment 2026",
+      "path": "/ssc-gd-constable-recruitment-2026"
+    },
+    {
+      "title": "Free Online Test Series for Government Exams",
+      "path": "/free-online-test-series-government-exams"
+    },
+    {
+      "title": "Documents Required for Government Job Applications",
+      "path": "/documents-required-government-job-application"
+    }
+  ]
+},
 ];
