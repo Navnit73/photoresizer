@@ -14,6 +14,7 @@ import { BookmarkPopup } from "@/components/layout/BookmarkPopup";
 import { ContentSections } from "@/components/sections/ContentSections";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import AdUnit from "@/components/shared/AdUnit";
 
 const Index = () => {
   const {
@@ -127,11 +128,15 @@ const Index = () => {
                       isProcessing={isProcessing}
                       onUpdateDimensions={updateDimensions}
                       onRotate={setRotation}
-                      onBackgroundChange={setBackgroundColor}
                       onQualityChange={setQuality}
                       onFormatChange={setFormat}
                       onApplyPreset={applyPreset}
                     />
+
+                    {/* Sidebar Ad - Desktop Only */}
+                    {/* <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 hidden lg:block">
+                      <AdUnit />
+                    </div> */}
                   </motion.aside>
 
                   {/* ================= CANVAS ================= */}
@@ -165,7 +170,7 @@ const Index = () => {
                         <motion.div whileTap={{ scale: 0.96 }}>
                           <DownloadButton
                             onDownload={processAndDownload}
-                            isProcessing={isProcessing}
+                            disabled={isProcessing}
                           />
                         </motion.div>
                       </div>
@@ -202,7 +207,7 @@ const Index = () => {
                         <motion.div whileTap={{ scale: 0.97 }}>
                           <DownloadButton
                             onDownload={processAndDownload}
-                            isProcessing={isProcessing}
+                            disabled={isProcessing}
                           />
                         </motion.div>
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import AdUnit from "@/components/shared/AdUnit";
 import {
   Shield,
   Zap,
@@ -211,6 +212,11 @@ export function Header() {
           )}
         </AnimatePresence>
       </div>
+      
+      {/* AdSense Unit */}
+      {/* <div className="container px-4 pb-2">
+        <AdUnit className="min-h-[90px]" />
+      </div> */}
     </motion.header>
   );
 }

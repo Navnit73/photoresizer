@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, BookOpen, Search, X, FileText, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
+import AdUnit from '@/components/shared/AdUnit';
 
 export default function BlogList() {
   const navigate = useNavigate();
@@ -93,6 +94,11 @@ export default function BlogList() {
             ))}
           </div>
         </section>
+
+        {/* AdSense Unit - Below Hero */}
+        <div className="mb-12">
+            <AdUnit />
+        </div>
 
         {/* ================= POSTS GRID ================= */}
         {filteredPosts.length > 0 ? (

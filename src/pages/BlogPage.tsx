@@ -22,6 +22,7 @@ import {
 import { blogData } from '@/data/blogData';
 import { ArrowLeft, ArrowRight, Upload, Clock, CheckCircle2, AlertCircle, Share2, Printer, ChevronRight } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
+import AdUnit from '@/components/shared/AdUnit';
 
 export default function BlogPage() {
   const { slug } = useParams();
@@ -144,6 +145,11 @@ export default function BlogPage() {
                <Button onClick={() => navigate('/')} className="w-full bg-blue-600 hover:bg-blue-500 font-bold" size="lg">Resize Now</Button>
             </div>
 
+            {/* AdSense Unit - Top of Content */}
+            <div className="mb-10">
+               <AdUnit />
+            </div>
+
 
             {/* SPECIFICATION CARDS (Responsive Grid) */}
             <div className="mb-12">
@@ -201,6 +207,11 @@ export default function BlogPage() {
               />
             </div>
 
+            {/* AdSense Unit - Bottom of Content */}
+            <div className="mt-10">
+               <AdUnit />
+            </div>
+
             {/* FAQ SECTION */}
             {post.faq.length > 0 && (
               <div className="mt-16 pt-10 border-t border-slate-100 dark:border-slate-800">
@@ -254,6 +265,9 @@ export default function BlogPage() {
           
           {/* ================= SIDEBAR ================= */}
           <aside className="sticky top-24 space-y-8 hidden lg:block">
+            
+            {/* AdSense Unit - Sidebar */}
+            <AdUnit className="mb-8" />
             
             {/* Tool Card */}
             <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden group">
