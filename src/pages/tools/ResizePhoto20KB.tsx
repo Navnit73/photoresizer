@@ -88,13 +88,13 @@ export default function ResizePhoto20KB() {
 
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
-
+{/* 
         <HeroSection
           Icon={Target}
           subtitle="20KB Photo Resizer"
           title="Resize Photo to Exactly 20KB"
           description="Perfect for government forms and applications. Our smart algorithm compresses your photo to exactly 20KB while maintaining maximum quality."
-        />
+        /> */}
 
         <main className="flex-1">
           {/* Editor */}

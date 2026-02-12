@@ -298,9 +298,9 @@ export default function BlogPage() {
             </div>
 
             {/* AdSense Unit - Bottom of Content */}
-            <div className="mt-10">
+            {/* <div className="mt-10">
                <AdUnit />
-            </div>
+            </div> */}
 
             {/* FAQ SECTION */}
             {post.faq && post.faq.length > 0 && (
@@ -357,7 +357,7 @@ export default function BlogPage() {
           <aside className="sticky top-24 space-y-8 hidden lg:block">
             
             {/* AdSense Unit - Sidebar */}
-            <AdUnit className="mb-8" />
+            {/* <AdUnit className="mb-8" /> */}
             
             {/* Tool Card - Dynamically Updated */}
             <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden group">

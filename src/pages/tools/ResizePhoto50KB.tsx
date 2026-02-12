@@ -89,12 +89,12 @@ export default function ResizePhoto50KB() {
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
 
-        <HeroSection
+        {/* <HeroSection
           Icon={Target}
           subtitle="50KB Photo Compressor"
           title="Resize Photo to 50KB"
           description="Get your photo to exactly 50KB for job applications, university admissions, and online forms. Fast, free, and easy to use."
-        />
+        /> */}
 
         <main className="flex-1">
           <section className="py-12 md:py-16">

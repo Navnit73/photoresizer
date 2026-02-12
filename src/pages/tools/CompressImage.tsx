@@ -90,12 +90,12 @@ export default function CompressImage() {
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
 
-        <HeroSection
+        {/* <HeroSection
           Icon={Minimize2}
           subtitle="Image Compressor"
           title="Compress Images to Exact Sizes"
           description="Reduce your image file size to 20KB, 50KB, 100KB or any size you need. Perfect for government forms, websites, and applications."
-        />
+        /> */}
 
         <main className="flex-1">
           {/* Editor Section */}

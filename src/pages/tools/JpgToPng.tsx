@@ -89,12 +89,12 @@ export default function JpgToPng() {
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
 
-        <HeroSection
+        {/* <HeroSection
           Icon={FileType}
           subtitle="Format Converter"
           title="JPG to PNG Converter"
           description="Convert your JPG/JPEG images to PNG format with transparency support. Free, fast, and completely private."
-        />
+        /> */}
 
         <main className="flex-1">
           {/* Editor Section */}

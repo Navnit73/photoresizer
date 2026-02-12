@@ -98,12 +98,12 @@ export default function PassportPhotoEditor() {
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
 
-        <HeroSection
+        {/* <HeroSection
           Icon={Camera}
           subtitle="Professional Tool"
           title="Passport Photo Editor"
           description="Create perfect passport photos for any country. Auto-resize, background editing, and compliance checking included."
-        />
+        /> */}
 
         <main className="flex-1">
           {/* Editor */}
