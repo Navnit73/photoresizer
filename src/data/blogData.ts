@@ -1,4 +1,3 @@
-
 export interface BlogPost {
   slug: string;
   title: string;
@@ -6,7 +5,8 @@ export interface BlogPost {
   metaTitle: string;
   metaDescription: string;
   lastUpdated: string;
-  specifications: { // The "Table" requested
+  specifications: {
+    // The "Table" requested
     dimensions: string;
     fileSize: string;
     format: string;
@@ -26,15 +26,18 @@ export const blogData: BlogPost[] = [
   // ==================== CATEGORY 1: UPSC ====================
   {
     slug: "upsc-photo-signature-resizer-2026",
-    title: "How to Resize Photo and Signature for UPSC 2026: Step-by-Step Guide",
+    title:
+      "How to Resize Photo and Signature for UPSC 2026: Step-by-Step Guide",
     category: "UPSC",
-    metaTitle: "UPSC Photo & Signature Resizer 2026 | Resize to 20KB-50KB Online",
-    metaDescription: "Resize photo and signature for UPSC 2026 exams (CSE, NDA, CDS). Official dimensions 3.5x4.5cm, 20-50KB size. Free online tool for UPSC application forms.",
+    metaTitle:
+      "UPSC Photo & Signature Resizer 2026 | Resize to 20KB-50KB Online",
+    metaDescription:
+      "Resize photo and signature for UPSC 2026 exams (CSE, NDA, CDS). Official dimensions 3.5x4.5cm, 20-50KB size. Free online tool for UPSC application forms.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "3.5 cm x 4.5 cm (Photo), 3.5 cm x 1.5 cm (Signature)",
       fileSize: "20 KB - 50 KB (Photo), 10 KB - 20 KB (Signature)",
-      format: "JPG / JPEG"
+      format: "JPG / JPEG",
     },
     content: `
     <h2>Complete Guide to UPSC Photo and Signature Requirements 2026</h2>
@@ -153,48 +156,67 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "What is the exact pixel size for UPSC photo 2026?",
-        answer: "While UPSC specifies physical dimensions (3.5×4.5 cm), the pixel equivalent at 300 DPI is 413×531 pixels. However, the key requirement is the file size (20-50KB) and aspect ratio. Our tool automatically converts to appropriate pixel dimensions while maintaining compliance."
+        answer:
+          "While UPSC specifies physical dimensions (3.5×4.5 cm), the pixel equivalent at 300 DPI is 413×531 pixels. However, the key requirement is the file size (20-50KB) and aspect ratio. Our tool automatically converts to appropriate pixel dimensions while maintaining compliance.",
       },
       {
         question: "Can I use a photo with spectacles for UPSC application?",
-        answer: "Yes, but with strict conditions: 1) No tinted glasses, 2) Eyes must be clearly visible without glare, 3) Frames should not cover any part of eyes, 4) No sunglasses or photochromic lenses. For safest compliance, consider taking photos without glasses."
+        answer:
+          "Yes, but with strict conditions: 1) No tinted glasses, 2) Eyes must be clearly visible without glare, 3) Frames should not cover any part of eyes, 4) No sunglasses or photochromic lenses. For safest compliance, consider taking photos without glasses.",
       },
       {
-        question: "How to compress signature below 20KB without making it illegible?",
-        answer: "Use our signature-specific compression algorithm: 1) Start with high-contrast scan (black ink on white paper), 2) Crop tightly around signature, 3) Use 'Signature Mode' in our tool which prioritizes line clarity, 4) Adjust quality slider until size shows 15-20KB range while maintaining sharp edges."
+        question:
+          "How to compress signature below 20KB without making it illegible?",
+        answer:
+          "Use our signature-specific compression algorithm: 1) Start with high-contrast scan (black ink on white paper), 2) Crop tightly around signature, 3) Use 'Signature Mode' in our tool which prioritizes line clarity, 4) Adjust quality slider until size shows 15-20KB range while maintaining sharp edges.",
       },
       {
         question: "What if my UPSC photo exceeds 50KB after multiple attempts?",
-        answer: "Try this systematic approach: 1) Convert to grayscale if color isn't critical, 2) Reduce resolution to 200 DPI if currently higher, 3) Remove metadata/exif data, 4) Use 'Advanced Compression' in our tool with 'Ultra Optimization' preset. The tool will find optimal balance between size and quality."
+        answer:
+          "Try this systematic approach: 1) Convert to grayscale if color isn't critical, 2) Reduce resolution to 200 DPI if currently higher, 3) Remove metadata/exif data, 4) Use 'Advanced Compression' in our tool with 'Ultra Optimization' preset. The tool will find optimal balance between size and quality.",
       },
       {
-        question: "Is there any difference in requirements for UPSC CSE vs NDA?",
-        answer: "Core specifications remain identical: 3.5×4.5 cm dimensions, 20-50KB file size, JPG format. However, NDA may have additional requirements like recentness (within 1 month) and specific dress codes. Always check the particular exam notification for any variations."
+        question:
+          "Is there any difference in requirements for UPSC CSE vs NDA?",
+        answer:
+          "Core specifications remain identical: 3.5×4.5 cm dimensions, 20-50KB file size, JPG format. However, NDA may have additional requirements like recentness (within 1 month) and specific dress codes. Always check the particular exam notification for any variations.",
       },
       {
         question: "Can I edit my photo after uploading to UPSC portal?",
-        answer: "No. Once submitted, you cannot edit photos or signatures. Any discrepancies found later may lead to disqualification. This makes initial preparation crucial. Use our tool's preview feature extensively before final submission."
-      }
+        answer:
+          "No. Once submitted, you cannot edit photos or signatures. Any discrepancies found later may lead to disqualification. This makes initial preparation crucial. Use our tool's preview feature extensively before final submission.",
+      },
     ],
     relatedLinks: [
-      { title: "Resize for SSC Exams", path: "/ssc-cgl-photo-signature-resizer" },
+      {
+        title: "Resize for SSC Exams",
+        path: "/ssc-cgl-photo-signature-resizer",
+      },
       { title: "Resize for IBPS PO/Clerk", path: "/ibps-photo-resizer" },
       { title: "Aadhar Card Photo Change", path: "/aadhar-card-photo-resizer" },
-      { title: "UPSC Name & Date Rules", path: "/correct-upsc-photo-specifications-name-date" },
-      { title: "Passport Size Photo Maker", path: "/passport-size-photo-maker-35x45" }
-    ]
+      {
+        title: "UPSC Name & Date Rules",
+        path: "/correct-upsc-photo-specifications-name-date",
+      },
+      {
+        title: "Passport Size Photo Maker",
+        path: "/passport-size-photo-maker-35x45",
+      },
+    ],
   },
   {
     slug: "correct-upsc-photo-specifications-name-date",
-    title: "UPSC Photo Specifications 2026: Name and Date on Photo Requirements",
+    title:
+      "UPSC Photo Specifications 2026: Name and Date on Photo Requirements",
     category: "UPSC",
     metaTitle: "UPSC Photo Name & Date Rules 2026 | Official Specifications",
-    metaDescription: "Latest UPSC 2026 rules for name and date on application photos. Learn how to add name/date and resize to 3.5x4.5cm correctly.",
+    metaDescription:
+      "Latest UPSC 2026 rules for name and date on application photos. Learn how to add name/date and resize to 3.5x4.5cm correctly.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "3.5 cm x 4.5 cm",
       fileSize: "20 KB - 300 KB (varies by notification)",
-      format: "JPG / JPEG"
+      format: "JPG / JPEG",
     },
     content: `
     <h2>Complete Guide to UPSC Photo Name and Date Requirements 2026</h2>
@@ -323,36 +345,57 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Is date on photo mandatory for UPSC 2026?",
-        answer: "For UPSC Civil Services Examination 2026, yes - the notification typically requires date on photograph. For other UPSC exams like Engineering Services or Combined Medical Services, check specific notifications. When in doubt, include both name and date following standard format: 'Name: [Your Name] | Date: DD/MM/YYYY' at bottom of photo."
+        answer:
+          "For UPSC Civil Services Examination 2026, yes - the notification typically requires date on photograph. For other UPSC exams like Engineering Services or Combined Medical Services, check specific notifications. When in doubt, include both name and date following standard format: 'Name: [Your Name] | Date: DD/MM/YYYY' at bottom of photo.",
       },
       {
         question: "What if my photo is older than 3 months?",
-        answer: "UPSC requires recent photographs to ensure your appearance matches at the exam center. Using an old photo can lead to disqualification during document verification. If your photo exceeds 3 months, retake it with current appearance. The date printed should reflect when the NEW photo was taken, not the original date."
+        answer:
+          "UPSC requires recent photographs to ensure your appearance matches at the exam center. Using an old photo can lead to disqualification during document verification. If your photo exceeds 3 months, retake it with current appearance. The date printed should reflect when the NEW photo was taken, not the original date.",
       },
       {
         question: "Can I use different name formats (initials vs full name)?",
-        answer: "Use the exact name format from your application form. If form says 'A. B. Sharma', match that. If using full name, ensure it matches educational certificates. Consistency across all documents is crucial. When in doubt, use the name exactly as it appears on your primary ID proof (usually Class 10 certificate)."
+        answer:
+          "Use the exact name format from your application form. If form says 'A. B. Sharma', match that. If using full name, ensure it matches educational certificates. Consistency across all documents is crucial. When in doubt, use the name exactly as it appears on your primary ID proof (usually Class 10 certificate).",
       },
       {
         question: "What font color is best for name/date on white background?",
-        answer: "Use pure black (#000000) or very dark gray (#333333) for maximum contrast and readability. Avoid colors that may appear faint when compressed. Ensure the text is opaque (100% opacity) not transparent. Test print a small version to verify legibility."
+        answer:
+          "Use pure black (#000000) or very dark gray (#333333) for maximum contrast and readability. Avoid colors that may appear faint when compressed. Ensure the text is opaque (100% opacity) not transparent. Test print a small version to verify legibility.",
       },
       {
         question: "How much space should I leave at bottom for text?",
-        answer: "Extend the white background area by 10-15% at bottom specifically for text. For a 3.5×4.5 cm photo, this means approximately 4-6 mm extra space. The text should occupy the bottom 3-5% of total image height. Never place text over the facial area or required 70-80% face coverage zone."
+        answer:
+          "Extend the white background area by 10-15% at bottom specifically for text. For a 3.5×4.5 cm photo, this means approximately 4-6 mm extra space. The text should occupy the bottom 3-5% of total image height. Never place text over the facial area or required 70-80% face coverage zone.",
       },
       {
         question: "Can I add name/date after resizing to 20KB?",
-        answer: "No, this often pushes file size over limit or degrades quality. Always: 1) Take high-quality photo, 2) Add name/date in editing software, 3) Then resize/compress to 20-50KB using our tool. This preserves text clarity while meeting size requirements."
-      }
+        answer:
+          "No, this often pushes file size over limit or degrades quality. Always: 1) Take high-quality photo, 2) Add name/date in editing software, 3) Then resize/compress to 20-50KB using our tool. This preserves text clarity while meeting size requirements.",
+      },
     ],
     relatedLinks: [
-      { title: "Fix 75% Face Coverage", path: "/fix-75-percent-face-coverage-upsc" },
-      { title: "Compress Signature for UPSC", path: "/upsc-signature-resizer-compress-20kb" },
-      { title: "UPSC Main Photo Guide", path: "/upsc-photo-signature-resizer-2026" },
-      { title: "SSC Photo Requirements", path: "/ssc-cgl-photo-signature-resizer" },
-      { title: "Professional Photo Editing", path: "/photo-and-signature-joiner-online" }
-    ]
+      {
+        title: "Fix 75% Face Coverage",
+        path: "/fix-75-percent-face-coverage-upsc",
+      },
+      {
+        title: "Compress Signature for UPSC",
+        path: "/upsc-signature-resizer-compress-20kb",
+      },
+      {
+        title: "UPSC Main Photo Guide",
+        path: "/upsc-photo-signature-resizer-2026",
+      },
+      {
+        title: "SSC Photo Requirements",
+        path: "/ssc-cgl-photo-signature-resizer",
+      },
+      {
+        title: "Professional Photo Editing",
+        path: "/photo-and-signature-joiner-online",
+      },
+    ],
   },
   // ==================== CATEGORY 2: SSC ====================
   {
@@ -360,12 +403,13 @@ export const blogData: BlogPost[] = [
     title: "SSC CGL Photo and Signature Resizer: Official Specifications 2026",
     category: "SSC",
     metaTitle: "SSC CGL Photo Resizer 2026 | Resize & Compress to 20-50KB",
-    metaDescription: "Online tool to resize photo and signature for SSC CGL 2026. Convert to 3.5x4.5cm and 20-50KB instantly. Avoid form rejection.",
+    metaDescription:
+      "Online tool to resize photo and signature for SSC CGL 2026. Convert to 3.5x4.5cm and 20-50KB instantly. Avoid form rejection.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "3.5 cm x 4.5 cm (Photo), 4.0 cm x 2.0 cm (Signature)",
       fileSize: "20 KB - 50 KB (Photo), 10 KB - 20 KB (Signature)",
-      format: "JPEG / JPG"
+      format: "JPEG / JPG",
     },
     content: `
     <h2>Complete SSC CGL 2026 Photo and Signature Specifications Guide</h2>
@@ -540,36 +584,54 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "My SSC photo has glasses, will it be rejected?",
-        answer: "Yes, absolutely. SSC is exceptionally strict about the 'no spectacles' rule. Even if you have medical necessity or high prescription, photos with any type of glasses (including clear lenses, blue-light glasses, or non-prescription frames) will be rejected. The only exception is for candidates with specific disabilities where glasses are permanently attached - even then, prior approval from SSC is required."
+        answer:
+          "Yes, absolutely. SSC is exceptionally strict about the 'no spectacles' rule. Even if you have medical necessity or high prescription, photos with any type of glasses (including clear lenses, blue-light glasses, or non-prescription frames) will be rejected. The only exception is for candidates with specific disabilities where glasses are permanently attached - even then, prior approval from SSC is required.",
       },
       {
         question: "What is the date requirement for SSC photos?",
-        answer: "The photo should not be more than 3 months old from the date of publication of the Notice of Examination. For SSC CGL 2026, if notification publishes in April 2026, your photo should be taken in January 2026 or later. The 'date' refers to when the photo was physically taken, not when it was edited or compressed. Some candidates write date on photo physically - this is optional unless specifically mentioned in notification."
+        answer:
+          "The photo should not be more than 3 months old from the date of publication of the Notice of Examination. For SSC CGL 2026, if notification publishes in April 2026, your photo should be taken in January 2026 or later. The 'date' refers to when the photo was physically taken, not when it was edited or compressed. Some candidates write date on photo physically - this is optional unless specifically mentioned in notification.",
       },
       {
         question: "Can I wear formal attire with coat for SSC photo?",
-        answer: "Yes, formal attire including coats, blazers, or traditional formal wear is acceptable and often recommended. However, avoid uniforms of any organization (school, college, corporate, military). Light-colored formal shirts with dark coats work well against white backgrounds. Ensure attire doesn't blend with background (avoid white shirts on white background)."
+        answer:
+          "Yes, formal attire including coats, blazers, or traditional formal wear is acceptable and often recommended. However, avoid uniforms of any organization (school, college, corporate, military). Light-colored formal shirts with dark coats work well against white backgrounds. Ensure attire doesn't blend with background (avoid white shirts on white background).",
       },
       {
         question: "How to handle facial hair (beard/mustache) for SSC photo?",
-        answer: "Maintain consistent facial hair throughout examination process. If you have beard in photo, you must maintain it through all exam stages and document verification. Significant changes in appearance may raise verification issues. If clean-shaven in photo, avoid growing beard until after final selection. Document any medical or religious reasons for changes."
+        answer:
+          "Maintain consistent facial hair throughout examination process. If you have beard in photo, you must maintain it through all exam stages and document verification. Significant changes in appearance may raise verification issues. If clean-shaven in photo, avoid growing beard until after final selection. Document any medical or religious reasons for changes.",
       },
       {
         question: "What if my signature exceeds 20KB after multiple attempts?",
-        answer: "Try these specific techniques: 1) Scan at 200 DPI instead of 300 DPI, 2) Convert to pure black and white (1-bit) instead of grayscale, 3) Use 'Signature Optimize' mode in our tool which uses vector-like compression, 4) Ensure signature occupies 80-90% of frame (minimize white space), 5) Save as JPEG with quality 60-70%. Most signatures can reach 15-18KB with perfect clarity."
+        answer:
+          "Try these specific techniques: 1) Scan at 200 DPI instead of 300 DPI, 2) Convert to pure black and white (1-bit) instead of grayscale, 3) Use 'Signature Optimize' mode in our tool which uses vector-like compression, 4) Ensure signature occupies 80-90% of frame (minimize white space), 5) Save as JPEG with quality 60-70%. Most signatures can reach 15-18KB with perfect clarity.",
       },
       {
         question: "Can I use same photo for SSC CGL and other SSC exams?",
-        answer: "Yes, provided it meets all specifications and is still within 3-month recency requirement. However, for exams with different specifications (like SSC CHSL may have different size requirements), always check individual notifications. Create a master high-resolution photo and generate exam-specific versions as needed using our tool's presets."
-      }
+        answer:
+          "Yes, provided it meets all specifications and is still within 3-month recency requirement. However, for exams with different specifications (like SSC CHSL may have different size requirements), always check individual notifications. Create a master high-resolution photo and generate exam-specific versions as needed using our tool's presets.",
+      },
     ],
     relatedLinks: [
-      { title: "Resize for SSC GD Constable", path: "/ssc-gd-constable-photo-resizer" },
-      { title: "SSC MTS Photo Size Tool", path: "/ssc-mts-photo-signature-size" },
-      { title: "UPSC Photo Resizer", path: "/upsc-photo-signature-resizer-2026" },
+      {
+        title: "Resize for SSC GD Constable",
+        path: "/ssc-gd-constable-photo-resizer",
+      },
+      {
+        title: "SSC MTS Photo Size Tool",
+        path: "/ssc-mts-photo-signature-size",
+      },
+      {
+        title: "UPSC Photo Resizer",
+        path: "/upsc-photo-signature-resizer-2026",
+      },
       { title: "Banking Exam Photos", path: "/ibps-po-clerk-photo-resizer" },
-      { title: "Passport Size Maker", path: "/passport-size-photo-maker-35x45" }
-    ]
+      {
+        title: "Passport Size Maker",
+        path: "/passport-size-photo-maker-35x45",
+      },
+    ],
   },
   // ==================== CATEGORY 3: BANKING & INSURANCE ====================
   {
@@ -577,12 +639,13 @@ export const blogData: BlogPost[] = [
     title: "IBPS PO/Clerk Photo Resizer: Dimensions and File Size Guide",
     category: "Banking",
     metaTitle: "IBPS PO/Clerk Photo Resizer 2026 | Resize to 20-50KB Online",
-    metaDescription: "Official IBPS photo resizer tool. Resize photo to 20KB-50KB and signature to 10KB-20KB for IBPS PO, Clerk, RRB, and SO exams. Instant download.",
+    metaDescription:
+      "Official IBPS photo resizer tool. Resize photo to 20KB-50KB and signature to 10KB-20KB for IBPS PO, Clerk, RRB, and SO exams. Instant download.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "4.5 cm x 3.5 cm (Photo), 140 x 60 pixels (Signature)",
       fileSize: "20 KB - 50 KB (Photo), 10 KB - 20 KB (Signature)",
-      format: "JPG / JPEG"
+      format: "JPG / JPEG",
     },
     content: `
       <p>The Institute of Banking Personnel Selection (IBPS) manages recruitment for most public sector banks in India. Whether you are applying for IBPS PO, Clerk, RRB, or SO, the photo and signature specifications are identical and strictly enforced.</p>
@@ -609,29 +672,37 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can I use the same photo for IBPS PO and Clerk?",
-        answer: "Yes, the specifications are the same for all IBPS exams."
+        answer: "Yes, the specifications are the same for all IBPS exams.",
       },
       {
         question: "Why was my IBPS signature rejected?",
-        answer: "Common reasons include: file size > 20KB, signature in capital letters, or using blue/red ink instead of black."
-      }
+        answer:
+          "Common reasons include: file size > 20KB, signature in capital letters, or using blue/red ink instead of black.",
+      },
     ],
     relatedLinks: [
-      { title: "Resize Thumb Impression", path: "/resize-left-thumb-impression-ibps" },
-      { title: "SBI Clerk Photo Tool", path: "/sbi-clerk-photo-signature-size" }
-    ]
+      {
+        title: "Resize Thumb Impression",
+        path: "/resize-left-thumb-impression-ibps",
+      },
+      {
+        title: "SBI Clerk Photo Tool",
+        path: "/sbi-clerk-photo-signature-size",
+      },
+    ],
   },
   {
     slug: "resize-left-thumb-impression-ibps",
     title: "How to Resize Left Thumb Impression for IBPS Exams Online",
     category: "Banking",
     metaTitle: "Resize Left Thumb Impression for IBPS | 20KB-50KB Compressor",
-    metaDescription: "Resize Left Thumb Impression (LTI) for IBPS PO, Clerk, and SBI exams. Compress to 20KB-50KB and 240x240 pixels. Free online tool.",
+    metaDescription:
+      "Resize Left Thumb Impression (LTI) for IBPS PO, Clerk, and SBI exams. Compress to 20KB-50KB and 240x240 pixels. Free online tool.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "240 x 240 pixels (approx 3cm x 3cm)",
       fileSize: "20 KB - 50 KB",
-      format: "JPG / JPEG"
+      format: "JPG / JPEG",
     },
     content: `
       <p>Along with photo and signature, IBPS and SBI exams require a scanned copy of your Left Thumb Impression (LTI). This documents needs to be clear, smudge-free, and within specific digital limits.</p>
@@ -656,29 +727,35 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "My left thumb is injured, what should I do?",
-        answer: "As per IBPS rules, if the left thumb is missing or injured, you may use the right thumb impression, but you must bring this to the notice of the exam administrator."
+        answer:
+          "As per IBPS rules, if the left thumb is missing or injured, you may use the right thumb impression, but you must bring this to the notice of the exam administrator.",
       },
       {
         question: "Blue or Black ink for thumb impression?",
-        answer: "IBPS accepts both blue and black ink for thumb impressions, unlike signatures which prefer black."
-      }
+        answer:
+          "IBPS accepts both blue and black ink for thumb impressions, unlike signatures which prefer black.",
+      },
     ],
     relatedLinks: [
-      { title: "IBPS Handwritten Declaration", path: "/ibps-handwritten-declaration-resizer" },
-      { title: "IBPS Photo Resizer", path: "/ibps-po-clerk-photo-resizer" }
-    ]
+      {
+        title: "IBPS Handwritten Declaration",
+        path: "/ibps-handwritten-declaration-resizer",
+      },
+      { title: "IBPS Photo Resizer", path: "/ibps-po-clerk-photo-resizer" },
+    ],
   },
   {
     slug: "ibps-handwritten-declaration-resizer",
     title: "IBPS Handwritten Declaration Resizer: Format and Size Guide",
     category: "Banking",
     metaTitle: "IBPS Handwritten Declaration Resizer | 50KB-100KB Online",
-    metaDescription: "Resize IBPS handwritten declaration image to 50KB-100KB. Check official text format and dimensions (800x400 px) for 2026 exams.",
+    metaDescription:
+      "Resize IBPS handwritten declaration image to 50KB-100KB. Check official text format and dimensions (800x400 px) for 2026 exams.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "800 x 400 pixels (approx 10cm x 5cm)",
       fileSize: "50 KB - 100 KB",
-      format: "JPG / JPEG"
+      format: "JPG / JPEG",
     },
     content: `
       <p>The Handwritten Declaration is a unique requirement for banking exams in India. It certifies that the details provided are true and written by the candidate themselves. The text must be written in English on white paper with black ink.</p>
@@ -701,29 +778,34 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can I type the declaration?",
-        answer: "No, it must be handwritten by the candidate in English only."
+        answer: "No, it must be handwritten by the candidate in English only.",
       },
       {
         question: "I wrote it in Blue ink, is it accepted?",
-        answer: "Black ink is preferred and safer, but clear blue ink is often accepted. However, always stick to the notification's specific instruction (usually Black)."
-      }
+        answer:
+          "Black ink is preferred and safer, but clear blue ink is often accepted. However, always stick to the notification's specific instruction (usually Black).",
+      },
     ],
     relatedLinks: [
       { title: "IBPS PO Photo Tool", path: "/ibps-po-clerk-photo-resizer" },
-      { title: "Resize Thumb Impression", path: "/resize-left-thumb-impression-ibps" }
-    ]
+      {
+        title: "Resize Thumb Impression",
+        path: "/resize-left-thumb-impression-ibps",
+      },
+    ],
   },
   {
     slug: "sbi-clerk-photo-signature-size",
     title: "SBI Clerk Photo and Signature Size: Official Resizing Tool",
     category: "Banking",
     metaTitle: "SBI Clerk Photo & Signature Resizer 2026 | Official Specs",
-    metaDescription: "Resize photo and signature for SBI Clerk (Junior Associates) 2026. Official dimensions and file size compressor tool. Free and acts locally.",
+    metaDescription:
+      "Resize photo and signature for SBI Clerk (Junior Associates) 2026. Official dimensions and file size compressor tool. Free and acts locally.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "4.5cm x 3.5cm (Photo)",
       fileSize: "20-50 KB (Photo), 10-20 KB (Signature)",
-      format: "JPG"
+      format: "JPG",
     },
     content: `
       <p>State Bank of India (SBI) recruitment for Junior Associates (Customer Support & Sales) and PO requires digital documents similar to IBPS, but it is safer to use a dedicated check.</p>
@@ -740,25 +822,27 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Is SBI photo size different from IBPS?",
-        answer: "Generally, no. Both follow the standard IBA guidelines: 20-50KB for photos and 10-20KB for signatures."
-      }
+        answer:
+          "Generally, no. Both follow the standard IBA guidelines: 20-50KB for photos and 10-20KB for signatures.",
+      },
     ],
     relatedLinks: [
       { title: "IBPS Photo Resizer", path: "/ibps-po-clerk-photo-resizer" },
-      { title: "LIC AAO Photo Tool", path: "/lic-ado-aao-photo-resizer" }
-    ]
+      { title: "LIC AAO Photo Tool", path: "/lic-ado-aao-photo-resizer" },
+    ],
   },
   {
     slug: "lic-ado-aao-photo-resizer",
     title: "LIC ADO/AAO Photo Resizer: Guide to Upload Documents Without Error",
     category: "Banking",
     metaTitle: "LIC ADO/AAO Photo Resizer | Resize for Insurance Exams",
-    metaDescription: "Resize photo, signature, and thumb impression for LIC ADO and AAO 2026 exams. Official specifications guide and online compressor.",
+    metaDescription:
+      "Resize photo, signature, and thumb impression for LIC ADO and AAO 2026 exams. Official specifications guide and online compressor.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "4.5cm x 3.5cm",
       fileSize: "20kb - 50kb",
-      format: "JPG"
+      format: "JPG",
     },
     content: `
       <p>Life Insurance Corporation (LIC) exams like AAO (Assistant Administrative Officer) and ADO (Apprentice Development Officer) follow strict digital image norms.</p>
@@ -776,26 +860,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "What is the text for LIC handwritten declaration?",
-        answer: "It is approximately: 'I, (Name), hereby declare that all the information submitted by me in the application form is correct...'"
-      }
+        answer:
+          "It is approximately: 'I, (Name), hereby declare that all the information submitted by me in the application form is correct...'",
+      },
     ],
     relatedLinks: [
-      { title: "SBI Clerk Photo Tool", path: "/sbi-clerk-photo-signature-size" },
-      { title: "Resize for Official IDs", path: "/aadhar-card-photo-resizer" }
-    ]
+      {
+        title: "SBI Clerk Photo Tool",
+        path: "/sbi-clerk-photo-signature-size",
+      },
+      { title: "Resize for Official IDs", path: "/aadhar-card-photo-resizer" },
+    ],
   },
   // ==================== CATEGORY 4: STATE LEVEL EXAMS ====================
   {
     slug: "up-police-constable-photo-resizer",
-    title: "UP Police Constable Photo Resizer: Official Size and Background Rules",
+    title:
+      "UP Police Constable Photo Resizer: Official Size and Background Rules",
     category: "State Exams",
     metaTitle: "UP Police Constable Photo Resizer 2026 | Resize to 20-50KB",
-    metaDescription: "Resize photo for UP Police Constable recruitment 2026. Grey/White background rules, 20-50KB size, and 3.5cm x 4.5cm dimensions handled automatically.",
+    metaDescription:
+      "Resize photo for UP Police Constable recruitment 2026. Grey/White background rules, 20-50KB size, and 3.5cm x 4.5cm dimensions handled automatically.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "3.5cm x 4.5cm",
       fileSize: "20 KB - 50 KB",
-      format: "JPG / JPEG"
+      format: "JPG / JPEG",
     },
     content: `
       <p>The Uttar Pradesh Police Recruitment & Promotion Board (UPPRPB) has specific requirements for the Constable exam photos, specifically regarding the background color.</p>
@@ -814,25 +904,30 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Is grey background mandatory for UP Police?",
-        answer: "Historically, yes. However, check the 'Instructions to Candidates' in the official 2026 PDF to be sure. This tool handles the resizing regardless of background."
-      }
+        answer:
+          "Historically, yes. However, check the 'Instructions to Candidates' in the official 2026 PDF to be sure. This tool handles the resizing regardless of background.",
+      },
     ],
     relatedLinks: [
-      { title: "UPSSSC PET Resizer", path: "/upsssc-pet-photo-signature-resizer" },
-      { title: "SSC GD Photo Tool", path: "/ssc-gd-constable-photo-resizer" }
-    ]
+      {
+        title: "UPSSSC PET Resizer",
+        path: "/upsssc-pet-photo-signature-resizer",
+      },
+      { title: "SSC GD Photo Tool", path: "/ssc-gd-constable-photo-resizer" },
+    ],
   },
   {
     slug: "upsssc-pet-photo-signature-resizer",
     title: "UPSSSC PET Photo and Signature Resizer: Best Online Tool",
     category: "State Exams",
     metaTitle: "UPSSSC PET Photo & Signature Resizer | UP Exams 2026",
-    metaDescription: "Resize image for UPSSSC PET 2026. Photo (50KB max) and Signature (30KB max) compressor. Free online tool for Uttar Pradesh exams.",
+    metaDescription:
+      "Resize image for UPSSSC PET 2026. Photo (50KB max) and Signature (30KB max) compressor. Free online tool for Uttar Pradesh exams.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "3.5cm x 4.5cm (Photo)",
       fileSize: "Max 50 KB (Photo), Max 30 KB (Signature)",
-      format: "JPG"
+      format: "JPG",
     },
     content: `
       <p>The Preliminary Eligibility Test (PET) by UPSSSC is the gateway for Group C exams in UP. The form rejection rate is high due to unclear photos.</p>
@@ -845,21 +940,25 @@ export const blogData: BlogPost[] = [
     `,
     faq: [],
     relatedLinks: [
-      { title: "UP Police Cons. Resizer", path: "/up-police-constable-photo-resizer" },
-      { title: "Resize for SSC", path: "/ssc-cgl-photo-signature-resizer" }
-    ]
+      {
+        title: "UP Police Cons. Resizer",
+        path: "/up-police-constable-photo-resizer",
+      },
+      { title: "Resize for SSC", path: "/ssc-cgl-photo-signature-resizer" },
+    ],
   },
   {
     slug: "bpsc-bihar-photo-resizer",
     title: "BPSC (Bihar) Photo Resizer: Requirements for 69th/70th CCE",
     category: "State Exams",
     metaTitle: "BPSC Photo Resizer 2026 | Bihar PCS Photo & Signature Tool",
-    metaDescription: "Resize photo and Hindi/English signature for BPSC 70th CCE. 25KB limit for photos and 15KB for signatures. Online image compressor.",
+    metaDescription:
+      "Resize photo and Hindi/English signature for BPSC 70th CCE. 25KB limit for photos and 15KB for signatures. Online image compressor.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "3.5cm x 4.5cm",
       fileSize: "Max 25 KB (Photo), Max 15 KB (Signature)",
-      format: "JPG"
+      format: "JPG",
     },
     content: `
       <p>Bihar Public Service Commission (BPSC) has one of the strictest file size limits among state commissions.</p>
@@ -879,25 +978,34 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Do I need both Hindi and English signatures?",
-        answer: "BPSC forms usually ask to upload Hindi and English signatures separately. You should resize both to under 15 KB."
-      }
+        answer:
+          "BPSC forms usually ask to upload Hindi and English signatures separately. You should resize both to under 15 KB.",
+      },
     ],
     relatedLinks: [
-      { title: "UPSC Photo Resizer", path: "/upsc-photo-signature-resizer-2026" },
-      { title: "MPPEB Template Resizer", path: "/mppeb-vyapam-template-resizer" }
-    ]
+      {
+        title: "UPSC Photo Resizer",
+        path: "/upsc-photo-signature-resizer-2026",
+      },
+      {
+        title: "MPPEB Template Resizer",
+        path: "/mppeb-vyapam-template-resizer",
+      },
+    ],
   },
   {
     slug: "mppeb-vyapam-template-resizer",
-    title: "MPPEB (Vyapam) Template Resizer: How to Create the All-in-One Image",
+    title:
+      "MPPEB (Vyapam) Template Resizer: How to Create the All-in-One Image",
     category: "State Exams",
     metaTitle: "MPPEB Vyapam Template Resizer | Create MP Exam Photo 2026",
-    metaDescription: "Create the MPPEB (Vyapam) template format with Photo, Signature, and Declaration in one image. Resize to 220kb for MP exams.",
+    metaDescription:
+      "Create the MPPEB (Vyapam) template format with Photo, Signature, and Declaration in one image. Resize to 220kb for MP exams.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "Template Format (4cm x 5cm photo + sig + decl)",
       fileSize: "Max 220 KB",
-      format: "JPG"
+      format: "JPG",
     },
     content: `
       <p>MPPEB (Madhya Pradesh Professional Examination Board), also known as Vyapam, uses a unique format. Instead of uploading 3 separate files, you often need to upload a single template image containing the Photo, Signature, and Handwritten text.</p>
@@ -916,20 +1024,24 @@ export const blogData: BlogPost[] = [
     faq: [],
     relatedLinks: [
       { title: "Resize for BPSC", path: "/bpsc-bihar-photo-resizer" },
-      { title: "Rajasthan Reet Tool", path: "/rajasthan-reet-cet-photo-resizer" }
-    ]
+      {
+        title: "Rajasthan Reet Tool",
+        path: "/rajasthan-reet-cet-photo-resizer",
+      },
+    ],
   },
   {
     slug: "rajasthan-reet-cet-photo-resizer",
     title: "Rajasthan Reet/CET Photo Resizer: Official Specifications 2026",
     category: "State Exams",
     metaTitle: "Rajasthan REET/CET Photo & Signature Resizer 2026",
-    metaDescription: "Resize photo and signature for Rajasthan CET, REET, and Police exams. 50-100KB photo size limit compliant. Free tool.",
+    metaDescription:
+      "Resize photo and signature for Rajasthan CET, REET, and Police exams. 50-100KB photo size limit compliant. Free tool.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "3.5cm x 4.5cm",
       fileSize: "50 KB - 100 KB (Photo), 20 KB - 50 KB (Signature)",
-      format: "JPG"
+      format: "JPG",
     },
     content: `
       <p>For Rajasthan Staff Selection Board (RSMSSB) and RPSC exams like CET and REET, the file size limits are slightly more generous than BPSC, usually allowing up to 100 KB for photos.</p>
@@ -946,8 +1058,8 @@ export const blogData: BlogPost[] = [
     faq: [],
     relatedLinks: [
       { title: "SSC Photo Resizer", path: "/ssc-cgl-photo-signature-resizer" },
-      { title: "MPPEB Resizer", path: "/mppeb-vyapam-template-resizer" }
-    ]
+      { title: "MPPEB Resizer", path: "/mppeb-vyapam-template-resizer" },
+    ],
   },
   // ==================== CATEGORY 5: OFFICIAL IDS ====================
   {
@@ -955,12 +1067,13 @@ export const blogData: BlogPost[] = [
     title: "Aadhar Card Photo Resizer: Convert Image to Official Dimensions",
     category: "Official IDs",
     metaTitle: "Aadhar Card Photo Resizer Online | Change Aadhar Photo Size",
-    metaDescription: "Resize photo for Aadhar card update or enrollment. Ensure valid dimensions and file size for UIDAI portal uploads. Free and secure.",
+    metaDescription:
+      "Resize photo for Aadhar card update or enrollment. Ensure valid dimensions and file size for UIDAI portal uploads. Free and secure.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "Passport Size (3.5cm x 4.5cm) or determined by center",
       fileSize: "Varied (Uploads often <2 MB)",
-      format: "JPEG / PNG"
+      format: "JPEG / PNG",
     },
     content: `
       <p>While biometric updates happen at enrollment centers, you may need to upload supporting documents or photos for online corrections or appointments. UIDAI portals generally accept standard passport-sized photos.</p>
@@ -971,220 +1084,1087 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can I change my Aadhar photo online?",
-        answer: "No, biometric updates (photo, iris, fingerprints) require a visit to an Aadhar Enrollment Center. However, this tool helps resize documents you might need to carry or upload for appointment booking."
-      }
+        answer:
+          "No, biometric updates (photo, iris, fingerprints) require a visit to an Aadhar Enrollment Center. However, this tool helps resize documents you might need to carry or upload for appointment booking.",
+      },
     ],
     relatedLinks: [
-      { title: "Pan Card Photo Resizer", path: "/pan-card-photo-signature-resizer" },
-      { title: "Voter ID Photo Tool", path: "/voter-id-photo-size-reducer" }
-    ]
+      {
+        title: "Pan Card Photo Resizer",
+        path: "/pan-card-photo-signature-resizer",
+      },
+      { title: "Voter ID Photo Tool", path: "/voter-id-photo-size-reducer" },
+    ],
   },
   {
     slug: "voter-id-photo-size-reducer",
-    title: "Voter ID Photo Size Reducer: How to Upload Photo for EPIC Card",
+    title:
+      "Voter ID Photo Size Reducer: Upload Photo for EPIC Card (NVSP Portal)",
     category: "Official IDs",
-    metaTitle: "Voter ID Photo Resizer | NVSP Portal Image Size Reducer",
-    metaDescription: "Resize photo for Voter ID card (NVSP/Voter Helpline). Compress image to fit official requirements for EPIC card generation.",
+    metaTitle:
+      "Voter ID Photo Resizer 2026 | NVSP & Voter Helpline EPIC Card Image Reducer",
+    metaDescription:
+      "Resize and compress photo for Voter ID (EPIC) application on NVSP portal. Convert to 3.5x4.5cm JPG under 200KB/100KB. Free online tool – no blur, no registration.",
     lastUpdated: "February 2026",
     specifications: {
-      dimensions: "3.5cm x 4.5cm",
-      fileSize: "Max 200 KB (varies by state portal)",
-      format: "JPG"
+      dimensions: "3.5cm x 4.5cm (Passport Size)",
+      fileSize: "Max 200 KB (State-specific: 50KB–200KB)",
+      format: "JPG / JPEG Only",
     },
     content: `
-      <p>Applying for a new Voter ID (EPIC) or correcting an existing one on the NVSP portal requires a compliant photograph.</p>
+    <p>Applying for a new <strong>Voter ID (EPIC Card)</strong> or submitting a correction request through the <strong>NVSP portal</strong> or <strong>Voter Helpline App</strong> requires uploading a recent passport-size photograph. However, high-resolution phone camera images often exceed the portal's file size limit, leading to the dreaded <strong>"File too large"</strong> error.</p>
 
-      <h2>Upload Issues?</h2>
-      <p>The most common error on the Voter Helpline App or NVSP website is "File too large". Use our tool to bring your high-resolution phone camera photo down to under 200 KB or 100 KB as required, without making it blurry.</p>
+    <h2>Voter ID Photo Size Requirements (2026 Update)</h2>
+    <p>The Election Commission of India accepts passport-size photographs in JPG format. While the recommended dimension is fixed, file size limits vary by state portal and application type:</p>
 
-      <h2>Instructions</h2>
-      <p>Upload your photo, set the width/height to passport specifications, and reduce quality slightly until the file size is optimized for the portal.</p>
-    `,
-    faq: [],
+    <ul>
+      <li><strong>Dimensions:</strong> 3.5cm x 4.5cm (350px x 450px at 200 DPI)</li>
+      <li><strong>File Size:</strong> Maximum 200 KB (some states restrict to 100KB or 50KB)</li>
+      <li><strong>Format:</strong> JPG / JPEG only (PNG uploads fail)</li>
+      <li><strong>Background:</strong> White or light solid color</li>
+      <li><strong>Recent Photo:</strong> Not older than 6 months</li>
+    </ul>
+
+    <p class="important-note">
+      <strong>⚠️ Important:</strong> NVSP and Voter Helpline App reject images that are blurry, pixelated, or have incorrect aspect ratios. Our tool ensures your photo meets <strong>exact EPIC card specifications</strong> while preserving facial clarity.
+    </p>
+
+    <h2>Common Voter ID Photo Upload Errors & Fixes</h2>
+    <ul>
+      <li><strong>"File size exceeds limit":</strong> Your camera photo is 2MB–5MB. Compress to under 200KB/100KB without quality loss.</li>
+      <li><strong>"Image dimensions not valid":</strong> Uploaded a square or random crop. Resize to exact 3.5x4.5cm ratio.</li>
+      <li><strong>"Blurred image detected":</strong> Over-compression destroyed facial features. Use smart edge-preserving compression.</li>
+      <li><strong>"Format not supported":</strong> You uploaded PNG or HEIC. Convert to JPG instantly.</li>
+    </ul>
+
+    <h2>Why Voter ID Photo Rejections Happen</h2>
+    <p>Most applicants simply reduce image quality in MS Paint or basic editors. This destroys <strong>facial edge detection</strong>—the system flags your photo as "blurred" and rejects it. Others upload standard 3.5x4.5 photos but forget that state portals require strict <strong>200 DPI resolution</strong> for printing on the physical EPIC card.</p>
+
+    <p>Our <strong>Voter ID Photo Resizer</strong> solves both problems simultaneously. It locks the aspect ratio to 3.5:4.5, calibrates DPI to 200, and intelligently compresses your file to <strong>under 200KB (or 100KB/50KB presets)</strong> while keeping your face sharp and recognizable.</p>
+
+    <h2>How to Resize Voter ID Photo for NVSP Portal (Step-by-Step)</h2>
+    <ol>
+      <li><strong>Capture:</strong> Take a fresh passport-style photo against white background. Avoid shadows and glare.</li>
+      <li><strong>Upload:</strong> Use our Voter ID preset – auto-crops to 3.5x4.5cm (350x450px).</li>
+      <li><strong>Adjust:</strong> Position your face within the guideline overlay (70–80% frame).</li>
+      <li><strong>Compress:</strong> Select your state's file size limit (200KB/100KB/50KB) – our engine optimizes instantly.</li>
+      <li><strong>Download & Upload:</strong> Save the optimized JPG and upload to NVSP portal or Voter Helpline App.</li>
+    </ol>
+
+    <h2>State-Wise File Size Variations (2026)</h2>
+    <p>Voter ID photo requirements are not uniform across India. Based on current EPIC application portals:</p>
+    <ul>
+      <li><strong>Maharashtra, Gujarat, Tamil Nadu:</strong> 20KB – 100KB strict limit</li>
+      <li><strong>Delhi, UP, Bihar, West Bengal:</strong> Up to 200KB accepted</li>
+      <li><strong>Karnataka, Telangana, Kerala:</strong> 50KB – 150KB range</li>
+      <li><strong>North-Eastern states:</strong> Often 100KB maximum</li>
+    </ul>
+    <p>Our tool includes <strong>state-specific presets</strong> to match your local RTO/Election Office requirements perfectly.</p>
+
+    <h2>Why Proper Compression Matters for EPIC Card</h2>
+    <p>The Voter ID card is printed with high-density barcodes and QR codes. If your photo is too large, the portal rejects it. If it's too compressed, your face appears pixelated on the physical card. Our <strong>smart compression algorithm</strong> removes unnecessary metadata and background noise while preserving the facial features required for voter identification.</p>
+
+    <h2>Mobile-Friendly for Voter Helpline App</h2>
+    <p>Applying via the <strong>Voter Helpline mobile app</strong>? Our tool works perfectly on smartphones. Upload directly from your camera roll, resize in seconds, and save – all from your phone browser. No app installation required.</p>
+
+    <p><strong>Resize your Voter ID photo now – get approved on the first attempt without technical rejections or portal errors.</strong></p>
+  `,
+    faq: [
+      {
+        question:
+          "What is the exact photo size for Voter ID (EPIC) application?",
+        answer:
+          "Voter ID requires a 3.5cm x 4.5cm passport-size photograph in JPG format. File size must be under 200KB, though many states restrict to 100KB or 50KB. Dimensions should be approximately 350px x 450px at 200 DPI.",
+      },
+      {
+        question: "Can I upload a photo taken on my mobile phone?",
+        answer:
+          "Yes, you can use your mobile camera. However, phone photos are typically 2MB–5MB and must be compressed to under 200KB. Our tool optimizes mobile photos specifically for NVSP portal requirements.",
+      },
+      {
+        question: "What happens if my photo is rejected?",
+        answer:
+          "Rejected photos delay your EPIC card issuance by 7–15 days. You must re-upload a compliant image. Using our resizer on the first attempt ensures instant acceptance.",
+      },
+      {
+        question: "Is white background mandatory for Voter ID photo?",
+        answer:
+          "Yes, a plain white or off-white background is strongly recommended. Colored backgrounds, patterns, or shadows may lead to rejection during manual verification.",
+      },
+      {
+        question: "Can I use the same photo for Voter ID and Passport?",
+        answer:
+          "Yes, both require 3.5x4.5cm dimensions. However, Voter ID portals often have stricter file size limits (under 200KB vs Passport's 1MB). Compress accordingly using our tool.",
+      },
+      {
+        question: "How do I resize signature for Voter ID application?",
+        answer:
+          "Voter ID applications generally do not require a separate signature upload for new applications. However, correction forms may require signature – use our PAN Card signature resizer preset (2cm x 4.5cm).",
+      },
+      {
+        question: "My photo becomes blurry at 100KB. What's wrong?",
+        answer:
+          "Generic compressors degrade image quality indiscriminately. Our tool preserves facial edges and contours, delivering clear photos even at 50KB–100KB. Select your state preset for optimal results.",
+      },
+      {
+        question: "Does the Voter Helpline App accept PNG files?",
+        answer:
+          "No. Both NVSP portal and Voter Helpline App accept only JPG/JPEG format. PNG files must be converted to JPG before uploading.",
+      },
+    ],
     relatedLinks: [
-      { title: "Aadhar Card Resizer", path: "/aadhar-card-photo-resizer" },
-      { title: "Passport Photo Maker", path: "/passport-size-photo-maker-35x45" }
-    ]
+      {
+        title: "Aadhaar Photo & Signature Resizer",
+        path: "/aadhaar-photo-signature-resizer",
+      },
+      {
+        title: "Driving License Photo Resizer (Sarathi)",
+        path: "/resize-photo-driving-license-sarathi",
+      },
+      {
+        title: "PAN Card Photo & Signature Resizer",
+        path: "/pan-card-photo-signature-resizer",
+      },
+      {
+        title: "Passport Size Photo Maker (3.5x4.5)",
+        path: "/passport-size-photo-maker-35x45",
+      },
+    ],
   },
   {
     slug: "passport-size-photo-maker-35x45",
     title: "Passport Size Photo Maker: 3.5cm x 4.5cm Resizer Online",
     category: "Official IDs",
-    metaTitle: "Passport Size Photo Maker Online | 3.5x4.5 cm Resizer",
-    metaDescription: "Create standard passport size photos (3.5cm x 4.5cm) online. Free tool to crop and resize images for official documents and visa applications.",
+    metaTitle:
+      "Passport Size Photo Maker Online (3.5x4.5 cm) | Free Cropping Tool 2026",
+    metaDescription:
+      "Create standard 3.5cm x 4.5cm passport size photos instantly. Free online resizer for government exams, driving license, visas, and college applications. No registration required.",
     lastUpdated: "February 2026",
     specifications: {
-      dimensions: "3.5 cm x 4.5 cm",
-      fileSize: "Any (User defined)",
-      format: "JPG / PNG"
+      dimensions: "3.5 cm x 4.5 cm (350px x 450px @ 200 DPI)",
+      fileSize: "Flexible - Compress as per portal requirement",
+      format: "JPG / JPEG / PNG",
     },
     content: `
-      <p>The "Passport Size" is the gold standard for identity documents worldwide. In India, the standard metric dimension is **3.5 cm (width) x 4.5 cm (height)**.</p>
+    <p>The <strong>3.5cm x 4.5cm passport size photograph</strong> is the gold standard for identity documents across India. Whether you're applying for a <strong>government job exam (UPSC, SSC, Banking)</strong>, a <strong>Driving License</strong>, <strong>Voter ID</strong>, or <strong>college admission</strong>, this is the most frequently requested photo dimension.</p>
 
-      <h2>Where is this size used?</h2>
-      <ul>
-        <li>UPSC, SSC, Banking Exams</li>
-        <li>Driving License</li>
-        <li>School/College Admission Forms</li>
-        <li>Visa Applications (Country dependent)</li>
-      </ul>
+    <p>Yet, most people don't have access to a professional photo studio every time a form is released at midnight. Our <strong>Passport Size Photo Maker</strong> lets you create compliant 3.5x4.5cm photos instantly using your phone camera — no Photoshop, no studio, no delays.</p>
 
-      <h2>How to make a Passport Photo Online?</h2>
-      <p>You don't need a studio. Take a photo against a white wall. Upload it here. Select the "3.5 x 4.5 cm" crop preset. Adjust to center your face. Download. It's ready for print or online upload.</p>
-    `,
-    faq: [],
+    <h2>3.5cm x 4.5cm: The Universal Indian Document Size</h2>
+    <p>Unlike international passports which may vary by country, Indian official documents consistently follow the metric 3.5cm width x 4.5cm height standard. This translates to approximately <strong>350px x 450px at 200 DPI</strong> or <strong>413px x 531px at 300 DPI</strong> for high-resolution printing.</p>
+
+    <ul>
+      <li><strong>UPSC CSE, SSC CGL, Banking Exams:</strong> Mandatory 3.5x4.5cm with white background</li>
+      <li><strong>Driving License (Sarathi):</strong> 3.5x4.5cm compressed to 10KB–20KB</li>
+      <li><strong>Voter ID (EPIC):</strong> 3.5x4.5cm under 200KB</li>
+      <li><strong>College/University Admissions:</strong> 3.5x4.5cm JPG/PNG</li>
+      <li><strong>Visa Applications:</strong> Many countries accept 3.5x4.5cm (check specific guidelines)</li>
+    </ul>
+
+    <h2>Why Make Passport Size Photos at Home?</h2>
+    <p>Professional photo studios charge ₹100–₹300 for a dozen prints. But most online forms require only a <strong>digital upload</strong>, not physical prints. You don't need a printout — you need a correctly cropped and sized digital file. Our tool gives you that in 30 seconds, for free.</p>
+
+    <h2>Common Problems & Solutions</h2>
+    <ul>
+      <li><strong>"My photo is too large (in MB):"</strong> Use our compression slider to reduce file size while keeping 3.5x4.5 dimensions intact.</li>
+      <li><strong>"The form says invalid dimensions:"</strong> You uploaded a square or vertical crop. Use our exact 3.5x4.5 preset lock.</li>
+      <li><strong>"My face is too small/large in frame:"</strong> Our guided overlay shows you exactly where your head should be (70–80% of frame).</li>
+      <li><strong>"Background isn't white:"</strong> Use our one-click background whitening tool — no Photoshop skills needed.</li>
+    </ul>
+
+    <h2>How to Make a 3.5x4.5cm Passport Photo Online (Step-by-Step)</h2>
+    <ol>
+      <li><strong>Take the photo:</strong> Stand against a plain white or light-colored wall. Use natural daylight. Avoid shadows on face.</li>
+      <li><strong>Upload:</strong> Select the <strong>"3.5 x 4.5 cm Passport Size"</strong> preset from our tool.</li>
+      <li><strong>Crop:</strong> The tool automatically locks the aspect ratio. Drag the crop box to center your face.</li>
+      <li><strong>Adjust:</strong> Ensure your head occupies 70–80% of the frame, with slight shoulder visible.</li>
+      <li><strong>Enhance (Optional):</strong> Use auto background correction if needed.</li>
+      <li><strong>Download:</strong> Save your ready-to-upload JPG/PNG file.</li>
+    </ol>
+
+    <h2>DPI & Resolution: What You Need to Know</h2>
+    <p>Different portals expect different DPI (dots per inch) settings. Our tool gives you flexibility:</p>
+    <ul>
+      <li><strong>200 DPI:</strong> 276px x 354px — Suitable for most Indian government portals (Sarathi, NVSP, etc.)</li>
+      <li><strong>300 DPI:</strong> 413px x 531px — High resolution for print-ready photos</li>
+      <li><strong>Custom DPI:</strong> Adjust manually if your exam portal specifies exact pixel dimensions</li>
+    </ul>
+    <p>Unlike generic editors that simply stretch pixels, our tool maintains proper aspect ratio and prevents facial distortion when changing DPI.</p>
+
+    <h2>Passport Size vs. Other Common Dimensions</h2>
+    <table>
+      <tr>
+        <th>Document</th>
+        <th>Dimensions (cm)</th>
+        <th>Orientation</th>
+      </tr>
+      <tr>
+        <td>Passport / Voter ID / Exams</td>
+        <td><strong>3.5 x 4.5</strong></td>
+        <td>Portrait</td>
+      </tr>
+      <tr>
+        <td>PAN Card</td>
+        <td>3.5 x 2.5</td>
+        <td>Landscape</td>
+      </tr>
+      <tr>
+        <td>US Visa</td>
+        <td>5.1 x 5.1</td>
+        <td>Square</td>
+      </tr>
+      <tr>
+        <td>Schengen Visa</td>
+        <td>3.5 x 4.5</td>
+        <td>Portrait</td>
+      </tr>
+    </table>
+
+    <h2>Exam Applications: Why Photo Size Matters</h2>
+    <p>Competitive exams like <strong>UPSC CSE, SSC CHSL, Banking PO, Railway RRB, and State PSCs</strong> all require a 3.5x4.5cm photograph uploaded during registration. If your photo dimensions are incorrect, you may be <strong>disqualified during document verification</strong> — even after clearing the written exam.</p>
+
+    <p>Don't lose years of preparation over a cropping error. Use our tool to get it right the first time.</p>
+
+    <h2>Print-Ready Photos at Home</h2>
+    <p>Need physical prints for a form? Our tool also includes a <strong>print layout feature</strong>. After creating your 3.5x4.5cm photo, select <strong>"Print Sheet (6x4)"</strong> to generate a 6"x4" print sheet containing multiple identical photos. Take this to any photo printing shop — they'll print it for ₹10–₹20.</p>
+
+    <p><strong>Create your compliant 3.5x4.5cm passport size photo now — free, instant, and ready for any government or exam application.</strong></p>
+  `,
+    faq: [
+      {
+        question:
+          "What is the exact pixel size for 3.5cm x 4.5cm passport photo?",
+        answer:
+          "At 200 DPI, 3.5cm x 4.5cm equals 276px x 354px. At 300 DPI (print standard), it equals 413px x 531px. Most Indian government portals accept 200 DPI. Our tool auto-calculates based on your requirement.",
+      },
+      {
+        question: "Is 3.5x4.5 same as passport size?",
+        answer:
+          "Yes, in India, 'passport size photograph' universally refers to 3.5cm width x 4.5cm height. This is the standard for official documents, exams, and most visa applications.",
+      },
+      {
+        question: "Can I use a 3.5x4.5 photo for PAN Card?",
+        answer:
+          "No. PAN Card requires a landscape photo: 3.5cm x 2.5cm (wider than tall). Uploading a standard 3.5x4.5 passport photo will be rejected. Use our PAN Card specific preset for that.",
+      },
+      {
+        question: "What background color is required for passport size photo?",
+        answer:
+          "White or off-white background is mandatory for most government exams and official IDs. Some visa applications accept light blue or grey — always check specific guidelines.",
+      },
+      {
+        question: "How can I print 3.5x4.5 photos at home?",
+        answer:
+          "After creating your photo using our tool, select the 'Print Sheet (6x4)' option. This arranges multiple 3.5x4.5 photos on a standard 6x4 inch print sheet. Save and print on glossy photo paper.",
+      },
+      {
+        question: "What is the file size limit for passport photos?",
+        answer:
+          "File size varies by portal: Driving License (10-20KB), Voter ID (under 200KB), UPSC (under 50KB). Our tool allows custom compression while keeping dimensions exactly at 3.5x4.5cm.",
+      },
+      {
+        question: "Can I wear spectacles in passport size photo?",
+        answer:
+          "For government exams and official IDs, spectacles are generally allowed but there should be no glare on lenses. Avoid thick frames that obscure eyes. For passports, many countries now prohibit spectacles.",
+      },
+      {
+        question: "Is smile allowed in passport size photograph?",
+        answer:
+          "For Indian official documents, a neutral expression with closed mouth is standard. For visas and international passports, a neutral expression is mandatory (no smile).",
+      },
+      {
+        question: "How recent should my passport photo be?",
+        answer:
+          "Most applications require a photograph taken within the last 3-6 months. Avoid uploading photos where your appearance has significantly changed.",
+      },
+    ],
     relatedLinks: [
-      { title: "Visa Photo Requirements", path: "/upsc-photo-signature-resizer-2026" },
-      { title: "Driving License Resizer", path: "/resize-photo-driving-license-sarathi" }
-    ]
+      {
+        title: "Driving License Photo Resizer (Sarathi)",
+        path: "/resize-photo-driving-license-sarathi",
+      },
+      {
+        title: "PAN Card Photo & Signature Resizer",
+        path: "/pan-card-photo-signature-resizer",
+      },
+      {
+        title: "Voter ID Photo Size Reducer",
+        path: "/voter-id-photo-size-reducer",
+      },
+      {
+        title: "UPSC Photo & Signature Resizer 2026",
+        path: "/upsc-photo-signature-resizer-2026",
+      },
+      {
+        title: "Aadhaar Photo Resizer",
+        path: "/aadhaar-photo-signature-resizer",
+      },
+    ],
   },
   {
     slug: "pan-card-photo-signature-resizer",
-    title: "Pan Card Photo and Signature Resizer: NSDL/UTI Specifications",
+    title: "PAN Card Photo and Signature Resizer",
     category: "Official IDs",
-    metaTitle: "PAN Card Photo & Signature Resizer (NSDL/UTITSL) 2026",
-    metaDescription: "Resize photo and signature for PAN Card application (NSDL/UTI). Dimensions 3.5x2.5cm and 2x4.5cm. Max size 50KB. Free online tool.",
+    metaTitle:
+      "PAN Card Photo & Signature Resizer (NSDL/UTITSL) 2026 – 3.5x2.5cm & 2x4.5cm JPG Under 50KB",
+    metaDescription:
+      "Resize photo and signature for PAN Card application (NSDL/UTIITSL) with exact dimensions: 3.5x2.5cm photo & 2x4.5cm signature. Max file size 50KB. Free online tool – instant JPG compression.",
     lastUpdated: "February 2026",
     specifications: {
-      dimensions: "3.5cm x 2.5cm (Photo), 2cm x 4.5cm (Signature)",
-      fileSize: "Max 50 KB",
-      format: "JPG"
+      dimensions:
+        "Photo: 3.5cm x 2.5cm (Landscape) | Signature: 2cm x 4.5cm (Portrait)",
+      fileSize: "Max 50 KB (Both Photo & Signature)",
+      format: "JPG / JPEG Only",
     },
     content: `
-      <p>Applying for a PAN card online via NSDL or UTITSL requires specific dimensions that are different from standard passport photos.</p>
+     <p>Applying for a <strong>PAN Card</strong> online through <strong>NSDL or UTIITSL</strong> comes with a unique challenge—the photo and signature dimensions are completely different from standard passport photos. Uploading incorrect sizes leads to instant rejection or awkward cropping that invalidates your application.</p>
+    <h2>PAN Card Photo & Signature Size Requirements (2026 Update)</h2>
+<p>Unlike Driving License or Passport applications, PAN Card requires a <strong>landscape-oriented photograph</strong> and a vertically elongated signature. Here are the exact specifications your files must meet:</p>
 
-      <h2>PAN Card Dimensions are Unique</h2>
-      <ul>
-        <li><strong>Photo:</strong> 3.5 cm x 2.5 cm. (Note: This is smaller than the standard 3.5x4.5).</li>
-        <li><strong>Signature:</strong> 2 cm x 4.5 cm.</li>
-        <li><strong>DPI:</strong> 200 DPI is often requested.</li>
-        <li><strong>Limit:</strong> 50 KB.</li>
-      </ul>
+<ul>
+  <li><strong>Photo Dimensions:</strong> 3.5cm x 2.5cm (Landscape format – wider than it is tall)</li>
+  <li><strong>Signature Dimensions:</strong> 2cm x 4.5cm (Portrait format – taller than it is wide)</li>
+  <li><strong>DPI Requirement:</strong> 200 DPI recommended (our tool auto-calibrates)</li>
+  <li><strong>File Size:</strong> Maximum 50 KB (both photo and signature)</li>
+  <li><strong>Format:</strong> JPG / JPEG only</li>
+  <li><strong>Background:</strong> White or off-white, no shadows</li>
+</ul>
 
-      <p>Uploading a standard passport photo (3.5x4.5) will lead to cropping issues or rejection. Use our manual crop tool or preset to get exactly 3.5x2.5 cm.</p>
-    `,
-    faq: [],
+<p class="important-note">
+  <strong>⚠️ Critical:</strong> Do NOT upload a standard passport photo (3.5cm x 4.5cm). The NSDL/UTIITSL portal expects a <strong>landscape</strong> photo (shorter height). Uploading portrait-oriented photos will result in face cropping or aspect ratio rejection.
+</p>
+
+<h2>Why PAN Card Photo Dimensions Are Different</h2>
+<p>The Income Tax Department's printing system uses a specific card layout where the photograph is positioned horizontally. The landscape format (3.5cm width x 2.5cm height) ensures your face fits correctly within the allocated space on the physical PAN card. Similarly, the signature slot requires a vertical orientation (2cm x 4.5cm) to match the printed area.</p>
+
+<h2>Common PAN Card Upload Errors & Fixes</h2>
+<ul>
+  <li><strong>"Image dimensions not as specified":</strong> You uploaded a 3.5x4.5 passport photo. Resize to 3.5x2.5 using our preset.</li>
+  <li><strong>"File size exceeds 50KB":</strong> Your image is high-resolution. Compress without losing facial clarity.</li>
+  <li><strong>"Signature too small/large":</strong> Signature must be exactly 2cm x 4.5cm at 200 DPI.</li>
+  <li><strong>"Blurred image detected":</strong> Over-compression destroyed edge sharpness. Use smart compression.</li>
+</ul>
+
+<h2>How to Resize PAN Card Photo & Signature Correctly</h2>
+<p>Our <strong>PAN Card Photo & Signature Resizer</strong> is purpose-built for NSDL/UTIITSL applications. Unlike generic photo editors, it:</p>
+<ul>
+  <li><strong>Auto-crops</strong> your photo to exact 3.5cm x 2.5cm landscape dimensions</li>
+  <li><strong>Converts signature</strong> to 2cm x 4.5cm portrait format</li>
+  <li><strong>Optimizes DPI</strong> to 200 DPI automatically</li>
+  <li><strong>Compresses to under 50KB</strong> while preserving facial features and signature strokes</li>
+  <li><strong>Works instantly</strong> – no registration, no watermarks, no software installation</li>
+</ul>
+
+<h2>Step-by-Step PAN Card Photo Upload Guide (2026)</h2>
+<ol>
+  <li><strong>Capture:</strong> Take a passport-style photo against white background. Ensure even lighting.</li>
+  <li><strong>Upload:</strong> Use our PAN Card preset – it automatically detects face and crops to 3.5x2.5cm.</li>
+  <li><strong>Adjust:</strong> Fine-tune cropping if needed (our tool shows exact dimension overlay).</li>
+  <li><strong>Compress:</strong> The engine reduces file size to under 50KB while maintaining 200 DPI.</li>
+  <li><strong>Download & Upload:</strong> Save your optimized JPG and upload to NSDL/UTIITSL portal.</li>
+</ol>
+
+<h2>Signature Requirements for PAN Card</h2>
+<p>The signature is often overlooked but equally important. Requirements:</p>
+<ul>
+  <li>Sign on white paper with black/blue ink</li>
+  <li>Scan or photograph clearly – no smudges</li>
+  <li>Resize to exactly <strong>2cm width x 4.5cm height</strong></li>
+  <li>File size under 50KB</li>
+  <li>JPG format only</li>
+</ul>
+<p>Our tool includes a dedicated signature resizer preset that maintains stroke thickness and clarity even at 50KB compression.</p>
+
+<h2>Why File Size & DPI Matter</h2>
+<p>The NSDL/UTIITSL portal validates both dimensions AND DPI. A 3.5x2.5cm image at 72 DPI will appear pixelated on the printed card. Our tool ensures <strong>200 DPI resolution</strong> while keeping file size under the 50KB ceiling – something standard compressors cannot do.</p>
+
+<p><strong>Resize your PAN Card photo and signature now – get approved on the first attempt without technical rejections.</strong></p>
+     `,
+    faq: [
+      {
+        question: "What is the exact photo size for PAN Card application?",
+        answer:
+          "PAN Card requires a 3.5cm x 2.5cm photograph in landscape orientation (wider than tall). This is different from passport size (3.5cm x 4.5cm). Uploading passport-size photos will result in rejection.",
+      },
+      {
+        question: "What is the signature size for PAN Card?",
+        answer:
+          "Signature must be 2cm x 4.5cm in portrait orientation. Maximum file size is 50KB in JPG format. Ensure signature is on white background with clear strokes.",
+      },
+      {
+        question: "Can I upload a 50KB photo for PAN Card?",
+        answer:
+          "Yes, file size must not exceed 50KB. However, ensure the dimensions are correct (3.5x2.5cm) and DPI is 200. Our tool compresses to under 50KB while maintaining quality.",
+      },
+      {
+        question:
+          "What happens if I upload a 3.5cm x 4.5cm photo for PAN Card?",
+        answer:
+          "The NSDL/UTIITSL portal will either reject the image outright or automatically crop it – which often cuts off the top of your head or chin. Always use the correct 3.5x2.5cm landscape dimensions.",
+      },
+      {
+        question: "Is white background mandatory for PAN Card photo?",
+        answer:
+          "Yes, a plain white or off-white background is required. Colored backgrounds, shadows, or patterns will lead to rejection.",
+      },
+      {
+        question:
+          "Can I use the same tool for both NSDL and UTIITSL applications?",
+        answer:
+          "Yes, both portals follow identical specifications – 3.5x2.5cm photo, 2x4.5cm signature, 50KB max, JPG format. Our tool works for both.",
+      },
+      {
+        question: "My photo becomes blurry at 50KB. How to fix?",
+        answer:
+          "Generic compressors destroy image quality. Our tool uses smart compression that prioritizes facial features and edges, keeping your face clear even at 45KB–50KB.",
+      },
+    ],
     relatedLinks: [
       { title: "Aadhar Photo Resizer", path: "/aadhar-card-photo-resizer" },
-      { title: "Passport Size Maker", path: "/passport-size-photo-maker-35x45" }
-    ]
+      {
+        title: "Passport Size Maker",
+        path: "/passport-size-photo-maker-35x45",
+      },
+    ],
   },
   {
     slug: "resize-photo-driving-license-sarathi",
     title: "Resize Photo for Driving License (Sarathi) Application Online",
     category: "Official IDs",
-    metaTitle: "Driving License Photo Resizer (Sarathi Parivahan) 2026",
-    metaDescription: "Resize photo and signature for Driving License / Learner's License on Sarathi Parivahan portal. Compress to 10-20KB instantly.",
+    metaTitle:
+      "Driving License Photo Resizer (Sarathi Parivahan) 2026 – 10KB to 20KB JPG",
+    metaDescription:
+      "Resize and compress photo & signature for Driving License or Learner's License on Sarathi Parivahan portal. Convert image to 10KB–20KB JPG online instantly without losing clarity.",
     lastUpdated: "February 2026",
     specifications: {
-      dimensions: "Passport Size",
-      fileSize: "10 KB - 20 KB (Strict)",
-      format: "JPG / JPEG"
+      dimensions: "Passport Size (3.5cm x 4.5cm recommended | 350px x 450px)",
+      fileSize: "10 KB - 20 KB (Strict Limit as per State RTO)",
+      format: "JPG / JPEG Only",
     },
     content: `
-      <p>The Sarathi Parivahan portal for Driving Licenses is notorious for strict and low file size limits.</p>
+    <p>If you're stuck on the <strong>Sarathi Parivahan 4.0 portal</strong> with a <strong>"File size should be between 10KB and 20KB"</strong> error, you're not alone. As of <strong>February 2026</strong>, the updated portal interface continues to enforce strict image compression rules—and most standard photo editors fail to meet them without ruining image clarity.</p>
+    <p>Applying for a <strong>Driving License (DL)</strong> or <strong>Learner's License (LL)</strong> requires uploading a recent passport-size photo and signature. However, the <strong>10KB–20KB JPG</strong> limit causes repeated rejections. Our <strong>Sarathi-Optimized Photo Resizer</strong> is calibrated specifically for the RTO validation engine—delivering clear, accepted files in under 60 seconds.</p>
 
-      <h2>The Challenge: 20 KB Limit</h2>
-      <p>Most states require the photo and signature to be under 20 KB (sometimes even 10 KB). This often results in poor quality images if not resized correctly. </p>
+<h2>Sarathi Driving License Photo Size Requirements (2026 Update)</h2>
+<p>The Sarathi portal now performs deeper metadata validation. Here are the exact technical specs your image must meet:</p>
 
-      <h2>Solution</h2>
-      <p>Our tool uses advanced compression to keep your face recognizable even at 15 KB, ensuring your DL application is accepted without errors.</p>
+<ul>
+  <li><strong>Format:</strong> JPG / JPEG (PNG/HEIC uploads fail instantly)</li>
+  <li><strong>File Size:</strong> 10KB – 20KB (Strict; no flexibility)</li>
+  <li><strong>Dimensions:</strong> 3.5cm x 4.5cm (350px x 450px recommended)</li>
+  <li><strong>Background:</strong> Off-white or light pastel (pure white may cause glare rejection)</li>
+  <li><strong>Aspect Ratio:</strong> Locked to 3.5:4.5 — stretched images are auto-rejected</li>
+</ul>
+
+<h2>Why Your Photo Keeps Getting Rejected</h2>
+<p>You reduce the quality to 10%, save the file, and it's still 40KB. You try again—now your face looks pixelated. This happens because generic tools don't preserve <strong>facial edge detection</strong>.</p>
+
+<p>The Parivahan system analyzes sharpness along your jawline, eyes, and contours. If you simply reduce resolution, these edges become jagged. The portal flags this as a <strong>"blurred image"</strong> and rejects the upload. Our tool prioritizes <strong>edge retention</strong> while discarding unnecessary background data, delivering a sharp 18KB file that passes RTO facial recognition checks.</p>
+
+<h2>Best Way to Resize DL Photo to 20KB (2026)</h2>
+<p>Our <strong>Driving License Photo Resizer</strong> is purpose-built for Sarathi Parivahan. Unlike generic compressors, it:</p>
+<ul>
+  <li>Intelligently compresses to <strong>15KB–20KB</strong> without pixelation</li>
+  <li>Locks the <strong>3.5:4.5 aspect ratio</strong> to prevent stretching</li>
+  <li>Strips Exif metadata for privacy and smaller file size</li>
+  <li>Works instantly — no registration, no watermarks</li>
+</ul>
+
+<p>Whether you're applying for a new DL, LL, duplicate license, or renewal, you can resize your photo and signature within seconds — and avoid the <strong>48-hour cooldown</strong> that follows a rejection.</p>
+
+<h2>State-Wise Photo Size Variations (2026)</h2>
+<p>There is no single standard across India. Based on current RTO requirements:</p>
+<ul>
+  <li><strong>Maharashtra, Gujarat, Karnataka:</strong> Strict 10KB–20KB window</li>
+  <li><strong>Delhi, UP, Bihar:</strong> May accept up to 30KB, but 20KB is safest</li>
+  <li><strong>Tamil Nadu, Kerala:</strong> Highly sensitive to aspect ratio; reject stretched images immediately</li>
+</ul>
+<p>Our <strong>"Strict RTO Mode"</strong> forces file size to <strong>15KB</strong> — the sweet spot accepted by all 36 RTO jurisdictions.</p>
+
+<h2>Why Proper Compression Matters</h2>
+<p>Over-compressing creates blur; under-compressing causes upload failure. Using an optimized DL photo resizer ensures your image meets RTO specifications without compromising quality. A rejected photo doesn't just delay your application — it can also cancel your booked appointment slot.</p>
+
+<p><strong>Resize your photo now and complete your Sarathi Driving License application smoothly — no technical errors, no rejections.</strong></p>
     `,
-    faq: [],
+    faq: [
+      {
+        question:
+          "What is the exact photo size required for Sarathi Driving License in 2026?",
+        answer:
+          "The Sarathi Parivahan portal requires a passport-size photo in JPG format between 10KB and 20KB. Dimensions should ideally be 3.5cm x 4.5cm (350px x 450px). Exact limits may vary slightly by state RTO, but 15KB is accepted universally.",
+      },
+      {
+        question: "Will the photo become blurry at 20KB?",
+        answer:
+          "Some minor quality reduction is expected at very small sizes like 15KB–20KB. However, with smart compression that preserves edge detection, the face remains clear and fully acceptable for DL and LL applications. Our tool is optimized specifically for this.",
+      },
+      {
+        question: "Can I upload a PNG photo on the Sarathi portal?",
+        answer:
+          "No. Most Sarathi DL and LL applications accept only JPG or JPEG format. PNG files are rejected. You must convert your image to JPG before uploading.",
+      },
+      {
+        question: "Is 10KB photo acceptable for Driving License?",
+        answer:
+          "Yes. Some states like Maharashtra and Karnataka strictly require photo size under 10KB. Always check your state RTO instructions, but keeping the file between 10KB and 20KB is generally safe. Our tool offers a 'Strict 10KB' preset for such cases.",
+      },
+      {
+        question:
+          "My downloaded file shows 0KB after compression. What went wrong?",
+        answer:
+          "This is usually a browser caching issue. Try downloading again in Incognito/Private mode, or switch to Chrome or Edge. If the issue persists, refresh the tool page and re-upload your image.",
+      },
+      {
+        question:
+          "Can I use the same photo for both Learner's License and Permanent License?",
+        answer:
+          "Yes, you can use the same digital photo. However, keep the original high-resolution copy safe. The Permanent License smart card sometimes requires a slightly higher resolution for printing, though the upload limit remains 20KB.",
+      },
+    ],
     relatedLinks: [
       { title: "PAN Card Resizer", path: "/pan-card-photo-signature-resizer" },
-      { title: "Voter ID Tool", path: "/voter-id-photo-size-reducer" }
-    ]
+      { title: "Voter ID Tool", path: "/voter-id-photo-size-reducer" },
+    ],
   },
   // ==================== CATEGORY 6: TECHNICAL TOOLS ====================
   {
     slug: "compress-photo-to-20kb-online",
     title: "How to Compress Photo to Exactly 20KB Online for Govt Forms",
     category: "Technical Tools",
-    metaTitle: "Compress Photo to 20KB Online | Exact Size Reducer",
-    metaDescription: "Need a photo under 20KB? Use this free online compressor to reduce image size to exactly 20KB, 15KB, or 10KB without losing quality.",
+    metaTitle:
+      "Compress Photo to 20KB Online (Exact Size) | Free JPG Reducer 2026",
+    metaDescription:
+      "Compress any JPG photo to exactly 20KB, 15KB, or 10KB for government forms. Driving License, UPSC, SSC, and more. No registration. Instant download.",
     lastUpdated: "February 2026",
     specifications: {
-      dimensions: "Any",
-      fileSize: "Target: 20 KB",
-      format: "JPG"
+      dimensions: "Any (Preserves original dimensions)",
+      fileSize: "Target: 10KB / 15KB / 20KB / Custom",
+      format: "JPG / JPEG Only",
     },
     content: `
-      <p>Many government forms (SSC, UPSC Signature, DL) require files strictly under 20 KB. Standard compressors often stop at 50 KB.</p>
+    <p>You've filled out the entire government application form. You've uploaded your documents. Then comes the photo upload section — and the portal rejects your file with: <strong>"File size must be between 10KB and 20KB"</strong>.</p>
 
-      <h2>How to get under 20 KB?</h2>
-      <p>Our tool gives you granular control. Upload your image and slowly lower the quality slider. Watch the "Output Size" indicator. Once it hits 18-19 KB, download it. It's that simple.</p>
-    `,
+    <p>Standard photo compressors stop at 50KB. MS Paint can't hit 20KB without destroying image quality. Even Photoshop requires trial and error. Our <strong>Exact 20KB Photo Compressor</strong> is built for one purpose: <strong>getting your JPG file to precisely 10KB, 15KB, or 20KB</strong> while keeping it visually clear and portal-ready.</p>
+
+    <h2>Why 20KB? Which Portals Require This?</h2>
+    <p>The 20KB file size limit is one of the most common—and most frustrating—requirements across Indian government portals. Here's where you need it:</p>
+    
+    <ul>
+      <li><strong>Driving License (Sarathi Parivahan):</strong> 10KB – 20KB strict limit</li>
+      <li><strong>UPSC Civil Services Exam:</strong> Photo & signature under 20KB each</li>
+      <li><strong>SSC CGL, CHSL, MTS:</strong> 10KB – 20KB for photograph</li>
+      <li><strong>Banking Exams (IBPS, RBI, SBI):</strong> 20KB – 50KB range (often 20KB)</li>
+      <li><strong>State Government Exams:</strong> Frequently mandate sub-20KB uploads</li>
+      <li><strong>PAN Card Signature:</strong> Under 20KB in some portal versions</li>
+    </ul>
+
+    <h2>The Problem with Generic Compressors</h2>
+    <p>Most free compression tools work on a simple principle: "Reduce quality by 50% and hope for the best." This brute-force approach leads to three common failures:</p>
+
+    <ol>
+      <li><strong>Over-compression:</strong> File becomes 8KB but your face is a pixelated mess — rejected as "blurred image"</li>
+      <li><strong>Under-compression:</strong> File still at 25KB–30KB — rejected as "file too large"</li>
+      <li><strong>Dimension distortion:</strong> Some tools resize your image dimensions to reduce file size, breaking the required aspect ratio</li>
+    </ol>
+
+    <p>Our <strong>Exact Target Compressor</strong> solves all three. You set the target size (10KB/15KB/20KB/custom). Our algorithm iteratively compresses while preserving edge sharpness and locking original dimensions.</p>
+
+    <h2>How to Compress Any Photo to Exactly 20KB (Step-by-Step)</h2>
+    <ol>
+      <li><strong>Upload:</strong> Select any JPG photo. Dimensions are automatically preserved — no unwanted cropping.</li>
+      <li><strong>Set Target:</strong> Choose "20KB" from presets, or enter custom value (e.g., 18KB for buffer).</li>
+      <li><strong>Compress:</strong> Our engine processes the image using smart frequency separation — background compression is increased, facial edges are preserved.</li>
+      <li><strong>Preview & Compare:</strong> See side-by-side comparison of original vs. compressed image. If satisfied, download.</li>
+      <li><strong>Adjust (Optional):</strong> Too high? Slide to lower target. Too low? Increase target slightly.</li>
+    </ol>
+
+    <h2>Precision Compression: How We Do It</h2>
+    <p>Unlike sliders that give you "0-100% quality" with no real-world KB feedback, our tool shows you <strong>live file size estimation</strong> as you adjust. You're not guessing — you're targeting.</p>
+
+    <p>The algorithm analyzes your image in three layers:</p>
+    <ul>
+      <li><strong>Foreground (Face/Subject):</strong> Retains maximum detail, edge sharpness, and contrast</li>
+      <li><strong>Background:</strong> Higher compression applied — unnoticeable to the human eye</li>
+      <li><strong>Metadata:</strong> All Exif data, camera info, and GPS tags are stripped for additional KB savings</li>
+    </ul>
+
+    <h2>20KB for Signatures: Even Smaller, Still Clear</h2>
+    <p>Signatures are especially challenging — they're binary images (black ink on white paper). Generic compressors blur the edges of your signature strokes, making it look like a smudge.</p>
+
+    <p>Our tool includes a <strong>Signature Optimization Mode</strong> that preserves stroke sharpness even at 10KB–15KB. Upload your scanned signature, select target size, and download a portal-ready JPG.</p>
+
+    <h2>State-Specific Presets</h2>
+    <p>Not every portal wants exactly 20KB. We've pre-configured presets for:</p>
+    <ul>
+      <li><strong>10KB:</strong> Maharashtra RTO, Karnataka RTO, certain UPSC forms</li>
+      <li><strong>15KB:</strong> Universal fallback — accepted by 90% of portals</li>
+      <li><strong>20KB:</strong> Standard DL, SSC, Banking</li>
+      <li><strong>30KB-50KB:</strong> Voter ID, Passport, College admissions</li>
+    </ul>
+
+    <h2>Why "Exactly 20KB" Matters</h2>
+    <p>Government portals often specify <strong>"between 10KB and 20KB"</strong>. If your file is 20.5KB — rejection. If it's 9.8KB — rejection. The validation scripts check both lower and upper bounds strictly.</p>
+
+    <p>Our tool gives you a <strong>±0.5KB accuracy</strong>. You can confidently upload knowing your file won't be bounced by automated size validation.</p>
+
+    <h2>Mobile-Friendly & Instant</h2>
+    <p>Applying via phone? Our tool works perfectly on mobile browsers. No app download, no registration, no watermarks. Upload from camera roll, compress, download — all under 30 seconds.</p>
+
+    <p><strong>Compress your photo to exactly 20KB now — no blur, no rejections, no delays.</strong></p>
+  `,
     faq: [
       {
-        question: "Will the photo be blurry at 20KB?",
-        answer: "A little quality loss is expected, but for signatures and small passport photos, it remains legible and accepted by authorities."
-      }
+        question: "Will my photo become blurry at 20KB?",
+        answer:
+          "With generic compressors, yes. With our smart compression algorithm, no. We selectively compress background areas while preserving facial edges and signature strokes. Your photo will remain clearly recognizable and pass portal validation.",
+      },
+      {
+        question: "Can I compress PNG files to 20KB?",
+        answer:
+          "Our tool accepts PNG uploads but automatically converts them to JPG for compression. PNG files are typically larger and not accepted by most government portals. The output will be JPG format at your target file size.",
+      },
+      {
+        question: "What is the minimum file size I can achieve?",
+        answer:
+          "You can compress down to 5KB, but below 10KB, quality degradation becomes noticeable. We recommend 15KB–20KB for photos and 10KB–15KB for signatures as the ideal balance between size and clarity.",
+      },
+      {
+        question: "Does this tool reduce image dimensions?",
+        answer:
+          "No. Unlike many compressors that resize your image to 300x300 pixels, our tool preserves your original dimensions exactly. We only compress the file size, not the pixel dimensions.",
+      },
+      {
+        question: "Is this free? Will you watermark my photos?",
+        answer:
+          "Yes, completely free. No registration, no credit card, no watermarks, no hidden fees. Your privacy is protected — uploaded images are automatically deleted after processing.",
+      },
+      {
+        question: "Can I compress signature to 20KB with this tool?",
+        answer:
+          "Yes. Use the Signature Optimization preset. It's specifically tuned for black-and-white signature images, preserving stroke sharpness even at very low file sizes like 10KB–15KB.",
+      },
+      {
+        question: "Why does my compressed photo show as 0KB?",
+        answer:
+          "This is a browser caching issue. Try downloading in Incognito/Private mode, or use Chrome/Edge. If the issue persists, refresh the page and re-upload.",
+      },
+      {
+        question: "What's the difference between 20KB and 20MB?",
+        answer:
+          "20KB is 20 kilobytes; 20MB is 20 megabytes. 1MB = 1024KB. Government portals require kilobytes (KB), not megabytes (MB). A phone camera photo is typically 2MB–5MB (2000KB–5000KB) — 100x larger than required.",
+      },
     ],
     relatedLinks: [
-      { title: "Resize to 50KB", path: "/reduce-photo-size-50kb-without-quality-loss" },
-      { title: "Convert to JPG", path: "/convert-jpeg-to-jpg-online" }
-    ]
+      {
+        title: "Resize Photo for Driving License (Sarathi)",
+        path: "/resize-photo-driving-license-sarathi",
+      },
+      {
+        title: "Reduce Photo Size to 50KB",
+        path: "/reduce-photo-size-50kb-without-quality-loss",
+      },
+      {
+        title: "PAN Card Photo & Signature Resizer",
+        path: "/pan-card-photo-signature-resizer",
+      },
+      {
+        title: "UPSC Photo & Signature Resizer 2026",
+        path: "/upsc-photo-signature-resizer-2026",
+      },
+      {
+        title: "Convert JPG to 20KB",
+        path: "/convert-jpeg-to-jpg-online-20kb",
+      },
+    ],
   },
   {
     slug: "reduce-photo-size-50kb-without-quality-loss",
     title: "Image Resizer: Reduce Photo Size to 50KB without Losing Quality",
     category: "Technical Tools",
-    metaTitle: "Reduce Photo Size to 50KB Online | High Quality Compressor",
-    metaDescription: "Compress images to 50KB online. Perfect for SSC, IBPS, and UPSC photo uploads. Reduce JPG size from MB to KB easily.",
+    metaTitle:
+      "Reduce Photo Size to 50KB Online | No Quality Loss Compressor 2026",
+    metaDescription:
+      "Compress JPG photos to exactly 50KB while preserving original clarity. Perfect for SSC, IBPS, UPSC, Railway, and State Govt exam applications. Free, instant, no watermark.",
     lastUpdated: "February 2026",
     specifications: {
-      dimensions: "Any",
-      fileSize: "Target: 50 KB",
-      format: "JPG"
+      dimensions: "Any (Preserves original resolution)",
+      fileSize: "Target: 50KB (40KB–60KB adjustable)",
+      format: "JPG / JPEG Only",
     },
     content: `
-      <p>The 50 KB limit is the most common requirement for online applications in India. Whether you have a 5MB DSLR photo or a 2MB phone selfie, you need to compress it.</p>
+    <p>The <strong>50KB file size limit</strong> is the most frequently encountered requirement in Indian government and banking examinations. From <strong>SSC CGL, IBPS PO, RBI Grade B, to UPSC CSE</strong> — almost every major recruitment portal expects your photograph to be under 50KB.</p>
 
-      <h2>Why 50KB?</h2>
-      <p>It balances quality and server storage efficient for government portals. Our tool optimizes the JPEG compression to remove invisible data, keeping the visual quality high while reducing file weight.</p>
-    `,
-    faq: [],
+    <p>But here's the challenge: A standard 12-megapixel smartphone camera produces photos between <strong>2MB to 5MB</strong>. That's <strong>100x larger</strong> than what the portal accepts. Generic compressors either fail to reach 50KB or turn your face into a pixelated blur. Our <strong>50KB Smart Compressor</strong> solves both problems.</p>
+
+    <h2>Which Exams & Portals Require 50KB Photos?</h2>
+    <p>The 50KB limit is a de facto standard across central and state recruitment portals. Here's where you'll need it:</p>
+    
+    <ul>
+      <li><strong>SSC (CGL, CHSL, MTS, GD Constable):</strong> 10KB – 50KB for photo, 10KB – 20KB for signature</li>
+      <li><strong>UPSC Civil Services (CSE) & CAPF:</strong> 20KB – 50KB photograph</li>
+      <li><strong>Banking (IBPS, SBI, RBI, NABARD):</strong> 20KB – 50KB (varies by year)</li>
+      <li><strong>Railway RRB NTPC & Group D:</strong> 50KB – 100KB range</li>
+      <li><strong>State PSCs (UPPSC, MPPSC, BPSC):</strong> 30KB – 50KB standard</li>
+      <li><strong>Teaching Exams (CTET, UPTET, DSSSB):</strong> Under 50KB</li>
+      <li><strong>Defence (AFCAT, CDS, NDA):</strong> 10KB – 50KB</li>
+    </ul>
+
+    <h2>Why "Without Quality Loss" Matters</h2>
+    <p>Government exam applications undergo <strong>two stages of photo verification</strong>:</p>
+    <ol>
+      <li><strong>Automated validation:</strong> The portal checks file size, dimensions, and format. If your photo is 51KB — instant rejection.</li>
+      <li><strong>Manual verification:</strong> During document verification, an officer compares your uploaded photo with your physical appearance. If your photo is over-compressed and blurry, you risk <strong>disqualification</strong> — even after clearing the written exam.</li>
+    </ol>
+
+    <p>Our tool doesn't just hit 50KB; it preserves <strong>facial recognition quality</strong>. You pass both automated checks and human scrutiny.</p>
+
+    <h2>The Science: How We Compress to 50KB Without Quality Loss</h2>
+    <p>Most compressors apply uniform compression across the entire image. This destroys fine details. Our <strong>perceptual compression algorithm</strong> works differently:</p>
+
+    <ul>
+      <li><strong>Face detection:</strong> Automatically identifies facial regions and applies minimal compression</li>
+      <li><strong>Background optimization:</strong> Aggressively compresses backgrounds — visually unnoticeable</li>
+      <li><strong>Metadata stripping:</strong> Removes Exif data, camera model, GPS location, and thumbnails</li>
+      <li><strong>Chroma subsampling:</strong> Reduces color information without affecting edge sharpness</li>
+      <li><strong>Progressive encoding:</strong> Optimizes JPEG compression tables for web delivery</li>
+    </ul>
+
+    <p>The result? A <strong>45KB–50KB file that looks visually identical to the original 2MB image</strong> on screen and in print.</p>
+
+    <h2>How to Reduce Photo Size to 50KB (Step-by-Step)</h2>
+    <ol>
+      <li><strong>Upload:</strong> Select any JPG photo — selfie, DSLR portrait, or scanned photo.</li>
+      <li><strong>Select Preset:</strong> Choose <strong>"50KB (Exam Standard)"</strong> from our presets.</li>
+      <li><strong>Auto-Optimize:</strong> Our AI detects face, optimizes compression levels, and processes the image.</li>
+      <li><strong>Preview:</strong> View side-by-side comparison. Zoom in to check facial details.</li>
+      <li><strong>Fine-tune (Optional):</strong> Slide to adjust between 40KB–60KB based on your portal's exact limit.</li>
+      <li><strong>Download:</strong> Save your ready-to-upload JPG file.</li>
+    </ol>
+
+    <h2>Common 50KB Compression Problems — Solved</h2>
+    <table>
+      <tr>
+        <th>Problem</th>
+        <th>Why It Happens</th>
+        <th>Our Solution</th>
+      </tr>
+      <tr>
+        <td>File stuck at 70KB–80KB</td>
+        <td>Generic tools can't compress further without visible damage</td>
+        <td>Smart background compression + metadata stripping</td>
+      </tr>
+      <tr>
+        <td>Face becomes pixelated</td>
+        <td>Uniform compression destroys edges</td>
+        <td>Face-preserving algorithm</td>
+      </tr>
+      <tr>
+        <td>Colors look washed out</td>
+        <td>Aggressive color sampling</td>
+        <td>Balanced chroma subsampling</td>
+      </tr>
+      <tr>
+        <td>Dimensions changed</td>
+        <td>Tool resized image to reduce file size</td>
+        <td>Original dimensions preserved</td>
+      </tr>
+    </table>
+
+    <h2>50KB for Signatures: Crystal Clear at Small Size</h2>
+    <p>Signatures are even harder to compress than photos. They consist of high-contrast edges — any compression creates blurry "halos" around strokes.</p>
+
+    <p>Our <strong>Signature Mode</strong> uses binary threshold optimization to keep signature strokes razor-sharp even at 20KB–30KB. Upload your scanned signature, select 50KB target, and download a portal-compliant JPG.</p>
+
+    <h2>Mobile-Friendly for On-the-Go Applications</h2>
+    <p>Exam notifications often release late at night. Cyber cafes are closed. Your application deadline is tomorrow morning.</p>
+
+    <p>Our tool works perfectly on <strong>smartphones and tablets</strong>. No app installation. No registration. No watermarks. Upload from gallery, compress to 50KB, download — all in under 30 seconds.</p>
+
+    <h2>Batch Processing for Multiple Applications</h2>
+    <p>Applying for multiple exams? Each portal has slightly different requirements. Our tool remembers your settings. Compress once, download multiple variants (50KB, 20KB, 100KB) from the same original image.</p>
+
+    <h2>Why 50KB is the Sweet Spot</h2>
+    <p>Government portals choose 50KB because it's the smallest file size that maintains acceptable facial recognition quality. At 50KB, your photo is:</p>
+    <ul>
+      <li>Small enough to upload instantly even on slow connections</li>
+      <li>Light enough for servers to store millions of applications</li>
+      <li>Clear enough for verification officers to match with your face</li>
+    </ul>
+
+    <p><strong>Compress your photo to 50KB now — maintain original quality, meet portal requirements, and secure your exam application.</strong></p>
+  `,
+    faq: [
+      {
+        question:
+          "Is it really possible to compress to 50KB without losing quality?",
+        answer:
+          "Yes. 'Without losing quality' means without visible degradation or loss of facial recognition features. Our perceptual compression algorithm prioritizes face sharpness while compressing background areas. The resulting 50KB image appears identical to the original on screens and in print.",
+      },
+      {
+        question: "What's the difference between 20KB and 50KB compression?",
+        answer:
+          "50KB allows significantly higher image quality retention. At 20KB, some fine details like skin texture or hair strands may soften. At 50KB, we preserve almost all visible details. Use 20KB for portals that strictly enforce lower limits (Driving License, UPSC signature), and 50KB for exam photographs.",
+      },
+      {
+        question: "Will this tool reduce my photo dimensions?",
+        answer:
+          "No. We strictly preserve original pixel dimensions. We only reduce file size through intelligent compression algorithms, never by resizing or cropping. Your 1200x1600 photo remains 1200x1600 pixels.",
+      },
+      {
+        question: "Can I compress PNG files to 50KB?",
+        answer:
+          "Our tool accepts PNG uploads but converts them to JPG format. PNG files are generally larger than JPG and not accepted by most exam portals. The output will be a JPG file at your target 50KB size.",
+      },
+      {
+        question: "Which exams require 50KB photos?",
+        answer:
+          "SSC CGL/CHSL/MTS, IBPS PO/Clerk/SO, RBI Assistant/Grade B, SBI PO/Clerk, RRB NTPC/Group D, UPSC CSE, State PSCs, CTET, and most central/state government recruitment exams specify 50KB as the maximum or target file size.",
+      },
+      {
+        question: "My photo is 500KB. Can you reduce it to 50KB?",
+        answer:
+          "Absolutely. Our tool routinely compresses 2MB–5MB DSLR photos down to 45KB–50KB while preserving facial clarity. The higher the original quality, the better the output.",
+      },
+      {
+        question: "Is this tool really free?",
+        answer:
+          "Yes, completely free. No credit card, no registration, no hidden charges, no watermarks. We do not store your images — they are automatically deleted from our servers after processing.",
+      },
+      {
+        question: "Can I compress signature to 50KB?",
+        answer:
+          "Yes, but 50KB is actually larger than necessary for signatures. Most portals require signatures between 10KB–20KB. Our Signature Mode can compress to 50KB with absolutely zero quality loss — but we recommend 10KB–20KB for faster uploads.",
+      },
+      {
+        question: "What if my portal requires exactly 30KB or 40KB?",
+        answer:
+          "Our custom target slider allows any value between 10KB and 100KB. Simply enter your exact requirement (e.g., 35KB) and our engine will hit that target with ±1KB accuracy.",
+      },
+    ],
     relatedLinks: [
-      { title: "Compress to 20KB", path: "/compress-photo-to-20kb-online" },
-      { title: "UPSC Photo Resizer", path: "/upsc-photo-signature-resizer-2026" }
-    ]
+      {
+        title: "Compress Photo to 20KB Online",
+        path: "/compress-photo-to-20kb-online",
+      },
+      {
+        title: "UPSC Photo & Signature Resizer 2026",
+        path: "/upsc-photo-signature-resizer-2026",
+      },
+      {
+        title: "Passport Size Photo Maker (3.5x4.5)",
+        path: "/passport-size-photo-maker-35x45",
+      },
+      {
+        title: "Driving License Photo Resizer",
+        path: "/resize-photo-driving-license-sarathi",
+      },
+      {
+        title: "PAN Card Photo & Signature Resizer",
+        path: "/pan-card-photo-signature-resizer",
+      },
+      {
+        title: "Convert JPG to 50KB",
+        path: "/convert-jpeg-to-jpg-50kb-online",
+      },
+    ],
   },
   {
     slug: "convert-jpeg-to-jpg-online",
     title: "Convert JPEG to JPG Online: Best Format for Exam Applications",
     category: "Technical Tools",
-    metaTitle: "JPEG to JPG Converter | Fix Invalid File Format Error",
-    metaDescription: "Convert JPEG to JPG online. Valid format for government exam uploads. Fix 'Invalid File Type' errors instantly.",
+    metaTitle: "JPEG to JPG Converter | Fix Invalid File Format Error 2026",
+    metaDescription:
+      "Convert JPEG to JPG instantly. Fix 'Invalid File Format' error on SSC, UPSC, IBPS, and government portals. Free online tool – no registration, no watermarks.",
     lastUpdated: "February 2026",
     specifications: {
-      dimensions: "-",
-      fileSize: "-",
-      format: "Convert to .jpg"
+      dimensions: "Preserves original dimensions",
+      fileSize: "Preserves original file size",
+      format: "Converts .jpeg → .jpg",
     },
     content: `
-      <p>Technically, .jpeg and .jpg are the same. However, some old legacy government websites explicitly check for the file extension ".jpg" and reject ".jpeg".</p>
+    <p>You've resized your photo to 20KB. You've cropped it to 3.5x4.5cm. You upload it to the <strong>SSC, UPSC, or IBPS portal</strong> — and then you see it:</p>
 
-      <h2>The Fix</h2>
-      <p>If you face an "Invalid File Format" error even when the image is a valid image, simply use our tool to save it as a new file. Our tool defaults to the '.jpg' extension, ensuring compatibility with all portals.</p>
-    `,
-    faq: [],
+    <p style="font-size: 1.2em; color: #d32f2f; font-weight: bold;">"Invalid File Format. Only .jpg files are allowed."</p>
+
+    <p>Your file is <strong>IMG_1234.jpeg</strong>. Technically, <strong>.jpeg</strong> and <strong>.jpg</strong> are identical. They use the same compression standard, same encoding, same everything. But some <strong>legacy government portals</strong> have hardcoded validation scripts that check the file extension — and reject anything that isn't exactly <strong>.jpg</strong>.</p>
+
+    <p>Our <strong>JPEG to JPG Converter</strong> fixes this in one click. No recompression. No quality loss. Just a clean, compliant .jpg file extension that every Indian government portal accepts.</p>
+
+    <h2>Which Portals Reject .jpeg Files?</h2>
+    <p>While most modern portals accept both extensions, several critical exam and document portals still enforce strict .jpg validation:</p>
+    
+    <ul>
+      <li><strong>SSC (CGL, CHSL, MTS, GD):</strong> Explicitly requires .jpg extension</li>
+      <li><strong>UPSC CSE & CAPF:</strong> Photo and signature must be .jpg format</li>
+      <li><strong>IBPS PO/Clerk/SO:</strong> "Upload photograph in .jpg format only"</li>
+      <li><strong>Railway RRB:</strong> Legacy systems reject .jpeg files</li>
+      <li><strong>State PSC portals:</strong> Many state commission portals still run on older architectures</li>
+      <li><strong>Sarathi Parivahan (Driving License):</strong> Accepts .jpeg but recommends .jpg</li>
+      <li><strong>NVSP Voter ID:</strong> .jpg extension required</li>
+    </ul>
+
+    <h2>Why Do Portals Require .jpg Instead of .jpeg?</h2>
+    <p>The short answer: <strong>legacy code</strong>.</p>
+    <p>In the 1990s, when early web systems were built, file extensions were strictly validated. The original JPEG specification allowed both <strong>.jpg</strong> (DOS/Windows 8.3 naming convention) and <strong>.jpeg</strong> (Unix/Mac). Many Indian government portals were developed during this era and their file validation scripts were never updated.</p>
+    <p>Today, these scripts literally check: <code>if (file.extension != "jpg") { reject(); }</code></p>
+    <p>It's not about security or format compatibility. It's simply outdated code. Our converter bypasses this limitation instantly.</p>
+
+    <h2>How to Convert JPEG to JPG (Step-by-Step)</h2>
+    <ol>
+      <li><strong>Upload:</strong> Select your .jpeg file from computer or phone.</li>
+      <li><strong>Convert:</strong> Click the <strong>"Convert to .jpg"</strong> button.</li>
+      <li><strong>Download:</strong> Save your new file — now with <strong>.jpg</strong> extension.</li>
+    </ol>
+    <p><strong>Total time:</strong> 3 seconds.</p>
+
+    <h2>What This Tool Does NOT Do</h2>
+    <ul>
+      <li><strong>No recompression:</strong> We don't compress or alter image quality. Your 20KB file remains 20KB.</li>
+      <li><strong>No resizing:</strong> Your 3.5x4.5cm dimensions stay exactly the same.</li>
+      <li><strong>No watermark:</strong> We don't add any logos or text to your image.</li>
+      <li><strong>No data loss:</strong> This is a true container conversion — the image data is preserved bit-for-bit.</li>
+    </ul>
+
+    <h2>The ".jfif" Problem</h2>
+    <p>Some phones and cameras save images as <strong>.jfif</strong> (JPEG File Interchange Format). These are also valid JPEG images, but government portals almost never recognize this extension. Our tool automatically detects and converts .jfif files to .jpg as well.</p>
+
+    <h2>Batch Conversion for Multiple Files</h2>
+    <p>Applying for multiple exams? Uploading photo + signature + photo of documents? Our tool supports <strong>batch conversion</strong> — select up to 10 files at once and convert all .jpeg extensions to .jpg in a single click.</p>
+
+    <h2>Mobile-Friendly & Instant</h2>
+    <p>Your exam application deadline is at 11:59 PM. It's 11:47 PM. You're on your phone. Your photo is .jpeg. The portal rejects it.</p>
+    <p>Open our tool. Upload. Convert. Download. Upload again. <strong>Approved.</strong></p>
+    <p>No app installation. No registration. No payment. Works on all smartphones, tablets, and desktops.</p>
+
+    <h2>Common Misconceptions</h2>
+    <table>
+      <tr>
+        <th>Myth</th>
+        <th>Fact</th>
+      </tr>
+      <tr>
+        <td>.jpg and .jpeg are different formats</td>
+        <td>They are <strong>identical</strong>. Only the file extension differs.</td>
+      </tr>
+      <tr>
+        <td>Converting .jpeg to .jpg reduces quality</td>
+        <td><strong>False.</strong> We don't re-encode the image. Only the extension changes.</td>
+      </tr>
+      <tr>
+        <td>You need Photoshop to change extension</td>
+        <td><strong>False.</strong> You can rename the file, but Windows hides extensions by default. Our tool guarantees proper .jpg output.</td>
+      </tr>
+      <tr>
+        <td>Portals have fixed this issue</td>
+        <td><strong>False.</strong> In 2026, hundreds of applicants still face .jpeg rejection daily.</td>
+      </tr>
+    </table>
+
+    <h2>Can't I Just Rename the File?</h2>
+    <p>Yes — <strong>if</strong> you know what you're doing.</p>
+    <p>Windows and macOS hide file extensions by default. When you rename "photo.jpeg" to "photo.jpg", you often end up with <strong>"photo.jpg.jpeg"</strong> — which the portal still rejects. Even tech-savvy users make this mistake.</p>
+    <p>Our tool handles the extension correctly every single time. No hidden double extensions. No "file type not recognized" errors. Just a clean, valid .jpg file.</p>
+
+    <h2>Also Converts: .jpe, .jfif, .jif</h2>
+    <p>Less common JPEG variants like <strong>.jpe, .jfif, .jif</strong> also face rejection on government portals. Our tool recognizes all JPEG family formats and outputs standard .jpg files.</p>
+
+    <p><strong>Convert your JPEG to JPG now — fix invalid format errors instantly and submit your application before the deadline.</strong></p>
+  `,
+    faq: [
+      {
+        question: "Is there a difference between JPEG and JPG?",
+        answer:
+          "No, they are exactly the same format. The only difference is the file extension — .jpg (3 characters) was used in older Windows systems, while .jpeg (4 characters) was used on Unix/Mac. Both contain identical image data.",
+      },
+      {
+        question: "Why do government portals reject .jpeg files?",
+        answer:
+          "Due to legacy validation systems built in the 1990s-2000s that were programmed to accept only .jpg extensions. These scripts check the file name, not the actual image format. Our converter bypasses this limitation.",
+      },
+      {
+        question: "Will converting JPEG to JPG reduce image quality?",
+        answer:
+          "No. Our tool performs zero compression or re-encoding. It simply changes the file extension and updates the file header. Your image quality, dimensions, and file size remain exactly the same.",
+      },
+      {
+        question: "Can I convert PNG to JPG with this tool?",
+        answer:
+          "This specific tool is for JPEG → JPG conversion only. To convert PNG to JPG, please use our dedicated format converter or simply rename during download from our photo resizer tools.",
+      },
+      {
+        question: "Is this tool free?",
+        answer:
+          "Yes, completely free. No registration, no credit card, no watermarks, no hidden fees. We do not store your images — they are deleted immediately after conversion.",
+      },
+      {
+        question: "Does this work on mobile phones?",
+        answer:
+          "Yes, our tool is fully responsive and works on all smartphones, iPhones, tablets, and desktop browsers. No app download required.",
+      },
+      {
+        question: "What happens to my image after conversion?",
+        answer:
+          "Your image is processed in your browser or temporarily on our servers and immediately deleted. We do not store, view, or share your photos. Your privacy is fully protected.",
+      },
+      {
+        question: "Can I convert multiple files at once?",
+        answer:
+          "Yes, our batch conversion feature allows you to upload up to 10 JPEG files simultaneously. All will be converted to .jpg format and downloaded as a ZIP folder.",
+      },
+      {
+        question: "I renamed my file to .jpg but it still shows as .jpeg. Why?",
+        answer:
+          "Windows and macOS hide file extensions by default. When you rename 'photo.jpeg' to 'photo.jpg', you actually get 'photo.jpg.jpeg'. Enable 'Show file extensions' in your system settings or use our tool to avoid this issue.",
+      },
+      {
+        question: "Does SSC accept .jpeg files now?",
+        answer:
+          "As of 2026, the official SSC notification still specifies .jpg format. While some applicants report .jpeg works, many still face rejection. To be safe, always upload .jpg files for all government exams.",
+      },
+    ],
     relatedLinks: [
-      { title: "Compress Image", path: "/compress-photo-to-20kb-online" },
-      { title: "Passport Photo Maker", path: "/passport-size-photo-maker-35x45" }
-    ]
+      {
+        title: "Compress Photo to 20KB Online",
+        path: "/compress-photo-to-20kb-online",
+      },
+      {
+        title: "Reduce Photo Size to 50KB",
+        path: "/reduce-photo-size-50kb-without-quality-loss",
+      },
+      {
+        title: "Passport Size Photo Maker (3.5x4.5)",
+        path: "/passport-size-photo-maker-35x45",
+      },
+      {
+        title: "Driving License Photo Resizer",
+        path: "/resize-photo-driving-license-sarathi",
+      },
+      {
+        title: "PAN Card Photo & Signature Resizer",
+        path: "/pan-card-photo-signature-resizer",
+      },
+      {
+        title: "Voter ID Photo Size Reducer",
+        path: "/voter-id-photo-size-reducer",
+      },
+      {
+        title: "UPSC Photo & Signature Resizer",
+        path: "/upsc-photo-signature-resizer-2026",
+      },
+    ],
   },
   {
     slug: "resize-photo-in-mobile-for-govt-exams",
     title: "How to Resize Photo in Mobile for Govt Exams (Step-by-Step)",
     category: "Technical Tools",
     metaTitle: "Resize Photo in Mobile for Govt Exams | No App Needed",
-    metaDescription: "Resize photo for government exams directly on your mobile browser. No app install required. Secure and fast.",
+    metaDescription:
+      "Resize photo for government exams directly on your mobile browser. No app install required. Secure and fast.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "Mobile Responsive",
       fileSize: "Any",
-      format: "JPG"
+      format: "JPG",
     },
     content: `
       <p>You don't need a Laptop or PC filling out forms. You can resize photos directly on your Android or iPhone using this website.</p>
@@ -1201,20 +2181,21 @@ export const blogData: BlogPost[] = [
     faq: [],
     relatedLinks: [
       { title: "SSC Photo Tool", path: "/ssc-cgl-photo-signature-resizer" },
-      { title: "UPSC Photo Tool", path: "/upsc-photo-signature-resizer-2026" }
-    ]
+      { title: "UPSC Photo Tool", path: "/upsc-photo-signature-resizer-2026" },
+    ],
   },
   {
     slug: "photo-and-signature-joiner-online",
     title: "Photo and Signature Joiner Online: Create a Single File for Exams",
     category: "Technical Tools",
     metaTitle: "Photo and Signature Joiner | Merge Images Online 2026",
-    metaDescription: "Merge photo and signature into one single image file. Required for certain exams like MPPEB or ID cards. Join images online.",
+    metaDescription:
+      "Merge photo and signature into one single image file. Required for certain exams like MPPEB or ID cards. Join images online.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "Combined",
       fileSize: "Optimized",
-      format: "JPG"
+      format: "JPG",
     },
     content: `
       <p>Some forms require you to upload a single image that contains both your photo and signature. This is common in state level exams (like MPPEB).</p>
@@ -1224,21 +2205,29 @@ export const blogData: BlogPost[] = [
     `,
     faq: [],
     relatedLinks: [
-      { title: "MPPEB Template Resizer", path: "/mppeb-vyapam-template-resizer" },
-      { title: "Compress to 50KB", path: "/reduce-photo-size-50kb-without-quality-loss" }
-    ]
+      {
+        title: "MPPEB Template Resizer",
+        path: "/mppeb-vyapam-template-resizer",
+      },
+      {
+        title: "Compress to 50KB",
+        path: "/reduce-photo-size-50kb-without-quality-loss",
+      },
+    ],
   },
   {
     slug: "capcut-template-new-trend-2026",
     title: "Trending CapCut Templates 2026: How to Use & Viral Links",
     category: "Video Editing",
-    metaTitle: "New CapCut Templates 2026 | Viral TikTok & Instagram Reels Edits",
-    metaDescription: "Download the latest trending CapCut templates for 2026. Step-by-step guide to use 'Healing Thailand', 'Habibi', and 'Velocity' templates for viral Reels.",
+    metaTitle:
+      "New CapCut Templates 2026 | Viral TikTok & Instagram Reels Edits",
+    metaDescription:
+      "Download the latest trending CapCut templates for 2026. Step-by-step guide to use 'Healing Thailand', 'Habibi', and 'Velocity' templates for viral Reels.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "1080 x 1920 pixels (9:16 Aspect Ratio)",
       fileSize: "varies by template",
-      format: "MP4 / MOV"
+      format: "MP4 / MOV",
     },
     content: `
       <h2>Mastering Viral Content with CapCut Templates</h2>
@@ -1269,29 +2258,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Are CapCut templates free to use?",
-        answer: "Yes, standard CapCut templates are free. However, some Pro features within a template might require a subscription, but most viral trends rely on the free version."
+        answer:
+          "Yes, standard CapCut templates are free. However, some Pro features within a template might require a subscription, but most viral trends rely on the free version.",
       },
       {
         question: "How do I remove the CapCut watermark?",
-        answer: "When exporting, select the 'Export to TikTok' button (even if you don't post it there immediately). This saves a watermark-free version to your gallery."
-      }
+        answer:
+          "When exporting, select the 'Export to TikTok' button (even if you don't post it there immediately). This saves a watermark-free version to your gallery.",
+      },
     ],
     relatedLinks: [
       { title: "Instagram Reels Resizer", path: "/instagram-reels-size-guide" },
-      { title: "Video to MP3 Converter", path: "/video-to-mp3" }
-    ]
+      { title: "Video to MP3 Converter", path: "/video-to-mp3" },
+    ],
   },
   {
     slug: "youtube-thumbnail-size-guide",
     title: "YouTube Thumbnail Size 2026: Best Dimensions & Safe Zones",
     category: "Social Media",
     metaTitle: "YouTube Thumbnail Size Guide 2026 | 1280x720 Maker Online",
-    metaDescription: "The perfect YouTube thumbnail size is 1280 x 720 pixels. Learn about aspect ratios, safe zones, and file formats to boost your CTR.",
+    metaDescription:
+      "The perfect YouTube thumbnail size is 1280 x 720 pixels. Learn about aspect ratios, safe zones, and file formats to boost your CTR.",
     lastUpdated: "January 2026",
     specifications: {
       dimensions: "1280 x 720 pixels (Minimum width 640px)",
       fileSize: "Under 2 MB",
-      format: "JPG, GIF, BMP, or PNG"
+      format: "JPG, GIF, BMP, or PNG",
     },
     content: `
       <h2>The Science Behind the Perfect YouTube Thumbnail</h2>
@@ -1318,29 +2310,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can I use 1920x1080 for thumbnails?",
-        answer: "Yes, you can use Full HD, but YouTube will scale it down. Ensure the file size remains under 2MB, which can be harder with higher resolutions."
+        answer:
+          "Yes, you can use Full HD, but YouTube will scale it down. Ensure the file size remains under 2MB, which can be harder with higher resolutions.",
       },
       {
         question: "Why is my thumbnail blurry?",
-        answer: "This usually happens if you upload a standard 4:3 image or a low-resolution file (under 640px wide). Always stick to 1280x720."
-      }
+        answer:
+          "This usually happens if you upload a standard 4:3 image or a low-resolution file (under 640px wide). Always stick to 1280x720.",
+      },
     ],
     relatedLinks: [
       { title: "YouTube Banner Maker", path: "/youtube-channel-art-size" },
-      { title: "Video Intro Maker", path: "/intro-maker-online" }
-    ]
+      { title: "Video Intro Maker", path: "/intro-maker-online" },
+    ],
   },
   {
     slug: "remove-background-from-image-free",
     title: "Remove Background from Image: AI Tool for Transparent PNGs",
     category: "Photo Editing",
     metaTitle: "Free Background Remover 2026 | Make Transparent PNGs Instantly",
-    metaDescription: "Remove image backgrounds automatically in 5 seconds. Perfect for e-commerce products, logos, and profile pictures. AI-powered & free.",
+    metaDescription:
+      "Remove image backgrounds automatically in 5 seconds. Perfect for e-commerce products, logos, and profile pictures. AI-powered & free.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "Any Resolution",
       fileSize: "Up to 15 MB",
-      format: "Input: JPG/PNG -> Output: PNG"
+      format: "Input: JPG/PNG -> Output: PNG",
     },
     content: `
       <h2>AI-Powered Background Removal Explained</h2>
@@ -1364,29 +2359,33 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Does this work on complex images like hair?",
-        answer: "Yes, our AI is trained on 'alpha matting' techniques specifically designed to handle fine details like hair strands and fur."
+        answer:
+          "Yes, our AI is trained on 'alpha matting' techniques specifically designed to handle fine details like hair strands and fur.",
       },
       {
         question: "Is the image quality reduced?",
-        answer: "We strive to maintain the original resolution. However, for extremely large files (>4K), some compression may occur to speed up processing."
-      }
+        answer:
+          "We strive to maintain the original resolution. However, for extremely large files (>4K), some compression may occur to speed up processing.",
+      },
     ],
     relatedLinks: [
       { title: "Change Background Color", path: "/change-bg-color" },
-      { title: "Blur Background Tool", path: "/blur-photo-background" }
-    ]
+      { title: "Blur Background Tool", path: "/blur-photo-background" },
+    ],
   },
   {
     slug: "instagram-reels-size-dimensions",
     title: "Instagram Reels Size Guide 2026: Dimensions, Ratio & Quality",
     category: "Social Media",
-    metaTitle: "Instagram Reels Dimensions 2026 | 9:16 Ratio & 4K Upload Settings",
-    metaDescription: "Stop your Reels from getting blurry! The correct Instagram Reel size is 1080x1920 pixels. Learn the secret settings for high-quality uploads.",
+    metaTitle:
+      "Instagram Reels Dimensions 2026 | 9:16 Ratio & 4K Upload Settings",
+    metaDescription:
+      "Stop your Reels from getting blurry! The correct Instagram Reel size is 1080x1920 pixels. Learn the secret settings for high-quality uploads.",
     lastUpdated: "January 2026",
     specifications: {
       dimensions: "1080 x 1920 pixels",
       fileSize: "Max 4 GB",
-      format: "MP4 / H.264 Codec"
+      format: "MP4 / H.264 Codec",
     },
     content: `
       <h2>Optimizing Video for Instagram Reels Algorithm</h2>
@@ -1410,29 +2409,35 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Should I upload in 4K or 1080p?",
-        answer: "Surprisingly, 1080p often looks better. Instagram compresses 4K footage heavily. A crisp 1080p export with a high bitrate (15-20 Mbps) usually yields the best results."
+        answer:
+          "Surprisingly, 1080p often looks better. Instagram compresses 4K footage heavily. A crisp 1080p export with a high bitrate (15-20 Mbps) usually yields the best results.",
       },
       {
         question: "What is the aspect ratio for Reels?",
-        answer: "Strictly 9:16. If you upload a horizontal video (16:9), it will look small with black bars, significantly reducing engagement."
-      }
+        answer:
+          "Strictly 9:16. If you upload a horizontal video (16:9), it will look small with black bars, significantly reducing engagement.",
+      },
     ],
     relatedLinks: [
-      { title: "CapCut Template Guide", path: "/capcut-template-new-trend-2026" },
-      { title: "Instagram Story Maker", path: "/instagram-story-size" }
-    ]
+      {
+        title: "CapCut Template Guide",
+        path: "/capcut-template-new-trend-2026",
+      },
+      { title: "Instagram Story Maker", path: "/instagram-story-size" },
+    ],
   },
   {
     slug: "passport-photo-maker-online",
     title: "Passport Photo Maker: Create Visa & ID Photos Online",
     category: "ID & Docs",
     metaTitle: "Free Passport Photo Maker | 2x2 inch & 35x45mm Visa Photos",
-    metaDescription: "Convert any selfie into a compliant passport photo. Supports US (2x2 inch), UK, India, and Schengen Visa sizes. White background & auto-crop.",
+    metaDescription:
+      "Convert any selfie into a compliant passport photo. Supports US (2x2 inch), UK, India, and Schengen Visa sizes. White background & auto-crop.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "2x2 inches (US) or 35x45 mm (Global)",
       fileSize: "50 KB - 200 KB",
-      format: "JPG / JPEG"
+      format: "JPG / JPEG",
     },
     content: `
       <h2>DIY Passport Photos: Save Money & Time</h2>
@@ -1457,29 +2462,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can I take a selfie for my passport?",
-        answer: "No, selfies distort facial features due to the camera angle. Ask someone else to take the photo from 1.5 meters away, or use a tripod."
+        answer:
+          "No, selfies distort facial features due to the camera angle. Ask someone else to take the photo from 1.5 meters away, or use a tripod.",
       },
       {
         question: "How do I print this?",
-        answer: "Download our '4x6 inch printable sheet'. You can print this at any local pharmacy or photo lab for pennies, getting 4-6 photos on a single sheet."
-      }
+        answer:
+          "Download our '4x6 inch printable sheet'. You can print this at any local pharmacy or photo lab for pennies, getting 4-6 photos on a single sheet.",
+      },
     ],
     relatedLinks: [
       { title: "IBPS Photo Resizer", path: "/ibps-po-clerk-photo-resizer" },
-      { title: "Visa Photo Requirements", path: "/visa-photo-size-guide" }
-    ]
+      { title: "Visa Photo Requirements", path: "/visa-photo-size-guide" },
+    ],
   },
   {
     slug: "adobe-premiere-pro-vs-capcut",
     title: "Adobe Premiere Pro vs CapCut: Which Editor is Best in 2026?",
     category: "Video Editing",
     metaTitle: "Premiere Pro vs CapCut 2026 | Detailed Comparison for Creators",
-    metaDescription: "Should you choose Adobe Premiere Pro or CapCut? We compare pricing, features, learning curves, and AI tools to help you decide which editor suits your workflow.",
+    metaDescription:
+      "Should you choose Adobe Premiere Pro or CapCut? We compare pricing, features, learning curves, and AI tools to help you decide which editor suits your workflow.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "N/A",
       fileSize: "Premiere (8GB RAM min) vs CapCut (Mobile/Web)",
-      format: "Software Comparison"
+      format: "Software Comparison",
     },
     content: `
       <h2>The Battle of the Editors: Professional vs. Viral</h2>
@@ -1503,29 +2511,35 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can CapCut export 4K video?",
-        answer: "Yes, CapCut supports 4K export at 60fps, which is sufficient for high-quality social media uploads."
+        answer:
+          "Yes, CapCut supports 4K export at 60fps, which is sufficient for high-quality social media uploads.",
       },
       {
         question: "Is Premiere Pro free for students?",
-        answer: "No, but Adobe offers a significant discount (around 60% off) for students and teachers on the Creative Cloud All Apps plan."
-      }
+        answer:
+          "No, but Adobe offers a significant discount (around 60% off) for students and teachers on the Creative Cloud All Apps plan.",
+      },
     ],
     relatedLinks: [
-      { title: "CapCut Template Guide", path: "/capcut-template-new-trend-2026" },
-      { title: "Video to MP3", path: "/video-to-mp3-converter" }
-    ]
+      {
+        title: "CapCut Template Guide",
+        path: "/capcut-template-new-trend-2026",
+      },
+      { title: "Video to MP3", path: "/video-to-mp3-converter" },
+    ],
   },
   {
     slug: "compress-image-20kb-50kb",
     title: "Compress Image to 20KB-50KB: Online Resizer for SSC/UPSC",
     category: "Tools & Utilities",
     metaTitle: "Resize Image to 20-50KB Online | JPG Compressor for Exams",
-    metaDescription: "Reduce image size to 20KB-50KB instantly. Official compressor for SSC, UPSC, IBPS, and Railway application forms. No quality loss.",
+    metaDescription:
+      "Reduce image size to 20KB-50KB instantly. Official compressor for SSC, UPSC, IBPS, and Railway application forms. No quality loss.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "User Defined (e.g., 3.5cm x 4.5cm)",
       fileSize: "Strictly 20KB - 50KB",
-      format: "JPG / JPEG"
+      format: "JPG / JPEG",
     },
     content: `
       <h2>Why Do Exam Portals Reject Your Photos?</h2>
@@ -1545,29 +2559,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "My signature looks blurry after compression.",
-        answer: "Signatures are line art. To keep them sharp at small sizes (10-20KB), scan them in high contrast (Black ink on White paper) and use our 'Document Mode' compressor."
+        answer:
+          "Signatures are line art. To keep them sharp at small sizes (10-20KB), scan them in high contrast (Black ink on White paper) and use our 'Document Mode' compressor.",
       },
       {
         question: "Does this tool save my photos?",
-        answer: "No. All processing happens in your browser for privacy. Your photos are deleted from memory immediately after download."
-      }
+        answer:
+          "No. All processing happens in your browser for privacy. Your photos are deleted from memory immediately after download.",
+      },
     ],
     relatedLinks: [
       { title: "IBPS Photo Resizer", path: "/ibps-po-clerk-photo-resizer" },
-      { title: "Passport Photo Maker", path: "/passport-photo-maker-online" }
-    ]
+      { title: "Passport Photo Maker", path: "/passport-photo-maker-online" },
+    ],
   },
   {
     slug: "canva-pro-free-alternatives",
     title: "5 Best Free Alternatives to Canva Pro in 2026",
     category: "Graphic Design",
     metaTitle: "Top Canva Alternatives 2026 | Free Graphic Design Tools",
-    metaDescription: "Don't want to pay for Canva Pro? Check out these 5 powerful free alternatives including Adobe Express, VistaCreate, and Figma for your design needs.",
+    metaDescription:
+      "Don't want to pay for Canva Pro? Check out these 5 powerful free alternatives including Adobe Express, VistaCreate, and Figma for your design needs.",
     lastUpdated: "January 2026",
     specifications: {
       dimensions: "Various",
       fileSize: "Cloud Based",
-      format: "Web / App"
+      format: "Web / App",
     },
     content: `
       <h2>Designing on a Budget: Life Beyond Canva</h2>
@@ -1585,29 +2602,38 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Which alternative is best for printing?",
-        answer: "Adobe Express is best for print as it handles CMYK conversion and PDF exports better than most web-based tools."
+        answer:
+          "Adobe Express is best for print as it handles CMYK conversion and PDF exports better than most web-based tools.",
       },
       {
         question: "Do these tools have mobile apps?",
-        answer: "Yes, Adobe Express and VistaCreate both have robust mobile apps available on iOS and Android."
-      }
+        answer:
+          "Yes, Adobe Express and VistaCreate both have robust mobile apps available on iOS and Android.",
+      },
     ],
     relatedLinks: [
-      { title: "YouTube Thumbnail Maker", path: "/youtube-thumbnail-size-guide" },
-      { title: "Remove Background Free", path: "/remove-background-from-image-free" }
-    ]
+      {
+        title: "YouTube Thumbnail Maker",
+        path: "/youtube-thumbnail-size-guide",
+      },
+      {
+        title: "Remove Background Free",
+        path: "/remove-background-from-image-free",
+      },
+    ],
   },
   {
     slug: "whatsapp-dp-size-converter",
     title: "WhatsApp DP Converter: Fit Full Photo Without Cropping",
     category: "Social Media",
     metaTitle: "WhatsApp DP Size Converter | No Crop Profile Picture Tool",
-    metaDescription: "Fit your full rectangular photo into WhatsApp DP without cropping. Add blur borders or white backgrounds instantly. Download HD profile pics.",
+    metaDescription:
+      "Fit your full rectangular photo into WhatsApp DP without cropping. Add blur borders or white backgrounds instantly. Download HD profile pics.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "1080 x 1080 pixels (Recommended)",
       fileSize: "Under 5 MB",
-      format: "JPG / PNG"
+      format: "JPG / PNG",
     },
     content: `
       <h2>Stop Cutting Off Your Friends in Group Photos</h2>
@@ -1625,29 +2651,35 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Why does WhatsApp reduce my photo quality?",
-        answer: "WhatsApp aggressively compresses images to save data. To minimize quality loss, resize your image to exactly 1080px wide before uploading."
+        answer:
+          "WhatsApp aggressively compresses images to save data. To minimize quality loss, resize your image to exactly 1080px wide before uploading.",
       },
       {
         question: "Can I use a GIF as my WhatsApp DP?",
-        answer: "No, currently WhatsApp only supports static JPG or PNG images for profile pictures."
-      }
+        answer:
+          "No, currently WhatsApp only supports static JPG or PNG images for profile pictures.",
+      },
     ],
     relatedLinks: [
-      { title: "Instagram Reels Resizer", path: "/instagram-reels-size-dimensions" },
-      { title: "Circle Crop Tool", path: "/circle-crop-image" }
-    ]
+      {
+        title: "Instagram Reels Resizer",
+        path: "/instagram-reels-size-dimensions",
+      },
+      { title: "Circle Crop Tool", path: "/circle-crop-image" },
+    ],
   },
   {
     slug: "convert-heic-to-jpg-online",
     title: "Convert HEIC to JPG: View iPhone Photos on Windows",
     category: "Tools & Utilities",
     metaTitle: "Free HEIC to JPG Converter | Bulk Convert iPhone Photos",
-    metaDescription: "Cannot open iPhone photos on your PC? Convert HEIC files to JPG online for free. Batch processing supported. No software installation needed.",
+    metaDescription:
+      "Cannot open iPhone photos on your PC? Convert HEIC files to JPG online for free. Batch processing supported. No software installation needed.",
     lastUpdated: "January 2026",
     specifications: {
       dimensions: "Original Resolution",
       fileSize: "Up to 50MB per file",
-      format: "Input: HEIC -> Output: JPG"
+      format: "Input: HEIC -> Output: JPG",
     },
     content: `
       <h2>What is an HEIC File?</h2>
@@ -1666,29 +2698,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Why does Apple use HEIC?",
-        answer: "HEIC files are about half the size of JPGs with better quality. It saves storage space on your phone."
+        answer:
+          "HEIC files are about half the size of JPGs with better quality. It saves storage space on your phone.",
       },
       {
         question: "Is it safe to upload my personal photos?",
-        answer: "Yes, we use secure SSL encryption. Files are deleted automatically after 1 hour."
-      }
+        answer:
+          "Yes, we use secure SSL encryption. Files are deleted automatically after 1 hour.",
+      },
     ],
     relatedLinks: [
       { title: "Compress Image Tool", path: "/compress-image-20kb-50kb" },
-      { title: "Image Upscaler", path: "/image-upscaler-4k" }
-    ]
+      { title: "Image Upscaler", path: "/image-upscaler-4k" },
+    ],
   },
   {
     slug: "facebook-cover-photo-size",
     title: "Facebook Cover Photo Size 2026: Mobile vs Desktop",
     category: "Social Media",
     metaTitle: "Facebook Cover Photo Size Guide 2026 | Safe Zone Template",
-    metaDescription: "The perfect Facebook Cover Photo size is 820x312 pixels. Learn how to design a banner that looks great on both iPhone and Desktop.",
+    metaDescription:
+      "The perfect Facebook Cover Photo size is 820x312 pixels. Learn how to design a banner that looks great on both iPhone and Desktop.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "820 x 312 px (Desktop), 640 x 360 px (Mobile)",
       fileSize: "Less than 100KB",
-      format: "JPG / PNG"
+      format: "JPG / PNG",
     },
     content: `
       <h2>The Facebook Cover Photo Dilemma</h2>
@@ -1708,29 +2743,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Why is my cover photo blurry?",
-        answer: "Facebook stretches small images. Ensure your width is at least 820px. For Retina displays, you can double the dimensions to 1640x720px for extra sharpness."
+        answer:
+          "Facebook stretches small images. Ensure your width is at least 820px. For Retina displays, you can double the dimensions to 1640x720px for extra sharpness.",
       },
       {
         question: "Can I use a video as a cover?",
-        answer: "Facebook has removed video cover support for most personal profiles and pages as of late 2025. Stick to high-quality static images or slideshows."
-      }
+        answer:
+          "Facebook has removed video cover support for most personal profiles and pages as of late 2025. Stick to high-quality static images or slideshows.",
+      },
     ],
     relatedLinks: [
       { title: "Facebook Post Resizer", path: "/facebook-post-size" },
-      { title: "YouTube Channel Art", path: "/youtube-channel-art-size" }
-    ]
+      { title: "YouTube Channel Art", path: "/youtube-channel-art-size" },
+    ],
   },
   {
     slug: "linkedin-banner-size-template",
     title: "LinkedIn Banner Size 2026: Professional Background Guide",
     category: "Social Media",
     metaTitle: "LinkedIn Banner Size 2026 | 1584x396 Background Maker",
-    metaDescription: "Optimize your LinkedIn profile with a 1584x396 pixel background photo. Tips for personal branding and corporate header designs.",
+    metaDescription:
+      "Optimize your LinkedIn profile with a 1584x396 pixel background photo. Tips for personal branding and corporate header designs.",
     lastUpdated: "January 2026",
     specifications: {
       dimensions: "1584 x 396 pixels",
       fileSize: "Max 8 MB",
-      format: "JPG / PNG / GIF"
+      format: "JPG / PNG / GIF",
     },
     content: `
       <h2>Your Digital Billboard: The LinkedIn Banner</h2>
@@ -1749,29 +2787,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can I use a GIF on LinkedIn?",
-        answer: "No, LinkedIn background banners do not support animation. However, you can use GIFs in posts."
+        answer:
+          "No, LinkedIn background banners do not support animation. However, you can use GIFs in posts.",
       },
       {
         question: "What happens if my image is too small?",
-        answer: "LinkedIn will stretch it, causing pixelation. Always resize to 1584px width before uploading."
-      }
+        answer:
+          "LinkedIn will stretch it, causing pixelation. Always resize to 1584px width before uploading.",
+      },
     ],
     relatedLinks: [
       { title: "Resume Builder", path: "/resume-builder-with-photo" },
-      { title: "Circle Crop Image", path: "/circle-crop-image" }
-    ]
+      { title: "Circle Crop Image", path: "/circle-crop-image" },
+    ],
   },
   {
     slug: "blur-background-online",
     title: "Blur Image Background: Create DSLR Bokeh Effect Online",
     category: "Photo Editing",
     metaTitle: "Blur Photo Background Online | Free Bokeh Effect Tool",
-    metaDescription: "Blur the background of your photos instantly. Create a professional 'Portrait Mode' or DSLR effect without expensive cameras. AI Auto-detection.",
+    metaDescription:
+      "Blur the background of your photos instantly. Create a professional 'Portrait Mode' or DSLR effect without expensive cameras. AI Auto-detection.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "Any",
       fileSize: "Up to 20MB",
-      format: "JPG / PNG"
+      format: "JPG / PNG",
     },
     content: `
       <h2>Achieving the "Portrait Mode" Look</h2>
@@ -1791,29 +2832,35 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Does this affect the person in the photo?",
-        answer: "No, our algorithm protects the foreground subject, ensuring they remain sharp while only the background is softened."
+        answer:
+          "No, our algorithm protects the foreground subject, ensuring they remain sharp while only the background is softened.",
       },
       {
         question: "Can I choose which parts to blur?",
-        answer: "Yes, use the 'Manual Brush' mode to paint over specific areas you want to keep sharp or blur out."
-      }
+        answer:
+          "Yes, use the 'Manual Brush' mode to paint over specific areas you want to keep sharp or blur out.",
+      },
     ],
     relatedLinks: [
-      { title: "Remove Background", path: "/remove-background-from-image-free" },
-      { title: "Old Photo Restoration", path: "/old-photo-restoration-ai" }
-    ]
+      {
+        title: "Remove Background",
+        path: "/remove-background-from-image-free",
+      },
+      { title: "Old Photo Restoration", path: "/old-photo-restoration-ai" },
+    ],
   },
   {
     slug: "add-watermark-to-photo",
     title: "Batch Watermark Photos: Protect Your Copyright Online",
     category: "Tools & Utilities",
     metaTitle: "Add Watermark to Photos Online | Batch Logo & Text Tool",
-    metaDescription: "Protect your photography and designs. Add custom logos or text watermarks to multiple images at once. Adjustable transparency and positioning.",
+    metaDescription:
+      "Protect your photography and designs. Add custom logos or text watermarks to multiple images at once. Adjustable transparency and positioning.",
     lastUpdated: "January 2026",
     specifications: {
       dimensions: "Batch Processing",
       fileSize: "Unlimited",
-      format: "Export as JPG"
+      format: "Export as JPG",
     },
     content: `
       <h2>Protect Your Creative Work</h2>
@@ -1829,29 +2876,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can I remove the watermark later?",
-        answer: "Once you save the file, the watermark is baked into the pixels. Always keep your original 'Clean' copy safe."
+        answer:
+          "Once you save the file, the watermark is baked into the pixels. Always keep your original 'Clean' copy safe.",
       },
       {
         question: "How many photos can I watermark at once?",
-        answer: "Our free tool allows batch processing of up to 50 images simultaneously."
-      }
+        answer:
+          "Our free tool allows batch processing of up to 50 images simultaneously.",
+      },
     ],
     relatedLinks: [
       { title: "Remove Text from Image", path: "/remove-text-from-image" },
-      { title: "Resize Image for Email", path: "/resize-video-for-email" }
-    ]
+      { title: "Resize Image for Email", path: "/resize-video-for-email" },
+    ],
   },
   {
     slug: "old-photo-restoration-ai",
     title: "Restore Old Photos: Fix Scratches & Colorize B&W Images",
     category: "Photo Editing",
     metaTitle: "AI Old Photo Restorer | Repair Scratches & Colorize Online",
-    metaDescription: "Bring vintage photos back to life. Use AI to remove scratches, tear marks, and sepia stains. Automatically colorize black and white family photos.",
+    metaDescription:
+      "Bring vintage photos back to life. Use AI to remove scratches, tear marks, and sepia stains. Automatically colorize black and white family photos.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "Up to 4K Output",
       fileSize: "Up to 10MB",
-      format: "JPG / PNG"
+      format: "JPG / PNG",
     },
     content: `
       <h2>Digitizing and Healing Family Memories</h2>
@@ -1869,29 +2919,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can it fix a torn photo?",
-        answer: "It can fix cracks and small tears. However, if a large chunk of the photo is physically missing (e.g., a missing corner), the AI cannot reconstruct a face that isn't there."
+        answer:
+          "It can fix cracks and small tears. However, if a large chunk of the photo is physically missing (e.g., a missing corner), the AI cannot reconstruct a face that isn't there.",
       },
       {
         question: "Is the colorization accurate?",
-        answer: "It is an AI interpretation. While skin tones and nature (grass, sky) are usually accurate, specific clothing colors might differ from reality."
-      }
+        answer:
+          "It is an AI interpretation. While skin tones and nature (grass, sky) are usually accurate, specific clothing colors might differ from reality.",
+      },
     ],
     relatedLinks: [
       { title: "Image Upscaler", path: "/image-upscaler-4k" },
-      { title: "Blur Background", path: "/blur-background-online" }
-    ]
+      { title: "Blur Background", path: "/blur-background-online" },
+    ],
   },
   {
     slug: "video-to-gif-converter",
     title: "Video to GIF Converter: Create High-Quality GIFs from MP4",
     category: "Video Editing",
     metaTitle: "MP4 to GIF Converter Online | Make Reaction GIFs & Memes",
-    metaDescription: "Convert video clips into lightweight, sharable GIFs. Perfect for Discord, Slack, and Twitter reactions. Customize start/end time and frame rate.",
+    metaDescription:
+      "Convert video clips into lightweight, sharable GIFs. Perfect for Discord, Slack, and Twitter reactions. Customize start/end time and frame rate.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "Variable (Max 500px width recommended)",
       fileSize: "Under 10MB (for Discord/Slack)",
-      format: "Output: .GIF"
+      format: "Output: .GIF",
     },
     content: `
       <h2>The Art of the GIF: Communicating Without Sound</h2>
@@ -1920,29 +2973,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Why does my GIF look grainy?",
-        answer: "GIFs are limited to 256 colors. If your video has thousands of colors (like a sunset gradient), the GIF format has to guess, causing grain (dithering). Reduce the physical size for sharper results."
+        answer:
+          "GIFs are limited to 256 colors. If your video has thousands of colors (like a sunset gradient), the GIF format has to guess, causing grain (dithering). Reduce the physical size for sharper results.",
       },
       {
         question: "Can I add text to the GIF?",
-        answer: "Yes, our editor allows you to overlay text captions (meme style) before exporting."
-      }
+        answer:
+          "Yes, our editor allows you to overlay text captions (meme style) before exporting.",
+      },
     ],
     relatedLinks: [
       { title: "Meme Maker Generator", path: "/meme-maker-generator" },
-      { title: "Resize Video Tool", path: "/resize-video-for-email" }
-    ]
+      { title: "Resize Video Tool", path: "/resize-video-for-email" },
+    ],
   },
   {
     slug: "resize-video-for-email",
     title: "Resize Video for Email: Compress MP4 Under 25MB",
     category: "Video Editing",
     metaTitle: "Compress Video for Email | Reduce MP4 Size for Gmail/Outlook",
-    metaDescription: "Struggling with the 'File too large' error? Compress MP4, MOV, and AVI files to under 25MB for email attachments without losing visible quality.",
+    metaDescription:
+      "Struggling with the 'File too large' error? Compress MP4, MOV, and AVI files to under 25MB for email attachments without losing visible quality.",
     lastUpdated: "January 2026",
     specifications: {
       dimensions: "720p or 480p (Recommended)",
       fileSize: "Target: < 25 MB",
-      format: "MP4 (H.264 Codec)"
+      format: "MP4 (H.264 Codec)",
     },
     content: `
       <h2>Overcoming the 25MB Attachment Limit</h2>
@@ -1967,29 +3023,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Will the video quality be bad?",
-        answer: "Not necessarily. By using the H.264 codec efficiently, we can reduce file size significantly with only a minor drop in visual sharpness that is barely noticeable on mobile screens."
+        answer:
+          "Not necessarily. By using the H.264 codec efficiently, we can reduce file size significantly with only a minor drop in visual sharpness that is barely noticeable on mobile screens.",
       },
       {
         question: "What formats do you support?",
-        answer: "We accept large MOV, AVI, MKV, and WMV files and convert them to compressed, email-friendly MP4s."
-      }
+        answer:
+          "We accept large MOV, AVI, MKV, and WMV files and convert them to compressed, email-friendly MP4s.",
+      },
     ],
     relatedLinks: [
       { title: "Merge PDF Files", path: "/merge-pdf-files-online" },
-      { title: "Video to GIF", path: "/video-to-gif-converter" }
-    ]
+      { title: "Video to GIF", path: "/video-to-gif-converter" },
+    ],
   },
   {
     slug: "twitter-header-size-guide",
     title: "Twitter (X) Header Size 2026: Safe Zones & Best Practices",
     category: "Social Media",
     metaTitle: "Twitter Header Size Guide 2026 | 1500x500 Banner Template",
-    metaDescription: "Create the perfect X (Twitter) profile header. Learn about the 1500x500 dimension, hidden 'safe zones', and how to avoid profile picture overlap.",
+    metaDescription:
+      "Create the perfect X (Twitter) profile header. Learn about the 1500x500 dimension, hidden 'safe zones', and how to avoid profile picture overlap.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "1500 x 500 pixels",
       fileSize: "Max 5 MB",
-      format: "JPG / PNG"
+      format: "JPG / PNG",
     },
     content: `
       <h2>Mastering the X (Twitter) Header Aesthetic</h2>
@@ -2013,29 +3072,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Why is my Twitter header blurry?",
-        answer: "X compresses images heavily. To combat this, upload a PNG file instead of a JPG, and avoid using the maximum file size. Sometimes, uploading a slightly larger version (e.g., 3000x1000) can result in a sharper downscale."
+        answer:
+          "X compresses images heavily. To combat this, upload a PNG file instead of a JPG, and avoid using the maximum file size. Sometimes, uploading a slightly larger version (e.g., 3000x1000) can result in a sharper downscale.",
       },
       {
         question: "Can I use a GIF as a header?",
-        answer: "No, X headers must be static images. Animated headers were briefly supported years ago but have been discontinued."
-      }
+        answer:
+          "No, X headers must be static images. Animated headers were briefly supported years ago but have been discontinued.",
+      },
     ],
     relatedLinks: [
       { title: "LinkedIn Banner Size", path: "/linkedin-banner-size-template" },
-      { title: "Facebook Cover Photo", path: "/facebook-cover-photo-size" }
-    ]
+      { title: "Facebook Cover Photo", path: "/facebook-cover-photo-size" },
+    ],
   },
   {
     slug: "merge-pdf-files-online",
     title: "Merge PDF Files: Combine Multiple Documents for Free",
     category: "Tools & Utilities",
     metaTitle: "Merge PDF Online | Combine PDF Files Free & Securely",
-    metaDescription: "Join multiple PDF files into one single document. Perfect for combining job applications, invoices, and portfolios. Drag, drop, and reorder pages.",
+    metaDescription:
+      "Join multiple PDF files into one single document. Perfect for combining job applications, invoices, and portfolios. Drag, drop, and reorder pages.",
     lastUpdated: "January 2026",
     specifications: {
       dimensions: "A4 / Letter Standard",
       fileSize: "Up to 100MB Total",
-      format: "Input: Multiple PDFs -> Output: Single PDF"
+      format: "Input: Multiple PDFs -> Output: Single PDF",
     },
     content: `
       <h2>Simplify Your Digital Paperwork</h2>
@@ -2062,29 +3124,32 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Can I merge password-protected PDFs?",
-        answer: "You must unlock the PDF first. For security reasons, our tool cannot force-merge encrypted files without the password."
+        answer:
+          "You must unlock the PDF first. For security reasons, our tool cannot force-merge encrypted files without the password.",
       },
       {
         question: "How do I reduce the size after merging?",
-        answer: "After downloading your merged file, you can upload it to our 'Compress PDF' tool to shrink the file size for email."
-      }
+        answer:
+          "After downloading your merged file, you can upload it to our 'Compress PDF' tool to shrink the file size for email.",
+      },
     ],
     relatedLinks: [
       { title: "Resume Builder", path: "/resume-builder-with-photo" },
-      { title: "Compress Image Tool", path: "/compress-image-20kb-50kb" }
-    ]
+      { title: "Compress Image Tool", path: "/compress-image-20kb-50kb" },
+    ],
   },
   {
     slug: "twitch-offline-banner-size",
     title: "Twitch Offline Banner Size 2026: Design & Dimensions",
     category: "Social Media",
     metaTitle: "Twitch Offline Banner Size | 1920x1080 Screen Maker",
-    metaDescription: "Keep your Twitch channel professional 24/7. Best dimensions for Offline Banners (Video Player Banner). Free templates and design ideas.",
+    metaDescription:
+      "Keep your Twitch channel professional 24/7. Best dimensions for Offline Banners (Video Player Banner). Free templates and design ideas.",
     lastUpdated: "February 2026",
     specifications: {
       dimensions: "1920 x 1080 pixels",
       fileSize: "Max 10 MB",
-      format: "JPG / PNG / GIF"
+      format: "JPG / PNG / GIF",
     },
     content: `
       <h2>Branding While You Sleep: The Twitch Offline Screen</h2>
@@ -2111,29 +3176,36 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Does Twitch support animated offline screens?",
-        answer: "No, the offline banner must be a static image (JPG/PNG). If you upload a GIF, it will display as a static frame. Only the 'Starting Soon' screens (which are part of the broadcast) can be animated."
+        answer:
+          "No, the offline banner must be a static image (JPG/PNG). If you upload a GIF, it will display as a static frame. Only the 'Starting Soon' screens (which are part of the broadcast) can be animated.",
       },
       {
         question: "Where do I upload this on Twitch?",
-        answer: "Go to Creator Dashboard > Settings > Brand. Scroll down to 'Video Player Banner' to upload your image."
-      }
+        answer:
+          "Go to Creator Dashboard > Settings > Brand. Scroll down to 'Video Player Banner' to upload your image.",
+      },
     ],
     relatedLinks: [
-      { title: "YouTube Thumbnail Size", path: "/youtube-thumbnail-size-guide" },
-      { title: "OBS Overlay Maker", path: "/stream-overlay-maker" }
-    ]
+      {
+        title: "YouTube Thumbnail Size",
+        path: "/youtube-thumbnail-size-guide",
+      },
+      { title: "OBS Overlay Maker", path: "/stream-overlay-maker" },
+    ],
   },
   {
     slug: "photoshop-2026-known-issues-fixes",
     title: "Photoshop 2026 Known Issues & Fixes: WebP Bug, Crashes & Lag",
     category: "Software Troubleshooting",
-    metaTitle: "Photoshop 2026 Bugs Solved | Fix WebP Open With, Scratch Disk & Crashes",
-    metaDescription: "Facing issues with Photoshop 2026? Fix the 'Open With' WebP bug, startup freezes, Remove Tool UI glitches, and scratch disk errors with our updated Jan 2026 troubleshooting guide.",
+    metaTitle:
+      "Photoshop 2026 Bugs Solved | Fix WebP Open With, Scratch Disk & Crashes",
+    metaDescription:
+      "Facing issues with Photoshop 2026? Fix the 'Open With' WebP bug, startup freezes, Remove Tool UI glitches, and scratch disk errors with our updated Jan 2026 troubleshooting guide.",
     lastUpdated: "January 16, 2026",
     specifications: {
       dimensions: "Adobe Photoshop 2026 (v27.0) & 2025",
       fileSize: "Windows 10/11, macOS Sequoia",
-      format: "Startup, File Association, Tools"
+      format: "Startup, File Association, Tools",
     },
     content: `
     <h2>Navigating the Bumpy Road of Photoshop 2026 Updates</h2>
@@ -2174,40 +3246,55 @@ export const blogData: BlogPost[] = [
     faq: [
       {
         question: "Why does Photoshop 2026 keep opening the old version?",
-        answer: "If you have both 2025 and 2026 installed, Windows may default to the older version's file paths. It is recommended to uninstall the old version first, restart, and then install the new version to keep registry keys clean."
+        answer:
+          "If you have both 2025 and 2026 installed, Windows may default to the older version's file paths. It is recommended to uninstall the old version first, restart, and then install the new version to keep registry keys clean.",
       },
       {
         question: "How do I fix the 'Program Error' when saving?",
-        answer: "This is often a GPU issue. Go to Edit > Preferences > Performance and uncheck 'Use Graphics Processor'. If this fixes the save error, your GPU drivers need an update or your card is no longer supported."
+        answer:
+          "This is often a GPU issue. Go to Edit > Preferences > Performance and uncheck 'Use Graphics Processor'. If this fixes the save error, your GPU drivers need an update or your card is no longer supported.",
       },
       {
         question: "Is it safe to delete the Brushes.psp file?",
-        answer: "Yes. This is a settings preference file. If you delete it, Photoshop will simply create a new default one. However, you may lose custom brush organizations that you haven't exported."
-      }
+        answer:
+          "Yes. This is a settings preference file. If you delete it, Photoshop will simply create a new default one. However, you may lose custom brush organizations that you haven't exported.",
+      },
     ],
     relatedLinks: [
-      { title: "Optimize Scratch Disks", path: "/photoshop-scratch-disk-full-fix" },
-      { title: "Download Nvidia Studio Drivers", path: "https://www.nvidia.com/Download/driverResults.aspx" },
-      { title: "Adobe Creative Cloud Cleaner Tool", path: "/adobe-cc-cleaner-guide" }
-    ]
+      {
+        title: "Optimize Scratch Disks",
+        path: "/photoshop-scratch-disk-full-fix",
+      },
+      {
+        title: "Download Nvidia Studio Drivers",
+        path: "https://www.nvidia.com/Download/driverResults.aspx",
+      },
+      {
+        title: "Adobe Creative Cloud Cleaner Tool",
+        path: "/adobe-cc-cleaner-guide",
+      },
+    ],
   },
   {
-    "slug": "rrb-level-1-recruitment-2026-cen-09-2025",
-    "title": "RRB Level 1 Recruitment 2026 for 22,195 Posts: Apply Online CEN 09/2025",
-    "category": "Railway Jobs",
-    "metaTitle": "RRB Level 1 Recruitment 2026 | 22195 Vacancies | Apply Online for CEN 09/2025",
-    "metaDescription": "Apply online for RRB Level 1 Recruitment 2026 (CEN 09/2025). 22,195 vacancies across India. Last date: 02 March 2026. Age 18-33 years, 10th pass eligible.",
-    "lastUpdated": "February 2026",
-    "specifications": {
-      "dimensions": "Application Form: Digital Upload | Live Photo Required",
-      "fileSize": "Signature: 30-49 KB | Certificates: Under 400 KB",
-      "format": "JPG/JPEG (Photo & Signature), PDF (Documents)"
+    slug: "rrb-ntpc-level-1-recruitment-2026",
+    title:
+      "RRB NTPC Level 1 Recruitment 2026 for 22,195 Posts: Apply Online",
+    category: "Railway Jobs",
+    metaTitle:
+      "RRB NTPC Level 1 Recruitment 2026 | 22195 Vacancies | Apply Online",
+    metaDescription:
+      "Apply online for RRB ntpc Level 1 Recruitment 2026 (CEN 09/2025). 22,195 vacancies across India. Last date: 02 March 2026. Age 18-33 years, 10th pass eligible.",
+    lastUpdated: "February 2026",
+    specifications: {
+      dimensions: "Application Form: Digital Upload | Live Photo Required",
+      fileSize: "Signature: 30-49 KB | Certificates: Under 400 KB",
+      format: "JPG/JPEG (Photo & Signature), PDF (Documents)",
     },
-    "content": `
-    <h2>RRB Level 1 Recruitment 2026: Complete Guide to 22,195 Vacancies (CEN 09/2025)</h2>
+    content: `
+    <h2>RRB NTPC Level 1 Recruitment 2026: Complete Guide to 22,195 Vacancies (CEN 09/2025)</h2>
     <p>The Railway Recruitment Boards (RRBs) have launched one of the largest government job drives of 2026. Centralised Employment Notification (CEN) No. 09/2025 announces <strong>22,195 vacancies</strong> for various posts in Level 1 of the 7th Central Pay Commission matrix across all Indian Railway zones. This is a golden opportunity for candidates with a 10th pass or ITI qualification seeking stable employment with attractive benefits in the world's largest railway network.</p>
     
-    <h3>Key Highlights of RRB Level 1 CEN 09/2025</h3>
+    <h3>Key Highlights of RRB NTPC Level 1 CEN 09/2025</h3>
     <p>This recruitment is for multiple technical and non-technical posts including Track Maintainer, Assistant (various departments), Pointsman, and more. The selection offers a starting pay of ₹18,000/- per month plus allowances as per the 7th CPC. With positions available in every corner of the country, this represents one of the most accessible central government employment opportunities.</p>
     
     <h3>Important Dates: Mark Your Calendar</h3>
@@ -2443,68 +3530,80 @@ export const blogData: BlogPost[] = [
     
     <p><strong>Disclaimer:</strong> This guide summarizes the official CEN No. 09/2025 for candidate convenience. Always refer to the original notification on RRB websites for complete and authoritative information.</p>
   `,
-    "faq": [
+    faq: [
       {
-        "question": "What is the last date to apply for RRB Level 1 Recruitment 2026?",
-        "answer": "The last date to submit online applications for RRB Level 1 CEN 09/2025 is 02 March 2026 (23:59 hours). The fee payment deadline is 04 March 2026. The modification window for corrections is open from 05-14 March 2026 with a fee of ₹250 per correction."
+        question:
+          "What is the last date to apply for RRB Level 1 Recruitment 2026?",
+        answer:
+          "The last date to submit online applications for RRB Level 1 CEN 09/2025 is 02 March 2026 (23:59 hours). The fee payment deadline is 04 March 2026. The modification window for corrections is open from 05-14 March 2026 with a fee of ₹250 per correction.",
       },
       {
-        "question": "Can 12th pass candidates apply for RRB Level 1 posts?",
-        "answer": "Yes, 12th pass candidates can definitely apply as they meet the minimum educational qualification requirement (10th pass or equivalent). The notification requires candidates to have passed 10th standard OR ITI/NAC, so higher qualifications are acceptable. However, candidates must ensure they possess the required qualification on or before 02 March 2026."
+        question: "Can 12th pass candidates apply for RRB Level 1 posts?",
+        answer:
+          "Yes, 12th pass candidates can definitely apply as they meet the minimum educational qualification requirement (10th pass or equivalent). The notification requires candidates to have passed 10th standard OR ITI/NAC, so higher qualifications are acceptable. However, candidates must ensure they possess the required qualification on or before 02 March 2026.",
       },
       {
-        "question": "How many times can I apply for RRB Level 1 Recruitment?",
-        "answer": "You can submit ONLY ONE application to ONE Railway Recruitment Board (RRB). If you apply to multiple RRBs or submit multiple applications to the same RRB, ALL your applications will be rejected, and you may be debarred from future RRB exams. Choose your preferred RRB/Railway zone carefully as this choice cannot be changed later."
+        question: "How many times can I apply for RRB Level 1 Recruitment?",
+        answer:
+          "You can submit ONLY ONE application to ONE Railway Recruitment Board (RRB). If you apply to multiple RRBs or submit multiple applications to the same RRB, ALL your applications will be rejected, and you may be debarred from future RRB exams. Choose your preferred RRB/Railway zone carefully as this choice cannot be changed later.",
       },
       {
-        "question": "Is there negative marking in the RRB Level 1 CBT?",
-        "answer": "Yes, there is negative marking in the Computer Based Test. For each wrong answer, ⅓ mark will be deducted from your total score. There is no negative marking for unanswered questions. This makes accuracy crucial - avoid random guessing if you're unsure of the correct answer."
+        question: "Is there negative marking in the RRB Level 1 CBT?",
+        answer:
+          "Yes, there is negative marking in the Computer Based Test. For each wrong answer, ⅓ mark will be deducted from your total score. There is no negative marking for unanswered questions. This makes accuracy crucial - avoid random guessing if you're unsure of the correct answer.",
       },
       {
-        "question": "What is the salary for RRB Level 1 posts after 7th Pay Commission?",
-        "answer": "The initial pay for RRB Level 1 posts is ₹18,000/- per month as per Level 1 of the 7th CPC Pay Matrix. In addition to basic pay, employees receive various allowances including Dearness Allowance (DA), House Rent Allowance (HRA), Transport Allowance, and other benefits as per railway rules. The approximate in-hand salary starts from ₹25,000-30,000 depending on location and allowances."
+        question:
+          "What is the salary for RRB Level 1 posts after 7th Pay Commission?",
+        answer:
+          "The initial pay for RRB Level 1 posts is ₹18,000/- per month as per Level 1 of the 7th CPC Pay Matrix. In addition to basic pay, employees receive various allowances including Dearness Allowance (DA), House Rent Allowance (HRA), Transport Allowance, and other benefits as per railway rules. The approximate in-hand salary starts from ₹25,000-30,000 depending on location and allowances.",
       },
       {
-        "question": "Can candidates with glasses apply for all RRB Level 1 posts?",
-        "answer": "No, candidates with glasses cannot apply for posts with A-2 medical standard (like Pointsman) which require perfect vision without glasses (6/9, 6/9). However, they can apply for posts with A-3, B-1, or C-1 medical standards which allow vision correction. Always check Annexure-A of the notification for the specific medical standard of each post. Candidates who have undergone LASIK surgery are not eligible for A-2 and A-3 posts."
-      }
+        question:
+          "Can candidates with glasses apply for all RRB Level 1 posts?",
+        answer:
+          "No, candidates with glasses cannot apply for posts with A-2 medical standard (like Pointsman) which require perfect vision without glasses (6/9, 6/9). However, they can apply for posts with A-3, B-1, or C-1 medical standards which allow vision correction. Always check Annexure-A of the notification for the specific medical standard of each post. Candidates who have undergone LASIK surgery are not eligible for A-2 and A-3 posts.",
+      },
     ],
-    "relatedLinks": [
+    relatedLinks: [
       {
-        "title": "RRB ALP Technician Recruitment 2026",
-        "path": "/rrb-alp-technician-recruitment-2026"
+        title: "RRB ALP Technician Recruitment 2026",
+        path: "/rrb-alp-technician-recruitment-2026",
       },
       {
-        "title": "How to Prepare for Railway Group D Exams",
-        "path": "/railway-group-d-exam-preparation-guide"
+        title: "How to Prepare for Railway Group D Exams",
+        path: "/railway-group-d-exam-preparation-guide",
       },
       {
-        "title": "SSC GD Constable Recruitment 2026",
-        "path": "/ssc-gd-constable-recruitment-2026"
+        title: "SSC GD Constable Recruitment 2026",
+        path: "/ssc-gd-constable-recruitment-2026",
       },
       {
-        "title": "Free Online Test Series for Government Exams",
-        "path": "/free-online-test-series-government-exams"
+        title: "Free Online Test Series for Government Exams",
+        path: "/free-online-test-series-government-exams",
       },
       {
-        "title": "Documents Required for Government Job Applications",
-        "path": "/documents-required-government-job-application"
-      }
-    ]
+        title: "Documents Required for Government Job Applications",
+        path: "/documents-required-government-job-application",
+      },
+    ],
   },
   {
-    "slug": "pnb-apprenticeship-2025-26-recruitment",
-    "title": "PNB Apprenticeship 2025-26: Apply Online for 5138 Graduate Apprentice Posts",
-    "category": "Banking Jobs",
-    "metaTitle": "PNB Apprenticeship 2025-26 Recruitment | 5138 Graduate Apprentice Vacancies",
-    "metaDescription": "Apply online for Punjab National Bank Apprenticeship 2025-26. 5138 graduate apprentice vacancies across India. Stipend up to ₹15,000/month. Last date: 24 Feb 2026.",
-    "lastUpdated": "February 2026",
-    "specifications": {
-      "dimensions": "Documents: JPEG/PDF | Photo: Passport Size",
-      "fileSize": "Each document: Less than 1 MB",
-      "format": "JPEG (Photos), PDF (Certificates)"
+    slug: "pnb-apprenticeship-2025-26-recruitment",
+    title:
+      "PNB Apprenticeship 2025-26: Apply Online for 5138 Graduate Apprentice Posts",
+    category: "Banking Jobs",
+    metaTitle:
+      "PNB Apprenticeship 2025-26 Recruitment | 5138 Graduate Apprentice Vacancies",
+    metaDescription:
+      "Apply online for Punjab National Bank Apprenticeship 2025-26. 5138 graduate apprentice vacancies across India. Stipend up to ₹15,000/month. Last date: 24 Feb 2026.",
+    lastUpdated: "February 2026",
+    specifications: {
+      dimensions: "Documents: JPEG/PDF | Photo: Passport Size",
+      fileSize: "Each document: Less than 1 MB",
+      format: "JPEG (Photos), PDF (Certificates)",
     },
-    "content": `
+    content: `
     <h2>PNB Apprenticeship 2025-26: Golden Opportunity for Graduates</h2>
     <p>Punjab National Bank (PNB), one of India's largest public sector banks, has announced a massive recruitment drive for apprentices under the Apprentices Act, 1961. With <strong>5,138 vacancies</strong> across all states and union territories, this apprenticeship program offers fresh graduates a unique opportunity to gain valuable banking experience with a monthly stipend of up to ₹15,000. If you're a graduate looking to kickstart your career in banking, this could be your perfect entry point.</p>
     
@@ -2818,68 +3917,80 @@ export const blogData: BlogPost[] = [
       <strong>Final Reminder:</strong> The PNB Apprenticeship 2025-26 offers a fantastic opportunity for fresh graduates to gain banking experience with a reputable public sector bank. With 5,138 vacancies nationwide, your chances are significant. Start your application process today, ensure all documents are ready, and apply before the deadline of 24 February 2026.
     </div>
   `,
-    "faq": [
+    faq: [
       {
-        "question": "What is the last date to apply for PNB Apprenticeship 2025-26?",
-        "answer": "The last date to apply for PNB Apprenticeship 2025-26 is 24 February 2026. The online application portal will be open from 08 February to 24 February 2026. The fee payment must also be completed within this period. No applications will be accepted after the deadline."
+        question:
+          "What is the last date to apply for PNB Apprenticeship 2025-26?",
+        answer:
+          "The last date to apply for PNB Apprenticeship 2025-26 is 24 February 2026. The online application portal will be open from 08 February to 24 February 2026. The fee payment must also be completed within this period. No applications will be accepted after the deadline.",
       },
       {
-        "question": "What is the stipend for PNB Apprentices?",
-        "answer": "PNB Apprentices receive a monthly stipend based on their posting location: ₹12,300 per month for Rural/Semi-Urban/Urban branches and ₹15,000 per month for Metro branches. The stipend is paid monthly after adjusting for any unauthorized absence. No other allowances or benefits are provided to apprentices."
+        question: "What is the stipend for PNB Apprentices?",
+        answer:
+          "PNB Apprentices receive a monthly stipend based on their posting location: ₹12,300 per month for Rural/Semi-Urban/Urban branches and ₹15,000 per month for Metro branches. The stipend is paid monthly after adjusting for any unauthorized absence. No other allowances or benefits are provided to apprentices.",
       },
       {
-        "question": "Can final year students apply for PNB Apprenticeship?",
-        "answer": "No, final year students cannot apply. Candidates must have already passed their graduation degree, and the result must have been declared on or before 31 December 2025. Those awaiting results are not eligible. Additionally, candidates registered under NATS must have passed graduation within the last 4 years from 01 January 2026."
+        question: "Can final year students apply for PNB Apprenticeship?",
+        answer:
+          "No, final year students cannot apply. Candidates must have already passed their graduation degree, and the result must have been declared on or before 31 December 2025. Those awaiting results are not eligible. Additionally, candidates registered under NATS must have passed graduation within the last 4 years from 01 January 2026.",
       },
       {
-        "question": "Is there any age relaxation for OBC candidates?",
-        "answer": "Yes, OBC (Non-Creamy Layer) candidates get 3 years of age relaxation. The basic age limit is 20-28 years (as on 01.01.2026), so OBC candidates can apply up to 31 years of age. However, OBC candidates coming under the creamy layer are not entitled to this relaxation and must apply under the Unreserved category."
+        question: "Is there any age relaxation for OBC candidates?",
+        answer:
+          "Yes, OBC (Non-Creamy Layer) candidates get 3 years of age relaxation. The basic age limit is 20-28 years (as on 01.01.2026), so OBC candidates can apply up to 31 years of age. However, OBC candidates coming under the creamy layer are not entitled to this relaxation and must apply under the Unreserved category.",
       },
       {
-        "question": "What is the selection process for PNB Apprentices?",
-        "answer": "The selection process involves four stages: 1) Online Written Test (100 MCQs covering General Awareness, English, Quantitative & Reasoning Aptitude, and Computer Knowledge), 2) Document Verification, 3) Local Language Proficiency Test, and 4) Medical Examination. Candidates must clear all stages to be engaged as apprentices."
+        question: "What is the selection process for PNB Apprentices?",
+        answer:
+          "The selection process involves four stages: 1) Online Written Test (100 MCQs covering General Awareness, English, Quantitative & Reasoning Aptitude, and Computer Knowledge), 2) Document Verification, 3) Local Language Proficiency Test, and 4) Medical Examination. Candidates must clear all stages to be engaged as apprentices.",
       },
       {
-        "question": "Do PNB Apprentices get a job after training completion?",
-        "answer": "No, PNB Apprentices do not have any right to claim employment in the bank after completing their training. The apprenticeship is purely a training program under the Apprentices Act, 1961. However, the banking experience and certificate can enhance your resume for future banking job applications."
-      }
+        question: "Do PNB Apprentices get a job after training completion?",
+        answer:
+          "No, PNB Apprentices do not have any right to claim employment in the bank after completing their training. The apprenticeship is purely a training program under the Apprentices Act, 1961. However, the banking experience and certificate can enhance your resume for future banking job applications.",
+      },
     ],
-    "relatedLinks": [
+    relatedLinks: [
       {
-        "title": "SBI Apprentice Recruitment 2026",
-        "path": "/sbi-apprentice-recruitment-2026"
+        title: "SBI Apprentice Recruitment 2026",
+        path: "/sbi-apprentice-recruitment-2026",
       },
       {
-        "title": "How to Prepare for Banking Exams",
-        "path": "/banking-exam-preparation-guide"
+        title: "How to Prepare for Banking Exams",
+        path: "/banking-exam-preparation-guide",
       },
       {
-        "title": "IBPS Clerk Recruitment 2026",
-        "path": "/ibps-clerk-recruitment-2026"
+        title: "IBPS Clerk Recruitment 2026",
+        path: "/ibps-clerk-recruitment-2026",
       },
       {
-        "title": "Banking Awareness Study Material",
-        "path": "/banking-awareness-study-material"
+        title: "Banking Awareness Study Material",
+        path: "/banking-awareness-study-material",
       },
       {
-        "title": "Government Apprenticeship Schemes in India",
-        "path": "/government-apprenticeship-schemes-india"
-      }
-    ]
+        title: "Government Apprenticeship Schemes in India",
+        path: "/government-apprenticeship-schemes-india",
+      },
+    ],
   },
   {
-    "slug": "mp-dccb-officer-recruitment-2026",
-    "title": "MP DCCB Officer Recruitment 2026: Apply for 313 Officer Grade Posts in 38 District Cooperative Banks",
-    "category": "Banking Jobs",
-    "metaTitle": "MP DCCB Officer Recruitment 2026 | 313 Officer Grade Vacancies in 38 District Cooperative Banks",
-    "metaDescription": "MP Rajya Sahakari Bank invites online applications for 313 Officer Grade posts in 38 District Central Cooperative Banks. Apply from 06 Jan to 05 Feb 2026. 7th Pay Scale benefits.",
-    "lastUpdated": "February 2026",
-    "specifications": {
-      "dimensions": "Photo: 4.5cm × 3.5cm | Signature: Black Ink | Documents: As per guidelines",
-      "fileSize": "Photo: 20-50KB | Signature: 10-20KB | Thumb Impression: 20-50KB | Declaration: 50-100KB",
-      "format": "JPEG/JPG for all uploads"
+    slug: "mp-dccb-officer-recruitment-2026",
+    title:
+      "MP DCCB Officer Recruitment 2026: Apply for 313 Officer Grade Posts in 38 District Cooperative Banks",
+    category: "Banking Jobs",
+    metaTitle:
+      "MP DCCB Officer Recruitment 2026 | 313 Officer Grade Vacancies in 38 District Cooperative Banks",
+    metaDescription:
+      "MP Rajya Sahakari Bank invites online applications for 313 Officer Grade posts in 38 District Central Cooperative Banks. Apply from 06 Jan to 05 Feb 2026. 7th Pay Scale benefits.",
+    lastUpdated: "February 2026",
+    specifications: {
+      dimensions:
+        "Photo: 4.5cm × 3.5cm | Signature: Black Ink | Documents: As per guidelines",
+      fileSize:
+        "Photo: 20-50KB | Signature: 10-20KB | Thumb Impression: 20-50KB | Declaration: 50-100KB",
+      format: "JPEG/JPG for all uploads",
     },
-    "content": `
+    content: `
     <h2>MP DCCB Officer Recruitment 2026: Golden Opportunity in Cooperative Banking</h2>
     <p>Madhya Pradesh Rajya Sahakari Bank (Apex Bank) has announced a massive recruitment drive for <strong>313 Officer Grade posts</strong> across <strong>38 District Central Cooperative Banks (DCCBs)</strong> in Madhya Pradesh. This is a prestigious opportunity for banking professionals and graduates to secure stable government-sector banking jobs with attractive 7th Pay Scale benefits. With vacancies ranging from Senior Management to Middle Management positions, this recruitment offers diverse career paths in the cooperative banking sector.</p>
     
@@ -3315,68 +4426,78 @@ export const blogData: BlogPost[] = [
       <strong>Final Reminder:</strong> The MP DCCB Officer Recruitment 2026 offers 313 regular officer posts with attractive 7th Pay Commission benefits. This is a rare opportunity to secure a permanent banking position in Madhya Pradesh's cooperative banking sector. With applications open from 06 January to 05 February 2026, ensure you complete all requirements and submit your application before the deadline.
     </div>
   `,
-    "faq": [
+    faq: [
       {
-        "question": "What is the last date to apply for MP DCCB Officer Recruitment 2026?",
-        "answer": "The last date to apply for MP DCCB Officer Recruitment 2026 is 05 February 2026. The online application portal will be open from 06 January 2026 to 05 February 2026. The fee payment must also be completed within this period. No applications will be accepted after the deadline."
+        question:
+          "What is the last date to apply for MP DCCB Officer Recruitment 2026?",
+        answer:
+          "The last date to apply for MP DCCB Officer Recruitment 2026 is 05 February 2026. The online application portal will be open from 06 January 2026 to 05 February 2026. The fee payment must also be completed within this period. No applications will be accepted after the deadline.",
       },
       {
-        "question": "Can I apply for multiple DCCBs or multiple posts?",
-        "answer": "No, candidates can apply for ONLY ONE DISTRICT BANK and ONLY ONE POST. If a candidate applies for more than one post or district bank, only the latest application will be considered and all previous applications will be rejected. Choose your preferred DCCB and post carefully before applying."
+        question: "Can I apply for multiple DCCBs or multiple posts?",
+        answer:
+          "No, candidates can apply for ONLY ONE DISTRICT BANK and ONLY ONE POST. If a candidate applies for more than one post or district bank, only the latest application will be considered and all previous applications will be rejected. Choose your preferred DCCB and post carefully before applying.",
       },
       {
-        "question": "What is the selection process for MP DCCB Officer posts?",
-        "answer": "The selection process involves two stages: 1) Online Written Examination (200 marks) covering different subjects based on the grade, and 2) Personal Interview (20 marks). For each post, the top 3 candidates from the online exam will be called for interview. Final selection is based on combined marks of online exam and interview."
+        question: "What is the selection process for MP DCCB Officer posts?",
+        answer:
+          "The selection process involves two stages: 1) Online Written Examination (200 marks) covering different subjects based on the grade, and 2) Personal Interview (20 marks). For each post, the top 3 candidates from the online exam will be called for interview. Final selection is based on combined marks of online exam and interview.",
       },
       {
-        "question": "Is MP domicile mandatory for all candidates?",
-        "answer": "MP domicile is mandatory ONLY for candidates seeking reservation benefits and age relaxation. General category candidates without reservation claims can apply without MP domicile. However, SC/ST/OBC/EWS/PwBD candidates must possess valid MP domicile certificate to avail reservation benefits."
+        question: "Is MP domicile mandatory for all candidates?",
+        answer:
+          "MP domicile is mandatory ONLY for candidates seeking reservation benefits and age relaxation. General category candidates without reservation claims can apply without MP domicile. However, SC/ST/OBC/EWS/PwBD candidates must possess valid MP domicile certificate to avail reservation benefits.",
       },
       {
-        "question": "What is the pay scale for Branch Manager position?",
-        "answer": "For most DCCBs, Branch Manager (Middle Management Grade-1) receives pay scale of ₹36,200 - ₹1,14,800 (Level 9, 7th Pay Commission). However, Khargone DCCB offers higher scale of ₹49,100 - ₹1,55,800 (Level 11), while some DCCBs follow 6th Pay Commission (₹9,300-34,800 + ₹3,600 GP)."
+        question: "What is the pay scale for Branch Manager position?",
+        answer:
+          "For most DCCBs, Branch Manager (Middle Management Grade-1) receives pay scale of ₹36,200 - ₹1,14,800 (Level 9, 7th Pay Commission). However, Khargone DCCB offers higher scale of ₹49,100 - ₹1,55,800 (Level 11), while some DCCBs follow 6th Pay Commission (₹9,300-34,800 + ₹3,600 GP).",
       },
       {
-        "question": "Is there any bond period after selection?",
-        "answer": "Yes, selected candidates must serve the appointed DCCB for a minimum period of five years from the date of appointment. If a candidate fails to complete this tenure, they will have to deposit the entire expenditure incurred on their training. This bond is strictly enforced."
-      }
+        question: "Is there any bond period after selection?",
+        answer:
+          "Yes, selected candidates must serve the appointed DCCB for a minimum period of five years from the date of appointment. If a candidate fails to complete this tenure, they will have to deposit the entire expenditure incurred on their training. This bond is strictly enforced.",
+      },
     ],
-    "relatedLinks": [
+    relatedLinks: [
       {
-        "title": "IBPS SO Recruitment 2026",
-        "path": "/ibps-so-recruitment-2026"
+        title: "IBPS SO Recruitment 2026",
+        path: "/ibps-so-recruitment-2026",
       },
       {
-        "title": "RBI Grade B Officer Recruitment",
-        "path": "/rbi-grade-b-recruitment"
+        title: "RBI Grade B Officer Recruitment",
+        path: "/rbi-grade-b-recruitment",
       },
       {
-        "title": "NABARD Grade A Exam Guide",
-        "path": "/nabard-grade-a-exam-guide"
+        title: "NABARD Grade A Exam Guide",
+        path: "/nabard-grade-a-exam-guide",
       },
       {
-        "title": "Cooperative Bank Exams Preparation",
-        "path": "/cooperative-bank-exams-preparation"
+        title: "Cooperative Bank Exams Preparation",
+        path: "/cooperative-bank-exams-preparation",
       },
       {
-        "title": "Banking Interview Questions & Answers",
-        "path": "/banking-interview-questions-answers"
-      }
-    ]
+        title: "Banking Interview Questions & Answers",
+        path: "/banking-interview-questions-answers",
+      },
+    ],
   },
   {
-    "slug": "bihar-inter-level-exam-2025",
-    "title": "Bihar Inter Level Combined Competitive Examination 2025: Apply for 23175 Posts",
-    "category": "Government Jobs",
-    "metaTitle": "Bihar SSC Inter Level Exam 2025 | 23175 Lower Division Clerk & Other Posts | Apply Online",
-    "metaDescription": "Bihar Staff Selection Commission invites online applications for 23175 Inter Level posts in various departments. Application dates: 15 Oct - 27 Nov 2025. Pay Level 2-4.",
-    "lastUpdated": "October 2025",
-    "specifications": {
-      "dimensions": "Photo: Passport Size | Signature: Clear scan",
-      "fileSize": "As per online form specifications",
-      "format": "JPEG/PDF for documents"
+    slug: "bihar-inter-level-exam-2026",
+    title:
+      "Bihar Inter Level Combined Competitive Examination 2026: Apply for 23175 Posts",
+    category: "Government Jobs",
+    metaTitle:
+      "Bihar SSC Inter Level Exam 2026 photo resizer | 23175  Lower Division Clerk & Other Posts | Apply Online",
+    metaDescription:
+      "Bihar Staff Selection Commission invites online applications for 23175 Inter Level posts in various departments. Application dates: 15 Oct - 27 Nov 2025. Pay Level 2-4.",
+    lastUpdated: "October 2025",
+    specifications: {
+      dimensions: "Photo: Passport Size | Signature: Clear scan",
+      fileSize: "As per online form specifications",
+      format: "JPEG/PDF for documents",
     },
-    "content": `
+    content: `
     <h2>Bihar Inter Level Combined Competitive Examination 2025: Massive Recruitment Opportunity</h2>
     <p>Bihar Staff Selection Commission (BSSC) has announced a massive recruitment drive for <strong>23,175 Inter Level posts</strong> across various departments of Bihar Government. This is the Second Inter Level Combined Competitive Examination (Advertisement No. 02/23(A)) offering opportunities for candidates with Intermediate qualification. With vacancies spread across multiple departments including Panchayati Raj, Revenue, Home, and others, this is one of the largest government job recruitments in Bihar.</p>
     
@@ -3725,53 +4846,374 @@ export const blogData: BlogPost[] = [
       <strong>Final Reminder:</strong> This is one of the largest recruitment drives in Bihar with 23,175 vacancies across various departments. The application process is completely online from 15 October to 27 November 2025. Ensure you have all required documents ready and apply well before the deadline. Candidates who already applied under Advertisement No. 02/23 need not apply again.
     </div>
   `,
-    "faq": [
+    faq: [
       {
-        "question": "What is the last date to apply for Bihar Inter Level Exam 2025?",
-        "answer": "The last date to apply for Bihar Inter Level Exam 2025 is 27 November 2025 (11:59 PM Server Time). The online registration starts from 15 October 2025. The fee payment must be completed by 25 November 2025. No applications will be accepted after the deadline."
+        question:
+          "What is the last date to apply for Bihar Inter Level Exam 2025?",
+        answer:
+          "The last date to apply for Bihar Inter Level Exam 2025 is 27 November 2025 (11:59 PM Server Time). The online registration starts from 15 October 2025. The fee payment must be completed by 25 November 2025. No applications will be accepted after the deadline.",
       },
       {
-        "question": "I already applied under Advertisement No. 02/23. Do I need to apply again?",
-        "answer": "No, candidates who have already submitted their online application under Advertisement No. 02/23 need NOT apply again. Their applications will be considered for the revised advertisement 02/23(A) automatically. They will compete for all posts mentioned in the revised advertisement."
+        question:
+          "I already applied under Advertisement No. 02/23. Do I need to apply again?",
+        answer:
+          "No, candidates who have already submitted their online application under Advertisement No. 02/23 need NOT apply again. Their applications will be considered for the revised advertisement 02/23(A) automatically. They will compete for all posts mentioned in the revised advertisement.",
       },
       {
-        "question": "What is the examination fee for Bihar Inter Level Exam?",
-        "answer": "The examination fee is ₹100 for all candidates, plus processing charges and service tax as applicable. The fee payment can be made online through Credit Card, Debit Card, UPI, or Net Banking from 15 October to 25 November 2025."
+        question: "What is the examination fee for Bihar Inter Level Exam?",
+        answer:
+          "The examination fee is ₹100 for all candidates, plus processing charges and service tax as applicable. The fee payment can be made online through Credit Card, Debit Card, UPI, or Net Banking from 15 October to 25 November 2025.",
       },
       {
-        "question": "Is Bihar domicile mandatory for all candidates?",
-        "answer": "Bihar domicile is mandatory ONLY for candidates seeking reservation benefits (SC/ST/OBC/EBC/EWS/Women/PwBD). General category candidates can apply without Bihar domicile, but they will not get any reservation benefits."
+        question: "Is Bihar domicile mandatory for all candidates?",
+        answer:
+          "Bihar domicile is mandatory ONLY for candidates seeking reservation benefits (SC/ST/OBC/EBC/EWS/Women/PwBD). General category candidates can apply without Bihar domicile, but they will not get any reservation benefits.",
       },
       {
-        "question": "What is the selection process for Bihar Inter Level posts?",
-        "answer": "The selection process involves: 1) Preliminary Examination (Objective, 150 questions) if applications exceed 40,000, 2) Main Examination for top 5 times candidates from each category, 3) Typing/Computer Skill Test, and 4) Document Verification. Preliminary exam will be conducted with books (textbooks only)."
+        question: "What is the selection process for Bihar Inter Level posts?",
+        answer:
+          "The selection process involves: 1) Preliminary Examination (Objective, 150 questions) if applications exceed 40,000, 2) Main Examination for top 5 times candidates from each category, 3) Typing/Computer Skill Test, and 4) Document Verification. Preliminary exam will be conducted with books (textbooks only).",
       },
       {
-        "question": "What is the age relaxation for PwBD candidates?",
-        "answer": "Persons with Benchmark Disabilities (PwBD) get additional 10 years age relaxation over and above their category's maximum age limit. For example, an SC PwBD candidate can apply up to 52 years (42+10). The disability certificate must be issued by a Government Medical College/Hospital."
-      }
+        question: "What is the age relaxation for PwBD candidates?",
+        answer:
+          "Persons with Benchmark Disabilities (PwBD) get additional 10 years age relaxation over and above their category's maximum age limit. For example, an SC PwBD candidate can apply up to 52 years (42+10). The disability certificate must be issued by a Government Medical College/Hospital.",
+      },
     ],
-    "relatedLinks": [
+    relatedLinks: [
       {
-        "title": "Bihar BPSC 69th Combined Exam",
-        "path": "/bihar-bpsc-69th-exam"
+        title: "Bihar BPSC 69th Combined Exam",
+        path: "/bihar-bpsc-69th-exam",
       },
       {
-        "title": "Bihar Police SI Recruitment 2025",
-        "path": "/bihar-police-si-recruitment-2025"
+        title: "Bihar Police SI Recruitment 2025",
+        path: "/bihar-police-si-recruitment-2025",
       },
       {
-        "title": "SSC CHSL 2025 Recruitment",
-        "path": "/ssc-chsl-recruitment-2025"
+        title: "SSC CHSL 2025 Recruitment",
+        path: "/ssc-chsl-recruitment-2025",
       },
       {
-        "title": "Bihar Teacher Recruitment 2025",
-        "path": "/bihar-teacher-recruitment-2025"
+        title: "Bihar Teacher Recruitment 2025",
+        path: "/bihar-teacher-recruitment-2025",
       },
       {
-        "title": "How to Prepare for State SSC Exams",
-        "path": "/state-ssc-exams-preparation"
-      }
-    ]
-  }
+        title: "How to Prepare for State SSC Exams",
+        path: "/state-ssc-exams-preparation",
+      },
+    ],
+  },
+  {
+  slug: "upcoming-government-exams-2026-calendar-posts-vacancies",
+  title: "Upcoming Government Exams 2026: Full Calendar, Vacancies & Posts for UPSC, MPPSC & More",
+  category: "Exam Guides",
+  metaTitle: "Upcoming Government Exams 2026: UPSC CSE, MPPSC, NDA, CDS Dates & Vacancies",
+  metaDescription: "Complete list of upcoming government exams in 2026 with official dates, vacancy details, and available posts. UPSC CSE 933 vacancies, MPPSC ATP 39 posts, NDA, CDS, CAPF & more. Updated February 2026.",
+  lastUpdated: "February 2026",
+  specifications: {
+    totalExams: "25+ UPSC + State Exams",
+    totalVacancies: "1,000+ (Confirmed)",
+    examLevels: "National & State Level",
+    applicationStatus: "Open / Upcoming"
+  },
+  content: `
+    <p>The year <strong>2026</strong> is packed with opportunities for government job aspirants. With the <strong>UPSC Civil Services Examination (CSE) notification already released</strong> and state-level recruitments like <strong>MPPSC Assistant Town Planner</strong> now open, candidates have multiple avenues to secure prestigious positions in central and state government departments.</p>
+
+    <p>This comprehensive guide compiles <strong>all verified upcoming government exams in 2026</strong>, including exam dates, notification timelines, vacancy counts, and posts available. Bookmark this page — we update it in real-time as new notifications are released.</p>
+
+    <h2>📅 UPSC 2026 Exam Calendar: Complete Schedule</h2>
+    <p>The Union Public Service Commission (UPSC) has officially released its <strong>Annual Programme of Examinations/Recruitment Tests 2026</strong> . Nearly all major exams are scheduled on Sundays, making preparation planning easier.</p>
+
+    <h3>UPSC CSE & IFS 2026: Notifications Out Now</h3>
+    <p>The most awaited notification of the year — <strong>UPSC Civil Services Examination 2026</strong> — was released on <strong>February 4, 2026</strong> . The Indian Forest Service (IFS) notification has been released simultaneously.</p>
+    
+    <ul>
+      <li><strong>Total Vacancies (CSE):</strong> 933 posts (IAS, IPS, IFS, IRS, and 20+ Group A/B services) </li>
+      <li><strong>Application Period:</strong> February 4 – February 24, 2026 (6:00 PM) </li>
+      <li><strong>Prelims Exam Date:</strong> May 24, 2026 (Sunday)</li>
+      <li><strong>Mains Exam Date:</strong> August 21, 2025 (5-day duration)</li>
+      <li><strong>Age Limit:</strong> 21–32 years as on August 1, 2026 (relaxation applicable)</li>
+      <li><strong>Application Fee:</strong> ₹100 (SC/ST/Women now also pay ₹100; PwBD exempted) </li>
+    </ul>
+
+    <h3>UPSC CSE 2026: Full List of Posts & Groups</h3>
+    <p>The Civil Services Examination recruits for <strong>24 distinct services</strong> under Group A and Group B categories :</p>
+    
+    <h4>🏛️ Group 'A' Services (Gazetted)</h4>
+    <ul>
+      <li>Indian Administrative Service (IAS)</li>
+      <li>Indian Foreign Service (IFS)</li>
+      <li>Indian Police Service (IPS)</li>
+      <li>Indian Audit and Accounts Service</li>
+      <li>Indian Civil Accounts Service</li>
+      <li>Indian Corporate Law Service</li>
+      <li>Indian Defence Accounts Service</li>
+      <li>Indian Defence Estates Service</li>
+      <li>Indian Information Service</li>
+      <li>Indian Postal Service</li>
+      <li>Indian Post & Telecommunication Accounts and Finance Service</li>
+      <li>Indian Railway Management Service (Traffic/Personnel/Accounts)</li>
+      <li>Indian Railway Protection Force Service</li>
+      <li>Indian Revenue Service (Customs & Indirect Taxes)</li>
+      <li>Indian Revenue Service (Income Tax)</li>
+      <li>Indian Trade Service (Grade III)</li>
+    </ul>
+
+    <h4>📋 Group 'B' Services (Gazetted)</h4>
+    <ul>
+      <li>Armed Forces Headquarters Civil Service (Section Officer's Grade)</li>
+      <li>Delhi, Andaman and Nicobar Islands, Lakshadweep, Daman & Diu and Dadra & Nagar Haveli Civil Service</li>
+      <li>Delhi, Andaman and Nicobar Islands, Lakshadweep, Daman & Diu and Dadra & Nagar Haveli Police Service</li>
+      <li>Pondicherry Civil Service (PONDICS)</li>
+      <li>Pondicherry Police Service (PONDIPS)</li>
+    </ul>
+
+    <h3>📌 Other UPSC 2026 Exams: Dates at a Glance</h3>
+    <table>
+      <tr>
+        <th>Examination</th>
+        <th>Notification Date</th>
+        <th>Last Date</th>
+        <th>Exam Date (2026)</th>
+      </tr>
+      <tr>
+        <td><strong>NDA & NA (I)</strong></td>
+        <td>Dec 10, 2025</td>
+        <td>Dec 30, 2025</td>
+        <td>April 12</td>
+      </tr>
+      <tr>
+        <td><strong>CDS (I)</strong></td>
+        <td>Dec 10, 2025</td>
+        <td>Dec 30, 2025</td>
+        <td>April 12</td>
+      </tr>
+      <tr>
+        <td><strong>Engineering Services (Prelims)</strong></td>
+        <td>Sep 17, 2025</td>
+        <td>Oct 7, 2025</td>
+        <td>February 8</td>
+      </tr>
+      <tr>
+        <td><strong>CAPF (ACs)</strong></td>
+        <td>Feb 18, 2026</td>
+        <td>Mar 10, 2026</td>
+        <td>July 19</td>
+      </tr>
+      <tr>
+        <td><strong>Combined Medical Services</strong></td>
+        <td>Mar 11, 2026</td>
+        <td>Mar 31, 2026</td>
+        <td>August 2</td>
+      </tr>
+      <tr>
+        <td><strong>NDA & NA (II)</strong></td>
+        <td>May 20, 2026</td>
+        <td>June 9, 2026</td>
+        <td>September 13</td>
+      </tr>
+      <tr>
+        <td><strong>CDS (II)</strong></td>
+        <td>May 20, 2026</td>
+        <td>June 9, 2026</td>
+        <td>September 13</td>
+      </tr>
+      <tr>
+        <td><strong>Indian Forest Service (Mains)</strong></td>
+        <td>—</td>
+        <td>—</td>
+        <td>November 22</td>
+      </tr>
+      <tr>
+        <td><strong>IES/ISS Exam</strong></td>
+        <td>Feb 11, 2026</td>
+        <td>Mar 3, 2026</td>
+        <td>June 19 (3 days)</td>
+      </tr>
+    </table>
+    <p><em>Source: UPSC Annual Calendar 2026 </em></p>
+
+    <h2>🏛️ State Government Exams 2026: MPPSC & More</h2>
+    
+    <h3>MPPSC Assistant Town Planner 2026</h3>
+    <p>The <strong>Madhya Pradesh Public Service Commission (MPPSC)</strong> has released the notification for <strong>Assistant Town Planner (ATP)</strong> recruitment 2026 .</p>
+    
+    <ul>
+      <li><strong>Total Vacancies:</strong> 39 posts (Gazetted Class-II)</li>
+      <li><strong>Department:</strong> Town and Country Planning Department, MP</li>
+      <li><strong>Application Dates:</strong> February 20 – March 19, 2026</li>
+      <li><strong>Exam Date:</strong> Likely September 2026</li>
+      <li><strong>Age Limit:</strong> 21–40 years (relaxation as per MP state rules)</li>
+      <li><strong>Pay Scale:</strong> Level 10 (₹56,100 – ₹1,77,500) + allowances</li>
+    </ul>
+
+    <h3>Expected State-Level Exams 2026</h3>
+    <p>Based on previous cycles, the following state PSC exams are expected in 2026. Notifications are awaited:</p>
+    <ul>
+      <li><strong>UPPSC PCS 2026</strong> (Uttar Pradesh) – 400+ vacancies expected</li>
+      <li><strong>BPSC 68th & 69th CCE</strong> (Bihar) – Notification likely mid-2026</li>
+      <li><strong>RPSC RAS 2026</strong> (Rajasthan) – Tentative Q3 2026</li>
+      <li><strong>WBCS 2026</strong> (West Bengal) – Expected mid-year</li>
+      <li><strong>APPSC Group 1 & 2</strong> (Andhra Pradesh) – Tentative</li>
+    </ul>
+
+    <h2>🛡️ Defence Exams 2026</h2>
+    <h3>NDA & CDS 2026</h3>
+    <p>UPSC conducts the National Defence Academy (NDA) and Combined Defence Services (CDS) exams twice annually .</p>
+    
+    <h4>NDA & NA (I) 2026</h4>
+    <ul>
+      <li><strong>Application:</strong> Closed (Dec 10–30, 2025)</li>
+      <li><strong>Exam Date:</strong> April 12, 2026</li>
+    </ul>
+    
+    <h4>NDA & NA (II) 2026</h4>
+    <ul>
+      <li><strong>Notification:</strong> May 20, 2026</li>
+      <li><strong>Last Date:</strong> June 9, 2026</li>
+      <li><strong>Exam Date:</strong> September 13, 2026</li>
+    </ul>
+
+    <h4>CDS (I) & (II) 2026</h4>
+    <ul>
+      <li><strong>CDS I Exam:</strong> April 12, 2026 (Applications closed Dec 30, 2025)</li>
+      <li><strong>CDS II Exam:</strong> September 13, 2026 (Notification May 20, 2026)</li>
+    </ul>
+
+    <h2>🛡️ CAPF (ACs) 2026</h2>
+    <p>The <strong>Central Armed Police Forces (Assistant Commandants) Examination 2026</strong> will recruit officers for CAPFs including BSF, CRPF, CISF, ITBP, and SSB .</p>
+    <ul>
+      <li><strong>Notification Date:</strong> February 18, 2026</li>
+      <li><strong>Last Date to Apply:</strong> March 10, 2026</li>
+      <li><strong>Exam Date:</strong> July 19, 2026</li>
+    </ul>
+
+    <h2>⚕️ Medical & Scientific Exams 2026</h2>
+    
+    <h3>Combined Medical Services (CMS) 2026</h3>
+    <ul>
+      <li><strong>Notification:</strong> March 11, 2026</li>
+      <li><strong>Last Date:</strong> March 31, 2026</li>
+      <li><strong>Exam Date:</strong> August 2, 2026</li>
+    </ul>
+
+    <h3>Combined Geo-Scientist & Engineering Services</h3>
+    <ul>
+      <li><strong>Combined Geo-Scientist Prelims:</strong> February 8, 2026 (Completed)</li>
+      <li><strong>Engineering Services Prelims:</strong> February 8, 2026 (Completed)</li>
+      <li><strong>Engineering Services Mains:</strong> June 21, 2026</li>
+      <li><strong>Geo-Scientist Mains:</strong> June 20, 2026</li>
+    </ul>
+
+    <h2>📋 How to Apply for UPSC CSE 2026 (Step-by-Step)</h2>
+    <p>Applications for UPSC CSE 2026 are open until <strong>February 24, 2026 (6:00 PM)</strong> . Follow these steps:</p>
+    <ol>
+      <li>Visit <strong>upsconline.nic.in</strong> or <strong>upsc.gov.in</strong></li>
+      <li>Complete <strong>One Time Registration (OTR)</strong> if not already registered</li>
+      <li>Select <strong>"Civil Services (Preliminary) Examination 2026"</strong></li>
+      <li>Fill personal details, educational qualifications, and exam centre preferences</li>
+      <li><strong>Upload documents:</strong> Photograph, signature, photo ID proof</li>
+      <li>Pay application fee: ₹100 (online mode)</li>
+      <li>Submit form and save/print confirmation page</li>
+    </ol>
+
+    <h2>📸 Photo & Signature Requirements for Exam Applications</h2>
+    <p>Most government exam portals (UPSC, MPPSC, State PSCs) have strict photo and signature upload guidelines. <strong>Incorrect file size or dimensions lead to rejection.</strong></p>
+    
+    <h3>Standard Requirements:</h3>
+    <ul>
+      <li><strong>Photo Dimensions:</strong> 3.5cm x 4.5cm (passport size)</li>
+      <li><strong>Photo File Size:</strong> 10KB – 50KB (varies by exam)</li>
+      <li><strong>Signature Dimensions:</strong> 2cm x 4.5cm (approx)</li>
+      <li><strong>Signature File Size:</strong> 10KB – 20KB</li>
+      <li><strong>Format:</strong> JPG/JPEG only (strict .jpg extension required for SSC/IBPS)</li>
+      <li><strong>Background:</strong> White or off-white</li>
+    </ul>
+
+    <p>Use our specialized resizing tools to prepare your documents before applying:</p>
+    <ul>
+      <li><strong>For UPSC/SSC/State Exams:</strong> <a href="/passport-size-photo-maker-35x45">Passport Size Photo Maker (3.5x4.5cm)</a></li>
+      <li><strong>For 50KB requirement:</strong> <a href="/reduce-photo-size-50kb-without-quality-loss">Reduce Photo Size to 50KB</a></li>
+      <li><strong>For 20KB requirement:</strong> <a href="/compress-photo-to-20kb-online">Compress Photo to 20KB</a></li>
+      <li><strong>For signature upload:</strong> <a href="/pan-card-photo-signature-resizer">Signature Resizer (2x4.5cm)</a></li>
+      <li><strong>For .jpeg rejection fix:</strong> <a href="/convert-jpeg-to-jpg-online">JPEG to JPG Converter</a></li>
+    </ul>
+
+    <h2>⚠️ Important Tips for 2026 Exam Aspirants</h2>
+    <ul>
+      <li><strong>Apply early:</strong> Don't wait for the last day. Servers crash due to heavy traffic.</li>
+      <li><strong>Check attempt limits:</strong> General: 6 attempts, OBC: 9, SC/ST: Unlimited (UPSC CSE) </li>
+      <li><strong>Fee exemption changes:</strong> For UPSC CSE 2026, women and SC/ST candidates now pay ₹100 (previously exempted) </li>
+      <li><strong>Download e-Admit Card:</strong> Released on the last working day of the week preceding the exam </li>
+      <li><strong>Reach centre early:</strong> Entry closes 30 minutes before session start </li>
+    </ul>
+
+    <h2>🔮 Upcoming Notifications (March–December 2026)</h2>
+    <p>Stay ready for these upcoming exam notifications:</p>
+    <ul>
+      <li><strong>IES/ISS 2026:</strong> Notification Feb 11, last date Mar 3, exam June 19</li>
+      <li><strong>CAPF (ACs) 2026:</strong> Notification Feb 18, last date Mar 10, exam July 19</li>
+      <li><strong>Combined Medical Services 2026:</strong> Notification Mar 11, last date Mar 31, exam Aug 2</li>
+      <li><strong>NDA/CDS (II) 2026:</strong> Notification May 20, last date Jun 9, exam Sep 13</li>
+      <li><strong>SO/Steno LDCE:</strong> Notification Sep 16, last date Oct 6, exam Dec 12</li>
+    </ul>
+
+    <p><strong>Bookmark this page and check back regularly.</strong> We update the list as soon as new government exam notifications are released in 2026.</p>
+  `,
+  faq: [
+    {
+      question: "How many vacancies are there in UPSC CSE 2026?",
+      answer: "UPSC CSE 2026 has announced 933 vacancies for various Group A and Group B services including IAS, IPS, IFS, IRS, and others. This is slightly lower than 979 vacancies in 2025 and 1,105 in 2024 ."
+    },
+    {
+      question: "When is the last date to apply for UPSC CSE 2026?",
+      answer: "The last date to submit online applications for UPSC Civil Services Examination 2026 is February 24, 2026, at 6:00 PM. Applications are accepted at upsconline.nic.in ."
+    },
+    {
+      question: "Is the application fee for UPSC CSE 2026 changed?",
+      answer: "Yes. For UPSC CSE 2026, the application fee is ₹100 for all categories including General, OBC, EWS, SC, ST, and women. Previously, SC/ST and women candidates were exempted. PwBD candidates remain exempted from fee payment ."
+    },
+    {
+      question: "What is the age limit for UPSC CSE 2026?",
+      answer: "Candidates must be between 21 and 32 years as of August 1, 2026. Age relaxation applies: SC/ST: 5 years, OBC: 3 years, PwBD: 10 years (15 years for SC/ST PwBD, 13 years for OBC PwBD) as per government norms ."
+    },
+    {
+      question: "How many attempts are allowed for UPSC CSE?",
+      answer: "General category candidates get 6 attempts, OBC candidates get 9 attempts, and SC/ST candidates have unlimited attempts until the age limit is reached. PwBD candidates also get relaxations based on category ."
+    },
+    {
+      question: "What is the exam date for UPSC CSE Prelims 2026?",
+      answer: "UPSC CSE Prelims 2026 will be held on May 24, 2026 (Sunday). The Mains examination begins on August 21, 2026 ."
+    },
+    {
+      question: "What are the vacancies for MPPSC Assistant Town Planner 2026?",
+      answer: "MPPSC has announced 39 vacancies for the post of Assistant Town Planner (Gazetted Class-II) under the Town and Country Planning Department, Madhya Pradesh. Applications open from February 20 to March 19, 2026 ."
+    },
+    {
+      question: "When is NDA 2026 exam date?",
+      answer: "NDA & NA (I) 2026 exam is on April 12, 2026. NDA & NA (II) 2026 exam is on September 13, 2026. CDS follows the same dates ."
+    },
+    {
+      question: "What photo size is required for government exam applications?",
+      answer: "Most government exams (UPSC, SSC, State PSCs) require a 3.5cm x 4.5cm passport size photograph in JPG format. File size typically ranges from 10KB to 50KB. Signature dimensions are usually 2cm x 4.5cm under 20KB. Always check your specific exam notification."
+    },
+    {
+      question: "Are there any state government exams in 2026?",
+      answer: "Yes. MPPSC Assistant Town Planner 2026 (39 vacancies) is currently open. UPPSC, BPSC, RPSC RAS, WBCS, and APPSC exams are expected in 2026. Notifications will be released throughout the year."
+    },
+    {
+      question: "What is CAPF AC exam date 2026?",
+      answer: "CAPF (ACs) 2026 exam will be held on July 19, 2026. The notification will be released on February 18, 2026, and the last date to apply is March 10, 2026 ."
+    }
+  ],
+  relatedLinks: [
+    { title: "Passport Size Photo Maker (3.5x4.5)", path: "/passport-size-photo-maker-35x45" },
+    { title: "Reduce Photo Size to 50KB", path: "/reduce-photo-size-50kb-without-quality-loss" },
+    { title: "Compress Photo to 20KB Online", path: "/compress-photo-to-20kb-online" },
+    { title: "JPEG to JPG Converter", path: "/convert-jpeg-to-jpg-online" },
+    { title: "PAN Card Photo & Signature Resizer", path: "/pan-card-photo-signature-resizer" },
+    { title: "Driving License Photo Resizer", path: "/resize-photo-driving-license-sarathi" },
+    { title: "Voter ID Photo Size Reducer", path: "/voter-id-photo-size-reducer" }
+  ]
+}
 ];

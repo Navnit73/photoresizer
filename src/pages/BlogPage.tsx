@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
@@ -20,7 +19,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { blogData } from '@/data/blogData';
-import { ArrowLeft, ArrowRight, Upload, Clock, CheckCircle2, AlertCircle, Share2, Printer, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Upload, Clock, CheckCircle2, AlertCircle, Share2, Printer, ChevronRight, Camera, FileImage, FileIcon, Ruler, HardDrive } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 import AdUnit from '@/components/shared/AdUnit';
 
@@ -48,6 +47,27 @@ export default function BlogPage() {
     );
   }
 
+  // Helper function to extract numeric value from fileSize string
+  const getFileSizeValue = (fileSize: string) => {
+    const match = fileSize.match(/\d+/);
+    return match ? match[0] : "20";
+  };
+
+  // Helper function to extract unit from fileSize string
+  const getFileSizeUnit = (fileSize: string) => {
+    if (fileSize.includes("KB")) return "KB";
+    if (fileSize.includes("MB")) return "MB";
+    return "";
+  };
+
+  // Determine icon based on category
+  const getCategoryIcon = () => {
+    if (post.category === "Official IDs") return <Camera className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400" />;
+    if (post.category === "Technical Tools") return <FileImage className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400" />;
+    if (post.category === "Exam Guides") return <FileIcon className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400" />;
+    return <CheckCircle2 className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400" />;
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 font-sans selection:bg-blue-100 selection:text-blue-900">
 
@@ -55,7 +75,7 @@ export default function BlogPage() {
         title={post.metaTitle}
         description={post.metaDescription}
         type="article"
-        publishedTime={new Date().toISOString()} //Ideally this should come from blogData if available
+        publishedTime={new Date().toISOString()}
         modifiedTime={new Date().toISOString()}
         structuredData={[
           {
@@ -76,10 +96,10 @@ export default function BlogPage() {
                 "url": "https://www.photoresizer.co.in/logo.png"
               }
             },
-            "datePublished": new Date().toISOString(), // Mock date, normally from post.date
+            "datePublished": new Date().toISOString(),
             "dateModified": new Date().toISOString()
           },
-          ...(post.faq.length > 0 ? [{
+          ...(post.faq?.length > 0 ? [{
             "@context": "https://schema.org",
             "@type": "FAQPage",
             "mainEntity": post.faq.map(f => ({
@@ -129,7 +149,7 @@ export default function BlogPage() {
                     Updated {post.lastUpdated}
                  </div>
                  <div className="flex items-center text-slate-400">
-                    &bull; 3 min read
+                    &bull; {post.content.split(/\s+/).length > 300 ? '5' : '3'} min read
                  </div>
               </div>
 
@@ -140,9 +160,19 @@ export default function BlogPage() {
 
             {/* CTA CARD (MOBILE ONLY) */}
             <div className="lg:hidden bg-slate-900 text-white rounded-xl p-6 mb-10 shadow-lg">
-               <h3 className="font-bold text-lg mb-2">Resize {post.category} Photo?</h3>
-               <p className="text-slate-300 text-sm mb-4">Get the exact dimensions and file size instantly.</p>
-               <Button onClick={() => navigate('/')} className="w-full bg-blue-600 hover:bg-blue-500 font-bold" size="lg">Resize Now</Button>
+               <h3 className="font-bold text-lg mb-2">
+                 {post.category === "Official IDs" ? `Resize ${post.title.split(' ').slice(0, 3).join(' ')}` : 
+                  post.category === "Exam Guides" ? "Prepare Your Documents" : 
+                  "Compress Your Photo"}
+               </h3>
+               <p className="text-slate-300 text-sm mb-4">
+                 {post.specifications?.dimensions !== "-" && post.specifications?.dimensions !== "Any" ? 
+                   `Get exact ${post.specifications.dimensions} under ${post.specifications.fileSize}` : 
+                   `Meet ${post.specifications.fileSize} requirement instantly`}
+               </p>
+               <Button onClick={() => navigate('/')} className="w-full bg-blue-600 hover:bg-blue-500 font-bold" size="lg">
+                 {post.category === "Technical Tools" ? "Compress Now" : "Resize Now"}
+               </Button>
             </div>
 
             {/* AdSense Unit - Top of Content */}
@@ -150,42 +180,99 @@ export default function BlogPage() {
                <AdUnit />
             </div>
 
+            {/* SPECIFICATION CARDS - DYNAMIC RENDERING */}
+            {post.specifications && (
+              <div className="mb-12">
+                <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center">
+                  {getCategoryIcon()}
+                  {post.category === "Exam Guides" ? "Exam Requirements at a Glance" : 
+                   post.category === "Technical Tools" ? "Compression Specifications" : 
+                   "Key Photo Requirements"}
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {/* Dimensions Card - Show only if not placeholder */}
+                  {post.specifications.dimensions && post.specifications.dimensions !== "-" && post.specifications.dimensions !== "Any" && (
+                    <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start hover:border-blue-200 transition-colors group">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center w-full">
+                        <Ruler className="w-3.5 h-3.5 mr-1.5 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                        Dimensions
+                      </span>
+                      <div className="font-mono text-lg font-bold text-slate-900 dark:text-white break-words w-full">
+                        {post.specifications.dimensions}
+                      </div>
+                      {post.slug.includes("passport") && (
+                        <span className="text-xs text-blue-600 dark:text-blue-400 mt-2 font-medium">Indian Standard</span>
+                      )}
+                    </div>
+                  )}
 
-            {/* SPECIFICATION CARDS (Responsive Grid) */}
-            <div className="mb-12">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center">
-                <CheckCircle2 className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400" />
-                Key Photo Requirements
-              </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Dimensions Card */}
-                <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start hover:border-blue-200 transition-colors">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Dimensions</span>
-                  <div className="font-mono text-lg font-bold text-slate-900 dark:text-white break-words w-full">
-                    {post.specifications.dimensions}
-                  </div>
-                </div>
+                  {/* File Size Card - Show only if not placeholder */}
+                  {post.specifications.fileSize && post.specifications.fileSize !== "-" && (
+                    <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start hover:border-blue-200 transition-colors group">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center w-full">
+                        <HardDrive className="w-3.5 h-3.5 mr-1.5 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                        File Size
+                      </span>
+                      <div className="font-mono text-lg font-bold text-slate-900 dark:text-white">
+                        {post.specifications.fileSize}
+                      </div>
+                      {post.specifications.fileSize.includes("10 KB") && (
+                        <span className="text-xs text-amber-600 dark:text-amber-400 mt-2 font-medium">Strict limit</span>
+                      )}
+                    </div>
+                  )}
 
-                {/* File Size Card */}
-                 <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start hover:border-blue-200 transition-colors">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">File Size</span>
-                  <div className="font-mono text-lg font-bold text-slate-900 dark:text-white">
-                    {post.specifications.fileSize}
-                  </div>
-                </div>
+                  {/* Format Card - Show only if not placeholder */}
+                  {post.specifications.format && post.specifications.format !== "-" && post.specifications.format !== "Convert to .jpg" && (
+                    <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start hover:border-blue-200 transition-colors group">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center w-full">
+                        <FileImage className="w-3.5 h-3.5 mr-1.5 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                        Format
+                      </span>
+                      <div className="font-mono text-lg font-bold text-slate-900 dark:text-white">
+                        {post.specifications.format}
+                      </div>
+                      {post.specifications.format.includes("JPG") && (
+                        <span className="text-xs text-green-600 dark:text-green-400 mt-2 font-medium">Most compatible</span>
+                      )}
+                    </div>
+                  )}
 
-                {/* Format Card */}
-                 <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start hover:border-blue-200 transition-colors">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Format</span>
-                  <div className="font-mono text-lg font-bold text-slate-900 dark:text-white">
-                    {post.specifications.format}
-                  </div>
+                  {/* Special case for JPEG to JPG converter */}
+                  {post.slug === "convert-jpeg-to-jpg-online" && (
+                    <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start hover:border-blue-200 transition-colors md:col-span-3">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center">
+                        <FileImage className="w-3.5 h-3.5 mr-1.5" />
+                        Conversion Type
+                      </span>
+                      <div className="font-mono text-lg font-bold text-slate-900 dark:text-white">
+                        .jpeg → .jpg (Extension only, no recompression)
+                      </div>
+                      <span className="text-xs text-blue-600 dark:text-blue-400 mt-2">Original quality preserved • No data loss • Instant</span>
+                    </div>
+                  )}
+
+                  {/* Special case for Exam Guides - show additional metrics */}
+                  {post.category === "Exam Guides" && post.specifications.totalExams && (
+                    <>
+                      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start">
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Total Exams</span>
+                        <div className="font-mono text-lg font-bold text-slate-900 dark:text-white">{post.specifications.totalExams}</div>
+                      </div>
+                      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start">
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Total Vacancies</span>
+                        <div className="font-mono text-lg font-bold text-slate-900 dark:text-white">{post.specifications.totalVacancies}</div>
+                      </div>
+                      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 flex flex-col items-start">
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Application Status</span>
+                        <div className="font-mono text-lg font-bold text-green-600 dark:text-green-400">{post.specifications.applicationStatus}</div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
-            </div>
-
-
+            )}
 
             {/* DYNAMIC CONTENT */}
             <div className="max-w-[720px] mx-auto">
@@ -203,7 +290,10 @@ export default function BlogPage() {
                            prose-strong:text-slate-900 dark:prose-strong:text-white prose-strong:font-bold
                            prose-blockquote:border-l-[6px] prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50/50 dark:prose-blockquote:bg-blue-900/20 prose-blockquote:py-6 prose-blockquote:px-8 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-slate-800 dark:prose-blockquote:text-slate-200 prose-blockquote:my-10
                            prose-img:rounded-xl prose-img:shadow-lg prose-img:my-10
-                           marker:text-blue-500"
+                           marker:text-blue-500
+                           prose-table:border-collapse prose-table:border prose-table:border-slate-200 dark:prose-table:border-slate-800 prose-table:my-10
+                           prose-th:bg-slate-50 dark:prose-th:bg-slate-800/50 prose-th:p-3 prose-th:text-left prose-th:font-bold
+                           prose-td:p-3 prose-td:border prose-td:border-slate-200 dark:prose-td:border-slate-800"
               />
             </div>
 
@@ -213,7 +303,7 @@ export default function BlogPage() {
             </div>
 
             {/* FAQ SECTION */}
-            {post.faq.length > 0 && (
+            {post.faq && post.faq.length > 0 && (
               <div className="mt-16 pt-10 border-t border-slate-100 dark:border-slate-800">
                 <h2 className="text-2xl font-bold mb-8 text-slate-900 dark:text-white flex items-center">
                   <span className="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 p-2 rounded-lg mr-3">
@@ -237,7 +327,7 @@ export default function BlogPage() {
             )}
 
             {/* RELATED LINKS */}
-            {post.relatedLinks.length > 0 && (
+            {post.relatedLinks && post.relatedLinks.length > 0 && (
               <div className="mt-16 pt-10 border-t border-slate-100 dark:border-slate-800">
                 <h3 className="text-xl font-bold mb-6 text-slate-900 dark:text-white">Related Guides</h3>
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -269,28 +359,47 @@ export default function BlogPage() {
             {/* AdSense Unit - Sidebar */}
             <AdUnit className="mb-8" />
             
-            {/* Tool Card */}
+            {/* Tool Card - Dynamically Updated */}
             <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden group">
                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 blur-[50px] rounded-full group-hover:bg-blue-500/30 transition-all pointer-events-none" />
               
-              <h4 className="font-bold text-xl mb-2 relative z-10">Resize {post.category} Photo</h4>
+              <h4 className="font-bold text-xl mb-2 relative z-10">
+                {post.category === "Technical Tools" ? "Compress Your File" : 
+                 post.category === "Exam Guides" ? "Prepare Documents" : 
+                 `Resize ${post.category} Photo`}
+              </h4>
               <p className="text-slate-300 text-sm mb-6 relative z-10">
-                Get compliance-ready photos in seconds. No ads, no uploads.
+                {post.specifications?.dimensions !== "-" && post.specifications?.dimensions !== "Any" ? 
+                  `Get exact ${post.specifications.dimensions}` : 
+                  post.category === "Exam Guides" ? "Get exam-ready photos instantly" :
+                  `Meet ${post.specifications.fileSize} requirement`}
               </p>
               
               <div className="space-y-3 mb-8 relative z-10">
-                <div className="flex items-center text-sm text-slate-200">
-                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center mr-3 text-green-400 font-bold">✓</div>
-                   {post.specifications.dimensions}
-                </div>
-                 <div className="flex items-center text-sm text-slate-200">
-                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center mr-3 text-green-400 font-bold">✓</div>
-                   Max {post.specifications.fileSize}
-                </div>
+                {post.specifications?.dimensions && post.specifications.dimensions !== "-" && post.specifications.dimensions !== "Any" && (
+                  <div className="flex items-center text-sm text-slate-200">
+                     <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center mr-3 text-green-400 font-bold">✓</div>
+                     {post.specifications.dimensions}
+                  </div>
+                )}
+                {post.specifications?.fileSize && post.specifications.fileSize !== "-" && (
+                  <div className="flex items-center text-sm text-slate-200">
+                     <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center mr-3 text-green-400 font-bold">✓</div>
+                     {post.specifications.fileSize}
+                  </div>
+                )}
+                {post.specifications?.format && post.specifications.format !== "-" && post.specifications.format !== "Convert to .jpg" && (
+                  <div className="flex items-center text-sm text-slate-200">
+                     <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center mr-3 text-green-400 font-bold">✓</div>
+                     {post.specifications.format}
+                  </div>
+                )}
               </div>
 
               <Button onClick={() => navigate('/')} className="w-full font-bold bg-blue-600 hover:bg-blue-500 text-white h-12 shadow-lg shadow-blue-900/50" size="lg">
-                Upload & Resize
+                {post.category === "Technical Tools" ? "Compress Now" : 
+                 post.category === "Exam Guides" ? "Upload & Resize" : 
+                 "Upload & Resize"}
               </Button>
             </div>
 
@@ -300,6 +409,9 @@ export default function BlogPage() {
                <div className="flex gap-2">
                  <Button variant="outline" className="flex-1 gap-2 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200">
                    <Share2 className="w-4 h-4" /> Share
+                 </Button>
+                 <Button variant="outline" className="flex-1 gap-2 hover:bg-slate-50 hover:text-slate-700">
+                   <Printer className="w-4 h-4" /> Print
                  </Button>
                </div>
              </div>
