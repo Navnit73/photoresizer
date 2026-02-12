@@ -1,6 +1,6 @@
 // Service Worker for Photo Resizer
 const CACHE_NAME = "photo-resizer-v1";
-const STATIC_ASSETS = ["/", "/index.html", "/manifest.json", "/favicon.ico"];
+const STATIC_ASSETS = ["/", "/index.html", "/manifest.json", "/image-editing.png"];
 
 // Install event - cache static assets
 self.addEventListener("install", (event) => {
