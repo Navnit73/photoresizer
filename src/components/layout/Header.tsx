@@ -98,6 +98,10 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
+            <Link to="/more-tools" className="header-nav-btn">
+              More Tools
+            </Link>
+
             <Link to="/blog" className="header-nav-btn">
               Blog
             </Link> 
@@ -185,6 +189,13 @@ export function Header() {
                   <div className="px-5 py-2 text-xs font-semibold uppercase text-slate-400">
                     Pages
                   </div>
+                  <Link
+                    to="/more-tools"
+                    onClick={() => setOpen(false)}
+                    className="block px-5 py-3 text-sm hover:bg-slate-100"
+                  >
+                    More Tools
+                  </Link>
                   <Link
                     to="/blog"
                     onClick={() => setOpen(false)}
