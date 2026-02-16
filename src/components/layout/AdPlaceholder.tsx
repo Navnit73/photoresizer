@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 interface AdPlaceholderProps {
   position: 'top' | 'sidebar' | 'bottom';
 }
@@ -18,13 +16,10 @@ export function AdPlaceholder({ position }: AdPlaceholderProps) {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.5 }}
-      className={`ad-placeholder rounded-lg flex items-center justify-center ${sizes[position]}`}
+    <div
+      className={`ad-placeholder rounded-lg flex items-center justify-center ${sizes[position]} animate-[fadeIn_0.5s_ease-out_0.5s_both]`}
     >
       <span className="text-xs text-muted-foreground">{labels[position]}</span>
-    </motion.div>
+    </div>
   );
 }

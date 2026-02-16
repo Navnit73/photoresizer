@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
 import { Undo2, RotateCcw } from "lucide-react";
+import { lazy, Suspense } from "react";
 
 import { useImageEditor } from "@/hooks/useImageEditor";
 import { UploadZone } from "@/components/editor/UploadZone";
@@ -9,12 +9,12 @@ import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
 
 import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { BookmarkPopup } from "@/components/layout/BookmarkPopup";
-import { ContentSections } from "@/components/sections/ContentSections";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import AdUnit from "@/components/shared/AdUnit";
+
+// Lazy-load below-fold content to reduce initial bundle / main-thread work
+const ContentSections = lazy(() => import("@/components/sections/ContentSections").then(m => ({ default: m.ContentSections })));
+const Footer = lazy(() => import("@/components/layout/Footer").then(m => ({ default: m.Footer })));
 
 const Index = () => {
   const {
@@ -24,7 +24,6 @@ const Index = () => {
     loadImage,
     updateDimensions,
     setRotation,
-    setBackgroundColor,
     setQuality,
     setFormat,
     applyPreset,
@@ -32,6 +31,7 @@ const Index = () => {
     undo,
     processAndDownload,
     reset,
+    lastUploadedFile
   } = useImageEditor();
 
   return (
@@ -50,66 +50,51 @@ const Index = () => {
         </p>
 
         <main className="flex-1 w-full max-w-8xl mx-auto px-2 sm:px-4 py-3">
-          <AnimatePresence mode="wait">
             {!imageState.originalUrl ? (
               /* ================= UPLOAD STATE ================= */
-              <motion.div
+              <div
                 key="upload"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.35 }}
-                className="max-w-xl mx-auto py-10"
+                className="max-w-xl mx-auto py-10 animate-[fadeInUp_0.35s_ease-out]"
               >
-                <UploadZone onFileSelect={loadImage} />
-              </motion.div>
+                <UploadZone onFileSelect={loadImage} recentFile={lastUploadedFile} />
+              </div>
             ) : (
               /* ================= EDITOR STATE ================= */
-              <motion.div
+              <div
                 key="editor"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-3"
+                className="space-y-3 animate-[fadeIn_0.3s_ease-out]"
               >
                 {/* ===== TOP BAR ===== */}
                 <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-red-100 dark:bg-blue-500 border border-slate-200 dark:border-slate-700">
                   <div className="flex items-center gap-2">
                     {history.length > 1 && (
-                      <motion.div whileTap={{ scale: 0.94 }}>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={undo}
-                          className="h-8 px-2 text-xs"
-                        >
-                          <Undo2 className="w-3.5 h-3.5 mr-1" />
-                          Undo
-                        </Button>
-                      </motion.div>
-                    )}
-
-                    <motion.div whileTap={{ rotate: -10 }}>
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={reset}
-                        className="h-8 px-2 text-xs"
+                        onClick={undo}
+                        className="h-8 px-2 text-xs active:scale-95 transition-transform"
                       >
-                        <RotateCcw className="w-3.5 h-3.5 mr-1" />
-                        Reset
+                        <Undo2 className="w-3.5 h-3.5 mr-1" />
+                        Undo
                       </Button>
-                    </motion.div>
+                    )}
+
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={reset}
+                      className="h-8 px-2 text-xs active:scale-95 transition-transform"
+                    >
+                      <RotateCcw className="w-3.5 h-3.5 mr-1" />
+                      Reset
+                    </Button>
                   </div>
                 </div>
 
                 {/* ===== MAIN LAYOUT ===== */}
                 <div className="grid lg:grid-cols-[400px_1fr] gap-3">
                   {/* ================= SETTINGS ================= */}
-                  <motion.aside
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3 }}
+                  <aside
                     className="
                       bg-white dark:bg-slate-800
                       rounded-2xl border
@@ -117,6 +102,7 @@ const Index = () => {
                       p-3
                       lg:sticky lg:top-20
                       max-h-[85vh] overflow-y-auto
+                      animate-[fadeIn_0.3s_ease-out]
                     "
                   >
                     <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-2">
@@ -132,58 +118,43 @@ const Index = () => {
                       onFormatChange={setFormat}
                       onApplyPreset={applyPreset}
                     />
-
-                    {/* Sidebar Ad - Desktop Only */}
-                    {/* <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 hidden lg:block">
-                      <AdUnit />
-                    </div> */}
-                  </motion.aside>
+                  </aside>
 
                   {/* ================= CANVAS ================= */}
-                  <motion.section
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
+                  <section
                     className="
                       bg-white dark:bg-slate-800
                       rounded-2xl border
                       border-slate-200 dark:border-slate-700
                       p-2 sm:p-3
+                      animate-[fadeIn_0.3s_ease-out]
                     "
                   >
                     {/* -------- MOBILE -------- */}
                     <div className="block lg:hidden space-y-3">
-                      <motion.div
-                        whileHover={{ scale: 1.01 }}
-                        transition={{ type: "spring", stiffness: 200 }}
-                        className="rounded-xl overflow-hidden shadow-sm"
-                      >
+                      <div className="rounded-xl overflow-hidden shadow-sm">
                         <InteractiveCanvas
                           imageState={imageState}
                           onCropApply={applyCrop}
                         />
                         
                         <LivePreview imageState={imageState} />
-                      </motion.div>
+                      </div>
 
                       <div className="sticky bottom-3 z-20">
-                        <motion.div whileTap={{ scale: 0.96 }}>
+                        <div className="active:scale-[0.96] transition-transform">
                           <DownloadButton
-                            onDownload={processAndDownload}
+                            onDownload={() => processAndDownload()}
                             disabled={isProcessing}
                           />
-                        </motion.div>
+                        </div>
                       </div>
                     </div>
 
                     {/* -------- DESKTOP -------- */}
                     <div className="hidden lg:grid lg:grid-cols-2 gap-2">
                       {/* Original */}
-                      <motion.div
-                        initial={{ opacity: 0, x: -8 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="space-y-2"
-                      >
+                      <div className="space-y-2 animate-[fadeIn_0.3s_ease-out]">
                         <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">
                           Original
                         </div>
@@ -192,37 +163,36 @@ const Index = () => {
                           imageState={imageState}
                           onCropApply={applyCrop}
                         />
-                      </motion.div>
+                      </div>
 
                       {/* Preview */}
-                      <motion.div
-                        initial={{ opacity: 0, x: 8 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="space-y-1"
-                      >
+                      <div className="space-y-1 animate-[fadeIn_0.3s_ease-out]">
                         <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">
                           Preview
                         </div>
 
-                        <motion.div whileTap={{ scale: 0.97 }}>
+                        <div className="active:scale-[0.97] transition-transform">
                           <DownloadButton
-                            onDownload={processAndDownload}
+                            onDownload={() => processAndDownload()}
                             disabled={isProcessing}
                           />
-                        </motion.div>
+                        </div>
 
                         <LivePreview imageState={imageState} />
-                      </motion.div>
+                      </div>
                     </div>
-                  </motion.section>
+                  </section>
                 </div>
-              </motion.div>
+              </div>
             )}
-          </AnimatePresence>
         </main>
 
-        <ContentSections />
-        <Footer />
+        <Suspense fallback={null}>
+          <ContentSections />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </div>
     </>
   );

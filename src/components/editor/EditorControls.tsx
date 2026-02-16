@@ -26,8 +26,7 @@ import {
   Settings2,
 } from "lucide-react";
 
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback, memo } from "react";
 
 interface EditorControlsProps {
   imageState: ImageState;
@@ -39,7 +38,7 @@ interface EditorControlsProps {
   onApplyPreset: (width: number, height: number) => void;
 }
 
-export function EditorControls({
+export const EditorControls = memo(function EditorControls({
   imageState,
   isProcessing,
   onUpdateDimensions,
@@ -50,6 +49,31 @@ export function EditorControls({
 }: EditorControlsProps) {
   const [lockAspectRatio, setLockAspectRatio] = useState(false);
 
+  // Local state for immediate UI feedback (debounced upstream)
+  const [localQuality, setLocalQuality] = useState(imageState.quality);
+  const [localWidth, setLocalWidth] = useState(imageState.width);
+  const [localHeight, setLocalHeight] = useState(imageState.height);
+  const qualityTimer = useRef<ReturnType<typeof setTimeout>>();
+  const dimTimer = useRef<ReturnType<typeof setTimeout>>();
+
+  // Sync local state when imageState changes from outside (e.g. preset applied)
+  useEffect(() => { setLocalQuality(imageState.quality); }, [imageState.quality]);
+  useEffect(() => { setLocalWidth(imageState.width); }, [imageState.width]);
+  useEffect(() => { setLocalHeight(imageState.height); }, [imageState.height]);
+
+  // Debounced quality change (300ms)
+  const handleQualityChange = useCallback((value: number) => {
+    setLocalQuality(value);
+    clearTimeout(qualityTimer.current);
+    qualityTimer.current = setTimeout(() => onQualityChange(value), 300);
+  }, [onQualityChange]);
+
+  // Cleanup timers
+  useEffect(() => () => {
+    clearTimeout(qualityTimer.current);
+    clearTimeout(dimTimer.current);
+  }, []);
+
   const groupedPresets = PRESET_SIZES.reduce(
     (acc, preset) => {
       acc[preset.category] ??= [];
@@ -59,38 +83,35 @@ export function EditorControls({
     {} as Record<string, typeof PRESET_SIZES>,
   );
 
-  const handleWidthChange = (width: number) => {
-    if (
-      lockAspectRatio &&
-      imageState.originalWidth &&
-      imageState.originalHeight
-    ) {
-      const ratio = imageState.originalHeight / imageState.originalWidth;
-      onUpdateDimensions(width, Math.round(width * ratio));
-    } else {
-      onUpdateDimensions(width, imageState.height);
-    }
-  };
+  const handleWidthChange = useCallback((width: number) => {
+    setLocalWidth(width);
+    clearTimeout(dimTimer.current);
+    dimTimer.current = setTimeout(() => {
+      if (lockAspectRatio && imageState.originalWidth && imageState.originalHeight) {
+        const ratio = imageState.originalHeight / imageState.originalWidth;
+        onUpdateDimensions(width, Math.round(width * ratio));
+      } else {
+        onUpdateDimensions(width, localHeight);
+      }
+    }, 400);
+  }, [lockAspectRatio, imageState.originalWidth, imageState.originalHeight, localHeight, onUpdateDimensions]);
 
-  const handleHeightChange = (height: number) => {
-    if (
-      lockAspectRatio &&
-      imageState.originalWidth &&
-      imageState.originalHeight
-    ) {
-      const ratio = imageState.originalWidth / imageState.originalHeight;
-      onUpdateDimensions(Math.round(height * ratio), height);
-    } else {
-      onUpdateDimensions(imageState.width, height);
-    }
-  };
+  const handleHeightChange = useCallback((height: number) => {
+    setLocalHeight(height);
+    clearTimeout(dimTimer.current);
+    dimTimer.current = setTimeout(() => {
+      if (lockAspectRatio && imageState.originalWidth && imageState.originalHeight) {
+        const ratio = imageState.originalWidth / imageState.originalHeight;
+        onUpdateDimensions(Math.round(height * ratio), height);
+      } else {
+        onUpdateDimensions(localWidth, height);
+      }
+    }, 400);
+  }, [lockAspectRatio, imageState.originalWidth, imageState.originalHeight, localWidth, onUpdateDimensions]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="space-y-4"
+    <div
+      className="space-y-4 animate-[fadeInUp_0.3s_ease-out]"
     >
       {/* Dimensions Controls */}
       <Card variant="tool" className="overflow-visible"> 
@@ -148,7 +169,7 @@ export function EditorControls({
               <Label className="text-xs">Width</Label>
               <Input
                 type="number"
-                value={imageState.width}
+                value={localWidth}
                 onChange={(e) =>
                   handleWidthChange(Number(e.target.value) || 0)
                 }
@@ -158,7 +179,7 @@ export function EditorControls({
               <Label className="text-xs">Height</Label>
               <Input
                 type="number"
-                value={imageState.height}
+                value={localHeight}
                 onChange={(e) =>
                   handleHeightChange(Number(e.target.value) || 0)
                 }
@@ -204,15 +225,15 @@ export function EditorControls({
                 Quality
               </Label>
               <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">
-                {imageState.quality}%
+                {localQuality}%
               </span>
             </div>
             <Slider
-              value={[imageState.quality]}
+              value={[localQuality]}
               min={10}
               max={100}
               step={5}
-              onValueChange={([v]) => onQualityChange(v)}
+              onValueChange={([v]) => handleQualityChange(v)}
             />
             <div className="flex justify-between text-[10px] text-muted-foreground">
               <span>Smaller File</span>
@@ -279,6 +300,6 @@ export function EditorControls({
           </div>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
-}
+});

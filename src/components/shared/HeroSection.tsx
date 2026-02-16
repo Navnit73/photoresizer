@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { motion } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -16,7 +15,7 @@ export function HeroSection({
   subtitle,
   description,
   Icon,
-  gradient = 'bg-slate-900', // Changed to dark default
+  gradient = 'bg-slate-900',
   children,
 }: HeroSectionProps) {
   return (
@@ -25,91 +24,44 @@ export function HeroSection({
       <div className="absolute inset-0 bg-[#0f172a]" />
       <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/50 to-slate-900/50" />
       
-      {/* Background Animation */}
+      {/* Static Background Blobs (no infinite JS animation) */}
       <div className="absolute inset-0">
-        <motion.div
-          className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-white/10 blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+        <div
+          className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-white/15 blur-3xl"
         />
-        <motion.div
+        <div
           className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-white/10 blur-3xl"
-          animate={{
-            scale: [1.3, 1, 1.3],
-            opacity: [0.3, 0.2, 0.3],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
         />
       </div>
 
       <div className="relative container px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center"
-        >
+        <div className="max-w-4xl mx-auto text-center animate-[fadeInUp_0.6s_ease-out]">
           {Icon && (
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="inline-flex items-center justify-center w-20 h-20 rounded-3xl glass-strong border-2 border-white/30 mb-6 shadow-2xl"
-            >
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl glass-strong border-2 border-white/30 mb-6 shadow-2xl animate-[fadeIn_0.4s_ease-out_0.2s_both]">
               <Icon className="w-10 h-10 text-white" />
-            </motion.div>
+            </div>
           )}
 
           {subtitle && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-sm md:text-base font-semibold text-white/90 uppercase tracking-wider mb-4"
-            >
+            <p className="text-sm md:text-base font-semibold text-white/90 uppercase tracking-wider mb-4 animate-[fadeIn_0.4s_ease-out_0.3s_both]">
               {subtitle}
-            </motion.p>
+            </p>
           )}
 
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
-          >
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-[fadeInUp_0.5s_ease-out_0.4s_both]">
             {title}
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-base md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
-          >
+          <p className="text-base md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-[fadeIn_0.5s_ease-out_0.5s_both]">
             {description}
-          </motion.p>
+          </p>
 
           {children && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
+            <div className="animate-[fadeInUp_0.4s_ease-out_0.6s_both]">
               {children}
-            </motion.div>
+            </div>
           )}
-        </motion.div>
+        </div>
       </div>
 
       {/* Bottom Wave Effect */}

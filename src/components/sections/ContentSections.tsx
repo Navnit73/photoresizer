@@ -20,7 +20,6 @@ import {
   CreditCard,
   FileText,
 } from 'lucide-react'
-import { motion } from 'framer-motion'
 
 const steps = [
   {
@@ -94,7 +93,10 @@ const faqs = [
 
 export function ContentSections() {
   return (
-    <section className="py-10 sm:py-16 bg-secondary/30">
+    <section
+      className="py-10 sm:py-16 bg-secondary/30"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1500px' }}
+    >
       <div className="container space-y-16 sm:space-y-20 px-4 sm:px-6">
 
         {/* HERO SEO SECTION */}
@@ -112,12 +114,7 @@ export function ContentSections() {
         </section>
 
         {/* HOW IT WORKS */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-        >
+        <div>
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading mb-3">
               How the Photo Resizer Works
@@ -148,15 +145,10 @@ export function ContentSections() {
               </Card>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* USE CASES */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-        >
+        <div>
           <div className="text-center mb-8 sm:mb-10">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading">
               Perfect for Government & Exam Forms
@@ -180,7 +172,7 @@ export function ContentSections() {
               </Card>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* IMAGE CONVERTER SEO */}
         <section className="max-w-5xl mx-auto text-sm text-muted-foreground space-y-4">
@@ -195,13 +187,7 @@ export function ContentSections() {
         </section>
 
         {/* FAQ */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="max-w-3xl mx-auto"
-        >
+        <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
             <HelpCircle className="w-6 h-6 text-primary mx-auto mb-2" />
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading">
@@ -225,7 +211,7 @@ export function ContentSections() {
               </Accordion>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
 
         {/* FEATURES */}
         <Card className="bg-slate-900 dark:bg-slate-800 text-white border-none">
@@ -245,3 +231,4 @@ export function ContentSections() {
     </section>
   )
 }
+

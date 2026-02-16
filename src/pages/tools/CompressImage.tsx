@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Minimize2, Download, Gauge, FileImage } from "lucide-react";
-import { HeroSection } from "@/components/shared/HeroSection";
 import { FeatureCard, FeatureGrid } from "@/components/shared/FeatureCard";
 import { HowToGuide } from "@/components/shared/HowToGuide";
 import { Header } from "@/components/layout/Header";
@@ -11,7 +10,6 @@ import { EditorControls } from "@/components/editor/EditorControls";
 import { InteractiveCanvas } from "@/components/editor/InteractiveCanvas";
 import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
-import { motion, AnimatePresence } from "framer-motion";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -61,7 +59,6 @@ export default function CompressImage() {
     loadImage,
     updateDimensions,
     setRotation,
-    setBackgroundColor,
     setQuality,
     setFormat,
     applyPreset,
@@ -90,84 +87,71 @@ export default function CompressImage() {
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
 
-        {/* <HeroSection
-          Icon={Minimize2}
-          subtitle="Image Compressor"
-          title="Compress Images to Exact Sizes"
-          description="Reduce your image file size to 20KB, 50KB, 100KB or any size you need. Perfect for government forms, websites, and applications."
-        /> */}
-
         <main className="flex-1">
           {/* Editor Section */}
           <section className="py-12 md:py-16">
             <div className="container px-2 sm:px-4">
-              <AnimatePresence mode="wait">
-                {!imageState.originalUrl ? (
-                  <motion.div
-                    key="upload"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="max-w-2xl mx-auto"
-                  >
-                    <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-slate-900 dark:text-white">
-                      Upload Image to Compress
-                    </h2>
-                    <UploadZone 
-                      onFileSelect={loadImage} 
-                      recentFile={lastUploadedFile}
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div key="editor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
-                    <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                      <div className="flex items-center gap-2">
-                        {history.length > 1 && (
-                          <Button variant="ghost" size="sm" onClick={undo}>
-                            <Undo2 className="w-3.5 h-3.5 mr-1" />
-                            Undo
-                          </Button>
-                        )}
-                        <Button variant="ghost" size="sm" onClick={reset}>
-                          <RotateCcw className="w-3.5 h-3.5 mr-1" />
-                          Reset
+              {!imageState.originalUrl ? (
+                <div
+                  className="max-w-2xl mx-auto animate-[fadeInUp_0.5s_ease-out]"
+                >
+                  <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-slate-900 dark:text-white">
+                    Upload Image to Compress
+                  </h2>
+                  <UploadZone 
+                    onFileSelect={loadImage} 
+                    recentFile={lastUploadedFile}
+                  />
+                </div>
+              ) : (
+                <div className="space-y-3 animate-[fadeIn_0.5s_ease-out]">
+                  <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div className="flex items-center gap-2">
+                      {history.length > 1 && (
+                        <Button variant="ghost" size="sm" onClick={undo}>
+                          <Undo2 className="w-3.5 h-3.5 mr-1" />
+                          Undo
                         </Button>
-                      </div>
+                      )}
+                      <Button variant="ghost" size="sm" onClick={reset}>
+                        <RotateCcw className="w-3.5 h-3.5 mr-1" />
+                        Reset
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="grid lg:grid-cols-[400px_1fr] gap-3">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 lg:sticky lg:top-20 max-h-[85vh] overflow-y-auto">
+                      <EditorControls
+                        imageState={imageState}
+                        isProcessing={isProcessing}
+                        onUpdateDimensions={updateDimensions}
+                        onRotate={setRotation}
+                        onQualityChange={setQuality}
+                        onFormatChange={setFormat}
+                        onApplyPreset={applyPreset}
+                      />
                     </div>
 
-                    <div className="grid lg:grid-cols-[400px_1fr] gap-3">
-                      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 lg:sticky lg:top-20 max-h-[85vh] overflow-y-auto">
-                        <EditorControls
-                          imageState={imageState}
-                          isProcessing={isProcessing}
-                          onUpdateDimensions={updateDimensions}
-                          onRotate={setRotation}
-                          onQualityChange={setQuality}
-                          onFormatChange={setFormat}
-                          onApplyPreset={applyPreset}
-                        />
-                      </div>
-
-                      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
-                        <div className="hidden lg:grid lg:grid-cols-2 gap-2">
-                          <div>
-                            <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
-                          </div>
-                          <div>
-                            <DownloadButton onDownload={processAndDownload} />
-                            <LivePreview imageState={imageState} />
-                          </div>
-                        </div>
-                        <div className="block lg:hidden space-y-3">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
+                      <div className="hidden lg:grid lg:grid-cols-2 gap-2">
+                        <div>
                           <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
-                          <LivePreview imageState={imageState} />
+                        </div>
+                        <div>
                           <DownloadButton onDownload={processAndDownload} />
+                          <LivePreview imageState={imageState} />
                         </div>
                       </div>
+                      <div className="block lg:hidden space-y-3">
+                        <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                        <LivePreview imageState={imageState} />
+                        <DownloadButton onDownload={processAndDownload} />
+                      </div>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
 

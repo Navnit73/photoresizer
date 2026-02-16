@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, memo } from "react";
 import { ImageState } from "@/types/editor";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -44,7 +44,7 @@ const hapticFeedback = (style: "light" | "medium" | "heavy" = "light") => {
   }
 };
 
-export function InteractiveCanvas({
+export const InteractiveCanvas = memo(function InteractiveCanvas({
   imageState,
   onCropApply,
 }: {
@@ -606,4 +606,4 @@ export function InteractiveCanvas({
       </p>
     </div>
   );
-}
+});

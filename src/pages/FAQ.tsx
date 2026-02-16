@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { HelpCircle, ChevronDown } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { motion } from "framer-motion";
 import { useState } from "react";
 
 const faqs = [
@@ -72,11 +71,9 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.05 }}
-      className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-sm"
+    <div
+      className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-sm animate-[fadeInUp_0.5s_ease-out]"
+      style={{ animationDelay: `${index * 0.05}s` }}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -89,18 +86,14 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
           }`}
         />
       </button>
-      {isOpen && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="px-6 pb-5"
-        >
-          <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{answer}</p>
-        </motion.div>
-      )}
-    </motion.div>
+      <div
+        className={`px-6 transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? "max-h-[500px] opacity-100 pb-5" : "max-h-0 opacity-0"
+        }`}
+      >
+        <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{answer}</p>
+      </div>
+    </div>
   );
 }
 
@@ -122,12 +115,10 @@ export default function FAQ() {
         <main className="flex-1 py-16">
           <div className="container px-4 max-w-4xl mx-auto">
             {/* Hero */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-12"
+            <div
+              className="text-center mb-12 animate-[fadeInUp_0.6s_ease-out]"
             >
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-6 shadow-lg">
                 <HelpCircle className="w-10 h-10 text-green-600" />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
@@ -136,7 +127,7 @@ export default function FAQ() {
               <p className="text-lg text-slate-600 dark:text-slate-300">
                 Everything you need to know about Photo Resizer
               </p>
-            </motion.div>
+            </div>
 
             {/* FAQs */}
             <div className="space-y-4">
@@ -146,11 +137,8 @@ export default function FAQ() {
             </div>
 
             {/* Contact */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="mt-16 p-8 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 text-center"
+            <div
+              className="mt-16 p-8 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 text-center animate-[fadeInUp_0.6s_ease-out_0.5s_both]"
             >
               <h2 className="text-2xl font-bold text-grey-500 mb-3">Still have questions?</h2>
               <p className="text-grey-500 mb-6">
@@ -162,7 +150,7 @@ export default function FAQ() {
               >
                 Contact Support
               </a>
-            </motion.div>
+            </div>
           </div>
         </main>
 

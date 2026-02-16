@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 
 interface Step {
@@ -16,14 +15,9 @@ export function HowToGuide({ title = "How It Works", steps }: HowToGuideProps) {
   return (
     <section className="py-12 md:py-16">
       <div className="container px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white"
-        >
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">
           {title}
-        </motion.h2>
+        </h2>
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
@@ -32,12 +26,8 @@ export function HowToGuide({ title = "How It Works", steps }: HowToGuideProps) {
 
             <div className="space-y-8">
               {steps.map((step, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
                   className="relative flex gap-4 md:gap-6"
                 >
                   {/* Step Number */}
@@ -59,7 +49,7 @@ export function HowToGuide({ title = "How It Works", steps }: HowToGuideProps) {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   FileImage,
   Minimize2,
@@ -134,43 +133,32 @@ export default function ToolsList() {
             
             {/* Hero Section */}
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-sm font-medium mb-6"
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-sm font-medium mb-6 animate-[fadeInDown_0.5s_ease-out]"
               >
                 <Zap className="w-4 h-4" />
                 <span>All-in-One Photo Suite</span>
-              </motion.div>
+              </div>
               
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight"
+              <h1 
+                className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight animate-[fadeInUp_0.6s_ease-out_0.1s_both]"
               >
                 All Important Tools for <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600 dark:from-indigo-400 dark:to-cyan-400">
                   Every Photo Need
                 </span>
-              </motion.h1>
+              </h1>
               
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed"
+              <p 
+                className="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed animate-[fadeIn_0.6s_ease-out_0.2s_both]"
               >
                 Resize, compress, convert, and edit your images with our comprehensive suite of free tools. 
                 Fast, secure, and running entirely in your browser.
-              </motion.p>
+              </p>
 
               {/* Search Bar */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="relative max-w-xl mx-auto"
+              <div 
+                className="relative max-w-xl mx-auto animate-[fadeInUp_0.5s_ease-out_0.3s_both]"
               >
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-xl blur opacity-20 group-hover:opacity-30 dark:opacity-25 dark:group-hover:opacity-40 transition-opacity" />
@@ -185,92 +173,85 @@ export default function ToolsList() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Categories Grid */}
             <div className="space-y-16">
-              <AnimatePresence>
-                {filteredCategories.length > 0 ? (
-                  filteredCategories.map((category, idx) => (
-                    <motion.section
-                      key={category.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ delay: idx * 0.1 }}
-                      className="scroll-mt-20"
-                    >
-                      <div className="flex items-end gap-4 mb-8 border-b border-slate-200 dark:border-white/5 pb-4">
-                        <div className="p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
-                          <category.icon className="w-6 h-6" />
-                        </div>
-                        <div>
-                          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                            {category.title}
-                          </h2>
-                          <p className="text-slate-500 dark:text-slate-400 text-sm">
-                            {category.description}
-                          </p>
-                        </div>
+              {filteredCategories.length > 0 ? (
+                filteredCategories.map((category, idx) => (
+                  <section
+                    key={category.title}
+                    className="scroll-mt-20 animate-[fadeInUp_0.6s_ease-out_both]"
+                    style={{ animationDelay: `${idx * 0.1}s` }}
+                  >
+                    <div className="flex items-end gap-4 mb-8 border-b border-slate-200 dark:border-white/5 pb-4">
+                      <div className="p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                        <category.icon className="w-6 h-6" />
                       </div>
+                      <div>
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                          {category.title}
+                        </h2>
+                        <p className="text-slate-500 dark:text-slate-400 text-sm">
+                          {category.description}
+                        </p>
+                      </div>
+                    </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                        {category.tools.map((tool) => (
-                          <Link 
-                            key={tool.href} 
-                            to={tool.href}
-                            className="group relative"
-                          >
-                            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 dark:from-indigo-500/10 dark:to-cyan-500/10 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-5 hover:border-indigo-500/30 dark:hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-none">
-                              {tool.badge && (
-                                <Badge className="absolute top-4 right-4 bg-indigo-500 hover:bg-indigo-600 text-[10px] px-2 h-5">
-                                  {tool.badge}
-                                </Badge>
-                              )}
-                              
-                              <div className="flex flex-col h-full">
-                                <div className="mb-4">
-                                  <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-white/5 flex items-center justify-center text-slate-500 dark:text-slate-300 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
-                                    {tool.icon ? <tool.icon className="w-6 h-6" /> : <Zap className="w-6 h-6" />}
-                                  </div>
-                                </div>
-                                
-                                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                                  {tool.name}
-                                </h3>
-                                
-                                {tool.desc && (
-                                  <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-4">
-                                    {tool.desc}
-                                  </p>
-                                )}
-                                
-                                <div className="mt-auto flex items-center text-xs font-medium text-slate-400 dark:text-slate-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                                  Open Tool <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                      {category.tools.map((tool) => (
+                        <Link 
+                          key={tool.href} 
+                          to={tool.href}
+                          className="group relative"
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 dark:from-indigo-500/10 dark:to-cyan-500/10 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-5 hover:border-indigo-500/30 dark:hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-none">
+                            {tool.badge && (
+                              <Badge className="absolute top-4 right-4 bg-indigo-500 hover:bg-indigo-600 text-[10px] px-2 h-5">
+                                {tool.badge}
+                              </Badge>
+                            )}
+                            
+                            <div className="flex flex-col h-full">
+                              <div className="mb-4">
+                                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-white/5 flex items-center justify-center text-slate-500 dark:text-slate-300 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
+                                  {tool.icon ? <tool.icon className="w-6 h-6" /> : <Zap className="w-6 h-6" />}
                                 </div>
                               </div>
+                              
+                              <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                {tool.name}
+                              </h3>
+                              
+                              {tool.desc && (
+                                <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-4">
+                                  {tool.desc}
+                                </p>
+                              )}
+                              
+                              <div className="mt-auto flex items-center text-xs font-medium text-slate-400 dark:text-slate-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                Open Tool <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                              </div>
                             </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.section>
-                  ))
-                ) : (
-                  <motion.div 
-                    initial={{ opacity: 0 }} 
-                    animate={{ opacity: 1 }}
-                    className="text-center py-20"
-                  >
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 mb-4">
-                      <Search className="w-8 h-8" />
+                          </div>
+                        </Link>
+                      ))}
                     </div>
-                    <h3 className="text-xl font-medium text-slate-900 dark:text-white mb-2">No tools found</h3>
-                    <p className="text-slate-500 dark:text-slate-400">Try searching for something else like "compress" or "passport"</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  </section>
+                ))
+              ) : (
+                <div 
+                  className="text-center py-20 animate-[fadeIn_0.3s_ease-out]"
+                >
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 mb-4">
+                    <Search className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-medium text-slate-900 dark:text-white mb-2">No tools found</h3>
+                  <p className="text-slate-500 dark:text-slate-400">Try searching for something else like "compress" or "passport"</p>
+                </div>
+              )}
             </div>
 
           </div>

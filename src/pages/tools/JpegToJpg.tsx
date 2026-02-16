@@ -11,7 +11,6 @@ import { EditorControls } from "@/components/editor/EditorControls";
 import { InteractiveCanvas } from "@/components/editor/InteractiveCanvas";
 import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
-import { motion, AnimatePresence } from "framer-motion";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -101,93 +100,84 @@ export default function JpegToJpg() {
           {/* Editor Section */}
           <section className="py-12 md:py-16">
             <div className="container px-2 sm:px-4">
-              <AnimatePresence mode="wait">
-                {!imageState.originalUrl ? (
-                  <motion.div
-                    key="upload"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.35 }}
-                    className="max-w-2xl mx-auto"
-                  >
-                    <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-slate-900 dark:text-white">
-                      Upload Your JPEG Image
-                    </h2>
-                    <UploadZone 
-                      onFileSelect={loadImage} 
-                      recentFile={lastUploadedFile}
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="editor"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="space-y-3"
-                  >
-                    {/* Top Bar */}
-                    <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
-                      <div className="flex items-center gap-2">
-                        {history.length > 1 && (
-                          <Button variant="ghost" size="sm" onClick={undo} className="h-8 px-2 text-xs">
-                            <Undo2 className="w-3.5 h-3.5 mr-1" />
-                            Undo
-                          </Button>
-                        )}
-                        <Button variant="ghost" size="sm" onClick={reset} className="h-8 px-2 text-xs">
-                          <RotateCcw className="w-3.5 h-3.5 mr-1" />
-                          Reset
+              {!imageState.originalUrl ? (
+                <div
+                  key="upload"
+                  className="max-w-2xl mx-auto animate-[fadeInUp_0.35s_ease-out]"
+                >
+                  <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-slate-900 dark:text-white">
+                    Upload Your JPEG Image
+                  </h2>
+                  <UploadZone 
+                    onFileSelect={loadImage} 
+                    recentFile={lastUploadedFile}
+                  />
+                </div>
+              ) : (
+                <div
+                  key="editor"
+                  className="space-y-3 animate-[fadeIn_0.3s_ease-out]"
+                >
+                  {/* Top Bar */}
+                  <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div className="flex items-center gap-2">
+                      {history.length > 1 && (
+                        <Button variant="ghost" size="sm" onClick={undo} className="h-8 px-2 text-xs">
+                          <Undo2 className="w-3.5 h-3.5 mr-1" />
+                          Undo
                         </Button>
+                      )}
+                      <Button variant="ghost" size="sm" onClick={reset} className="h-8 px-2 text-xs">
+                        <RotateCcw className="w-3.5 h-3.5 mr-1" />
+                        Reset
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Main Layout */}
+                  <div className="grid lg:grid-cols-[400px_1fr] gap-3">
+                    {/* Settings Panel */}
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 lg:sticky lg:top-20 max-h-[85vh] overflow-y-auto">
+                      <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-2">
+                        Settings
                       </div>
+                      <EditorControls
+                        imageState={imageState}
+                        isProcessing={isProcessing}
+                        onUpdateDimensions={updateDimensions}
+                        onRotate={setRotation}
+                        onQualityChange={setQuality}
+                        onFormatChange={setFormat}
+                        onApplyPreset={applyPreset}
+                      />
                     </div>
 
-                    {/* Main Layout */}
-                    <div className="grid lg:grid-cols-[400px_1fr] gap-3">
-                      {/* Settings Panel */}
-                      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 lg:sticky lg:top-20 max-h-[85vh] overflow-y-auto">
-                        <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-2">
-                          Settings
-                        </div>
-                        <EditorControls
-                          imageState={imageState}
-                          isProcessing={isProcessing}
-                          onUpdateDimensions={updateDimensions}
-                          onRotate={setRotation}
-                          onQualityChange={setQuality}
-                          onFormatChange={setFormat}
-                          onApplyPreset={applyPreset}
-                        />
-                      </div>
-
-                      {/* Canvas Area */}
-                      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-2 sm:p-3">
-                        <div className="hidden lg:grid lg:grid-cols-2 gap-2">
-                          <div className="space-y-2">
-                            <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Original</div>
-                            <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
-                          </div>
-                          <div className="space-y-1">
-                            <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Preview</div>
-                            <DownloadButton onDownload={processAndDownload} />
-                            <LivePreview imageState={imageState} />
-                          </div>
-                        </div>
-
-                        {/* Mobile View */}
-                        <div className="block lg:hidden space-y-3">
+                    {/* Canvas Area */}
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-2 sm:p-3">
+                      <div className="hidden lg:grid lg:grid-cols-2 gap-2">
+                        <div className="space-y-2">
+                          <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Original</div>
                           <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                        </div>
+                        <div className="space-y-1">
+                          <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">Preview</div>
+                          <DownloadButton onDownload={processAndDownload} />
                           <LivePreview imageState={imageState} />
-                          <div className="sticky bottom-3">
-                            <DownloadButton onDownload={processAndDownload} />
-                          </div>
+                        </div>
+                      </div>
+
+                      {/* Mobile View */}
+                      <div className="block lg:hidden space-y-3">
+                        <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                        <LivePreview imageState={imageState} />
+                        <div className="sticky bottom-3">
+                          <DownloadButton onDownload={processAndDownload} />
                         </div>
                       </div>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
 

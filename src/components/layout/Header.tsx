@@ -12,7 +12,6 @@ import {
   Monitor,
   ChevronDown,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/hooks/useTheme";
 import { Button } from "@/components/ui/button";
 import {
@@ -52,11 +51,8 @@ export function Header() {
     theme === "dark" ? Moon : theme === "light" ? Sun : Monitor;
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35 }}
-      className="relative z-50 border-b border-white/10"
+    <header
+      className="relative z-50 border-b border-white/10 animate-[fadeInDown_0.35s_ease-out]"
     >
       {/* 🔒 FIXED DARK HEADER */}
       <div className="absolute inset-0 bg-[#0f172a]" />
@@ -158,76 +154,71 @@ export function Header() {
         </div>
 
         {/* ================= MOBILE MENU ================= */}
-        <AnimatePresence>
-          {open && (
-            <motion.nav
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="
-                lg:hidden mt-4 rounded-xl overflow-hidden shadow-xl
-                bg-white text-slate-900
-              "
-            >
-              <div className="divide-y divide-slate-200">
-                <div className="px-5 py-2 text-xs font-semibold uppercase text-slate-400">
-                  Tools
-                </div>
-
-                {toolsLinks.map((t) => (
-                  <Link
-                    key={t.href}
-                    to={t.href}
-                    onClick={() => setOpen(false)}
-                    className="block px-5 py-3 text-sm hover:bg-slate-100"
-                  >
-                    {t.label}
-                  </Link>
-                ))}
-                
-                <div className="border-t border-slate-100 my-2 pt-2">
-                  <div className="px-5 py-2 text-xs font-semibold uppercase text-slate-400">
-                    Pages
-                  </div>
-                  <Link
-                    to="/more-tools"
-                    onClick={() => setOpen(false)}
-                    className="block px-5 py-3 text-sm hover:bg-slate-100"
-                  >
-                    More Tools
-                  </Link>
-                  <Link
-                    to="/blog"
-                    onClick={() => setOpen(false)}
-                    className="block px-5 py-3 text-sm hover:bg-slate-100"
-                  >
-                    Blog
-                  </Link>
-                   <Link
-                    to="/about"
-                    onClick={() => setOpen(false)}
-                    className="block px-5 py-3 text-sm hover:bg-slate-100"
-                  >
-                    About
-                  </Link>
-                  <Link
-                    to="/faq"
-                    onClick={() => setOpen(false)}
-                    className="block px-5 py-3 text-sm hover:bg-slate-100"
-                  >
-                    FAQ
-                  </Link>
-                </div>
+        {open && (
+          <nav
+            className="
+              lg:hidden mt-4 rounded-xl overflow-hidden shadow-xl
+              bg-white text-slate-900 animate-[mobileMenuSlideDown_0.3s_ease-out]
+            "
+          >
+            <div className="divide-y divide-slate-200">
+              <div className="px-5 py-2 text-xs font-semibold uppercase text-slate-400">
+                Tools
               </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
+
+              {toolsLinks.map((t) => (
+                <Link
+                  key={t.href}
+                  to={t.href}
+                  onClick={() => setOpen(false)}
+                  className="block px-5 py-3 text-sm hover:bg-slate-100"
+                >
+                  {t.label}
+                </Link>
+              ))}
+              
+              <div className="border-t border-slate-100 my-2 pt-2">
+                <div className="px-5 py-2 text-xs font-semibold uppercase text-slate-400">
+                  Pages
+                </div>
+                <Link
+                  to="/more-tools"
+                  onClick={() => setOpen(false)}
+                  className="block px-5 py-3 text-sm hover:bg-slate-100"
+                >
+                  More Tools
+                </Link>
+                <Link
+                  to="/blog"
+                  onClick={() => setOpen(false)}
+                  className="block px-5 py-3 text-sm hover:bg-slate-100"
+                >
+                  Blog
+                </Link>
+                  <Link
+                  to="/about"
+                  onClick={() => setOpen(false)}
+                  className="block px-5 py-3 text-sm hover:bg-slate-100"
+                >
+                  About
+                </Link>
+                <Link
+                  to="/faq"
+                  onClick={() => setOpen(false)}
+                  className="block px-5 py-3 text-sm hover:bg-slate-100"
+                >
+                  FAQ
+                </Link>
+              </div>
+            </div>
+          </nav>
+        )}
       </div>
       
       {/* AdSense Unit */}
       {/* <div className="container px-4 pb-2">
         <AdUnit className="min-h-[90px]" />
       </div> */}
-    </motion.header>
+    </header>
   );
 }

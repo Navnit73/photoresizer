@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { FileText, AlertCircle, Ban, CheckCircle } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { motion } from "framer-motion";
 
 export default function TermsOfService() {
   return (
@@ -21,12 +20,10 @@ export default function TermsOfService() {
 
         <main className="flex-1 py-16">
           <div className="container px-4 max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-12"
+            <div
+              className="text-center mb-12 animate-[fadeInUp_0.6s_ease-out]"
             >
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-6 shadow-lg">
                 <FileText className="w-10 h-10 text-white" />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
@@ -38,15 +35,12 @@ export default function TermsOfService() {
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
                 Last updated: February 5, 2026
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="space-y-8"
+            <div
+              className="space-y-8 animate-[fadeIn_0.6s_ease-out_0.2s_both]"
             >
-              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
                 <h2 className="flex items-center gap-3 text-2xl font-bold mb-4 text-slate-900 dark:text-white">
                   <CheckCircle className="w-6 h-6 text-green-500" />
                   Acceptance of Terms
@@ -56,7 +50,7 @@ export default function TermsOfService() {
                 </p>
               </section>
 
-              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
                 <h2 className="flex items-center gap-3 text-2xl font-bold mb-4 text-slate-900 dark:text-white">
                   <FileText className="w-6 h-6 text-primary" />
                   Service Description
@@ -76,7 +70,7 @@ export default function TermsOfService() {
                 </p>
               </section>
 
-              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
                 <h2 className="flex items-center gap-3 text-2xl font-bold mb-4 text-slate-900 dark:text-white">
                   <AlertCircle className="w-6 h-6 text-amber-500" />
                   Disclaimer of Warranties
@@ -95,7 +89,7 @@ export default function TermsOfService() {
                 </p>
               </section>
 
-              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
                 <h2 className="flex items-center gap-3 text-2xl font-bold mb-4 text-slate-900 dark:text-white">
                   <Ban className="w-6 h-6 text-red-500" />
                   Prohibited Uses
@@ -112,7 +106,7 @@ export default function TermsOfService() {
                 </ul>
               </section>
 
-              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">
                   Limitation of Liability
                 </h2>
@@ -121,7 +115,7 @@ export default function TermsOfService() {
                 </p>
               </section>
 
-              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">
                   Intellectual Property
                 </h2>
@@ -130,7 +124,7 @@ export default function TermsOfService() {
                 </p>
               </section>
 
-              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">
                   Changes to Terms
                 </h2>
@@ -150,7 +144,7 @@ export default function TermsOfService() {
                   </a>
                 </p>
               </section>
-            </motion.div>
+            </div>
           </div>
         </main>
 

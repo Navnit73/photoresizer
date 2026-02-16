@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { motion } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 
 interface FeatureCardProps {
@@ -11,13 +10,8 @@ interface FeatureCardProps {
 
 export function FeatureCard({ icon: Icon, title, description, index = 0 }: FeatureCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      whileHover={{ y: -5, scale: 1.02 }}
-      className="group relative p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 hover:border-primary-300/50 dark:hover:border-primary-600/50 transition-all duration-300 shadow-sm hover:shadow-md"
+    <div
+      className="group relative p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 hover:border-primary-300/50 dark:hover:border-primary-600/50 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1"
     >
       {/* Glow Effect on Hover */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-500/0 to-secondary-500/0 group-hover:from-primary-500/10 group-hover:to-secondary-500/10 transition-all duration-300" />
@@ -35,7 +29,7 @@ export function FeatureCard({ icon: Icon, title, description, index = 0 }: Featu
           {description}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

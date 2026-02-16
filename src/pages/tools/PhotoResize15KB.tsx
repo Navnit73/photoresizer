@@ -12,7 +12,6 @@ import { EditorControls } from "@/components/editor/EditorControls";
 import { InteractiveCanvas } from "@/components/editor/InteractiveCanvas";
 import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
-import { motion, AnimatePresence } from "framer-motion";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -30,7 +29,7 @@ const steps = [
 ];
 
 const faqs = [
-  { question: "Why do I need a 15KB photo?", answer: "Many government exam portals like SSC, Railway, and state-level exams require photos under 15KB for online form submissions. Our tool ensures your photo meets this exact requirement." },
+  { question: "Why do I need a 15KB photo?", answer: "Many government exam portals like SSC, Railway, and state-level exams require photos under 15KB for online form submissions. Our tool ensures your photo fits perfectly." },
   { question: "Will my photo look blurry at 15KB?", answer: "Our advanced compression algorithm balances file size and quality. While 15KB is small, we optimize the image to maintain the best possible clarity for form submissions." },
   { question: "What image formats are supported?", answer: "You can upload JPG, JPEG, PNG, and WEBP images. The output will be in JPG format for maximum compatibility with application forms." },
 ];
@@ -58,41 +57,39 @@ export default function PhotoResize15KB() {
         <main className="flex-1">
           <section className="py-12 md:py-16">
             <div className="container px-2 sm:px-4">
-              <AnimatePresence mode="wait">
-                {!imageState.originalUrl ? (
-                  <motion.div key="upload" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="max-w-2xl mx-auto">
-                    <h1 className="text-2xl md:text-3xl font-bold text-center mb-2 text-slate-900 dark:text-white">Resize Photo to 15KB Online Free</h1>
-                    <p className="text-center text-slate-600 dark:text-slate-400 mb-8">Compress your photo to exactly 15KB for government exam forms and applications</p>
-                    <UploadZone onFileSelect={loadImage} recentFile={lastUploadedFile} />
-                  </motion.div>
-                ) : (
-                  <motion.div key="editor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
-                    <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                      <div className="flex items-center gap-2">
-                        {history.length > 1 && (<Button variant="ghost" size="sm" onClick={undo}><Undo2 className="w-3.5 h-3.5 mr-1" />Undo</Button>)}
-                        <Button variant="ghost" size="sm" onClick={reset}><RotateCcw className="w-3.5 h-3.5 mr-1" />Reset</Button>
-                      </div>
-                      <div className="px-3 py-1.5 rounded-lg bg-secondary-500/10 text-secondary-600 dark:text-secondary-400 text-sm font-semibold">Target: 15KB</div>
+              {!imageState.originalUrl ? (
+                <div key="upload" className="max-w-2xl mx-auto animate-[fadeInUp_0.5s_ease-out]">
+                  <h1 className="text-2xl md:text-3xl font-bold text-center mb-2 text-slate-900 dark:text-white">Resize Photo to 15KB Online Free</h1>
+                  <p className="text-center text-slate-600 dark:text-slate-400 mb-8">Compress your photo to exactly 15KB for government exam forms and applications</p>
+                  <UploadZone onFileSelect={loadImage} recentFile={lastUploadedFile} />
+                </div>
+              ) : (
+                <div key="editor" className="space-y-3 animate-[fadeIn_0.5s_ease-out]">
+                  <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div className="flex items-center gap-2">
+                      {history.length > 1 && (<Button variant="ghost" size="sm" onClick={undo}><Undo2 className="w-3.5 h-3.5 mr-1" />Undo</Button>)}
+                      <Button variant="ghost" size="sm" onClick={reset}><RotateCcw className="w-3.5 h-3.5 mr-1" />Reset</Button>
                     </div>
-                    <div className="grid lg:grid-cols-[400px_1fr] gap-3">
-                      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
-                        <EditorControls imageState={imageState} isProcessing={isProcessing} onUpdateDimensions={updateDimensions} onRotate={setRotation} onQualityChange={setQuality} onFormatChange={setFormat} onApplyPreset={applyPreset} />
+                    <div className="px-3 py-1.5 rounded-lg bg-secondary-500/10 text-secondary-600 dark:text-secondary-400 text-sm font-semibold">Target: 15KB</div>
+                  </div>
+                  <div className="grid lg:grid-cols-[400px_1fr] gap-3">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
+                      <EditorControls imageState={imageState} isProcessing={isProcessing} onUpdateDimensions={updateDimensions} onRotate={setRotation} onQualityChange={setQuality} onFormatChange={setFormat} onApplyPreset={applyPreset} />
+                    </div>
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
+                      <div className="hidden lg:grid lg:grid-cols-2 gap-2">
+                        <div><InteractiveCanvas imageState={imageState} onCropApply={applyCrop} /></div>
+                        <div><DownloadButton onDownload={() => processAndDownload(15)} /><LivePreview imageState={imageState} /></div>
                       </div>
-                      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
-                        <div className="hidden lg:grid lg:grid-cols-2 gap-2">
-                          <div><InteractiveCanvas imageState={imageState} onCropApply={applyCrop} /></div>
-                          <div><DownloadButton onDownload={() => processAndDownload(15)} /><LivePreview imageState={imageState} /></div>
-                        </div>
-                        <div className="block lg:hidden space-y-3">
-                          <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
-                          <LivePreview imageState={imageState} />
-                          <DownloadButton onDownload={() => processAndDownload(15)} />
-                        </div>
+                      <div className="block lg:hidden space-y-3">
+                        <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                        <LivePreview imageState={imageState} />
+                        <DownloadButton onDownload={() => processAndDownload(15)} />
                       </div>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
 

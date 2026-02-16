@@ -1,19 +1,19 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, memo } from 'react';
 import { ImageState } from '@/types/editor';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, ImageIcon, Loader2 } from 'lucide-react';
 
 interface LivePreviewProps {
   imageState: ImageState;
 }
 
-export function LivePreview({ imageState }: LivePreviewProps) {
+export const LivePreview = memo(function LivePreview({ imageState }: LivePreviewProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [previewUrl, setPreviewUrl] = useState('');
   const [blobSize, setBlobSize] = useState<number>(0);
   const [isRendering, setIsRendering] = useState(false);
+  const renderTimer = useRef<ReturnType<typeof setTimeout>>();
 
   // Cleanup object URLs to avoid memory leaks
   useEffect(() => {
@@ -21,96 +21,98 @@ export function LivePreview({ imageState }: LivePreviewProps) {
       if (previewUrl) {
         URL.revokeObjectURL(previewUrl);
       }
+      clearTimeout(renderTimer.current);
     };
   }, [previewUrl]);
 
+  // Debounced canvas rendering (300ms) — prevents jank during rapid slider changes
   useEffect(() => {
     if (!imageState.originalUrl) return;
 
-    const render = async () => {
-      setIsRendering(true);
+    clearTimeout(renderTimer.current);
+    renderTimer.current = setTimeout(() => {
+      const render = async () => {
+        setIsRendering(true);
 
-      const canvas = canvasRef.current;
-      if (!canvas) return;
+        const canvas = canvasRef.current;
+        if (!canvas) return;
 
-      const ctx = canvas.getContext('2d', {
-        alpha: imageState.format === 'png',
-        willReadFrequently: false,
-      });
-      if (!ctx) return;
+        const ctx = canvas.getContext('2d', {
+          alpha: imageState.format === 'png',
+          willReadFrequently: false,
+        });
+        if (!ctx) return;
 
-      // Enable high-quality rendering to match output
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = 'high';
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
 
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
 
-      img.onload = () => {
-        const radians = (imageState.rotation * Math.PI) / 180;
-        const isRotated90or270 =
-          imageState.rotation === 90 || imageState.rotation === 270;
+        img.onload = () => {
+          const radians = (imageState.rotation * Math.PI) / 180;
+          const isRotated90or270 =
+            imageState.rotation === 90 || imageState.rotation === 270;
 
-        canvas.width = isRotated90or270 ? imageState.height : imageState.width;
-        canvas.height = isRotated90or270 ? imageState.width : imageState.height;
+          canvas.width = isRotated90or270 ? imageState.height : imageState.width;
+          canvas.height = isRotated90or270 ? imageState.width : imageState.height;
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Apply background if not transparent
-        if (
-          imageState.backgroundColor !== 'transparent' &&
-          imageState.format !== 'png'
-        ) {
-          ctx.fillStyle = imageState.backgroundColor;
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
+          if (
+            imageState.backgroundColor !== 'transparent' &&
+            imageState.format !== 'png'
+          ) {
+            ctx.fillStyle = imageState.backgroundColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+          }
 
-        ctx.save();
-        ctx.translate(canvas.width / 2, canvas.height / 2);
-        ctx.rotate(radians);
+          ctx.save();
+          ctx.translate(canvas.width / 2, canvas.height / 2);
+          ctx.rotate(radians);
 
-        const drawWidth = isRotated90or270
-          ? imageState.height
-          : imageState.width;
-        const drawHeight = isRotated90or270
-          ? imageState.width
-          : imageState.height;
+          const drawWidth = isRotated90or270 ? imageState.height : imageState.width;
+          const drawHeight = isRotated90or270 ? imageState.width : imageState.height;
 
-        ctx.drawImage(
-          img,
-          -drawWidth / 2,
-          -drawHeight / 2,
-          drawWidth,
-          drawHeight
-        );
-        ctx.restore();
+          ctx.drawImage(img, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
+          ctx.restore();
 
-        const quality =
-          imageState.format === 'png' ? 1 : imageState.quality / 100;
-        const type = `image/${imageState.format}`;
+          const quality = imageState.format === 'png' ? 1 : imageState.quality / 100;
+          const type = `image/${imageState.format}`;
 
-        canvas.toBlob(
-          (blob) => {
-            if (blob) {
-              const newUrl = URL.createObjectURL(blob);
-              setPreviewUrl((prev) => {
-                if (prev) URL.revokeObjectURL(prev);
-                return newUrl;
-              });
-              setBlobSize(blob.size);
-            }
-            setIsRendering(false);
-          },
-          type,
-          quality
-        );
+          canvas.toBlob(
+            (blob) => {
+              if (blob) {
+                const newUrl = URL.createObjectURL(blob);
+                setPreviewUrl((prev) => {
+                  if (prev) URL.revokeObjectURL(prev);
+                  return newUrl;
+                });
+                setBlobSize(blob.size);
+              }
+              setIsRendering(false);
+            },
+            type,
+            quality
+          );
+        };
+
+        img.src = imageState.originalUrl;
       };
 
-      img.src = imageState.originalUrl;
-    };
+      render();
+    }, 300);
 
-    render();
-  }, [imageState]);
+    return () => clearTimeout(renderTimer.current);
+  }, [
+    imageState.originalUrl,
+    imageState.width,
+    imageState.height,
+    imageState.rotation,
+    imageState.quality,
+    imageState.format,
+    imageState.backgroundColor,
+  ]);
 
   if (!imageState.originalUrl) return null;
 
@@ -148,27 +150,17 @@ export function LivePreview({ imageState }: LivePreviewProps) {
                 : imageState.backgroundColor,
           }}
         >
-          <AnimatePresence mode="wait">
-            {previewUrl ? (
-              <motion.img
-                key={previewUrl}
-                src={previewUrl}
-                alt="Preview"
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="w-full h-full object-contain"
-              />
-            ) : (
-              <motion.div
-                key="placeholder"
-                className="w-full h-full flex items-center justify-center"
-              >
-                <ImageIcon className="w-8 h-8 text-muted-foreground animate-pulse" />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {previewUrl ? (
+            <img
+              src={previewUrl}
+              alt="Preview"
+              className="w-full h-full object-contain transition-opacity duration-200"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <ImageIcon className="w-8 h-8 text-muted-foreground animate-pulse" />
+            </div>
+          )}
         </div>
       </div>
 
@@ -205,4 +197,18 @@ export function LivePreview({ imageState }: LivePreviewProps) {
       <canvas ref={canvasRef} className="hidden" />
     </Card>
   );
-}
+}, (prev, next) => {
+  // Custom comparator: only re-render when visually-relevant fields change
+  const a = prev.imageState;
+  const b = next.imageState;
+  return (
+    a.originalUrl === b.originalUrl &&
+    a.width === b.width &&
+    a.height === b.height &&
+    a.quality === b.quality &&
+    a.format === b.format &&
+    a.rotation === b.rotation &&
+    a.backgroundColor === b.backgroundColor
+  );
+});
+

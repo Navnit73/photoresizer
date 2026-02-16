@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { Shield, Lock, Eye, Database, Globe, UserCheck } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { motion } from "framer-motion";
 
 export default function PrivacyPolicy() {
   return (
@@ -22,12 +21,10 @@ export default function PrivacyPolicy() {
         <main className="flex-1 py-16">
           <div className="container px-4 max-w-4xl mx-auto">
             {/* Hero */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-12"
+            <div
+              className="text-center mb-12 animate-[fadeInUp_0.6s_ease-out]"
             >
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-6 shadow-lg">
                 <Shield className="w-10 h-10 text-white" />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
@@ -39,10 +36,10 @@ export default function PrivacyPolicy() {
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
                 Last updated: February 5, 2026
               </p>
-            </motion.div>
+            </div>
 
             {/* Key Points */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="grid md:grid-cols-3 gap-6 mb-12 animate-[fadeIn_0.6s_ease-out_0.2s_both]">
               {[
                 {
                   icon: Lock,
@@ -60,26 +57,21 @@ export default function PrivacyPolicy() {
                   description: "We don't store any of your uploaded images on our servers.",
                 },
               ].map((point, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="p-6 rounded-2xl glass border border-slate-200/50 dark:border-slate-700/50 text-center"
+                  className="p-6 rounded-2xl glass border border-slate-200/50 dark:border-slate-700/50 text-center animate-[fadeInUp_0.5s_ease-out_both]"
+                  style={{ animationDelay: `${0.2 + index * 0.1}s` }}
                 >
                   <point.icon className="w-8 h-8 mx-auto mb-3 text-primary" />
                   <h3 className="font-semibold mb-2 text-slate-900 dark:text-white">{point.title}</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-300">{point.description}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
             {/* Content */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="prose prose-lg dark:prose-invert max-w-none space-y-8"
+            <div
+              className="prose prose-lg dark:prose-invert max-w-none space-y-8 animate-[fadeIn_0.6s_ease-out_0.5s_both]"
             >
               <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                 <h2 className="flex items-center gap-3 text-2xl font-bold mb-4 text-slate-900 dark:text-white">
@@ -145,7 +137,7 @@ export default function PrivacyPolicy() {
                   </a>
                 </p>
               </section>
-            </motion.div>
+            </div>
           </div>
         </main>
 
