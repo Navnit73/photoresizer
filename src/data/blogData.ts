@@ -188,11 +188,7 @@ export const blogData: BlogPost[] = [
       },
     ],
     relatedLinks: [
-      {
-        title: "Resize for SSC Exams",
-        path: "/ssc-cgl-photo-signature-resizer",
-      },
-      { title: "Resize for IBPS PO/Clerk", path: "/ibps-photo-resizer" },
+     
       { title: "Aadhar Card Photo Change", path: "/aadhar-card-photo-resizer" },
       {
         title: "UPSC Name & Date Rules",
@@ -1213,10 +1209,7 @@ export const blogData: BlogPost[] = [
       },
     ],
     relatedLinks: [
-      {
-        title: "Aadhaar Photo & Signature Resizer",
-        path: "/aadhaar-photo-signature-resizer",
-      },
+     
       {
         title: "Driving License Photo Resizer (Sarathi)",
         path: "/resize-photo-driving-license-sarathi",
@@ -1395,10 +1388,7 @@ export const blogData: BlogPost[] = [
         title: "UPSC Photo & Signature Resizer 2026",
         path: "/upsc-photo-signature-resizer-2026",
       },
-      {
-        title: "Aadhaar Photo Resizer",
-        path: "/aadhaar-photo-signature-resizer",
-      },
+    
     ],
   },
   {

@@ -116,7 +116,7 @@ export const LivePreview = memo(function LivePreview({ imageState }: LivePreview
 
   if (!imageState.originalUrl) return null;
 
-  const maxPreview = 220;
+  const maxPreview = 320;
   const scale = Math.min(
     maxPreview / imageState.width,
     maxPreview / imageState.height,
@@ -150,6 +150,7 @@ export const LivePreview = memo(function LivePreview({ imageState }: LivePreview
                 : imageState.backgroundColor,
           }}
         >
+      
           {previewUrl ? (
             <img
               src={previewUrl}

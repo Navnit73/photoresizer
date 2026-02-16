@@ -88,31 +88,34 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
   // Listen for container resize
   useEffect(() => {
     updateContainerWidth();
-    
+
     const resizeObserver = new ResizeObserver(() => {
       updateContainerWidth();
     });
-    
+
     if (containerRef.current) {
       resizeObserver.observe(containerRef.current);
     }
-    
-    window.addEventListener('resize', updateContainerWidth);
-    
+
+    window.addEventListener("resize", updateContainerWidth);
+
     return () => {
       resizeObserver.disconnect();
-      window.removeEventListener('resize', updateContainerWidth);
+      window.removeEventListener("resize", updateContainerWidth);
     };
   }, [updateContainerWidth]);
 
   // Calculate responsive canvas dimensions
   const canvasW = containerWidth;
-  const canvasH = Math.max(MIN_CANVAS_HEIGHT, Math.min(MAX_CANVAS_H, containerWidth * 0.75));
+  const canvasH = Math.max(
+    MIN_CANVAS_HEIGHT,
+    Math.min(MAX_CANVAS_H, containerWidth * 0.75),
+  );
 
   const scale = Math.min(
     canvasW / imageState.width,
     canvasH / imageState.height,
-    1
+    1,
   );
 
   const displayW = imageState.width * scale;
@@ -127,7 +130,7 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
 
   const constrainToAspectRatio = (
     newCrop: CropData,
-    handle: Handle
+    handle: Handle,
   ): CropData => {
     const ratio = getCurrentAspectRatio();
     if (!ratio) return newCrop;
@@ -153,7 +156,7 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
         // Adjust based on which dimension changed more
         const widthChange = Math.abs(result.width - start.current.crop.width);
         const heightChange = Math.abs(
-          result.height - start.current.crop.height
+          result.height - start.current.crop.height,
         );
 
         if (widthChange > heightChange) {
@@ -274,12 +277,12 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
       next.x = clamp(
         start.current.crop.x + dx,
         0,
-        imageState.width - next.width
+        imageState.width - next.width,
       );
       next.y = clamp(
         start.current.crop.y + dy,
         0,
-        imageState.height - next.height
+        imageState.height - next.height,
       );
     }
 
@@ -287,12 +290,12 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
       next.width = clamp(
         start.current.crop.width + dx,
         minSize,
-        imageState.width - next.x
+        imageState.width - next.x,
       );
       next.height = clamp(
         start.current.crop.height + dy,
         minSize,
-        imageState.height - next.y
+        imageState.height - next.y,
       );
     }
 
@@ -300,12 +303,12 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
       const nx = clamp(
         start.current.crop.x + dx,
         0,
-        start.current.crop.x + start.current.crop.width - minSize
+        start.current.crop.x + start.current.crop.width - minSize,
       );
       const ny = clamp(
         start.current.crop.y + dy,
         0,
-        start.current.crop.y + start.current.crop.height - minSize
+        start.current.crop.y + start.current.crop.height - minSize,
       );
       next.width += start.current.crop.x - nx;
       next.height += start.current.crop.y - ny;
@@ -317,12 +320,12 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
       next.width = clamp(
         start.current.crop.width + dx,
         minSize,
-        imageState.width - next.x
+        imageState.width - next.x,
       );
       const ny = clamp(
         start.current.crop.y + dy,
         0,
-        start.current.crop.y + start.current.crop.height - minSize
+        start.current.crop.y + start.current.crop.height - minSize,
       );
       next.height += start.current.crop.y - ny;
       next.y = ny;
@@ -332,14 +335,14 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
       const nx = clamp(
         start.current.crop.x + dx,
         0,
-        start.current.crop.x + start.current.crop.width - minSize
+        start.current.crop.x + start.current.crop.width - minSize,
       );
       next.width += start.current.crop.x - nx;
       next.x = nx;
       next.height = clamp(
         start.current.crop.height + dy,
         minSize,
-        imageState.height - next.y
+        imageState.height - next.y,
       );
     }
 
@@ -426,43 +429,42 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
           Crop
         </Button>
         {isCropMode && (
-        <div className="flex justify-center gap-2">
-          <Button size="sm" onClick={applyCrop}>
-            <Check className="w-4 h-4 mr-1" />
-            Apply
-          </Button>
+          <div className="flex justify-center gap-2">
+            <Button size="sm" onClick={applyCrop}>
+              <Check className="w-4 h-4 mr-1" />
+              Apply
+            </Button>
 
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => {
-              hapticFeedback("light");
-              setCrop({
-                x: 0,
-                y: 0,
-                width: imageState.width,
-                height: imageState.height,
-              });
-            }}
-          >
-            <RotateCcw className="w-4 h-4 mr-1" />
-            Reset
-          </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => {
+                hapticFeedback("light");
+                setCrop({
+                  x: 0,
+                  y: 0,
+                  width: imageState.width,
+                  height: imageState.height,
+                });
+              }}
+            >
+              <RotateCcw className="w-4 h-4 mr-1" />
+              Reset
+            </Button>
 
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => {
-              hapticFeedback("light");
-              setIsCropMode(false);
-            }}
-          >
-            <X className="w-4 h-4 mr-1" />
-            Cancel
-          </Button>
-        </div>
-      )}
-
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => {
+                hapticFeedback("light");
+                setIsCropMode(false);
+              }}
+            >
+              <X className="w-4 h-4 mr-1" />
+              Cancel
+            </Button>
+          </div>
+        )}
       </div>
 
       {isCropMode && (
@@ -511,14 +513,14 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
                 {Math.round(crop.width)} × {Math.round(crop.height)} px
               </span>
             </div>
-            <div className="flex items-center gap-1.5 bg-muted px-3 py-1.5 rounded-md">
+            {/* <div className="flex items-center gap-1.5 bg-muted px-3 py-1.5 rounded-md">
               <span className="text-xs font-medium text-muted-foreground">
                 Ratio:
               </span>
               <span className="font-mono font-semibold">
                 {(crop.width / crop.height).toFixed(2)}
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -598,7 +600,31 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
         </div>
       </Card>
 
-      
+ <div className="flex justify-center w-full">
+
+        {isCropMode && (
+          <div className="flex justify-center gap-2">
+            <Button size="sm" onClick={applyCrop}>
+              <Check className="w-4 h-4 mr-1" />
+              Apply
+            </Button>
+
+          
+
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => {
+                hapticFeedback("light");
+                setIsCropMode(false);
+              }}
+            >
+              <X className="w-4 h-4 mr-1" />
+              Cancel
+            </Button>
+          </div>
+        )}
+      </div>
       <p className="text-xs text-muted-foreground text-center">
         {isCropMode
           ? "Drag to move • Resize from corners • Select aspect ratio above"
