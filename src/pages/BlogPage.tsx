@@ -170,7 +170,7 @@ export default function BlogPage() {
                    `Get exact ${post.specifications.dimensions} under ${post.specifications.fileSize}` : 
                    `Meet ${post.specifications.fileSize} requirement instantly`}
                </p>
-               <Button onClick={() => navigate('/')} className="w-full bg-blue-600 hover:bg-blue-500 font-bold" size="lg">
+               <Button onClick={() => navigate('/')} className="w-full bg-red-600 hover:bg-red-500 font-bold" size="lg">
                  {post.category === "Technical Tools" ? "Compress Now" : "Resize Now"}
                </Button>
             </div>
@@ -396,7 +396,7 @@ export default function BlogPage() {
                 )}
               </div>
 
-              <Button onClick={() => navigate('/')} className="w-full font-bold bg-blue-600 hover:bg-blue-500 text-white h-12 shadow-lg shadow-blue-900/50" size="lg">
+              <Button onClick={() => navigate('/')} className="w-full font-bold bg-red-600 hover:scale-105 hover:bg-red-500 text-white h-12 shadow-lg shadow-blue-900/50" size="lg">
                 {post.category === "Technical Tools" ? "Compress Now" : 
                  post.category === "Exam Guides" ? "Upload & Resize" : 
                  "Upload & Resize"}
