@@ -85,6 +85,26 @@
       "source": "/photo-resize-free",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/photo-resize-for-ssc",
+      "destination": "/ssc-photo-resizer",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-for-pan-card",
+      "destination": "/pan-card-photo-signature-resizer",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-passport-size",
+      "destination": "/passport-size-photo-maker-35x45",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-without-losing-quality",
+      "destination": "/reduce-photo-size-50kb-without-quality-loss",
+      "permanent": true
     }
   ],
   "headers": [

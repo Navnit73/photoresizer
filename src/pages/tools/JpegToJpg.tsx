@@ -89,12 +89,12 @@ export default function JpegToJpg() {
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
 
-        {/* <HeroSection
+        <HeroSection
           Icon={ImageIcon}
           subtitle="Format Converter"
           title="JPEG to JPG Converter"
           description="Convert your JPEG images to JPG format instantly. Free, fast, and completely secure - all processing happens in your browser."
-        /> */}
+        />
 
         <main className="flex-1">
           {/* Editor Section */}

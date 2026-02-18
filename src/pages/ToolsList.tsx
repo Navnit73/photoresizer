@@ -97,13 +97,13 @@ const toolCategories: {
     icon: LayoutGrid,
     description: "Tools for specific platforms and uses",
     tools: [
-      { name: "For Instagram", href: "/photo-resize-for-instagram", icon: Image },
-      { name: "For PAN Card", href: "/photo-resize-for-pan-card", icon: CreditCard },
+      { name: "For PAN Card", href: "/pan-card-photo-signature-resizer", icon: CreditCard },
       { name: "For UPSC", href: "/upsc-photo-size", icon: GraduationCap },
+      { name: "For SSC", href: "/ssc-photo-resizer", icon: FileCheck },
       { name: "IBPS Signature", href: "/signature-resize-ibps", icon: Stamp },
       { name: "Photo Resize App", href: "/photo-resize-app", icon: Smartphone },
       { name: "Bulk Resizer", href: "/photo-resize-bulk", icon: Layers },
-      { name: "Resize Without Quality Loss", href: "/photo-resize-without-losing-quality", icon: Zap },
+      { name: "Resize Without Quality Loss", href: "/reduce-photo-size-50kb-without-quality-loss", icon: Zap },
     ]
   }
 ];

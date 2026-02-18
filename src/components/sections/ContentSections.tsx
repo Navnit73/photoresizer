@@ -98,12 +98,27 @@ export function ContentSections() {
       style={{ contentVisibility: 'auto', containIntrinsicSize: '0 1500px' }}
     >
       <div className="container space-y-16 sm:space-y-20 px-4 sm:px-6">
+        {/* FAQ SCHEMA */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
 
         {/* HERO SEO SECTION */}
         <section className="text-center space-y-4">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading leading-tight">
             Photo Resizer & Image Resizer for Government Forms in India
-          </h1>
+          </h2>
 
           <p className="text-sm sm:text-base text-muted-foreground max-w-4xl mx-auto">
             Free online photo resizer for SSC, UPSC, PAN Card, Aadhaar Card,

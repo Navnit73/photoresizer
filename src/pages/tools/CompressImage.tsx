@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Minimize2, Download, Gauge, FileImage } from "lucide-react";
+import { HeroSection } from "@/components/shared/HeroSection";
 import { FeatureCard, FeatureGrid } from "@/components/shared/FeatureCard";
 import { HowToGuide } from "@/components/shared/HowToGuide";
 import { Header } from "@/components/layout/Header";
@@ -86,6 +87,13 @@ export default function CompressImage() {
 
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
+
+        <HeroSection
+          Icon={Minimize2}
+          subtitle="Image Optimizer"
+          title="Compress Image Online Free"
+          description="Reduce image file size without losing quality. Compress JPG, PNG, and WEBP images to specific sizes like 50KB or 100KB instantly."
+        />
 
         <main className="flex-1">
           {/* Editor Section */}

@@ -36,7 +36,7 @@ const toolsLinks = [
   { label: "JPEG to JPG", href: "/jpeg-to-jpg" },
   { label: "JPG to PNG", href: "/jpg-to-png" },
   { label: "Resize to 20KB", href: "/resize-photo-20kb" },
-  { label: "Resize to 50KB", href: "/resize-photo-50kb" },
+  // { label: "Resize to 50KB", href: "/resize-photo-50kb" },
   { label: "Passport Photo", href: "/passport-photo-editor" },
   { label: "SSC Photo", href: "/ssc-photo-resizer" },
   { label: "UPSC Photo", href: "/upsc-photo-size" },

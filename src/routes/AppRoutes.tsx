@@ -34,13 +34,9 @@ const PhotoResizeMBToKB = lazy(() => import('@/pages/tools/PhotoResizeMBToKB'));
 const PhotoResizeDPI = lazy(() => import('@/pages/tools/PhotoResizeDPI'));
 const PhotoResizePDF = lazy(() => import('@/pages/tools/PhotoResizePDF'));
 const PhotoResizeBulk = lazy(() => import('@/pages/tools/PhotoResizeBulk'));
-const PhotoResizeWithoutLosingQuality = lazy(() => import('@/pages/tools/PhotoResizeWithoutLosingQuality'));
 
 // Programmatic SEO pages – use-case specific
-const PhotoResizeForPanCard = lazy(() => import('@/pages/tools/PhotoResizeForPanCard'));
 const PhotoResizeForInstagram = lazy(() => import('@/pages/tools/PhotoResizeForInstagram'));
-const PhotoResizeForSSC = lazy(() => import('@/pages/tools/PhotoResizeForSSC'));
-const PhotoResizePassportSize = lazy(() => import('@/pages/tools/PhotoResizePassportSize'));
 const PhotoResizeApp = lazy(() => import('@/pages/tools/PhotoResizeApp'));
 const HowToResizePhoto = lazy(() => import('@/pages/tools/HowToResizePhoto'));
 
@@ -100,13 +96,9 @@ export function AppRoutes() {
         <Route path="/photo-resize-dpi" element={<PhotoResizeDPI />} />
         <Route path="/photo-resize-pdf" element={<PhotoResizePDF />} />
         <Route path="/photo-resize-bulk" element={<PhotoResizeBulk />} />
-        <Route path="/photo-resize-without-losing-quality" element={<PhotoResizeWithoutLosingQuality />} />
         
         {/* Programmatic SEO pages – use-case specific */}
-        <Route path="/photo-resize-for-pan-card" element={<PhotoResizeForPanCard />} />
         <Route path="/photo-resize-for-instagram" element={<PhotoResizeForInstagram />} />
-        <Route path="/photo-resize-for-ssc" element={<PhotoResizeForSSC />} />
-        <Route path="/photo-resize-passport-size" element={<PhotoResizePassportSize />} />
         <Route path="/photo-resize-app" element={<PhotoResizeApp />} />
         <Route path="/how-to-resize-photo" element={<HowToResizePhoto />} />
         
