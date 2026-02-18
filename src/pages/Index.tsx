@@ -41,7 +41,7 @@ const Index = () => {
 
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
-        <h1 className="sr-only">
+        <h1 className="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-white mt-8 mb-2 px-4">
           Free Photo Resizer for SSC, UPSC, Banking & Government Exam Forms
         </h1>
 
