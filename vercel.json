@@ -5,6 +5,88 @@
       "destination": "/"
     }
   ],
+  "redirects": [
+    {
+      "source": "/upsc-photo-signature-resizer-2026",
+      "destination": "/upsc-photo-size",
+      "permanent": true
+    },
+    {
+      "source": "/correct-upsc-photo-specifications-name-date",
+      "destination": "/upsc-photo-size",
+      "permanent": true
+    },
+    {
+      "source": "/ssc-cgl-photo-signature-resizer",
+      "destination": "/ssc-photo-resizer",
+      "permanent": true
+    },
+    {
+      "source": "/ibps-po-clerk-photo-resizer",
+      "destination": "/signature-resize-ibps",
+      "permanent": true
+    },
+    {
+      "source": "/resize-photo-50kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/compress-image-20kb-50kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-80kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/convert-jpeg-to-jpg-online",
+      "destination": "/jpeg-to-jpg",
+      "permanent": true
+    },
+    {
+      "source": "/compress-photo-to-20kb-online",
+      "destination": "/resize-photo-20kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-mb",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-by-kb",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-in-kb",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-pixel",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-online",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-tool",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-free",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

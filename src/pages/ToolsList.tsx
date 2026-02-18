@@ -29,8 +29,22 @@ import { Footer } from "@/components/layout/Footer";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
+// Interface for tool objects
+interface Tool {
+  name: string;
+  href: string;
+  icon: React.ElementType;
+  desc?: string;
+  badge?: string;
+}
+
 // Tool categories with specific icons for each tool
-const toolCategories = [
+const toolCategories: {
+  title: string;
+  icon: React.ElementType;
+  description: string;
+  tools: Tool[];
+}[] = [
   {
     title: "Popular Tools",
     icon: Zap,
@@ -51,15 +65,13 @@ const toolCategories = [
       { name: "Resize to 20KB", href: "/resize-photo-20kb", icon: Minimize2 },
       { name: "Resize to 30KB", href: "/photo-resize-30kb", icon: Minimize2 },
       { name: "Resize to 40KB", href: "/photo-resize-40kb", icon: Minimize2 },
-      { name: "Resize to 50KB", href: "/resize-photo-50kb", icon: Minimize2, badge: "Popular" },
-      { name: "Resize to 80KB", href: "/photo-resize-80kb", icon: Minimize2 },
+      { name: "Resize to 50KB", href: "/reduce-photo-size-50kb", icon: Minimize2, badge: "Popular" },
       { name: "Resize to 100KB", href: "/photo-resize-100kb", icon: Minimize2 },
       { name: "Resize to 150KB", href: "/photo-resize-150kb", icon: Minimize2 },
       { name: "Resize to 200KB", href: "/photo-resize-200kb", icon: Minimize2 },
       { name: "Resize to 500KB", href: "/photo-resize-500kb", icon: Minimize2 },
       { name: "Resize to 1MB", href: "/photo-resize-1mb", icon: Minimize2 },
       { name: "Resize to 2MB", href: "/photo-resize-2mb", icon: Minimize2 },
-      { name: "Resize by KB", href: "/photo-resize-by-kb", icon: Sliders },
       { name: "Resize MB to KB", href: "/photo-resize-mb-to-kb", icon: ArrowRight },
     ]
   },
@@ -68,11 +80,6 @@ const toolCategories = [
     icon: Maximize,
     description: "Resize photos to specific width and height",
     tools: [
-      { name: "Resize in Pixels", href: "/photo-resize-in-px", icon: Maximize },
-      { name: "Resize in CM", href: "/photo-resize-cm", icon: Maximize },
-      { name: "Resize by Width & Height", href: "/photo-resize-width-height", icon: Maximize },
-      { name: "Resize and Crop", href: "/photo-resize-and-crop", icon: Crop },
-      { name: "Photo Resize Tool", href: "/photo-resize-tool", icon: Scissors },
     ]
   },
   {
