@@ -98,6 +98,10 @@ export function Header() {
               More Tools
             </Link>
 
+            <a href="https://www.usvisaphotoai.pro/" target="_blank" rel="noopener" className="header-nav-btn" title="US Visa Photo Maker">
+              US Visa Photo AI
+            </a>
+
             <Link to="/blog" className="header-nav-btn">
               Blog
             </Link> 
@@ -188,6 +192,16 @@ export function Header() {
                 >
                   More Tools
                 </Link>
+                <a
+                  href="https://www.usvisaphotoai.pro/"
+                  target="_blank"
+                  rel="noopener"
+                  onClick={() => setOpen(false)}
+                  className="block px-5 py-3 text-sm hover:bg-slate-100"
+                  title="US Visa Photo Maker"
+                >
+                  US Visa Photo AI
+                </a>
                 <Link
                   to="/blog"
                   onClick={() => setOpen(false)}

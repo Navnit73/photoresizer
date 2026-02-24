@@ -34,6 +34,11 @@ export function Footer() {
                   Passport Photo
                 </Link>
               </li>
+              <li>
+                <a href="https://www.usvisaphotoai.pro/" target="_blank" rel="noopener" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" title="US Visa Photo Maker">
+                  US Visa Photo AI
+                </a>
+              </li>
             </ul>
           </div>
 
