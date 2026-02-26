@@ -62,6 +62,18 @@ export function useImageEditor() {
     const img = new Image();
 
     img.onload = () => {
+      // Fallback if decode() is totally unsupported, but we handle that in the catch
+    };
+
+    img.onerror = () => {
+      console.error("Failed to load image");
+      URL.revokeObjectURL(url);
+    };
+
+    img.src = url;
+
+    // Use decode() to move image decoding off the main thread (fixes INP issues on upload)
+    img.decode().then(() => {
       const newState: ImageState = {
         file,
         originalUrl: url,
@@ -79,14 +91,27 @@ export function useImageEditor() {
       };
       setImageState(newState);
       setHistory([newState]);
-    };
-
-    img.onerror = () => {
-      console.error("Failed to load image");
-      URL.revokeObjectURL(url);
-    };
-
-    img.src = url;
+    }).catch((e) => {
+      console.error("Image decode failed", e);
+      // Fallback if decode fails but image is valid
+      const newState: ImageState = {
+        file,
+        originalUrl: url,
+        editedUrl: url,
+        width: img.naturalWidth || 800,
+        height: img.naturalHeight || 600,
+        originalWidth: img.naturalWidth || 800,
+        originalHeight: img.naturalHeight || 600,
+        rotation: 0,
+        backgroundColor: "#FFFFFF",
+        quality: 90,
+        format: "jpeg",
+        fileSize: file.size,
+        originalFileSize: file.size,
+      };
+      setImageState(newState);
+      setHistory([newState]);
+    });
   }, []);
 
   const updateDimensions = useCallback(
