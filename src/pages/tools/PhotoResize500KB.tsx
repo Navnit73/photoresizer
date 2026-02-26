@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Target, title: "Precise 500KB Output", description: "Compress your photo to exactly 500KB for high-quality uploads where larger file sizes are allowed." },
-  { icon: Check, title: "High-Res Quality", description: "500KB preserves exceptional detail and color accuracy, suitable for portfolios and presentations." },
-  { icon: TrendingDown, title: "Efficient Compression", description: "Reduce multi-megabyte photos to 500KB without noticeable quality loss." },
-  { icon: Download, title: "Free & Fast", description: "Get your 500KB photo instantly. No signup, no watermarks, works on any device." },
+  { icon: Target, title: "High-Fidelity 500KB Compression", description: "The safe upper limit for most digital forms. 500KB allows us to preserve incredible detail, making it perfect for complex architectural plans, medical records, and detailed maps." },
+  { icon: Check, title: "Avoids Email Blocking", description: "Many corporate email servers block attachments over 25MB. By compressing your images to 500KB, you can comfortably attach up to 40 high-quality photos in a single email." },
+  { icon: TrendingDown, title: "Tames Modern Camera Files", description: "A single raw photo from a modern DSLR or flagship smartphone can exceed 20MB. Our tool elegantly downscales these massive files to a web-friendly 500KB without looking heavily compressed." },
+  { icon: Download, title: "Fast Web Loading", description: "If you run a blog or e-commerce store, raw images will kill your SEO. 500KB is an excellent target for large hero-banners that need to load quickly on mobile networks." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select any JPG, PNG, or WEBP image. Handles large files from cameras and smartphones." },
-  { title: "Auto-Compress to 500KB", description: "Our engine optimizes your photo to exactly 500KB with maximum quality preservation." },
-  { title: "Download & Use", description: "Download your 500KB photo for portfolios, websites, presentations, or email." },
+  { title: "Select Heavy Image", description: "Upload your massive raw photo, detailed document scan, or high-res graphics folder. We accept PNG, JPG, and WEBP inputs natively." },
+  { title: "Engage 500KB Target", description: "Our browser-engine calculates the optimal compression ratio to squeeze the file under 500KB while rigorously defending visual quality." },
+  { title: "Download and Share", description: "Click download to save your new JPG. It's now perfectly optimized for fast email delivery, web-hosting, or portal uploads." },
 ];
 
 const faqs = [
-  { question: "Is 500KB too large for online forms?", answer: "Some forms accept up to 500KB or more. Always check the specific requirements. If a smaller size is needed, try our 100KB or 200KB resize tools." },
-  { question: "How does 500KB compare to the original quality?", answer: "At 500KB, most photos look virtually identical to the original. You'll notice minimal quality loss, making it ideal when you want to reduce file size without sacrificing appearance." },
-  { question: "Can I use 500KB photos on websites?", answer: "500KB is acceptable for website images, though for faster page loads, consider our smaller compression options. It's great for hero images and portfolio pages." },
+  { question: "Is 500KB too big for a passport photo upload?", answer: "Usually, yes. Most government portals cap passport photos between 20KB and 50KB. A 500KB limit is typically reserved for full-page PDF scans, portfolios, or multi-page documents. If you need a passport photo, use our 50KB tool instead." },
+  { question: "Will my 20MB wedding photo look bad if reduced to 500KB?", answer: "Not at all. 500KB is actually a massive amount of data for a standard JPEG. While you might lose some extreme zooming capabilities, the photo will look perfectly crisp and clear on any phone, tablet, or standard laptop screen." },
+  { question: "Why doesn't the tool increase my 50KB file UP to 500KB?", answer: "Our tool's primary function is compression (making files smaller). You cannot 'add' quality to an already small file. If your upload is already under 500KB, the tool will simply export it at its current optimal size without digitally inflating the data." },
 ];
 
 const relatedLinks = [
   { label: "Resize Photo to 200KB", href: "/photo-resize-200kb" },
-  { label: "Resize Photo to 1MB", href: "/photo-resize-1mb" },
-  { label: "Compress Image", href: "/compress-image" },
+  { label: "Compress Image (Variable Size)", href: "/compress-image" },
 ];
 
 export default function PhotoResize500KB() {

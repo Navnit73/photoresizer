@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: ArrowDownToLine, title: "MB to KB Conversion", description: "Reduce photos from megabytes to kilobytes. Convert 5MB, 10MB, or larger files to KB sizes." },
-  { icon: TrendingDown, title: "Massive Reduction", description: "Compress multi-MB photos to any KB target while keeping the best possible quality." },
-  { icon: Zap, title: "Smart Algorithm", description: "Our engine intelligently adjusts quality to achieve maximum size reduction with minimal loss." },
-  { icon: Download, title: "Instant & Free", description: "Convert MB photos to KB instantly. No registration, no watermarks, completely free." },
+  { icon: ArrowDownToLine, title: "Universal Portal Fix", description: "Instantly solve the dreaded 'File too large' error. Convert multi-megabyte DSLR and iPhone camera photos into lightweight kilobytes." },
+  { icon: TrendingDown, title: "Lossless Down-Sampling", description: "Our browser-based engine radically reduces pixel density and strips heavy EXIF metadata without introducing ugly color banding." },
+  { icon: Zap, title: "Real-Time Size Preview", description: "Don't guess the final size. Our live compression engine shows you the exact KB output before you even click download." },
+  { icon: Download, title: "Zero Data Logging", description: "Your massive, private photos are never uploaded to a cloud server. All MB to KB conversion happens instantly in your own browser cache." },
 ];
 
 const steps = [
-  { title: "Upload MB-Size Photo", description: "Select your large MB-size photo. Our tool handles files up to 50MB or more." },
-  { title: "Compress to KB", description: "Use quality and dimension controls to reduce your photo from MB to KB. Live preview shows current size." },
-  { title: "Download KB Photo", description: "Download your compressed photo now in KB. Ready for forms, emails, and uploads." },
+  { title: "Drop Massive File", description: "Upload your 5MB, 10MB, or even 20MB raw photo. The tool natively supports high-density JPG, PNG, and HEIC-converted WEBP." },
+  { title: "Dial in the KB", description: "Use the quality slider to watch the file size drop in real-time. Stop when you hit the exact kilobyte requirement for your specific portal." },
+  { title: "Export Web-Ready Format", description: "Click download. Your photo is now a highly-optimized, web-compliant file ready for immediate upload to any application." },
 ];
 
 const faqs = [
-  { question: "How do I reduce a 5MB photo to KB?", answer: "Upload your 5MB photo, then lower the quality slider and optionally reduce dimensions. The live preview shows the estimated size. You can target any KB value from 20KB to 500KB or more." },
-  { question: "How many KB are in 1 MB?", answer: "1 MB (megabyte) equals 1024 KB (kilobytes). So a 5MB photo is about 5120KB. Our tool can compress it to any KB target you need." },
-  { question: "Will my photo lose quality when converting MB to KB?", answer: "Some quality reduction is expected when decreasing file size significantly. Our smart compression minimizes visible quality loss, keeping your photo clear for its intended use." },
+  { question: "Why is a single smartphone photo 5MB+?", answer: "Modern smartphones shoot in extremely high definition (12MP to 48MP) to capture detail. While great for printing, a 5MB data payload is far too large for standard web database storage, which is why forms force you to convert them to KB." },
+  { question: "How much quality will I lose going from MB to KB?", answer: "It depends on the target. Compressing a 10MB photo to 1MB (1000KB) will look nearly identical. Compressing that same 10MB photo down to 20KB for a passport signature will visibly reduce the sharpness, though it remains perfectly legible." },
+  { question: "Does converting MB to KB change the photo's dimensions?", answer: "If you only adjust the quality slider, the 'dimensions' (width and height in inches/cm) remain identical. However, to achieve ultra-low KB sizes, it is highly recommended to also use our crop tool to trim away unnecessary background space." },
 ];
 
 const relatedLinks = [
   { label: "Resize Photo to 100KB", href: "/photo-resize-100kb" },
   { label: "Resize Photo to 50KB", href: "/resize-photo-50kb" },
-  { label: "Resize Photo by KB", href: "/photo-resize-by-kb" },
 ];
 
 export default function PhotoResizeMBToKB() {

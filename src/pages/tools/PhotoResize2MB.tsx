@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Target, title: "Exact 2MB Output", description: "Compress your photo to exactly 2MB (2048KB) — maximum quality for platforms with 2MB limits." },
-  { icon: Check, title: "Premium Quality", description: "2MB preserves virtually all detail, perfect for high-res uploads and document attachments." },
-  { icon: TrendingDown, title: "Massive Reduction", description: "Reduce 10MB-50MB camera photos to 2MB while keeping stunning quality." },
-  { icon: Download, title: "Free & Instant", description: "Download your 2MB photo immediately. No registration, no limits, no watermarks." },
+  { icon: Target, title: "Precision 2MB Threshold", description: "Seamlessly hits the exact 2MB (2048KB) maximum file size limit imposed by corporate applicant tracking systems and modern university portals." },
+  { icon: Check, title: "Lossless-Quality Retention", description: "Because 2MB provides massive data overhead, our tool prioritizes keeping 100% of your document's original resolution and color depth." },
+  { icon: TrendingDown, title: "Crushes RAW Camera Files", description: "Instantly convert and compress massive 40MB+ RAW or ProRAW photography into lightweight, universally accepted 2MB JPEG files." },
+  { icon: Download, title: "No Registration Required", description: "No email signups, no watermarks, and no servers. Your heavy files are processed instantly inside your own web browser." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select any JPG, PNG, or WEBP image. Handles large DSLR and smartphone photos." },
-  { title: "Auto-Compress to 2MB", description: "Our algorithm intelligently compresses your photo to exactly 2MB with best possible quality." },
-  { title: "Download & Use", description: "Download your 2MB photo for documents, uploads, presentations, or social sharing." },
+  { title: "Select Massive File", description: "Upload a gigapixel panorama, a raw DSLR photo, or a high-dpi scanned poster. The tool supports standard web image formats natively." },
+  { title: "Lock the 2MB Target", description: "Our browser engine parses the extreme file size and gracefully reduces pixel density and metadata to comfortably sit under the 2MB cap." },
+  { title: "Save and Upload", description: "Download your optimization. You can now reliably attach this high-quality 2MB image to emails and strict web platforms without timeout errors." },
 ];
 
 const faqs = [
-  { question: "Which platforms have a 2MB upload limit?", answer: "Many email services, WhatsApp (for documents), online application forms, and content management systems have 2MB or similar limits. Our tool ensures your photo fits perfectly." },
-  { question: "Can I compress RAW photos to 2MB?", answer: "Our tool works with JPG, PNG, and WEBP formats. Convert your RAW file to JPG first, then use our compressor to reduce it to exactly 2MB." },
-  { question: "Is 2MB good for printing?", answer: "2MB photos have good print quality for standard sizes (4x6, 5x7). For large prints or professional use, consider keeping a higher resolution version." },
+  { question: "Why do so many sites limit uploads to 2MB?", answer: "2MB is the historic 'safe limit' for web servers. It ensures that databases don't get bloated and that files can be reliably uploaded even on slower 3G/4G mobile networks." },
+  { question: "Will compressing a 20MB photo to 2MB ruin the quality?", answer: "No. 2MB is still a tremendous amount of data for a JPEG. Unless you are printing the image on a highway billboard, you will not notice any difference on a digital screen." },
+  { question: "Can I use this for converting iPhone HEIC photos?", answer: "To compress an iPhone photo to 2MB, you first need to export or save it as a JPG or PNG. Our tool will then easily compress it to meet the 2MB data limit." },
 ];
 
 const relatedLinks = [
   { label: "Resize Photo to 1MB", href: "/photo-resize-1mb" },
   { label: "Resize Photo MB to KB", href: "/photo-resize-mb-to-kb" },
-  { label: "Resize Photo to 500KB", href: "/photo-resize-500kb" },
 ];
 
 export default function PhotoResize2MB() {

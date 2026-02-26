@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: FileText, title: "PDF-Optimized Size", description: "Resize photos to optimal dimensions and file size for embedding in PDF documents." },
-  { icon: Shield, title: "Document Ready", description: "Perfect for resumes, reports, applications, and any PDF document that needs embedded photos." },
-  { icon: Zap, title: "Fast Processing", description: "Resize and compress your photo instantly for PDF use. No software installation needed." },
-  { icon: Download, title: "JPG Output", description: "Download in JPG format — the most compatible format for PDF document embedding." },
+  { icon: FileText, title: "Avoid PDF Bloat", description: "Stop sending 50MB PDF files. Resize your heavy photos, charts, and signatures before embedding them into your Word or PDF export." },
+  { icon: Shield, title: "Perfect for Resumes", description: "A standard ATS (Applicant Tracking System) rejects PDF resumes over 2MB. Optimize your headshot so your resume stays lightweight and gets read." },
+  { icon: Zap, title: "Signature Extraction", description: "Use our crop tool to slice an ink signature from a large page, then compress the file to paste neatly into digital contracts without pixelation." },
+  { icon: Download, title: "Universally Compatible JPGs", description: "While PDFs are document wrappers, they struggle to compress raw images internally. We export highly optimized JPGs that make your final PDF ultra-lean." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select the photo you want to use in a PDF document. Any format accepted." },
-  { title: "Resize for PDF", description: "Adjust dimensions and quality for optimal PDF embedding. Smaller files mean smaller PDFs." },
-  { title: "Download & Embed", description: "Download your optimized photo and insert it into your PDF document." },
+  { title: "Select Source Media", description: "Upload the high-resolution photo, company logo, or scanned signature you plan to embed inside your document." },
+  { title: "Shrink Dimensions & KB", description: "If the image will only be 2 inches wide on the PDF page, don't use a 4000px wide photo. Scale the dimensions down to 600px and compress to under 100KB." },
+  { title: "Export and Embed", description: "Download the web-optimized JPG and insert it directly into your Word Document, Google Doc, or Adobe Acrobat file." },
 ];
 
 const faqs = [
-  { question: "What photo size is best for PDFs?", answer: "For standard documents, 800×600 pixels at 150 DPI works well. For print-quality PDFs, use 300 DPI. Keep file size under 200KB for each photo to maintain a reasonable PDF size." },
-  { question: "How do I reduce PDF file size by resizing photos?", answer: "Large photos are the main reason PDFs are too big. Resize each photo to the actual display size needed and compress to under 200KB. This can reduce your PDF size by 80% or more." },
-  { question: "What format should I use for photos in PDFs?", answer: "JPG is the best format for photos in PDFs — it provides good quality at small file sizes and is universally compatible with all PDF readers." },
+  { question: "Why is my exported PDF document so massive?", answer: "Usually, a massive PDF is caused by embedding raw, uncompressed photos from a modern smartphone directly onto the page. You should always resize and compress images using our tool before inserting them into your document." },
+  { question: "Does this tool convert a PDF into a JPG?", answer: "No. This tool is for preparing and optimizing photos (JPG/PNG/WEBP) so they don't bloat the final size of a PDF document when you embed them." },
+  { question: "What is the best dimension for a resume headshot?", answer: "A resume headshot printed on an A4 page rarely exceeds 2x2 inches. Resizing your photo to 600x600 pixels (and compressing it to under 50KB) guarantees it will look perfectly sharp on screen and in print without inflating the PDF size." },
 ];
 
 const relatedLinks = [
   { label: "Resize Photo to 200KB", href: "/photo-resize-200kb" },
-  { label: "Compress Image", href: "/compress-image" },
-  { label: "Resize Photo Without Quality Loss", href: "/photo-resize-without-losing-quality" },
+  { label: "Compress Image (Variable)", href: "/compress-image" },
 ];
 
 export default function PhotoResizePDF() {

@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Target, title: "Exact 15KB Output", description: "Smart compression algorithm delivers precisely 15KB file size for strict upload requirements." },
-  { icon: Check, title: "Government Form Ready", description: "Perfect for SSC, UPSC, IBPS and other government exam application forms requiring 15KB photos." },
-  { icon: TrendingDown, title: "Quality Preserved", description: "Advanced compression maintains maximum visual clarity even at the tiny 15KB file size." },
-  { icon: Download, title: "Instant Download", description: "Get your 15KB photo in seconds. No registration, no watermarks, completely free." },
+  { icon: Target, title: "Exact 15KB Output Without Blurring", description: "Our custom compression engine locks the target aggressively at 15KB while maintaining sharp facial and text details essential for verification." },
+  { icon: Check, title: "Passes Strict State Govt Portals", description: "Specially tuned for demanding portals like UPPSC, MPSC, and state police recruitment boards which instantly reject photos over 15KB." },
+  { icon: TrendingDown, title: "Thumb Impressions & Signatures", description: "The perfect fallback for compressing scanned thumbprints and signatures when standard tools fail to push below 20KB." },
+  { icon: Download, title: "100% Client-Side Privacy", description: "Your sensitive ID documents and photos are compressed locally in your browser. No uploads, zero privacy risks." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select any JPG, PNG, or WEBP image from your device. Works with any resolution." },
-  { title: "Auto-Compress to 15KB", description: "Our smart algorithm automatically compresses your image to exactly 15KB while preserving quality." },
-  { title: "Download & Submit", description: "Download your 15KB photo and use it directly in any application form or online portal." },
+  { title: "Upload Source Image", description: "Select the photo, signature, or thumb impression (JPG/PNG). Scanning at a minimum of 200 DPI is recommended." },
+  { title: "Force 15KB Target", description: "The tool automatically shrinks data density to exactly meet the 15KB cap. Use the crop tool to remove unnecessary background and improve face clarity." },
+  { title: "Download & Verify", description: "Instantly download the compliant JPG. Your file is guaranteed to pass the 15KB strict upload threshold on government servers." },
 ];
 
 const faqs = [
-  { question: "Why do I need a 15KB photo?", answer: "Many government exam portals like SSC, Railway, and state-level exams require photos under 15KB for online form submissions. Our tool ensures your photo fits perfectly." },
-  { question: "Will my photo look blurry at 15KB?", answer: "Our advanced compression algorithm balances file size and quality. While 15KB is small, we optimize the image to maintain the best possible clarity for form submissions." },
-  { question: "What image formats are supported?", answer: "You can upload JPG, JPEG, PNG, and WEBP images. The output will be in JPG format for maximum compatibility with application forms." },
+  { question: "Which exams strictly require a 15KB photo?", answer: "While central exams often use a 20KB-50KB range, many state-level Public Service Commissions (like UPPSC, BPSC), police application portals, and certain university admission forms strictly limit signatures and thumb impressions to a maximum of 15KB." },
+  { question: "How do I avoid my signature looking blurry at 15KB?", answer: "Sign on plain white paper with a thick black pen. When uploading, use our crop tool to trim all excess white space. By removing blank areas, the 15KB data limit is entirely committed to keeping the actual signature strokes sharp." },
+  { question: "My photo is 2MB. Can it really be reduced to 15KB?", answer: "Yes. Our tool aggressively downscales the resolution while stripping out non-essential image metadata. However, for a 2MB photo, we strongly recommend cropping it closely around the face first to retain recognizable details." },
 ];
 
 const relatedLinks = [
   { label: "Resize Photo to 20KB", href: "/resize-photo-20kb" },
-  { label: "Resize Photo to 30KB", href: "/photo-resize-30kb" },
-  { label: "Resize Photo by KB", href: "/photo-resize-by-kb" },
+  { label: "Resize Signature to 10KB", href: "/signature-resize-ibps" },
 ];
 
 export default function PhotoResize15KB() {

@@ -16,27 +16,26 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Target, title: "Exact 100KB Target", description: "Precisely compress your photo to 100KB — a universal size accepted by most online platforms." },
-  { icon: Check, title: "Universal Compatibility", description: "100KB is the most common photo size limit across job portals, exam forms, and registration sites." },
-  { icon: TrendingDown, title: "Excellent Quality", description: "100KB provides great image quality, making your photo look professional on any platform." },
-  { icon: Download, title: "One-Click Download", description: "Upload, compress, and download your 100KB photo in seconds. Completely free to use." },
+  { icon: Target, title: "Precision 100KB Downscaling", description: "Hits the exact 100KB sweet spot required by comprehensive job portals like Naukri, Monster, and international university applications." },
+  { icon: Check, title: "Maximum Optical Clarity", description: "At 100KB, our algorithm preserves fine details allowing profile photos and high-resolution document scans to remain easily readable." },
+  { icon: TrendingDown, title: "Perfect For Bulk Submissions", description: "Reduces heavy multi-megabyte images quickly, ideal when preparing entire portfolios of certificates for educational admissions." },
+  { icon: Download, title: "No Server Uploads", description: "Processes 100% on your local machine. Perfect for handling secure financial documents, transcripts, and personal IDs." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select any JPG, PNG, or WEBP image from your device. Any resolution or file size works." },
-  { title: "Auto-Compress to 100KB", description: "Our intelligent algorithm compresses your photo to exactly 100KB while maximizing quality." },
-  { title: "Download & Apply", description: "Download your perfectly sized 100KB photo and use it for any online form or application." },
+  { title: "Select Source Document", description: "Upload the high-resolution photo, passport scan, or certificate (JPG/PNG). The tool handles massive modern smartphone photos effortlessly." },
+  { title: "Adjust the 100KB Target", description: "The core engine will immediately squish the data size to safely sit under the 100KB ceiling. Use the live preview to verify document text readability." },
+  { title: "Save and Upload", description: "Export your final, high-quality JPG image. It is perfectly formatted and sized for immediate upload to any modern web portal." },
 ];
 
 const faqs = [
-  { question: "What platforms require 100KB photos?", answer: "Many platforms including LinkedIn, Naukri, government job portals, and university admission forms commonly require photos around 100KB. It's the most widely accepted file size limit." },
-  { question: "How is 100KB different from 50KB compression?", answer: "100KB allows nearly double the image data compared to 50KB, resulting in noticeably better quality. Choose 100KB when the platform allows it for the best visual result." },
-  { question: "Can I resize dimensions along with file size?", answer: "Yes! Our editor allows you to change width, height, crop, rotate, and adjust quality — all while ensuring the final file is exactly 100KB." },
+  { question: "Why is 100KB the standard for most job portals?", answer: "100KB offers the perfect balance. It is small enough to load instantly on corporate servers, saving bandwidth, but large enough to clearly read scanned text on certificates and verify applicant facial features." },
+  { question: "Can I compress a 5MB smartphone photo down to 100KB?", answer: "Absolutely. Modern smartphones take massive photos. Our tool will heavily compress the resolution and adjust the quality matrix to achieve a sub-100KB file. For best results on documents, crop out any backgrounds first." },
+  { question: "Does this tool work for PDF to 100KB JPG conversion?", answer: "Currently, this specific tool is designed for image inputs (JPG/PNG/WEBP). If you scan a document, make sure to save the scan export as a JPG rather than PDF so our tool can effectively compress it." },
 ];
 
 const relatedLinks = [
   { label: "Resize Photo to 50KB", href: "/resize-photo-50kb" },
-  { label: "Resize Photo to 150KB", href: "/photo-resize-150kb" },
   { label: "Resize Photo to 200KB", href: "/photo-resize-200kb" },
 ];
 

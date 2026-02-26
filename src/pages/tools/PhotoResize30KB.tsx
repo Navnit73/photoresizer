@@ -16,27 +16,26 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Target, title: "Precise 30KB Output", description: "Intelligent compression delivers exactly 30KB file size while maintaining optimal image quality." },
-  { icon: Check, title: "Application Ready", description: "Ideal for online job applications, exam forms, and portals that require photos under 30KB." },
-  { icon: TrendingDown, title: "Smart Compression", description: "Our algorithm finds the perfect balance between 30KB file size and visual clarity." },
-  { icon: Download, title: "Free & Instant", description: "Compress your photo to 30KB in seconds. No signup needed, completely free to use." },
+  { icon: Target, title: "State Portal Ready 30KB Target", description: "Specifically tuned to hit the exact 30KB maximum required by dozens of state government portals (like BPSC and APPSC) for signatures and photographs." },
+  { icon: Check, title: "Preserves Detail & Texture", description: "At 30KB, our engine retains crucial biometric data—such as facial features and the distinct ink-flow patterns of scanned signatures." },
+  { icon: TrendingDown, title: "Aggressive Auto-Tuning", description: "Takes a standard 1MB smartphone photo and intelligently compresses it by over 95% without letting the image degrade into unrecognizable pixel blocks." },
+  { icon: Download, title: "Zero Upload Risk", description: "Don't upload your private passport photo to random servers. Our tool compresses the photo entirely within your browser for absolute data security." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select any JPG, PNG, or WEBP image from your device. Any size or resolution accepted." },
-  { title: "Auto-Compress to 30KB", description: "Our smart engine automatically compresses your image to exactly 30KB with best possible quality." },
-  { title: "Download & Use", description: "Download your 30KB photo instantly and submit it to any application form or portal." },
+  { title: "Select Photograph or Signature", description: "Upload your high-res digital photo or scanned signature. Wait a second for the engine to load it into the local preview." },
+  { title: "Force 30KB Compression", description: "The system will immediately calculate the exact compression ratio needed to squeeze the file down to 30KB or less." },
+  { title: "Save Compliant File", description: "Instantly download the optimized JPG and upload it to your application form. Guaranteed to bypass 'file too large' errors." },
 ];
 
 const faqs = [
-  { question: "Which applications require a 30KB photo?", answer: "Many state government job portals, university admission forms, and competitive exam applications specify a 30KB photo size limit. Our tool ensures exact compliance." },
-  { question: "Can I resize a large photo to 30KB?", answer: "Yes! Our tool can compress photos of any size down to exactly 30KB. It works with files from your phone camera, DSLR, or any source." },
-  { question: "Is the 30KB photo suitable for printing?", answer: "30KB photos are optimized for digital form submissions. For printing purposes, we recommend using a larger file size to maintain print quality." },
+  { question: "Why do so many forms ask specifically for a 30KB limit?", answer: "A 30KB limit is a legacy standard used by many older state-level government portals to save database space while theoretically retaining just enough data for a recognizable face or signature." },
+  { question: "My signature looks blurry when compressed to 30KB. What should I do?", answer: "This happens when there is too much 'white space' around your signature. Before compressing, use the crop tool in our editor to trim the image as tightly as possible around the actual ink. This forces the 30KB of data to focus only on the signature." },
+  { question: "Will compressing to 30KB change the physical dimensions of my photo?", answer: "By default, our tool only changes the data size (compression), not the physical pixel dimensions. However, if the file is extremely large to begin with, the tool may slightly downscale the resolution to safely reach the 30KB target without severe pixelation." },
 ];
 
 const relatedLinks = [
   { label: "Resize Photo to 20KB", href: "/resize-photo-20kb" },
-  { label: "Resize Photo to 40KB", href: "/photo-resize-40kb" },
   { label: "Resize Photo to 50KB", href: "/resize-photo-50kb" },
 ];
 

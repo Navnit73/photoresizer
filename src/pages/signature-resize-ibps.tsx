@@ -1,103 +1,176 @@
-import { SEO } from '@/components/SEO';
-import { EditorLayout } from '@/components/layout/EditorLayout';
+import { Helmet } from "react-helmet-async";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { useImageEditor } from "@/hooks/useImageEditor";
+import { UploadZone } from "@/components/editor/UploadZone";
+import { EditorControls } from "@/components/editor/EditorControls";
+import { InteractiveCanvas } from "@/components/editor/InteractiveCanvas";
+import { LivePreview } from "@/components/editor/LivePreview";
+import { DownloadButton } from "@/components/editor/DownloadButton";
+import { Undo2, RotateCcw } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { InternalLinks } from "@/components/shared/InternalLinks";
+
+const relatedLinks = [
+  { label: "Resize Photo to 20KB", href: "/resize-photo-20kb" },
+  { label: "SSC Photo Resizer", href: "/ssc-photo-resizer" },
+  { label: "UPSC Photo Size", href: "/upsc-photo-size" },
+];
 
 export default function SignatureResizeIBPS() {
+  const {
+    imageState,
+    isProcessing,
+    history,
+    loadImage,
+    updateDimensions,
+    setRotation,
+    setQuality,
+    setFormat,
+    applyPreset,
+    applyCrop,
+    undo,
+    processAndDownload,
+    reset,
+    lastUploadedFile,
+  } = useImageEditor();
+
   return (
     <>
-      <SEO
-        title="Signature Resize for IBPS Exam | IBPS Signature Size Tool"
-        description="Free signature resize tool for IBPS PO, Clerk, RRB and banking exams. Resize and compress signature image as per IBPS requirements."
-      />
+      <Helmet>
+        <title>Signature Resize for IBPS Exam | IBPS Signature Size Tool</title>
+        <meta
+          name="description"
+          content="Free signature resize tool for IBPS PO, Clerk, RRB and banking exams. Resize and compress signature image as per IBPS requirements."
+        />
+        <link rel="canonical" href="https://www.photoresizer.co.in/signature-resize-ibps" />
+      </Helmet>
 
-      <main>
-        {/* ================= SEO CONTENT (SR ONLY) ================= */}
-        <article className="sr-only">
-          <h1>Signature Resize Tool for IBPS Exams</h1>
- <p >
-          This online photo resizer and photo compressor helps you resize and compress images easily for government and exam forms in India. Using this photo resizer online, you can adjust image size in KB, pixel, or cm, making it ideal for photo resizer 20KB, photo resizer 50KB, photo resizer 100KB, and exact requirements like PAN card photo resizer, SSC photo resizer, UPSC photo resizer, TNPSC photo compressor, Aadhaar photo resize, and passport photo resizer online. The tool also works as a powerful photo compressor in KB, allowing you to compress images to 10KB, 15KB, 20KB, 30KB, 40KB, 50KB, 100KB, 200KB, or even 500KB, making it a reliable online photo compressor and image size reducer in India. Whether you need a JPG photo compressor, JPEG to JPG converter, JPG to JPEG converter, or a fast online image resizer free, this tool ensures accurate compression, high quality, and instant download—without uploads or watermarks.
-        </p>
-          <p>
-            The IBPS Signature Resize Tool helps candidates resize and compress
-            their signature images for IBPS PO, IBPS Clerk, IBPS RRB Officer,
-            Office Assistant, and other banking examinations. Upload your
-            signature image and adjust its dimensions and file size exactly as
-            required by IBPS without losing clarity.
-          </p>
+      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
+        <Header />
 
-          <h2>IBPS Signature Size Requirements</h2>
-          <p>
-            The Institute of Banking Personnel Selection (IBPS) specifies strict
-            signature upload guidelines for all online application forms.
-            Signatures must be uploaded in a prescribed dimension and file size,
-            usually within a few kilobytes. If the uploaded signature does not
-            meet these requirements, the application may be rejected.
-          </p>
+        <main className="flex-1">
+          {/* ================= EDITOR UI ================= */}
+          <section className="py-12 md:py-16">
+            <div className="container px-2 sm:px-4">
+              <div className="max-w-4xl mx-auto text-center mb-8">
+                <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+                  Signature Resize Tool for IBPS Exams
+                </h1>
+                <p className="text-lg text-slate-600 dark:text-slate-300">
+                  Instantly scale, crop, and compress your signature scan to meet rigid IBPS and banking application portal restrictions.
+                </p>
+              </div>
 
-          <p>
-            This online IBPS signature resizer allows you to resize signature
-            images to the correct width and height, compress them to the required
-            KB size, and download them instantly.
-          </p>
+              {!imageState.originalUrl ? (
+                <div key="upload" className="max-w-2xl mx-auto animate-[fadeInUp_0.5s_ease-out]">
+                  <UploadZone onFileSelect={loadImage} recentFile={lastUploadedFile} />
+                </div>
+              ) : (
+                <div key="editor" className="space-y-3 animate-[fadeIn_0.5s_ease-out]">
+                  <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div className="flex items-center gap-2">
+                      {history.length > 1 && (
+                        <Button variant="ghost" size="sm" onClick={undo}>
+                          <Undo2 className="w-3.5 h-3.5 mr-1" />
+                          Undo
+                        </Button>
+                      )}
+                      <Button variant="ghost" size="sm" onClick={reset}>
+                        <RotateCcw className="w-3.5 h-3.5 mr-1" />
+                        Reset
+                      </Button>
+                    </div>
+                  </div>
 
-          <h2>Banking Exams Supported</h2>
-          <p>
-            This tool can be used for signature resizing for IBPS PO, IBPS Clerk,
-            IBPS RRB Officer Scale I, II, III, Office Assistant, SBI PO, SBI
-            Clerk, and other banking and government recruitment exams that follow
-            similar upload rules.
-          </p>
+                  <div className="grid lg:grid-cols-[400px_1fr] gap-3">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 lg:sticky lg:top-20 max-h-[85vh] overflow-y-auto">
+                      <EditorControls
+                        imageState={imageState}
+                        isProcessing={isProcessing}
+                        onUpdateDimensions={updateDimensions}
+                        onRotate={setRotation}
+                        onQualityChange={setQuality}
+                        onFormatChange={setFormat}
+                        onApplyPreset={applyPreset}
+                      />
+                    </div>
 
-          <h2>How to Resize Signature for IBPS Online Form</h2>
-          <p>
-            To resize your signature for IBPS exams, upload a clear image of
-            your signature, adjust the dimensions according to IBPS guidelines,
-            reduce the file size to the required KB limit, and download the
-            optimized image. The entire process happens locally in your browser
-            without uploading your image to any server.
-          </p>
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
+                      <div className="hidden lg:grid lg:grid-cols-2 gap-2">
+                        <div>
+                          <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                        </div>
+                        <div>
+                          <DownloadButton onDownload={processAndDownload} />
+                          <LivePreview imageState={imageState} />
+                        </div>
+                      </div>
+                      <div className="block lg:hidden space-y-3">
+                        <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                        <LivePreview imageState={imageState} />
+                        <DownloadButton onDownload={processAndDownload} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
 
-          <h2>Why Use This IBPS Signature Resize Tool</h2>
-          <p>
-            This IBPS signature resizer is free to use and works entirely on the
-            client side, ensuring complete privacy. Your signature image is not
-            stored or shared. The tool supports JPG, JPEG, PNG, and WEBP formats
-            and allows precise control over file size and quality.
-          </p>
+          {/* ================= SEO CONTENT ================= */}
+          <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">
+            <h2>Perfect Your IBPS Signature Scan</h2>
+            <p>
+              The IBPS Signature Resize Tool helps candidates manually prepare their signature images for IBPS PO, IBPS Clerk, IBPS RRB Officer, Office Assistant, and other banking examinations. Most modern smartphone cameras capture photos at sizes far exceeding what banking portables permit. Upload your signature image and adjust its dimensions and file size exactly as required by IBPS without losing the clarity of the ink or paper.
+            </p>
 
-          <h2>Common Problems While Uploading Signature</h2>
-          <p>
-            Many candidates face issues such as “invalid file size,” “incorrect
-            dimensions,” or “upload failed” while submitting IBPS forms. These
-            errors usually occur due to incorrect image size or excessive file
-            weight. Using a dedicated signature resize tool helps eliminate
-            these problems instantly.
-          </p>
+            <h3>Strict IBPS Signature Size Requirements</h3>
+            <p>
+              The Institute of Banking Personnel Selection (IBPS) specifies strict signature upload guidelines for all online application forms. 
+              Signatures must be uploaded in a prescribed physical dimension and compressed heavily into just a few kilobytes. 
+              If the uploaded signature is blurry, cropped weirdly, or exceeds these file constraints, the automated portal will flatly reject the upload.
+            </p>
 
-          <h2>Is This Tool Safe for IBPS Forms?</h2>
-          <p>
-            Yes. All image processing is done inside your browser. Your signature
-            is never uploaded to any server, making this tool completely safe
-            and suitable for official exam applications.
-          </p>
+            <h3>Banking Exams Supported</h3>
+            <p>
+              You can leverage this dedicated tool for signature resizing for:
+            </p>
+            <ul>
+              <li>IBPS PO & IBPS Clerk</li>
+              <li>IBPS RRB Officer Scale I, II, III & Office Assistant</li>
+              <li>SBI PO & SBI Clerk applications</li>
+              <li>RBI Grade-B and Assistant portals</li>
+            </ul>
 
-          <h2>Who Can Use This Tool</h2>
-          <p>
-            This tool is useful for banking aspirants, government exam
-            candidates, and job applicants who need to resize their signature
-            images according to official form requirements.
-          </p>
+            <h3>How to Resize Signature for IBPS Online Forms</h3>
+            <ol>
+              <li>
+                Upload a clear image of your handwritten signature signed strictly on white paper using black or dark blue ink.
+              </li>
+              <li>
+                Use the cropping tools to remove excess white border. The signature should take up the vast majority of the frame.
+              </li>
+              <li>
+                Adjust the quality slider until the live MB/KB counter rests comfortably below the limit established in your banking job notification text (usually 10KB to 20KB).
+              </li>
+              <li>
+                Download the processed JPEG and safely upload it to the IBPS portal. The process runs 100% inside your Google Chrome or Safari browser, so no sensitive files ping our servers.
+              </li>
+            </ol>
 
-          <h2>Free IBPS Signature Resize Online</h2>
-          <p>
-            Resize your IBPS signature online for free without watermark,
-            registration, or login. Get perfectly sized signature images for
-            IBPS and other banking exams in seconds.
-          </p>
-        </article>
+            <h3>Common Upload Rejections Avoided</h3>
+            <p>
+              Aspirants commonly face immediate rejection alerts ranging from "invalid file format," "incorrect dimensions," or "file size exceeded" when racing to submit IBPS forms. 
+              Scaling down a photo manually without retaining proportions often results in squished handwriting that validators deem illegible. Using a mathematically sound scale-and-compress tool locks proportions in place while stripping away unnecessary visual data bytes.
+            </p>
+          </article>
 
-        {/* ================= ACTUAL UI ================= */}
-        <EditorLayout />
-      </main>
+          <InternalLinks links={relatedLinks} />
+        </main>
+        
+        <Footer />
+      </div>
     </>
   );
 }

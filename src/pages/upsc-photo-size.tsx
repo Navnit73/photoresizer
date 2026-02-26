@@ -1,96 +1,177 @@
-import { SEO } from '@/components/SEO';
-import { EditorLayout } from '@/components/layout/EditorLayout';
+import { Helmet } from "react-helmet-async";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { useImageEditor } from "@/hooks/useImageEditor";
+import { UploadZone } from "@/components/editor/UploadZone";
+import { EditorControls } from "@/components/editor/EditorControls";
+import { InteractiveCanvas } from "@/components/editor/InteractiveCanvas";
+import { LivePreview } from "@/components/editor/LivePreview";
+import { DownloadButton } from "@/components/editor/DownloadButton";
+import { Undo2, RotateCcw } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { InternalLinks } from "@/components/shared/InternalLinks";
+
+const relatedLinks = [
+  { label: "Resize Photo to 20KB", href: "/resize-photo-20kb" },
+  { label: "SSC Photo Resizer", href: "/ssc-photo-resizer" },
+  { label: "IBPS Signature Resize", href: "/signature-resize-ibps" },
+];
 
 export default function UPSCPhotoSize() {
+  const {
+    imageState,
+    isProcessing,
+    history,
+    loadImage,
+    updateDimensions,
+    setRotation,
+    setQuality,
+    setFormat,
+    applyPreset,
+    applyCrop,
+    undo,
+    processAndDownload,
+    reset,
+    lastUploadedFile,
+  } = useImageEditor();
+
   return (
     <>
-      <SEO
-        title="UPSC Exam Photo Size & Dimensions | UPSC Photo Resizer Online"
-        description="Check UPSC exam photo dimensions and resize photo online for UPSC CSE, CDS, NDA and other exams. Compress to required size without quality loss."
-      />
+      <Helmet>
+        <title>UPSC Exam Photo Size & Dimensions | UPSC Photo Resizer Online</title>
+        <meta
+          name="description"
+          content="Check UPSC exam photo dimensions and resize photo online for UPSC CSE, CDS, NDA and other exams. Compress to required size without quality loss."
+        />
+        <link rel="canonical" href="https://www.photoresizer.co.in/upsc-photo-size" />
+      </Helmet>
 
-      <main>
-        {/* ================= SEO CONTENT (SR ONLY) ================= */}
-        <article className="sr-only">
-          <h1>UPSC Exam Photo Size and Dimension Tool</h1>
- <p >
-          This online photo resizer and photo compressor helps you resize and compress images easily for government and exam forms in India. Using this photo resizer online, you can adjust image size in KB, pixel, or cm, making it ideal for photo resizer 20KB, photo resizer 50KB, photo resizer 100KB, and exact requirements like PAN card photo resizer, SSC photo resizer, UPSC photo resizer, TNPSC photo compressor, Aadhaar photo resize, and passport photo resizer online. The tool also works as a powerful photo compressor in KB, allowing you to compress images to 10KB, 15KB, 20KB, 30KB, 40KB, 50KB, 100KB, 200KB, or even 500KB, making it a reliable online photo compressor and image size reducer in India. Whether you need a JPG photo compressor, JPEG to JPG converter, JPG to JPEG converter, or a fast online image resizer free, this tool ensures accurate compression, high quality, and instant download—without uploads or watermarks.
-        </p>
-          <p>
-            The UPSC Photo Size Tool is designed for candidates applying to UPSC
-            exams such as Civil Services (CSE), CDS, NDA, and other recruitment
-            exams. Upload your photo to resize it to exact dimensions and
-            compress it to meet UPSC file size requirements without losing image
-            quality.
-          </p>
+      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
+        <Header />
 
-          <h2>UPSC Photo Size & Dimensions Requirements</h2>
-          <p>
-            UPSC specifies precise photo dimensions and file size for online
-            applications. Uploading an incorrect photo may lead to application
-            rejection. Typically, the requirements include:
-          </p>
-          <ul>
-            <li>Passport-size photo (usually 3.5 x 4.5 cm / 413 x 531 pixels)</li>
-            <li>File size: usually between 20KB to 50KB depending on exam</li>
-            <li>Format: JPG, JPEG, PNG</li>
-          </ul>
+        <main className="flex-1">
+          {/* ================= EDITOR UI ================= */}
+          <section className="py-12 md:py-16">
+            <div className="container px-2 sm:px-4">
+              <div className="max-w-4xl mx-auto text-center mb-8">
+                <h1 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+                  UPSC Exam Photo Size & Dimension Tool
+                </h1>
+                <p className="text-lg text-slate-600 dark:text-slate-300">
+                  Easily resize and compress your photo for UPSC Civil Services, CDS, NDA and other recruitment exams.
+                </p>
+              </div>
 
-          <h2>How to Resize UPSC Photos Online</h2>
-          <p>
-            Upload your photo using this tool, select the correct dimensions and
-            file size, and download the optimized image. The live preview helps
-            you ensure that the photo remains sharp and complies with UPSC
-            guidelines. No server upload is required — everything happens in your
-            browser.
-          </p>
+              {!imageState.originalUrl ? (
+                <div key="upload" className="max-w-2xl mx-auto animate-[fadeInUp_0.5s_ease-out]">
+                  <UploadZone onFileSelect={loadImage} recentFile={lastUploadedFile} />
+                </div>
+              ) : (
+                <div key="editor" className="space-y-3 animate-[fadeIn_0.5s_ease-out]">
+                  <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div className="flex items-center gap-2">
+                      {history.length > 1 && (
+                        <Button variant="ghost" size="sm" onClick={undo}>
+                          <Undo2 className="w-3.5 h-3.5 mr-1" />
+                          Undo
+                        </Button>
+                      )}
+                      <Button variant="ghost" size="sm" onClick={reset}>
+                        <RotateCcw className="w-3.5 h-3.5 mr-1" />
+                        Reset
+                      </Button>
+                    </div>
+                  </div>
 
-          <h2>Supported UPSC Exams</h2>
-          <p>
-            This UPSC photo resizer works for a variety of exams:
-          </p>
-          <ul>
-            <li>UPSC Civil Services Examination (CSE)</li>
-            <li>UPSC Combined Defence Services (CDS)</li>
-            <li>National Defence Academy (NDA)</li>
-            <li>UPSC CAPF, CMS, and other UPSC recruitment exams</li>
-          </ul>
+                  <div className="grid lg:grid-cols-[400px_1fr] gap-3">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 lg:sticky lg:top-20 max-h-[85vh] overflow-y-auto">
+                      <EditorControls
+                        imageState={imageState}
+                        isProcessing={isProcessing}
+                        onUpdateDimensions={updateDimensions}
+                        onRotate={setRotation}
+                        onQualityChange={setQuality}
+                        onFormatChange={setFormat}
+                        onApplyPreset={applyPreset}
+                      />
+                    </div>
 
-          <h2>Why Use This UPSC Photo Resizer</h2>
-          <p>
-            - Free and fast online tool<br />
-            - Maintains image quality while compressing<br />
-            - Supports JPG, PNG, and WEBP formats<br />
-            - Live preview while resizing<br />
-            - Eliminates errors like "file too large" or wrong dimensions<br />
-            - Client-side processing ensures privacy
-          </p>
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
+                      <div className="hidden lg:grid lg:grid-cols-2 gap-2">
+                        <div>
+                          <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                        </div>
+                        <div>
+                          <DownloadButton onDownload={processAndDownload} />
+                          <LivePreview imageState={imageState} />
+                        </div>
+                      </div>
+                      <div className="block lg:hidden space-y-3">
+                        <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                        <LivePreview imageState={imageState} />
+                        <DownloadButton onDownload={processAndDownload} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
 
-          <h2>Common Issues Resolved</h2>
-          <p>
-            Candidates often upload photos that are either too large, too small,
-            or in the wrong format. This tool ensures compliance with UPSC
-            requirements, preventing rejection during the application process.
-          </p>
+          {/* ================= SEO CONTENT ================= */}
+          <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">
+            <h2>Perfect Your UPSC Exam Photo</h2>
+            <p>
+              The UPSC (Union Public Service Commission) sets precise standards for candidate photographs. 
+              Submitting a photo that fails to meet their strict physical dimension and file-size specifications 
+              can lead directly to the rejection of your application. The UPSC Photo Size Tool simplifies this process 
+              for candidates applying to the Civil Services (CSE), CDS, NDA, and other recruitment exams.
+            </p>
 
-          <h2>Privacy & Security</h2>
-          <p>
-            All photo processing occurs locally in your browser. Your images are
-            never uploaded to a server, guaranteeing complete privacy for official
-            applications.
-          </p>
+            <h3>UPSC Photo Size & Dimensions Requirements</h3>
+            <p>
+              UPSC requires standard passport-sized dimensions, but with strictly capped physical file sizes. Ensure your final image matches the following requirements:
+            </p>
+            <ul>
+              <li><strong>Dimensions:</strong> Typically 3.5 cm (width) x 4.5 cm (height) or 413 x 531 pixels.</li>
+              <li><strong>File size:</strong> Guaranteed between 20KB to 50KB, depending on the specific exam notice.</li>
+              <li><strong>Format:</strong> Must be JPG or JPEG format.</li>
+              <li><strong>Clarity:</strong> Face must occupy 70-80% of the frame, with a clear standard white or light-colored background.</li>
+            </ul>
 
-          <h2>Get Started Now</h2>
-          <p>
-            Upload your photo, adjust dimensions and file size according to UPSC
-            guidelines, and download the ready-to-upload image instantly. Ensure
-            your application photo is fully compliant with UPSC standards.
-          </p>
-        </article>
+            <h3>Supported UPSC Exams</h3>
+            <p>
+              Our automated resizer handles correct specifications for:
+            </p>
+            <ul>
+              <li>UPSC Civil Services Examination (CSE)</li>
+              <li>UPSC Combined Defence Services (CDS)</li>
+              <li>National Defence Academy (NDA)</li>
+              <li>UPSC CAPF, CMS, and other technical requirements</li>
+            </ul>
 
-        {/* ================= ACTUAL UI ================= */}
-        <EditorLayout />
-      </main>
+            <h3>How to Resize UPSC photos Online</h3>
+            <ol>
+              <li>
+                <strong>Upload:</strong> Select your high-resolution original image from your device.
+              </li>
+              <li>
+                <strong>Crop and Scale:</strong> The editor natively constrains the aspect ratio. Align your face comfortably within the preview canvas.
+              </li>
+              <li>
+                <strong>Compress:</strong> Set the target size slider below 50KB (or as stated strictly in your exam notice). The algorithm reduces file weight without destroying visual clarity.
+              </li>
+              <li>
+                <strong>Download Safely:</strong> The processed JPEG saves directly to your computer. No data is stored on external servers, protecting your sensitive personal identifiable information.
+              </li>
+            </ol>
+          </article>
+
+          <InternalLinks links={relatedLinks} />
+        </main>
+        
+        <Footer />
+      </div>
     </>
   );
 }

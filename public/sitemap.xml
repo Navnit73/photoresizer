@@ -1,104 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Home -->
   <url>
     <loc>https://www.photoresizer.co.in/</loc>
     <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- Static Pages -->
   <url>
-    <loc>https://www.photoresizer.co.in/about</loc>
+    <loc>https://www.photoresizer.co.in/compress-image</loc>
     <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.photoresizer.co.in/faq</loc>
+    <loc>https://www.photoresizer.co.in/jpeg-to-jpg</loc>
     <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://www.photoresizer.co.in/jpg-to-png</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.photoresizer.co.in/passport-photo-editor</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.photoresizer.co.in/ssc-photo-resizer</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.photoresizer.co.in/resize-photo-20kb</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <url>
     <loc>https://www.photoresizer.co.in/blog</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- Tools -->
   <url>
-    <loc>https://www.photoresizer.co.in/compress-image</loc>
-    <lastmod>2026-02-08</lastmod>
+    <loc>https://www.photoresizer.co.in/how-to-resize-photo</loc>
+    <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://www.photoresizer.co.in/jpeg-to-jpg</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.photoresizer.co.in/jpg-to-png</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.photoresizer.co.in/resize-photo-20kb</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.photoresizer.co.in/passport-photo-editor</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.photoresizer.co.in/ssc-photo-resizer</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
   <url>
     <loc>https://www.photoresizer.co.in/upsc-photo-size</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/signature-resize-ibps</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/reduce-photo-size-50kb</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
-
-  <!-- Legal -->
-  <url>
-    <loc>https://www.photoresizer.co.in/privacy-policy</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.photoresizer.co.in/terms-of-service</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <!-- Blog Posts -->
   <url>
     <loc>https://www.photoresizer.co.in/resize-left-thumb-impression-ibps</loc>
     <lastmod>2026-02-08</lastmod>
@@ -201,101 +177,120 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- New SEO Tools -->
+
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-15kb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-30kb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-40kb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-100kb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-150kb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-200kb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-500kb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-1mb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-2mb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-mb-to-kb</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-dpi</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-pdf</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-bulk</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-for-instagram</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.photoresizer.co.in/photo-resize-app</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.photoresizer.co.in/about</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.photoresizer.co.in/how-to-resize-photo</loc>
-    <lastmod>2026-02-13</lastmod>
+    <loc>https://www.photoresizer.co.in/faq</loc>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.photoresizer.co.in/privacy-policy</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.photoresizer.co.in/terms-of-service</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Target, title: "Exact 200KB Output", description: "Compress your photo to precisely 200KB — great balance of quality and file size for most uses." },
-  { icon: Check, title: "High Quality Results", description: "200KB provides excellent visual quality, perfect for professional documents and applications." },
-  { icon: TrendingDown, title: "Smart Optimization", description: "Advanced compression technology preserves details, colors, and sharpness at 200KB." },
-  { icon: Download, title: "Free & Quick", description: "Get your 200KB photo instantly. No registration, no limits, completely free." },
+  { icon: Target, title: "Precision 200KB Scan Compression", description: "The definitive tool for compressing heavy scanned documents, mark sheets, and degree certificates to the universally accepted 200KB limit." },
+  { icon: Check, title: "Maintains Crucial Legibility", description: "Our 200KB compression threshold securely retains watermarks, fine print, and official stamps required for document verification." },
+  { icon: TrendingDown, title: "Shrinks 10MB+ Smartphone Snaps", description: "Effortlessly squish massive, multi-megabyte modern smartphone photos down to a neat 200KB package without causing aggressive artifacting." },
+  { icon: Download, title: "Secure Browser Processing", description: "Your sensitive financial records, ID proofs, and degree certificates never leave your device. Processed locally for total privacy." },
 ];
 
 const steps = [
-  { title: "Upload Your Image", description: "Select any JPG, PNG, or WEBP photo. Handles images from 1KB to 50MB or more." },
-  { title: "Auto-Compress to 200KB", description: "Our engine compresses your photo to exactly 200KB with the best quality settings." },
-  { title: "Download & Share", description: "Download your 200KB photo for documents, profiles, social media, or any purpose." },
+  { title: "Drop Your Document Here", description: "Upload a heavy scanned document, Aadhar card picture, or degree certificate. We support JPG, PNG, and camera WEBP formats." },
+  { title: "Target the 200KB Cap", description: "The editor instantly adjusts the image matrix to slide right under the 200KB limit. Need more focus? Use the crop tool to eliminate desk backgrounds." },
+  { title: "Export and Upload", description: "Download your newly formatted 200KB JPG. It is now perfectly sized to clear stringent upload limits on government and university portals." },
 ];
 
 const faqs = [
-  { question: "Is 200KB good enough for a professional photo?", answer: "Yes! 200KB provides excellent quality for digital use including professional profiles, resumes, and online forms. It's large enough to maintain clarity while being small enough for fast uploads." },
-  { question: "Can I compress multiple photos to 200KB?", answer: "Currently our tool processes one photo at a time. Upload each photo individually and download them at 200KB. For bulk processing, check out our bulk resize tool." },
-  { question: "What happens to photo EXIF data?", answer: "During compression, EXIF metadata like camera info and GPS data may be stripped to reduce file size. This also helps protect your privacy when sharing photos online." },
+  { question: "When do I need a 200KB photo or document?", answer: "A 200KB limit is heavily enforced when uploading scanned documents such as Aadhar cards, PAN cards, graduation certificates, and category certificates on portals like UPSC, SSC, and various state domicile applications." },
+  { question: "Is 200KB enough data to keep my document readable?", answer: "Yes. 200KB is plenty of data for a well-cropped document. If you upload a picture of a certificate sitting on a desk, crop out the desk first. That ensures all 200KB of data is dedicated to the text itself." },
+  { question: "Why is my PDF certificate failing to upload?", answer: "Many portals only accept image formats (JPG/JPEG) for document uploads, even if the limit is 200KB. Our tool accepts images and exports them as compliant, highly-optimized JPEGs." },
 ];
 
 const relatedLinks = [
-  { label: "Resize Photo to 150KB", href: "/photo-resize-150kb" },
-  { label: "Resize Photo to 500KB", href: "/photo-resize-500kb" },
   { label: "Resize Photo to 100KB", href: "/photo-resize-100kb" },
+  { label: "Resize Photo to 500KB", href: "/photo-resize-500kb" },
 ];
 
 export default function PhotoResize200KB() {

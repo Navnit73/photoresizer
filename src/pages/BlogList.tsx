@@ -32,7 +32,7 @@ export default function BlogList() {
   });
 
   // Helper function to get specification badge
-  const getSpecBadge = (post: any) => {
+  const getSpecBadge = (post: typeof blogData[0] & { specifications?: { totalVacancies?: string | number, fileSize?: string, dimensions?: string } }) => {
     if (post.specifications?.fileSize && post.specifications.fileSize !== "-") {
       return post.specifications.fileSize;
     }

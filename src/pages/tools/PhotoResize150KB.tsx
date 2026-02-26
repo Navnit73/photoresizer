@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Target, title: "Precise 150KB Output", description: "Compress your photo to exactly 150KB — ideal for high-quality form submissions and profiles." },
-  { icon: Check, title: "Professional Quality", description: "150KB allows sharp, detailed photos perfect for professional profiles and corporate applications." },
-  { icon: TrendingDown, title: "Smart Algorithm", description: "Our intelligent compression preserves colors, sharpness, and detail at the 150KB target." },
-  { icon: Download, title: "Instant Results", description: "Get your 150KB photo in seconds. Free, no registration, works on all devices." },
+  { icon: Target, title: "150KB Portal Standard", description: "Hit the exact 150KB requirement common on university admissions portals and mid-tier government web forms without compromising face clarity." },
+  { icon: Check, title: "Avoid Server Rejections", description: "Submitting a 151KB file to a strict portal will result in an error. Our engine mathematically locks the final output well within the 150KB ceiling." },
+  { icon: TrendingDown, title: "Retain Document Legibility", description: "Unlike extreme 20KB compression, 150KB provides enough data to keep small text on scanned ID cards and certificates highly readable." },
+  { icon: Download, title: "Private & Secure", description: "Your sensitive admission documents and ID scans are processed entirely within your browser. Nothing is uploaded to our cloud." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select any JPG, PNG, or WEBP image. Works with any file size or resolution." },
-  { title: "Auto-Compress to 150KB", description: "Our algorithm compresses your image to exactly 150KB while maintaining excellent quality." },
-  { title: "Download & Use", description: "Download your 150KB photo for use in applications, profiles, or anywhere you need it." },
+  { title: "Select Digital Scan", description: "Upload a photo of your diploma, ID card, or passport picture. Web-based processing begins immediately." },
+  { title: "Optimize and Shrink", description: "Adjust the quality slider until the live size preview drops just below 150KB. Use the dimension tool to crop away unused margins." },
+  { title: "Secure Download", description: "Save the processed JPG straight to your device. The optimized file is ready for immediate portal upload." },
 ];
 
 const faqs = [
-  { question: "When should I use 150KB instead of smaller sizes?", answer: "Use 150KB when the platform allows it. It provides significantly better quality than 50KB or 100KB options, making your photo look more professional." },
-  { question: "Can I also resize dimensions to 150KB?", answer: "Yes! Our editor lets you change width, height, crop, and rotate your photo. The compression engine ensures the final output is exactly 150KB." },
-  { question: "What file format is the 150KB output?", answer: "The output is in JPG format by default for maximum compatibility. You can also choose PNG or WEBP formats in the editor settings." },
+  { question: "Why is 150KB a common size limit for university applications?", answer: "Universities receive tens of thousands of applications simultaneously. Capping attachments at 150KB prevents their storage servers from crashing while allowing enough resolution for admissions officers to clearly read transcripts and view applicant photos." },
+  { question: "Is 150KB enough for a clear, readable document scan? ", answer: "Yes. 150KB is a 'sweet spot' for single-page documents. If you scan an A4 transcript, convert it to greyscale, and compress it to 150KB, all the text will remain razor-sharp and perfectly legible." },
+  { question: "Will compressing to 150KB change my physical document size?", answer: "No, compressing file size (KB) using quality reduction does not alter the physical dimensions (inches/cm) unless you explicitly use our resizing tool to shrink the height and width." },
 ];
 
 const relatedLinks = [
   { label: "Resize Photo to 100KB", href: "/photo-resize-100kb" },
   { label: "Resize Photo to 200KB", href: "/photo-resize-200kb" },
-  { label: "Resize Photo to 500KB", href: "/photo-resize-500kb" },
 ];
 
 export default function PhotoResize150KB() {

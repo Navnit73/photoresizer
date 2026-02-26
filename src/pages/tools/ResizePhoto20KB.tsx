@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Target, Download, Zap, FileCheck, TrendingDown } from "lucide-react";
+import { InternalLinks } from "@/components/shared/InternalLinks";
 import { FeatureCard, FeatureGrid } from "@/components/shared/FeatureCard";
 import { HowToGuide } from "@/components/shared/HowToGuide";
 import { Header } from "@/components/layout/Header";
@@ -16,38 +17,38 @@ import { Button } from "@/components/ui/button";
 const features = [
   {
     icon: Target,
-    title: "Exact 20KB Target",
-    description: "Our smart compression algorithm achieves precisely 20KB file size with optimal quality preservation.",
+    title: "Exact 20KB Passport Target",
+    description: "Our micro-compression matrix achieves precisely 20KB, passing the strict automated validators used on Indian Passport Seva and NSDL PAN portals.",
   },
   {
     icon: FileCheck,
-    title: "Government Form Ready",
-    description: "Perfect for SSC, UPSC, banking exams, passport, and other applications requiring 20KB photos.",
+    title: "Retains Biometric Data",
+    description: "Aggressive compression often ruins faces. Our tool specifically protects the eyes and facial geometry required for official ID verification.",
   },
   {
     icon: TrendingDown,
-    title: "Quality Optimization",
-    description: "Automatically finds the best quality settings to achieve 20KB while maintaining visual clarity.",
+    title: "Crushes Smartphone Snaps",
+    description: "Easily drag a 5MB phone selfie into the editor and instantly squish it down to 20KB without turning the image into an unrecognizable blur.",
   },
   {
     icon: Zap,
-    title: "Instant Processing",
-    description: "Get your 20KB photo in seconds. No upload needed, everything happens in your browser.",
+    title: "100% Client-Side Privacy",
+    description: "Your official ID photos, Aadhaar scans, and passport pictures never upload to our servers. Processing happens entirely within your web browser.",
   },
 ];
 
 const steps = [
   {
-    title: "Upload Your Photo",
-    description: "Select an image from your device. Works with JPG, JPEG, PNG files of any size.",
+    title: "Drop Your ID Photo",
+    description: "Upload your high-resolution passport photo, PAN card scan, or signature. PNG, WEBP, and JPG formats are instantly supported.",
   },
   {
-    title: "Auto-Optimize to 20KB",
-    description: "Our algorithm will automatically compress your image to exactly 20KB while maintaining the best possible quality.",
+    title: "Lock 20KB Compression",
+    description: "The browser engine calculates the necessary reduction in pixel density and metadata to safely place the file under the 20KB ceiling.",
   },
   {
-    title: "Download 20KB Photo",
-    description: "Download your perfectly optimized 20KB photo, ready for any government form or application.",
+    title: "Download & Verify",
+    description: "Save your optimized 20KB JPEG. It is immediately ready to bypass the 'File Too Large' errors on government application websites.",
   },
 ];
 
@@ -206,6 +207,45 @@ export default function ResizePhoto20KB() {
               </div>
             </div>
           </section>
+
+          {/* ================= SEO ARTICLE & FAQs ================= */}
+          <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">
+            <h2>The Importance of the 20KB Photo Limit</h2>
+            <p>
+              Applying for government jobs, academic entrance exams, or official identification documents in India almost always involves a strict digital bureaucracy. One of the most common and rigid rules is that applicant passport photos and scanned signatures must not exceed 20KB in file size. This isn't an arbitrary number; government servers handle millions of applications simultaneously. Keeping individual file sizes under 20KB prevents massive server crashes during peak application windows.
+            </p>
+
+            <h3>How to Compress a Photo to 20KB Without Losing Clarity</h3>
+            <p>
+              When dealing with such a tiny file size allowance, traditional editing software often turns your face or signature into an unrecognizable, completely blurred mosaic of pixels. Our specialized 20KB Photo Resizer uses a micro-compression matrix specifically tuned for facial recognition and text legibility. 
+            </p>
+            <p>
+              Instead of randomly dropping data, the algorithm prioritizes preserving the geometric lines of your facial features (eyes, nose, mouth) or the high-contrast strokes of ink in your signature, while aggressively stripping out unseen background metadata and simplifying uniform background colors.
+            </p>
+
+            <h3>Frequently Asked Questions (FAQ)</h3>
+            
+            <h4>What if my photo becomes completely blurry at 20KB?</h4>
+            <p>
+              Blurriness usually happens if you try to compress a massive 4K physical image directly to 20KB. Always crop the image first so only your face and a small border are visible, THEN compress. Removing the unnecessary background heavily reduces the data the compressor has to squash, leaving more "kilobytes" available for the details of your face.
+            </p>
+
+            <h4>Is there a specific dimension for a 20KB photo?</h4>
+            <p>
+              Generally, a passport photo compressed to 20KB looks best if its physical dimensions are around 200 x 230 pixels (or 3.5cm x 4.5cm). If you try to compress an image that is 2000 pixels wide down to 20KB, it will inevitably become a distorted mess.
+            </p>
+
+            <h4>Is this resizing tool free to use?</h4>
+            <p>
+              Yes, our 20KB resizer is entirely free and performs the modifications strictly on your device. Your sensitive identification images, PAN cards, and Aadhaar scans are never passed to our databases, ensuring zero risk of identity theft.
+            </p>
+          </article>
+
+          <InternalLinks links={[
+            { label: "SSC Photo Resizer", href: "/ssc-photo-resizer" },
+            { label: "UPSC Photo Size", href: "/upsc-photo-size" },
+            { label: "IBPS Signature Resize", href: "/signature-resize-ibps" },
+          ]} />
         </main>
 
         <Footer />

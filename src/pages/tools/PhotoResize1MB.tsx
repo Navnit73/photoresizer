@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Target, title: "Exact 1MB Output", description: "Compress your photo to exactly 1MB (1024KB) — ideal for email attachments and large uploads." },
-  { icon: Check, title: "Near-Original Quality", description: "1MB allows stunning image quality, preserving virtually all detail from the original photo." },
-  { icon: TrendingDown, title: "Large File Reduction", description: "Reduce 5MB-20MB photos to 1MB with minimal quality loss using smart compression." },
-  { icon: Download, title: "Instant & Free", description: "Get your 1MB photo immediately. No watermarks, no registration, works everywhere." },
+  { icon: Target, title: "1MB Document & Scan Optimizer", description: "The industry standard file size for multi-page PDFs exported as JPGs, medical records, and detailed technical drawings submitted to government web portals." },
+  { icon: Check, title: "Retains Maximum Detail", description: "Unlike harsh 50KB compression, allowing a 1MB file size means our algorithm preserves virtually 100% of the original optical clarity and text sharpness." },
+  { icon: TrendingDown, title: "Squeezes 30MB+ Camera Files", description: "Modern smartphones take massive 30MB photos. We instantly crush these down to exactly 1MB without introducing ugly pixelation or color banding." },
+  { icon: Download, title: "Instant Browser Processing", description: "Your private documents never leave your laptop. The entire 1MB compression process happens securely inside your web browser." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select any JPG, PNG, or WEBP image. Handles large camera files, screenshots, and more." },
-  { title: "Auto-Compress to 1MB", description: "Our algorithm compresses your photo to exactly 1MB (1024KB) with optimal quality settings." },
-  { title: "Download & Share", description: "Download your 1MB photo for emails, documents, presentations, or any purpose." },
+  { title: "Select Large Media", description: "Upload a heavy camera roll photo, a detailed diagram, or a high-res certificate scan. Supported formats include JPG, PNG, and modern WEBP." },
+  { title: "Hit the 1MB Target", description: "The engine intelligently strips invisible metadata and optimizes the pixel grid to sit just under the 1024KB limit while keeping visual fidelity near perfect." },
+  { title: "Export to Device", description: "Download your optimized 1MB image. It is now perfectly sized for strict corporate email attachments or HR portal uploads." },
 ];
 
 const faqs = [
-  { question: "Why would I reduce my photo to 1MB?", answer: "Email attachments, WhatsApp sharing, and many upload forms have file size limits. 1MB is large enough for excellent quality while being small enough for share easily." },
-  { question: "What's the difference between 1MB and 1024KB?", answer: "They're the same! 1MB equals 1024KB. Our tool targets exactly 1024KB to give you a precise 1MB output." },
-  { question: "Can I compress a 10MB photo to 1MB?", answer: "Absolutely! Our tool can compress photos of any size to 1MB. The algorithm automatically adjusts quality and settings to hit the exact target." },
+  { question: "Why do corporate portals ask for 1MB specifically?", answer: "1MB (or 1024KB) is large enough to contain exquisite detail for multi-page document scans or large architectural photos, while still being small enough that it won't instantly max out a company's server storage or email inbox caps." },
+  { question: "Is a 1MB photo good enough to print?", answer: "Yes. While professional billboard printers might want the untouched 20MB raw file, a well-optimized 1MB JPEG contains more than enough data to print beautifully on standard A4 or letter-sized paper." },
+  { question: "Can I compress a whole folder of images to 1MB each?", answer: "Currently, this specific tool processes one detailed image at a time to ensure maximum quality retention. For bulk jobs, check out our Bulk Resize Tool in the menu." },
 ];
 
 const relatedLinks = [
   { label: "Resize Photo to 500KB", href: "/photo-resize-500kb" },
   { label: "Resize Photo to 2MB", href: "/photo-resize-2mb" },
-  { label: "Photo Resize MB to KB", href: "/photo-resize-mb-to-kb" },
 ];
 
 export default function PhotoResize1MB() {

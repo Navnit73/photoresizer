@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Instagram, title: "Instagram Ready", description: "Resize to perfect Instagram dimensions: 1080×1080 (post), 1080×1350 (portrait), 1080×566 (landscape)." },
-  { icon: Image, title: "Story & Reels Size", description: "Get perfect 1080×1920 dimensions for Instagram Stories and Reels." },
-  { icon: Zap, title: "Profile Picture", description: "Create the perfect 320×320 Instagram profile picture with our crop tool." },
-  { icon: Download, title: "High Quality", description: "Download at optimal quality for Instagram's compression algorithm." },
+  { icon: Instagram, title: "Avoid the IG Crop Misfire", description: "Stop Instagram from butchering your photos. Natively resize images to the exact 4:5 portrait (1080x1350) or 1:1 square (1080x1080) dimensions required for maximum feed dominance." },
+  { icon: Image, title: "Reels & Story Formats", description: "Perfect the 9:16 vertical orientation (1080x1920). Use our canvas padding feature to fit wide cinematic shots seamlessly into vertical Reels covers without awkward zooming." },
+  { icon: Zap, title: "Bypass App Compression", description: "Instagram heavily crushes large images upon upload. Pre-sizing your photos with our algorithm bypasses the worst of IG's aggressive compression filters." },
+  { icon: Download, title: "No Watermarks", description: "Your aesthetic shouldn't include our logo. Export razor-sharp, watermark-free images that are instantly ready for your professional grid." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select any photo from your device. Camera photos, screenshots, or designs — all work." },
-  { title: "Choose Instagram Size", description: "Use presets for post (1:1), portrait (4:5), landscape (1.91:1), or story (9:16) dimensions." },
-  { title: "Download for Instagram", description: "Download your perfectly sized photo ready to upload directly to Instagram." },
+  { title: "Drop Media", description: "Upload your raw DSLR export or high-megapixel smartphone shot. We process dense PNGs, JPGs, and WEBPs locally." },
+  { title: "Select IG Asset Type", description: "Choose the target dimension: Feed Portrait (4:5), Square (1:1), Landscape (1.91:1), or Story/Reel Cover (9:16). Use the crop tool to compose." },
+  { title: "Export and Post", description: "Download the tailored JPG. Upload directly to the Instagram app knowing the dimensions are mathematically perfect." },
 ];
 
 const faqs = [
-  { question: "What is the best photo size for Instagram posts?", answer: "For Instagram posts, 1080×1080 pixels (square) is the standard. Portrait (1080×1350) gets more screen space. Landscape (1080×566) works for panoramic shots." },
-  { question: "What size is an Instagram Story?", answer: "Instagram Stories and Reels use 1080×1920 pixels (9:16 aspect ratio). This fills the entire phone screen for maximum impact." },
-  { question: "Does resizing affect Instagram photo quality?", answer: "If you resize to Instagram's recommended dimensions, quality will be optimal. Instagram further compresses uploads, so starting with the right size minimizes quality loss." },
+  { question: "Why do my photos look blurry after uploading to Instagram?", answer: "When you upload a massive 4K or 8K photo, Instagram applies an aggressive downscaling algorithm that often ruins sharpness. By pre-resizing your image to exactly 1080 pixels wide using our tool, you bypass Instagram's harsh secondary compression." },
+  { question: "How do I fit a landscape photo into a vertical Reel cover or Story without cropping?", answer: "In our editor, select the 9:16 aspect ratio. Instead of 'cropping' away the edges of your landscape shot, you can scale the image down to fit within the vertical frame, leaving solid color padding (or a blurred background) at the top and bottom." },
+  { question: "What is the absolute best format for maximum screen space in the main feed?", answer: "The 4:5 Portrait format (1080x1350 pixels). This orientation takes up significantly more vertical screen real estate on a smartphone compared to traditional 1:1 squares, keeping users engaged with your post longer." },
 ];
 
 const relatedLinks = [
-  { label: "Photo Resize & Crop", href: "/photo-resize-and-crop" },
-  { label: "Resize Photo by Pixel", href: "/photo-resize-pixel" },
-  { label: "Photo Resize Online", href: "/photo-resize-online" },
+  { label: "Photo Resize by Pixel", href: "/photo-resize-pixel" },
+  { label: "Photo Resize and Crop", href: "/photo-resize-and-crop" },
 ];
 
 export default function PhotoResizeForInstagram() {

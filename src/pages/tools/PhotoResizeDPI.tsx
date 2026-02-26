@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: ScanLine, title: "DPI Control", description: "Set custom DPI values — 72 for web, 150 for decent print, 300 for high-quality print." },
-  { icon: Settings, title: "Resolution Aware", description: "Understand the relationship between DPI, pixel dimensions, and print size." },
-  { icon: Zap, title: "Print Ready", description: "Ensure your photo has the correct DPI for professional printing results." },
-  { icon: Download, title: "Free & Instant", description: "Change your photo's DPI and download instantly. No registration required." },
+  { icon: ScanLine, title: "Precision DPI Targeting", description: "Instantly force your photo's metadata into strict compliance with government and print standards, including 200 DPI for standard forms or 300 DPI for high-end passports." },
+  { icon: Settings, title: "Print-Ready Export", description: "Changing DPI guarantees that physical printers reading the file know exactly how densely to pack the ink pixels, preventing blurry or oversized physical prints." },
+  { icon: Zap, title: "Combined Resize & DPI", description: "Unlike basic desktop tools, our engine lets you change the physical dimensions (e.g. 3.5cm x 4.5cm), the KB file size, and the target DPI all simultaneously." },
+  { icon: Download, title: "Local Browser Processing", description: "Your private headshots and signature scans shouldn't be uploaded to random servers. All DPI conversions happen entirely offline within your device's RAM." },
 ];
 
 const steps = [
-  { title: "Upload Your Photo", description: "Select any image. The tool will show you the current dimensions and estimated DPI." },
-  { title: "Adjust DPI Settings", description: "Set your target DPI and adjust dimensions accordingly for the desired print size." },
-  { title: "Download Optimized Photo", description: "Download your photo with the correct DPI setting for printing or digital use." },
+  { title: "Upload Source Image", description: "Select your raw passport photo, scanned signature, or digital artwork. Both low-res web images and massive DSLR files are supported." },
+  { title: "Dial in the DPI", description: "Input the exact DPI required by your publisher or application portal (typically 300 DPI for passport applications). Adjust physical dimensions if needed." },
+  { title: "Download Print File", description: "Save your optimized JPG. The new DPI metadata is now hardcoded into the file, ensuring it prints perfectly or passes automated portal checks." },
 ];
 
 const faqs = [
-  { question: "What DPI should I use for printing?", answer: "300 DPI is the standard for high-quality prints. 150 DPI is acceptable for less critical prints. 72 DPI is for screen/web use only." },
-  { question: "Does changing DPI change image quality?", answer: "Changing DPI alone doesn't alter pixels — it just changes the metadata telling the printer how large to print. However, if you resize dimensions to match a DPI target, the pixel count changes." },
-  { question: "What DPI do I need for passport photos?", answer: "Passport photos typically need 300 DPI for official print quality. Our tool can set the correct DPI along with the proper dimensions for passport submissions." },
+  { question: "Why do passport portals reject my photo for 'Incorrect DPI'?", answer: "DPI (Dots Per Inch) tells scanners and printers how dense the image should be. Government portals scan your digital file's metadata to ensure that if they ever print your photo on a physical ID card, it won't be blurry. 200 or 300 DPI is the universal official standard." },
+  { question: "Does changing a 72 DPI web photo to 300 DPI 'improve' the quality?", answer: "No. Increasing DPI simply instructs a printer to pack the existing pixels closer together, resulting in a physically smaller, denser print. It does not magically generate detail that wasn't captured by the original camera." },
+  { question: "Can I use this to prepare artwork for commercial printing?", answer: "Absolutely. Commercial printers universally require 300 DPI for crisp graphics. You can use our tool to verify and embed the 300 DPI flag into your JPGs before sending them to the print shop." },
 ];
 
 const relatedLinks = [
-  { label: "Resize Photo by Pixel", href: "/photo-resize-pixel" },
+  { label: "Resize Photo in Pixels", href: "/photo-resize-pixel" },
   { label: "Resize Photo in CM", href: "/photo-resize-cm" },
-  { label: "Resize Photo Without Quality Loss", href: "/photo-resize-without-losing-quality" },
 ];
 
 export default function PhotoResizeDPI() {

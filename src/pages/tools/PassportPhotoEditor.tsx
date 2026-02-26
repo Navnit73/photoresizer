@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Camera, Check, Globe, Shield } from "lucide-react";
+import { InternalLinks } from "@/components/shared/InternalLinks";
 import { FeatureCard, FeatureGrid } from "@/components/shared/FeatureCard";
 import { HowToGuide } from "@/components/shared/HowToGuide";
 import { Header } from "@/components/layout/Header";
@@ -209,6 +210,46 @@ export default function PassportPhotoEditor() {
               </div>
             </div>
           </section>
+
+          {/* ================= SEO ARTICLE & FAQs ================= */}
+          <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">
+            <h2>The Challenge of DIY Passport Photos</h2>
+            <p>
+              Getting a passport photo taken at a physical studio can be time-consuming and unnecessarily expensive. While modern smartphones pack incredible camera quality capable of capturing perfect portraits, the challenge lies in formatting those photos to meet strict international standards. Different countries demand entirely different ratios, biometric positioning rules, and background colors.
+            </p>
+
+            <h3>How Our Passport Photo Maker Works</h3>
+            <p>
+              Our free Passport Photo Maker takes the friction out of DIY official portraits. 
+              Instead of manually calculating millimeters to pixels and hoping for the best, our preset templates automatically enforce the exact physical ratios required by governments in India, the US, the UK, Canada, and the Schengen Area. 
+            </p>
+            <p>
+              Simply upload a well-lit photo taken against a plain wall. The editor allows you to precisely align your face using the interactive crop grid, ensuring your biometric data (like eye-to-chin distance) satisfies computerized validators used by border agencies.
+            </p>
+
+            <h3>Frequently Asked Questions (FAQ)</h3>
+            
+            <h4>Can I submit a selfie as a passport photo?</h4>
+            <p>
+              Technically yes, if it meets all the strict rules. However, <strong>do not use the front-facing "selfie" camera</strong>. Front-facing cameras often distort facial proportions (making the nose look larger), causing biometric validators to reject the photo. Have a friend take your photo using the rear camera from about 4 to 6 feet away, at eye level.
+            </p>
+
+            <h4>What color should the background be?</h4>
+            <p>
+              This strictly depends on the country. Most international passports, including the US and India, require a pure white or off-white background. The UK and Schengen countries explicitly request a light grey or cream background (to provide better contrast with standard white photographic paper).
+            </p>
+
+            <h4>Is this tool safe for official documents?</h4>
+            <p>
+              Absolutely. Our editor operates entirely within your local browser ecosystem. We do not transmit your sensitive facial identification data to any cloud storage or database, ensuring your fundamental privacy and security.
+            </p>
+          </article>
+
+          <InternalLinks links={[
+            { label: "Resize Photo to 20KB", href: "/resize-photo-20kb" },
+            { label: "Photo Resizer for Instagram", href: "/photo-resizer-for-instagram" },
+            { label: "UPSC Photo Size", href: "/upsc-photo-size" },
+          ]} />
         </main>
 
         <Footer />

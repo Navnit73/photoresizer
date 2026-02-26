@@ -10,7 +10,7 @@ import { EditorControls } from "@/components/editor/EditorControls";
 import { InteractiveCanvas } from "@/components/editor/InteractiveCanvas";
 import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
-import { ContentSections } from "@/components/sections/ContentSections";
+import { SEOContent50KB } from "@/components/sections/SEOContent50KB";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -168,7 +168,7 @@ export default function ReducePhotoSize50KB() {
           )}
 
           <div className="mt-12 sm:mt-24">
-            <ContentSections />
+            <SEOContent50KB />
           </div>
         </main>
 

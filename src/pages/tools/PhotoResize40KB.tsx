@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Target, title: "Precise 40KB Output", description: "Our algorithm compresses your photo to exactly 40KB, meeting strict form upload requirements." },
-  { icon: Check, title: "Form Compatible", description: "Optimized for government jobs, banking exams, and online applications that need 40KB photos." },
-  { icon: TrendingDown, title: "Quality Optimized", description: "Best possible image quality is maintained while hitting the exact 40KB target size." },
-  { icon: Download, title: "Quick & Free", description: "Get your 40KB photo instantly. No signup, no watermarks, 100% free online tool." },
+  { icon: Target, title: "IBPS & SBI Compliant 40KB", description: "Banks often set odd limits. Our 40KB compressor perfectly targets the strict photo and signature requirements for clerical and PO banking exams." },
+  { icon: Check, title: "Prevents 'File Too Large' Errors", description: "Takes the guesswork out of resizing. It guarantees your file will safely bypass portal errors without endless manual pixel tweaking." },
+  { icon: TrendingDown, title: "High-Contrast Text Retention", description: "When compressing handwritten declarations, we prioritize deep contrast so the text remains entirely legible at 40KB." },
+  { icon: Download, title: "Zero Data Logging", description: "Securely compress your sensitive documents and signatures offline inside your browser cache. Nothing is ever sent to a remote server." },
 ];
 
 const steps = [
-  { title: "Upload Your Image", description: "Select any JPG, PNG, or WEBP photo from your device. Supports all image sizes." },
-  { title: "Auto-Compress to 40KB", description: "Our engine automatically compresses your photo to exactly 40KB with optimal quality settings." },
-  { title: "Download & Submit", description: "Download your 40KB photo and submit it directly to any application form or portal." },
+  { title: "Select Digital Image", description: "Upload the JPG or PNG of your passport photo, handwritten declaration, or signature scan." },
+  { title: "Automated 40KB Squish", description: "Our browser-engine analyzes the pixels and applies a specialized compression curve to lock the file size squarely under the 40KB ceiling." },
+  { title: "Confirm & Download", description: "Download your processed image. It is instantly ready to be securely uploaded to your banking or government application form." },
 ];
 
 const faqs = [
-  { question: "What forms require a 40KB photo?", answer: "Many banking recruitment portals (IBPS, SBI), state public service commission forms, and various competitive exam applications require photos around 40KB." },
-  { question: "Can I adjust quality before downloading?", answer: "Yes! Our editor provides quality controls, dimension adjustments, and crop tools. The final download will target exactly 40KB regardless of your edits." },
-  { question: "Does compressing to 40KB pixelate my photo?", answer: "Our smart compression minimizes quality loss. For best results, upload a clear, well-lit photo. The algorithm prioritizes facial clarity for form submissions." },
+  { question: "Why do banking exams ask for 40KB photos?", answer: "Portals like IBPS handle millions of applications simultaneously. Capping photos at 40KB drastically reduces server strain while allowing enough pixel data for facial recognition software to function during verification." },
+  { question: "Can standard photos look good at 40KB?", answer: "Yes, provided the photo is cropped correctly. At 40KB, you should crop out all unnecessary background elements (like plain walls) so that all 40KB of data is dedicated solely to your face and shoulders." },
+  { question: "What should I do if my signature is rejected after compression?", answer: "Signatures usually require stark contrast. If you compress a faint signature, it may blur. Ensure you sign with a dark black pen on pure white paper, crop tightly, and then compress to 40KB." },
 ];
 
 const relatedLinks = [
-  { label: "Resize Photo to 30KB", href: "/photo-resize-30kb" },
+  { label: "Resize Signature (10KB-20KB)", href: "/signature-resize-ibps" },
   { label: "Resize Photo to 50KB", href: "/resize-photo-50kb" },
-  { label: "Resize Photo by KB", href: "/photo-resize-by-kb" },
 ];
 
 export default function PhotoResize40KB() {

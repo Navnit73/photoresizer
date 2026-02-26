@@ -16,28 +16,27 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
-  { icon: Layers, title: "Batch Processing", description: "Upload and resize multiple photos at once. Same settings applied to all images." },
-  { icon: Zap, title: "Fast Processing", description: "Our engine handles multiple photos quickly. All processed locally in your browser." },
-  { icon: Image, title: "Consistent Output", description: "All photos get the same dimensions and quality. Perfect for product listings and catalogs." },
-  { icon: Download, title: "Download All", description: "Download all resized photos individually. Free, no registration needed." },
+  { icon: Layers, title: "Batch Photo Resizing", description: "Scale entire folders of images down to exact e-commerce specifications in one go. Perfect for Amazon, Flipkart, or Shopify catalogs." },
+  { icon: Zap, title: "Uniform Dimensions", description: "Enforce strict aspect ratios and pixel limits across 50+ photos simultaneously so your online store grid looks perfectly aligned." },
+  { icon: Image, title: "Bulk Format Conversion", description: "Instantly convert a massive batch of heavy PNG or WEBP files into lightweight, SEO-friendly JPGs with uniform quality settings." },
+  { icon: Download, title: "Zip File Export", description: "Download your entire batch of processed photos instantly as a neatly organized ZIP file. No agonizing one-by-one saving." },
 ];
 
 const steps = [
-  { title: "Upload Multiple Photos", description: "Select multiple images from your device. Upload them one at a time to apply the same settings." },
-  { title: "Set Common Size", description: "Configure dimensions, quality, and format. These settings apply to each photo you process." },
-  { title: "Download Resized Photos", description: "Process and download each photo at the set size. Repeat for all images in your batch." },
+  { title: "Drop Folder of Photos", description: "Select multiple product photos, real estate listings, or event galleries. You can drag and drop dozens of images at once." },
+  { title: "Set Master Rules", description: "Define your target dimensions (e.g., 1000x1000px), set the maximum KB size, and choose your export format. These rules apply to the entire batch." },
+  { title: "Process and Download Zip", description: "Click process. Our local browser engine will rapidly resize every image and package them into a single, easy-to-download ZIP archive." },
 ];
 
 const faqs = [
-  { question: "Can I resize many photos at once?", answer: "Upload one photo at a time, apply your settings, download, then upload the next. The editor remembers your settings for consistent batch processing." },
-  { question: "Will all photos be the same size?", answer: "Yes! Set your desired dimensions and quality once, and each photo you process will have the same output size and settings." },
-  { question: "Is there a limit on how many photos I can resize?", answer: "No limits! Process as many photos as you need. Since everything runs in your browser, there are no server-side restrictions." },
+  { question: "Is there a limit to how many photos I can bulk resize?", answer: "Because our tool processes everything directly inside your computer's RAM (and not on a cloud server), the limit depends entirely on your device. Most modern laptops can easily handle batches of 50 to 100 photos at once." },
+  { question: "Why do e-commerce sellers need a bulk resizer?", answer: "Platforms like Amazon require product images to have specific dimensions (e.g., 1000px on the longest side) and pure white backgrounds. Resizing hundreds of product shots individually in Photoshop takes hours; our bulk tool does it in seconds." },
+  { question: "Does bulk resizing ruin EXIF metadata for photographers?", answer: "By default, our web compressor strips EXIF data to minimize file size for web uploads. If you are a photographer delivering client galleries and need to keep copyright metadata intact, we recommend using dedicated desktop software like Lightroom." },
 ];
 
 const relatedLinks = [
-  { label: "Photo Resize Online", href: "/photo-resize-online" },
-  { label: "Photo Resize Tool", href: "/photo-resize-tool" },
-  { label: "Photo Resize Free", href: "/photo-resize-free" },
+  { label: "Resize Photo to 50KB", href: "/resize-photo-50kb" },
+  { label: "Photo Resize by MB", href: "/photo-resize-mb-to-kb" },
 ];
 
 export default function PhotoResizeBulk() {
