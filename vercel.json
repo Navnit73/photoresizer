@@ -105,6 +105,11 @@
       "source": "/photo-resize-without-losing-quality",
       "destination": "/reduce-photo-size-50kb-without-quality-loss",
       "permanent": true
+    },
+    {
+      "source": "/ads.txt",
+      "destination": "https://srv.adstxtmanager.com/19390/photoresizer.co.in",
+      "permanent": false
     }
   ],
   "headers": [
