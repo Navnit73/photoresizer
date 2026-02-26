@@ -14,6 +14,7 @@ import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AmazonAd } from "@/components/shared/AmazonAd";
 
 const features = [
   { icon: Instagram, title: "Avoid the IG Crop Misfire", description: "Stop Instagram from butchering your photos. Natively resize images to the exact 4:5 portrait (1080x1350) or 1:1 square (1080x1080) dimensions required for maximum feed dominance." },
@@ -91,6 +92,10 @@ export default function PhotoResizeForInstagram() {
               )}
             </div>
           </section>
+
+          <div className="py-2">
+            <AmazonAd />
+          </div>
 
           <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
             <div className="container px-4">

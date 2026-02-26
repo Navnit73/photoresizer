@@ -14,6 +14,7 @@ import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AmazonAd } from "@/components/shared/AmazonAd";
 
 const features = [
   { icon: Target, title: "Precision 200KB Scan Compression", description: "The definitive tool for compressing heavy scanned documents, mark sheets, and degree certificates to the universally accepted 200KB limit." },
@@ -91,6 +92,10 @@ export default function PhotoResize200KB() {
               )}
             </div>
           </section>
+
+          <div className="py-2">
+            <AmazonAd />
+          </div>
 
           <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
             <div className="container px-4">

@@ -13,6 +13,7 @@ import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AmazonAd } from "@/components/shared/AmazonAd";
 
 const features = [
   {
@@ -180,6 +181,10 @@ export default function JpegToJpg() {
               )}
             </div>
           </section>
+
+          <div className="py-2">
+            <AmazonAd />
+          </div>
 
           {/* Features Section */}
           <section className="py-12 md:py-16 bg-white dark:bg-slate-800">

@@ -14,6 +14,7 @@ import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AmazonAd } from "@/components/shared/AmazonAd";
 
 const features = [
   { icon: ArrowDownToLine, title: "Universal Portal Fix", description: "Instantly solve the dreaded 'File too large' error. Convert multi-megabyte DSLR and iPhone camera photos into lightweight kilobytes." },
@@ -88,6 +89,10 @@ export default function PhotoResizeMBToKB() {
               )}
             </div>
           </section>
+
+          <div className="py-2">
+            <AmazonAd />
+          </div>
 
           <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
             <div className="container px-4">

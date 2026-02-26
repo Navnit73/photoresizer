@@ -14,6 +14,7 @@ import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AmazonAd } from "@/components/shared/AmazonAd";
 
 const features = [
   { icon: ScanLine, title: "Precision DPI Targeting", description: "Instantly force your photo's metadata into strict compliance with government and print standards, including 200 DPI for standard forms or 300 DPI for high-end passports." },
@@ -91,6 +92,10 @@ export default function PhotoResizeDPI() {
               )}
             </div>
           </section>
+
+          <div className="py-2">
+            <AmazonAd />
+          </div>
 
           <section className="py-12 md:py-16 bg-white dark:bg-slate-800">
             <div className="container px-4">

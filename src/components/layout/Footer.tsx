@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { FileImage, Shield, Zap, Globe } from "lucide-react";
 import AdUnit from "@/components/shared/AdUnit";
+import { AmazonAd } from "@/components/shared/AmazonAd";
 
 export function Footer() {
   return (
     <footer className="bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
-      {/* <div className="container px-4 py-8">
-        <AdUnit className="mb-8" />
-      </div> */}
+      {/* Amazon Text Banner Unit */}
+      <AmazonAd variant="banner" startIndex={4} />
+
       <div className="container px-4 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {/* Column 1: Photo Tools */}
@@ -144,11 +145,19 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-500">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center">
-                <FileImage className="w-4 h-4" />
+            <div className="flex flex-col items-center md:items-start gap-1">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center">
+                  <FileImage className="w-4 h-4" />
+                </div>
+                <span>© {new Date().getFullYear()} Photo Resizer. All rights reserved.</span>
               </div>
-              <span>© {new Date().getFullYear()} Photo Resizer. All rights reserved.</span>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 ml-10 hidden md:block">
+                As an Amazon Associate, I earn from qualifying purchases.
+              </p>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 md:hidden text-center">
+                As an Amazon Associate, I earn from qualifying purchases.
+              </p>
             </div>
             <p>Designed & Developed with ❤️ by Navnit Rai</p>
           </div>

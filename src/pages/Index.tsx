@@ -11,6 +11,7 @@ import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Header } from "@/components/layout/Header";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { AmazonAd } from "@/components/shared/AmazonAd";
 
 // Lazy-load below-fold content to reduce initial bundle / main-thread work
 const ContentSections = lazy(() => import("@/components/sections/ContentSections").then(m => ({ default: m.ContentSections })));
@@ -186,6 +187,8 @@ const Index = () => {
               </div>
             )}
         </main>
+
+        <AmazonAd />
 
         <Suspense fallback={null}>
           <ContentSections />
