@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { blogData } from '../src/data/blogData';
 
-const SITEMAP_PATH = path.join(__dirname, '../public/sitemap.xml');
+const SITEMAP_PATH = path.join(import.meta.dirname, '../public/sitemap.xml');
 const BASE_URL = 'https://www.photoresizer.co.in';
 
 const staticPages = [
@@ -21,6 +21,21 @@ const staticPages = [
   { path: '/upsc-photo-size', priority: '0.9', changefreq: 'monthly' },
   { path: '/signature-resize-ibps', priority: '0.8', changefreq: 'monthly' },
   { path: '/reduce-photo-size-50kb', priority: '0.9', changefreq: 'monthly' },
+  
+  // Phase 3: PDF Tools
+  { path: '/pdf-size-reducer', priority: '0.9', changefreq: 'monthly' },
+  { path: '/merge-pdf', priority: '0.9', changefreq: 'monthly' },
+  { path: '/split-pdf', priority: '0.9', changefreq: 'monthly' },
+  { path: '/jpg-to-pdf', priority: '0.9', changefreq: 'monthly' },
+  { path: '/pdf-to-jpg', priority: '0.9', changefreq: 'monthly' },
+  { path: '/pdf-editor', priority: '0.9', changefreq: 'monthly' },
+  
+  // Phase 4: Visa Tools
+  { path: '/us-visa-photo', priority: '0.9', changefreq: 'monthly' },
+  { path: '/canada-visa-photo', priority: '0.9', changefreq: 'monthly' },
+  { path: '/uk-visa-photo', priority: '0.9', changefreq: 'monthly' },
+  { path: '/australia-visa-photo', priority: '0.9', changefreq: 'monthly' },
+  
   { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
   { path: '/terms-of-service', priority: '0.3', changefreq: 'yearly' },
 ];

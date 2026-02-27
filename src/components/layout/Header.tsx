@@ -37,11 +37,22 @@ const toolsLinks = [
   { label: "JPEG to JPG", href: "/jpeg-to-jpg" },
   { label: "JPG to PNG", href: "/jpg-to-png" },
   { label: "Resize to 20KB", href: "/resize-photo-20kb" },
-  // { label: "Resize to 50KB", href: "/resize-photo-50kb" },
   { label: "Passport Photo", href: "/passport-photo-editor" },
   { label: "SSC Photo", href: "/ssc-photo-resizer" },
   { label: "UPSC Photo", href: "/upsc-photo-size" },
   { label: "IBPS Signature", href: "/signature-resize-ibps" },
+  { label: "IELTS Photo", href: "/ielts-photo-size" },
+  { label: "TOEFL Photo", href: "/toefl-photo-size" },
+  { label: "SAT Photo", href: "/sat-photo-size" },
+  { label: "PTE Photo", href: "/pte-photo-size" },
+  { label: "GRE Photo", href: "/gre-photo-size" },
+  { label: "GMAT Photo", href: "/gmat-photo-size" },
+  { label: "PDF Size Reducer", href: "/pdf-size-reducer" },
+  { label: "Merge PDF", href: "/merge-pdf" },
+  { label: "Split PDF", href: "/split-pdf" },
+  { label: "JPG to PDF", href: "/jpg-to-pdf" },
+  { label: "PDF to JPG", href: "/pdf-to-jpg" },
+
 ];
 
 export function Header() {

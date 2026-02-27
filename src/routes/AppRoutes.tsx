@@ -18,6 +18,28 @@ const JpgToPng = lazy(() => import('@/pages/tools/JpgToPng'));
 const ResizePhoto20KB = lazy(() => import('@/pages/tools/ResizePhoto20KB'));
 const PassportPhotoEditor = lazy(() => import('@/pages/tools/PassportPhotoEditor'));
 
+// Foreign Exam Pages
+const IELTSPhotoSize = lazy(() => import('@/pages/ielts-photo-size'));
+const TOEFLPhotoSize = lazy(() => import('@/pages/toefl-photo-size'));
+const SATPhotoSize = lazy(() => import('@/pages/sat-photo-size'));
+const PTEPhotoSize = lazy(() => import('@/pages/pte-photo-size'));
+const GREPhotoSize = lazy(() => import('@/pages/gre-photo-size'));
+const GMATPhotoSize = lazy(() => import('@/pages/gmat-photo-size'));
+
+// Visa Photo Tools
+const UsVisaPhoto = lazy(() => import('@/pages/us-visa-photo'));
+const CanadaVisaPhoto = lazy(() => import('@/pages/canada-visa-photo'));
+const UkVisaPhoto = lazy(() => import('@/pages/uk-visa-photo'));
+const AustraliaVisaPhoto = lazy(() => import('@/pages/australia-visa-photo'));
+
+// PDF Tools
+const PdfSizeReducer = lazy(() => import('@/pages/tools/PdfSizeReducer'));
+const MergePdf = lazy(() => import('@/pages/tools/MergePdf'));
+const SplitPdf = lazy(() => import('@/pages/tools/SplitPdf'));
+const JpgToPdf = lazy(() => import('@/pages/tools/JpgToPdf'));
+const PdfToJpg = lazy(() => import('@/pages/tools/PdfToJpg'));
+// const PdfEditor = lazy(() => import('@/pages/tools/PdfEditor'));
+
 // Programmatic SEO pages – KB targets
 const PhotoResize15KB = lazy(() => import('@/pages/tools/PhotoResize15KB'));
 const PhotoResize30KB = lazy(() => import('@/pages/tools/PhotoResize30KB'));
@@ -79,6 +101,28 @@ export function AppRoutes() {
         <Route path="/jpg-to-png" element={<JpgToPng />} />
         <Route path="/resize-photo-20kb" element={<ResizePhoto20KB />} />
         <Route path="/passport-photo-editor" element={<PassportPhotoEditor />} />
+        
+        {/* Foreign Exam SEO Pages */}
+        <Route path="/ielts-photo-size" element={<IELTSPhotoSize />} />
+        <Route path="/toefl-photo-size" element={<TOEFLPhotoSize />} />
+        <Route path="/sat-photo-size" element={<SATPhotoSize />} />
+        <Route path="/pte-photo-size" element={<PTEPhotoSize />} />
+        <Route path="/gre-photo-size" element={<GREPhotoSize />} />
+        <Route path="/gmat-photo-size" element={<GMATPhotoSize />} />
+
+        {/* Visa Photo Tools */}
+        <Route path="/us-visa-photo" element={<UsVisaPhoto />} />
+        <Route path="/canada-visa-photo" element={<CanadaVisaPhoto />} />
+        <Route path="/uk-visa-photo" element={<UkVisaPhoto />} />
+        <Route path="/australia-visa-photo" element={<AustraliaVisaPhoto />} />
+        
+        {/* PDF Tools */}
+        <Route path="/pdf-size-reducer" element={<PdfSizeReducer />} />
+        <Route path="/merge-pdf" element={<MergePdf />} />
+        <Route path="/split-pdf" element={<SplitPdf />} />
+        <Route path="/jpg-to-pdf" element={<JpgToPdf />} />
+        <Route path="/pdf-to-jpg" element={<PdfToJpg />} />
+        {/* <Route path="/pdf-editor" element={<PdfEditor />} /> */}
         
         {/* Programmatic SEO pages – KB targets */}
         <Route path="/photo-resize-15kb" element={<PhotoResize15KB />} />
