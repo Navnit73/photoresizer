@@ -14,8 +14,8 @@ interface SEOProps {
 }
 
 export function SEO({
-  title = "Free Photo Resizer for SSC, UPSC & Government Exam Forms Online",
-  description = "Resize and compress photos for SSC, UPSC, IBPS, Banking, Railway and all government exams. Reduce photo size to 20KB, 50KB or exact dimensions like 200x230px. Supports Passport, PAN, Aadhaar, Visa photos. 100% free & private.",
+  title = "Free Photo Resizer, Compressor & Editor for SSC, UPSC & Exams",
+  description = "Free online photo resizer, compressor and image editor for SSC, UPSC, IBPS, Banking, Railway and all government exams. Reduce photo size to 20KB, 50KB or exact dimensions like 200x230px. Supports Passport, PAN, Aadhaar, Visa photos. 100% free & private.",
   type = 'website',
   image = "https://www.photoresizer.co.in/og-image.png", // Default OG Image
   url,

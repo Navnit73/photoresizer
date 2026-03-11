@@ -69,6 +69,7 @@ const TermsOfService = lazy(() => import('@/pages/legal/TermsOfService'));
 // Info pages
 const About = lazy(() => import('@/pages/About'));
 const FAQ = lazy(() => import('@/pages/FAQ'));
+const Contact = lazy(() => import('@/pages/Contact'));
 
 // Loading Component
 function PageLoader() {
@@ -153,6 +154,7 @@ export function AppRoutes() {
         {/* Info pages */}
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<BlogList />} />
 
         {/* Dynamic Blog Pages */}

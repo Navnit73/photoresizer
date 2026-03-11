@@ -121,6 +121,9 @@ export function Header() {
             <Link to="/about" className="header-nav-btn">
               About
             </Link>
+            <Link to="/contact" className="header-nav-btn">
+              Contact
+            </Link>
             <Link to="/faq" className="header-nav-btn">
               FAQ
             </Link>
@@ -227,6 +230,13 @@ export function Header() {
                   className="block px-5 py-3 text-sm hover:bg-slate-100"
                 >
                   About
+                </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setOpen(false)}
+                  className="block px-5 py-3 text-sm hover:bg-slate-100"
+                >
+                  Contact
                 </Link>
                 <Link
                   to="/faq"
