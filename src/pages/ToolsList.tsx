@@ -55,25 +55,7 @@ const toolCategories: {
       { name: "SSC Photo Resizer", href: "/ssc-photo-resizer", icon: FileCheck, desc: "Resize for SSC exams" },
       { name: "JPEG to JPG", href: "/jpeg-to-jpg", icon: FileType, desc: "Convert JPEG to JPG format" },
     ]
-  },
-  {
-    title: "Resize by Size (KB/MB)",
-    icon: Minimize2,
-    description: "Compress photos to specific file sizes",
-    tools: [
-      { name: "Resize to 15KB", href: "/photo-resize-15kb", icon: Minimize2 },
-      { name: "Resize to 20KB", href: "/resize-photo-20kb", icon: Minimize2 },
-      { name: "Resize to 30KB", href: "/photo-resize-30kb", icon: Minimize2 },
-      { name: "Resize to 40KB", href: "/photo-resize-40kb", icon: Minimize2 },
-      { name: "Resize to 50KB", href: "/reduce-photo-size-50kb", icon: Minimize2, badge: "Popular" },
-      { name: "Resize to 100KB", href: "/photo-resize-100kb", icon: Minimize2 },
-      { name: "Resize to 150KB", href: "/photo-resize-150kb", icon: Minimize2 },
-      { name: "Resize to 200KB", href: "/photo-resize-200kb", icon: Minimize2 },
-      { name: "Resize to 500KB", href: "/photo-resize-500kb", icon: Minimize2 },
-      { name: "Resize to 1MB", href: "/photo-resize-1mb", icon: Minimize2 },
-      { name: "Resize to 2MB", href: "/photo-resize-2mb", icon: Minimize2 },
-      { name: "Resize MB to KB", href: "/photo-resize-mb-to-kb", icon: ArrowRight },
-    ]
+
   },
   {
     title: "Resize by Dimensions",
@@ -89,7 +71,6 @@ const toolCategories: {
     tools: [
       { name: "JPEG to JPG", href: "/jpeg-to-jpg", icon: FileType },
       { name: "JPG to PNG", href: "/jpg-to-png", icon: FileImage },
-      { name: "Photo Resize PDF", href: "/photo-resize-pdf", icon: FileText },
     ]
   },
   {
@@ -101,9 +82,6 @@ const toolCategories: {
       { name: "For UPSC", href: "/upsc-photo-size", icon: GraduationCap },
       { name: "For SSC", href: "/ssc-photo-resizer", icon: FileCheck },
       { name: "IBPS Signature", href: "/signature-resize-ibps", icon: Stamp },
-      { name: "Photo Resize App", href: "/photo-resize-app", icon: Smartphone },
-      { name: "Bulk Resizer", href: "/photo-resize-bulk", icon: Layers },
-      { name: "Resize Without Quality Loss", href: "/reduce-photo-size-50kb-without-quality-loss", icon: Zap },
     ]
   }
 ];

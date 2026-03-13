@@ -105,6 +105,86 @@
       "source": "/photo-resize-without-losing-quality",
       "destination": "/reduce-photo-size-50kb-without-quality-loss",
       "permanent": true
+    },
+    {
+      "source": "/photo-resize-15kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-30kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-40kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-100kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-150kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-200kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-500kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-1mb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-2mb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-mb-to-kb",
+      "destination": "/reduce-photo-size-50kb",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-dpi",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-pdf",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-bulk",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-for-instagram",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photo-resize-app",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-resize-photo",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [

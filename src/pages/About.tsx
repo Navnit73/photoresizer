@@ -36,14 +36,25 @@ export default function About() {
               </p>
             </div>
 
-            {/* Mission */}
+            {/* Mission & Trust */}
             <section
               className="mb-16 p-10 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm animate-[fadeInUp_0.6s_ease-out_0.2s_both]"
             >
-              <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Our Mission</h2>
-              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                Photo Resizer was created to solve a common problem: getting photos to meet strict size and format requirements for government forms, job applications, and official documents. We believe everyone should have access to professional photo editing tools without compromising privacy or paying expensive subscription fees.
-              </p>
+              <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Why Trust Photo Resizer?</h2>
+              <div className="space-y-4 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                  Photo Resizer was built by a team of independent software engineers dedicated to solving the complex requirements of official government forms and exam applications. We understand that a mere pixel out of place or an extra kilobyte can result in exam application rejection.
+                </p>
+                <p>
+                  <strong>Our Expertise:</strong> We actively monitor official notifications from UPSC, SSC, IBPS, and other state commissions to ensure our presets reflect the latest guidelines. Our tool is meticulously engineered to enforce strict byte-size limits (e.g., exact 20KB to 50KB windows) while preserving the critical details of your face and signature using pure client-side web technologies.
+                </p>
+                <div className="mt-6 p-6 bg-amber-50 dark:bg-amber-900/10 border-l-4 border-amber-500 rounded-r-xl">
+                  <h3 className="text-xl font-semibold text-amber-900 dark:text-amber-500 mb-2">Important Disclaimer</h3>
+                  <p className="text-amber-800 dark:text-amber-400 text-base">
+                    While we strive for 100% accuracy in our templates, official requirements can change without notice. We are an independent educational tool and are <strong>not affiliated with any government entity</strong>. Always consult the latest official exam notification for the most current photo and signature specifications before finalizing your application.
+                  </p>
+                </div>
+              </div>
             </section>
 
             {/* Values */}

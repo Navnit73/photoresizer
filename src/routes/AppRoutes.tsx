@@ -40,27 +40,6 @@ const JpgToPdf = lazy(() => import('@/pages/tools/JpgToPdf'));
 const PdfToJpg = lazy(() => import('@/pages/tools/PdfToJpg'));
 // const PdfEditor = lazy(() => import('@/pages/tools/PdfEditor'));
 
-// Programmatic SEO pages – KB targets
-const PhotoResize15KB = lazy(() => import('@/pages/tools/PhotoResize15KB'));
-const PhotoResize30KB = lazy(() => import('@/pages/tools/PhotoResize30KB'));
-const PhotoResize40KB = lazy(() => import('@/pages/tools/PhotoResize40KB'));
-const PhotoResize100KB = lazy(() => import('@/pages/tools/PhotoResize100KB'));
-const PhotoResize150KB = lazy(() => import('@/pages/tools/PhotoResize150KB'));
-const PhotoResize200KB = lazy(() => import('@/pages/tools/PhotoResize200KB'));
-const PhotoResize500KB = lazy(() => import('@/pages/tools/PhotoResize500KB'));
-const PhotoResize1MB = lazy(() => import('@/pages/tools/PhotoResize1MB'));
-const PhotoResize2MB = lazy(() => import('@/pages/tools/PhotoResize2MB'));
-
-// Programmatic SEO pages – general/feature
-const PhotoResizeMBToKB = lazy(() => import('@/pages/tools/PhotoResizeMBToKB'));
-const PhotoResizeDPI = lazy(() => import('@/pages/tools/PhotoResizeDPI'));
-const PhotoResizePDF = lazy(() => import('@/pages/tools/PhotoResizePDF'));
-const PhotoResizeBulk = lazy(() => import('@/pages/tools/PhotoResizeBulk'));
-
-// Programmatic SEO pages – use-case specific
-const PhotoResizeForInstagram = lazy(() => import('@/pages/tools/PhotoResizeForInstagram'));
-const PhotoResizeApp = lazy(() => import('@/pages/tools/PhotoResizeApp'));
-const HowToResizePhoto = lazy(() => import('@/pages/tools/HowToResizePhoto'));
 
 // Legal pages
 const PrivacyPolicy = lazy(() => import('@/pages/legal/PrivacyPolicy'));
@@ -125,28 +104,7 @@ export function AppRoutes() {
         <Route path="/pdf-to-jpg" element={<PdfToJpg />} />
         {/* <Route path="/pdf-editor" element={<PdfEditor />} /> */}
         
-        {/* Programmatic SEO pages – KB targets */}
-        <Route path="/photo-resize-15kb" element={<PhotoResize15KB />} />
-        <Route path="/photo-resize-30kb" element={<PhotoResize30KB />} />
-        <Route path="/photo-resize-40kb" element={<PhotoResize40KB />} />
-        <Route path="/photo-resize-100kb" element={<PhotoResize100KB />} />
-        <Route path="/photo-resize-150kb" element={<PhotoResize150KB />} />
-        <Route path="/photo-resize-200kb" element={<PhotoResize200KB />} />
-        <Route path="/photo-resize-500kb" element={<PhotoResize500KB />} />
-        <Route path="/photo-resize-1mb" element={<PhotoResize1MB />} />
-        <Route path="/photo-resize-2mb" element={<PhotoResize2MB />} />
-        
-        {/* Programmatic SEO pages – general/feature */}
-        <Route path="/photo-resize-mb-to-kb" element={<PhotoResizeMBToKB />} />
-        <Route path="/photo-resize-dpi" element={<PhotoResizeDPI />} />
-        <Route path="/photo-resize-pdf" element={<PhotoResizePDF />} />
-        <Route path="/photo-resize-bulk" element={<PhotoResizeBulk />} />
-        
-        {/* Programmatic SEO pages – use-case specific */}
-        <Route path="/photo-resize-for-instagram" element={<PhotoResizeForInstagram />} />
-        <Route path="/photo-resize-app" element={<PhotoResizeApp />} />
-        <Route path="/how-to-resize-photo" element={<HowToResizePhoto />} />
-        
+
         {/* Legal pages */}
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
