@@ -1,4 +1,4 @@
-import { Undo2, RotateCcw } from "lucide-react";
+import { Undo2, RotateCcw, Sparkles } from "lucide-react";
 import { lazy, Suspense } from "react";
 
 import { useImageEditor } from "@/hooks/useImageEditor";
@@ -11,6 +11,7 @@ import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Header } from "@/components/layout/Header";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { AmazonAd } from "@/components/shared/AmazonAd";
 
 // Lazy-load below-fold content to reduce initial bundle / main-thread work
@@ -40,22 +41,41 @@ const Index = () => {
       <SEO />
    
 
-      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
+      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
+        {/* Animated Background Orbs */}
+        <div className="absolute top-0 left-0 w-full h-[600px] overflow-hidden -z-10 pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[60%] rounded-full bg-primary/20 dark:bg-primary/10 blur-[100px] animate-pulse-slow mix-blend-multiply dark:mix-blend-lighten" />
+          <div className="absolute top-[20%] right-[-5%] w-[35%] h-[50%] rounded-full bg-secondary/20 dark:bg-secondary/10 blur-[100px] animate-pulse-slow mix-blend-multiply dark:mix-blend-lighten" style={{ animationDelay: "2s" }} />
+          <div className="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-accent/20 dark:bg-accent/10 blur-[120px] animate-pulse-slow mix-blend-multiply dark:mix-blend-lighten" style={{ animationDelay: "4s" }} />
+        </div>
+
         <Header />
-        <h1 className="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-white mt-8 mb-2 px-4">
-          Free Photo Resizer, Compressor & Editor for SSC, UPSC, Banking & Government Exam Forms
-        </h1>
+        
+        <div className="w-full max-w-4xl mx-auto mt-12 mb-6 px-4 relative z-10 animate-fade-up">
+          <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-primary/20 mx-auto mb-6 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm table">
+            <span className="flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5" /> 100% Free & Private
+            </span>
+          </Badge>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-center text-slate-900 dark:text-white leading-[1.15] tracking-tight">
+            Compress & Resize <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-pulse-slow">Perfectly Every Time</span>
+          </h1>
+          <p className="mt-4 text-center text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-medium">
+            The ultimate tool for SSC, UPSC, and government exams. Resize to exact dimensions or KB limits instantly in your browser.
+          </p>
+        </div>
 
         <p className="sr-only">
           This online photo resizer, image compressor, and photo editor helps you resize and compress images easily for government and exam forms in India. Using this generic photo resizer, you can adjust image size in KB, pixel, or cm, making it ideal for photo resizer 20KB, photo resizer 50KB, photo resizer 100KB, and exact requirements like PAN card photo resizer, SSC photo resizer, UPSC photo resizer, TNPSC photo compressor, Aadhaar photo resize, and passport photo resizer online. The tool also works as a powerful generic photo compressor in KB, allowing you to compress images to 10KB, 15KB, 20KB, 30KB, 40KB, 50KB, 100KB, 200KB, or even 500KB, making it a reliable online photo compressor and image size reducer in India. Whether you need a JPG photo compressor, JPEG to JPG converter, JPG to JPEG converter, or a fast online image resizer free, this tool ensures accurate compression, high quality, and instant download—without uploads or watermarks.
         </p>
 
-        <main className="flex-1 w-full max-w-8xl mx-auto px-2 sm:px-4 py-3">
+        <main className="flex-1 w-full max-w-8xl mx-auto px-2 sm:px-4 py-3 relative z-10">
             {!imageState.originalUrl ? (
               /* ================= UPLOAD STATE ================= */
               <div
                 key="upload"
-                className="max-w-xl mx-auto py-10 animate-[fadeInUp_0.35s_ease-out]"
+                className="max-w-xl mx-auto py-6"
               >
                 <UploadZone onFileSelect={loadImage} recentFile={lastUploadedFile} />
               </div>
@@ -187,8 +207,8 @@ const Index = () => {
               </div>
             )}
         </main>
-
-        <AmazonAd />
+{/* 
+        <AmazonAd /> */}
 
         <Suspense fallback={null}>
           <ContentSections />

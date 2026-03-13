@@ -5,12 +5,15 @@ import { AmazonAd } from "@/components/shared/AmazonAd";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+    <footer className="relative bg-white dark:bg-slate-900 mt-auto overflow-hidden">
+      {/* Subtle top gradient line */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      
       {/* Amazon Text Banner Unit */}
       <AmazonAd variant="banner" startIndex={4} />
 
-      <div className="container px-4 py-12">
-        <div className="grid grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+      <div className="container relative z-10 px-4 py-16">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-12 mb-12">
           {/* Column 1: Photo Tools */}
           <div>
             <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Photo Tools</h3>
@@ -247,11 +250,11 @@ export function Footer() {
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-500">
             <div className="flex flex-col items-center md:items-start gap-1">
-              <div className="flex items-center gap-2 mb-1">
-                <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center">
-                  <FileImage className="w-4 h-4" />
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center shadow-md">
+                  <FileImage className="w-5 h-5" />
                 </div>
-                <span>© {new Date().getFullYear()} Photo Resizer. All rights reserved.</span>
+                <span className="font-semibold text-slate-900 dark:text-white">© {new Date().getFullYear()} Photo Resizer.</span>
               </div>
               <p className="text-[11px] text-slate-400 dark:text-slate-500 ml-10 hidden md:block">
                 As an Amazon Associate, I earn from qualifying purchases.

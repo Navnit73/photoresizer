@@ -77,12 +77,12 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
       )}
 
       <label
-        className={`relative block border-2 border-dashed rounded-3xl p-12 md:p-16 text-center transition-all duration-300 cursor-pointer group overflow-hidden ${
+        className={`relative block border border-dashed rounded-[2rem] p-12 md:p-16 text-center transition-all duration-500 cursor-pointer group overflow-hidden ${
           isDragging
-            ? "border-primary bg-primary/10 scale-[1.02]"
+            ? "border-primary bg-primary/10 scale-[1.02] shadow-elegant-hover"
             : isValidFile
-            ? "border-green-500 bg-green-500/10"
-            : "border-purple-500/30 hover:border-purple-500 bg-slate-50 dark:bg-slate-800/50 hover:bg-purple-500/5"
+            ? "border-green-500 bg-green-500/10 shadow-elegant-hover"
+            : "border-white/40 dark:border-white/10 glass-panel hover:bg-white/80 dark:hover:bg-slate-800/80 hover:shadow-elegant-hover"
         }`}
       >
         {/* Static gradient background - only visible on hover via CSS, no JS animation */}
@@ -106,12 +106,12 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
             {/* Icon - simple CSS transitions instead of framer-motion */}
             <div className={`relative transition-transform duration-300 ${isDragging ? 'scale-110' : isValidFile ? 'scale-110' : ''}`}>
               <div
-                className={`w-24 h-24 rounded-3xl flex items-center justify-center shadow-2xl transition-all duration-300 ${
+                className={`w-24 h-24 rounded-[2rem] flex items-center justify-center shadow-2xl transition-all duration-500 ${
                   isDragging
-                    ? "bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white"
+                    ? "bg-gradient-to-br from-primary to-secondary text-white scale-110 shadow-glow"
                     : isValidFile
-                    ? "bg-gradient-to-br from-green-500 to-emerald-500 text-white"
-                    : "bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white shadow-purple-500/20"
+                    ? "bg-gradient-to-br from-green-400 to-emerald-500 text-white scale-110 shadow-glow"
+                    : "bg-gradient-to-br from-primary to-secondary text-white shadow-primary/30 group-hover:-translate-y-2 group-hover:shadow-glow"
                 }`}
               >
                 {isValidFile ? (
@@ -119,7 +119,7 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
                 ) : isDragging ? (
                   <Sparkles className="w-12 h-12 text-white" />
                 ) : (
-                  <Upload className="w-12 h-12 text-primary group-hover:scale-110 transition-transform" />
+                  <Upload className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-500" />
                 )}
               </div>
 
@@ -147,10 +147,10 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
                   ? "Drop it here! 🎉"
                   : isValidFile
                   ? "Perfect! Loading... ✓"
-                  : "Upload Your Photo to Edit"}
+                  : "Upload Your Photo"}
               </h2>
 
-              <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base">
+              <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-sm mx-auto">
                 {isDragging
                   ? "Release to upload your image"
                   : "Drag & drop or click to browse your files"}
@@ -159,15 +159,15 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
 
             {/* Format Info */}
             <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass border border-slate-200/50 dark:border-slate-700/50">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 dark:bg-slate-800/50 border border-white/60 dark:border-slate-700 backdrop-blur-sm shadow-sm">
                 <ImageIcon className="w-4 h-4 text-primary" />
-                <span className="text-xs font-medium text-slate-700 dark:text-slate-300">
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
                   JPG, PNG, WEBP
                 </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass border border-slate-200/50 dark:border-slate-700/50">
-                <Sparkles className="w-4 h-4 text-secondary-500" />
-                <span className="text-xs font-medium text-slate-700 dark:text-slate-300">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 dark:bg-slate-800/50 border border-white/60 dark:border-slate-700 backdrop-blur-sm shadow-sm">
+                <Sparkles className="w-4 h-4 text-secondary" />
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
                   Up to 50MB
                 </span>
               </div>

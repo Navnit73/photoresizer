@@ -22,7 +22,8 @@ import {
   Stamp,
   Printer,
   FileText,
-  Layers
+  Layers,
+  Sparkles
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -109,27 +110,29 @@ export default function ToolsList() {
         <Header />
         
         <main className="flex-1 relative overflow-hidden">
-          {/* Background Gradients - Adjusted for both modes */}
-          <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-indigo-100/50 to-slate-50/0 dark:from-indigo-900/20 dark:to-slate-900/0 pointer-events-none transition-colors duration-500" />
-          <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-indigo-500/5 dark:bg-indigo-600/10 blur-[100px] pointer-events-none" />
-          <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] rounded-full bg-cyan-500/5 dark:bg-cyan-600/10 blur-[100px] pointer-events-none" />
+          {/* Animated Background Orbs */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+            <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 dark:bg-primary/5 blur-[120px] animate-pulse-slow mix-blend-multiply dark:mix-blend-lighten" />
+            <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[60%] rounded-full bg-secondary/10 dark:bg-secondary/5 blur-[120px] animate-pulse-slow mix-blend-multiply dark:mix-blend-lighten" style={{ animationDelay: "2s" }} />
+          </div>
 
           <div className="container relative px-4 py-16 md:py-24">
             
             {/* Hero Section */}
-            <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
               <div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-sm font-medium mb-6 animate-[fadeInDown_0.5s_ease-out]"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 text-primary dark:text-primary-400 text-sm font-bold tracking-wide mb-6 animate-fade-up shadow-sm"
               >
-                <Zap className="w-4 h-4" />
+                <Sparkles className="w-4 h-4" />
                 <span>All-in-One Photo Suite</span>
               </div>
               
               <h1 
-                className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight animate-[fadeInUp_0.6s_ease-out_0.1s_both]"
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight animate-fade-up"
+                style={{ animationDelay: "0.1s" }}
               >
                 All Important Tools for <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600 dark:from-indigo-400 dark:to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">
                   Every Photo Need
                 </span>
               </h1>
@@ -143,11 +146,12 @@ export default function ToolsList() {
 
               {/* Search Bar */}
               <div 
-                className="relative max-w-xl mx-auto animate-[fadeInUp_0.5s_ease-out_0.3s_both]"
+                className="relative max-w-xl mx-auto animate-fade-up"
+                style={{ animationDelay: "0.3s" }}
               >
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-xl blur opacity-20 group-hover:opacity-30 dark:opacity-25 dark:group-hover:opacity-40 transition-opacity" />
-                  <div className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-xl flex items-center p-2 shadow-xl dark:shadow-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
+                  <div className="relative glass-panel rounded-2xl flex items-center p-2">
                     <Search className="w-5 h-5 text-slate-400 ml-3" />
                     <Input 
                       type="text" 
@@ -170,12 +174,12 @@ export default function ToolsList() {
                     className="scroll-mt-20 animate-[fadeInUp_0.6s_ease-out_both]"
                     style={{ animationDelay: `${idx * 0.1}s` }}
                   >
-                    <div className="flex items-end gap-4 mb-8 border-b border-slate-200 dark:border-white/5 pb-4">
-                      <div className="p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                    <div className="flex items-end gap-3 mb-8 border-b border-slate-200/50 dark:border-white/10 pb-4">
+                      <div className="p-3 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary dark:text-primary-400 shadow-sm border border-primary/10">
                         <category.icon className="w-6 h-6" />
                       </div>
-                      <div>
-                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                      <div className="pb-1">
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                           {category.title}
                         </h2>
                         <p className="text-slate-500 dark:text-slate-400 text-sm">
@@ -191,33 +195,33 @@ export default function ToolsList() {
                           to={tool.href}
                           className="group relative"
                         >
-                          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 dark:from-indigo-500/10 dark:to-cyan-500/10 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-5 hover:border-indigo-500/30 dark:hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-none">
+                          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="relative h-full glass-panel border border-white/60 dark:border-white/10 rounded-3xl p-6 hover:-translate-y-1.5 transition-all duration-300">
                             {tool.badge && (
-                              <Badge className="absolute top-4 right-4 bg-indigo-500 hover:bg-indigo-600 text-[10px] px-2 h-5">
+                              <Badge className="absolute top-4 right-4 bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary text-white border-0 text-[10px] px-2.5 h-6 shadow-sm">
                                 {tool.badge}
                               </Badge>
                             )}
                             
                             <div className="flex flex-col h-full">
-                              <div className="mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-white/5 flex items-center justify-center text-slate-500 dark:text-slate-300 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
-                                  {tool.icon ? <tool.icon className="w-6 h-6" /> : <Zap className="w-6 h-6" />}
+                              <div className="mb-5">
+                                <div className="w-14 h-14 rounded-2xl bg-slate-100/50 dark:bg-slate-800/50 border border-white/60 dark:border-white/5 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm">
+                                  {tool.icon ? <tool.icon className="w-7 h-7" /> : <Zap className="w-7 h-7" />}
                                 </div>
                               </div>
                               
-                              <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary dark:group-hover:text-primary-400 transition-colors">
                                 {tool.name}
                               </h3>
                               
                               {tool.desc && (
-                                <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-4">
+                                <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-5 font-medium">
                                   {tool.desc}
                                 </p>
                               )}
                               
-                              <div className="mt-auto flex items-center text-xs font-medium text-slate-400 dark:text-slate-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                                Open Tool <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                              <div className="mt-auto flex items-center text-sm font-bold text-primary dark:text-primary-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                Open Tool <ArrowRight className="w-4 h-4 ml-1.5" />
                               </div>
                             </div>
                           </div>
