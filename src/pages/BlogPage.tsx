@@ -176,9 +176,9 @@ export default function BlogPage() {
             </div>
 
             {/* AdSense Unit - Top of Content */}
-            <div className="mb-10">
+            {/* <div className="mb-10">
                <AdUnit />
-            </div>
+            </div> */}
 
             {/* SPECIFICATION CARDS - DYNAMIC RENDERING */}
             {post.specifications && (
