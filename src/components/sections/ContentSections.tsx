@@ -145,7 +145,7 @@ export function ContentSections() {
             {steps.map((step, index) => (
               <Card key={step.title} variant="elevated" className="text-center">
                 <CardHeader>
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl gradient-hero flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <step.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                   </div>
                   <CardTitle className="text-base sm:text-lg">
@@ -174,12 +174,14 @@ export function ContentSections() {
             {useCases.map(useCase => (
               <Card key={useCase.title} variant="tool">
                 <CardHeader className="flex-row gap-4 items-start">
-                  <useCase.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mt-1" />
-                  <div>
-                    <CardTitle className="text-sm sm:text-base">
+                  <div className="w-10 h-10 shrink-0 rounded-lg bg-primary/5 border border-primary/10 flex items-center justify-center">
+                    <useCase.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="pt-1">
+                    <CardTitle className="text-sm sm:text-base mb-1.5">
                       {useCase.title}
                     </CardTitle>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {useCase.description}
                     </p>
                   </div>

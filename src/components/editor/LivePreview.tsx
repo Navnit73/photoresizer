@@ -116,7 +116,7 @@ export const LivePreview = memo(function LivePreview({ imageState }: LivePreview
 
   if (!imageState.originalUrl) return null;
 
-  const maxPreview = 320;
+  const maxPreview = 340;
   const scale = Math.min(
     maxPreview / imageState.width,
     maxPreview / imageState.height,
@@ -124,23 +124,23 @@ export const LivePreview = memo(function LivePreview({ imageState }: LivePreview
   );
 
   return (
-    <Card variant="bordered" className="p-4 space-y-3">
+    <div className="rounded-xl border border-border bg-card shadow-sm p-4 space-y-4">
       {/* Header */}
-      <div className="flex items-center gap-2 text-sm font-medium">
+      <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
         <Eye className="w-4 h-4 text-primary" />
         Live Preview
         {isRendering && (
-          <span className="ml-auto flex items-center gap-1 text-xs text-muted-foreground">
-            <Loader2 className="w-3 h-3 animate-spin" />
+          <span className="ml-auto flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
+            <Loader2 className="w-3.5 h-3.5 animate-spin" />
             updating
           </span>
         )}
       </div>
 
-      {/* Preview */}
-      <div className="flex justify-center">
+      {/* Preview Image */}
+      <div className="flex justify-center  rounded-lg p-2">
         <div
-          className="relative rounded-xl border overflow-hidden shadow-sm"
+          className="relative rounded-lg overflow-hidden border border-border shadow-sm"
           style={{
             width: imageState.width * scale,
             height: imageState.height * scale,
@@ -159,16 +159,18 @@ export const LivePreview = memo(function LivePreview({ imageState }: LivePreview
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <ImageIcon className="w-8 h-8 text-muted-foreground animate-pulse" />
+              <ImageIcon className="w-8 h-8 text-muted-foreground/30 animate-pulse" />
             </div>
           )}
         </div>
       </div>
 
-      {/* Dimensions */}
-      <Badge className=" bg-red-500 " >
-        {imageState.width} × {imageState.height}px
-      </Badge>
+      {/* Dimensions Badge */}
+      <div className="flex justify-center">
+        <Badge variant="secondary" className="font-mono text-xs bg-primary/10 text-primary border-primary/20">
+          {imageState.width} × {imageState.height}px
+        </Badge>
+      </div>
 
       {/* Metadata */}
       <div className="grid grid-cols-2 gap-y-2 text-xs pt-3 border-t">
@@ -196,7 +198,7 @@ export const LivePreview = memo(function LivePreview({ imageState }: LivePreview
       </div>
 
       <canvas ref={canvasRef} className="hidden" />
-    </Card>
+    </div>
   );
 }, (prev, next) => {
   // Custom comparator: only re-render when visually-relevant fields change

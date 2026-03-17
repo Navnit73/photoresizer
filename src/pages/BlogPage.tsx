@@ -356,9 +356,6 @@ export default function BlogPage() {
           {/* ================= SIDEBAR ================= */}
           <aside className="sticky top-24 space-y-8 hidden lg:block">
             
-            {/* AdSense Unit - Sidebar */}
-            {/* <AdUnit className="mb-8" /> */}
-            
             {/* Tool Card - Dynamically Updated */}
             <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden group">
                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 blur-[50px] rounded-full group-hover:bg-blue-500/30 transition-all pointer-events-none" />

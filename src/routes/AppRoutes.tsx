@@ -1,15 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
-// Existing pages
+// Only Home is eagerly loaded (it's the landing page)
 import Home from '@/pages/Home';
-import SSCPhotoResizer from '@/pages/ssc-photo-resizer';
-import UPSCPhotoSize from '@/pages/upsc-photo-size';
-import ReducePhotoSize50KB from '@/pages/reduce-photo-size-50kb';
-import SignatureResizeIBPS from '@/pages/signature-resize-ibps';
 import NotFound from '@/pages/NotFound';
-import BlogPage from '@/pages/BlogPage';
-import BlogList from '@/pages/BlogList';
+
+// Lazy load ALL other pages for better INP / reduced initial bundle
+const SSCPhotoResizer = lazy(() => import('@/pages/ssc-photo-resizer'));
+const UPSCPhotoSize = lazy(() => import('@/pages/upsc-photo-size'));
+const ReducePhotoSize50KB = lazy(() => import('@/pages/reduce-photo-size-50kb'));
+const SignatureResizeIBPS = lazy(() => import('@/pages/signature-resize-ibps'));
+const BlogPage = lazy(() => import('@/pages/BlogPage'));
+const BlogList = lazy(() => import('@/pages/BlogList'));
 
 // Lazy load new SEO pages for better performance
 const JpegToJpg = lazy(() => import('@/pages/tools/JpegToJpg'));

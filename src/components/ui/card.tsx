@@ -10,9 +10,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = "default", ...props }, ref) => {
     const variants = {
       default: "rounded-xl border bg-card text-card-foreground shadow-sm",
-      elevated: "rounded-xl bg-card text-card-foreground shadow-elegant",
-      bordered: "rounded-xl border-2 border-border bg-card text-card-foreground",
-      tool: "rounded-xl border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow duration-200",
+      elevated: "rounded-xl border border-border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow duration-200",
+      bordered: "rounded-xl border border-border bg-card text-card-foreground",
+      tool: "rounded-xl border border-border bg-card text-card-foreground shadow-sm",
     };
 
     return (

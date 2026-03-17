@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 interface AdUnitProps {
   slotId?: string; // Optional for now, but good to have
-  format?: 'auto' | 'fluid' | 'rectangle';
+  format?: 'auto' | 'fluid' | 'rectangle' | 'horizontal' | 'vertical';
   layoutKey?: string; // For In-feed ads
   className?: string;
   style?: React.CSSProperties;

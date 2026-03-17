@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface KeyboardShortcut {
@@ -13,7 +13,7 @@ interface KeyboardShortcut {
 export function useKeyboardShortcuts(shortcuts: KeyboardShortcut[]) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      shortcuts.forEach((shortcut) => {
+      for (const shortcut of shortcuts) {
         const ctrlMatch = shortcut.ctrlKey === undefined || shortcut.ctrlKey === event.ctrlKey;
         const shiftMatch = shortcut.shiftKey === undefined || shortcut.shiftKey === event.shiftKey;
         const altMatch = shortcut.altKey === undefined || shortcut.altKey === event.altKey;
@@ -22,8 +22,9 @@ export function useKeyboardShortcuts(shortcuts: KeyboardShortcut[]) {
         if (ctrlMatch && shiftMatch && altMatch && keyMatch) {
           event.preventDefault();
           shortcut.action();
+          break; // Only fire the first match
         }
-      });
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -35,7 +36,8 @@ export function useKeyboardShortcuts(shortcuts: KeyboardShortcut[]) {
 export function useGlobalShortcuts() {
   const navigate = useNavigate();
 
-  const shortcuts: KeyboardShortcut[] = [
+  // Stable reference — prevents re-attaching listener on every render
+  const shortcuts = useMemo<KeyboardShortcut[]>(() => [
     {
       key: 'h',
       altKey: true,
@@ -58,12 +60,11 @@ export function useGlobalShortcuts() {
       key: '/',
       ctrlKey: true,
       action: () => {
-        // Show keyboard shortcuts help
         alert('Keyboard Shortcuts:\nAlt+H: Home\nAlt+C: Compress Image\nAlt+P: Passport Photos\nCtrl+/: Show this help');
       },
       description: 'Show keyboard shortcuts',
     },
-  ];
+  ], [navigate]);
 
   useKeyboardShortcuts(shortcuts);
 }

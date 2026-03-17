@@ -5,10 +5,10 @@ import { AmazonAd } from "@/components/shared/AmazonAd";
 
 export function Footer() {
   return (
-    <footer className="relative bg-white dark:bg-slate-900 mt-auto overflow-hidden">
-      {/* Subtle top gradient line */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      
+    <footer
+      className="bg-card border-t border-border mt-auto"
+      style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }}
+    >
       {/* Amazon Text Banner Unit */}
       <AmazonAd variant="banner" startIndex={4} />
 
@@ -251,7 +251,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-500">
             <div className="flex flex-col items-center md:items-start gap-1">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shadow-sm">
                   <FileImage className="w-5 h-5" />
                 </div>
                 <span className="font-semibold text-slate-900 dark:text-white">© {new Date().getFullYear()} Photo Resizer.</span>

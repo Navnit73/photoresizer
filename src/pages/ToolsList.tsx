@@ -25,6 +25,7 @@ import {
   Layers,
   Sparkles
 } from "lucide-react";
+import AdUnit from "@/components/shared/AdUnit";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Input } from "@/components/ui/input";
@@ -110,11 +111,7 @@ export default function ToolsList() {
         <Header />
         
         <main className="flex-1 relative overflow-hidden">
-          {/* Animated Background Orbs */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-            <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 dark:bg-primary/5 blur-[120px] animate-pulse-slow mix-blend-multiply dark:mix-blend-lighten" />
-            <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[60%] rounded-full bg-secondary/10 dark:bg-secondary/5 blur-[120px] animate-pulse-slow mix-blend-multiply dark:mix-blend-lighten" style={{ animationDelay: "2s" }} />
-          </div>
+          {/* Background removed for cleaner flat layout */}
 
           <div className="container relative px-4 py-16 md:py-24">
             
@@ -132,7 +129,7 @@ export default function ToolsList() {
                 style={{ animationDelay: "0.1s" }}
               >
                 All Important Tools for <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">
+                <span className="text-primary font-bold">
                   Every Photo Need
                 </span>
               </h1>
@@ -144,23 +141,19 @@ export default function ToolsList() {
                 Fast, secure, and running entirely in your browser.
               </p>
 
-              {/* Search Bar */}
               <div 
                 className="relative max-w-xl mx-auto animate-fade-up"
                 style={{ animationDelay: "0.3s" }}
               >
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
-                  <div className="relative glass-panel rounded-2xl flex items-center p-2">
-                    <Search className="w-5 h-5 text-slate-400 ml-3" />
-                    <Input 
-                      type="text" 
-                      placeholder="Search tools (e.g., 'compress', 'passport', 'instagram')..." 
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="bg-transparent border-none text-slate-900 dark:text-white placeholder:text-slate-400 focus-visible:ring-0 text-base h-11"
-                    />
-                  </div>
+                <div className="relative bg-card border border-border shadow-sm rounded-xl flex items-center p-2">
+                  <Search className="w-5 h-5 text-muted-foreground ml-3" />
+                  <Input 
+                    type="text" 
+                    placeholder="Search tools (e.g., 'compress', 'passport', 'instagram')..." 
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="bg-transparent border-none text-foreground placeholder:text-muted-foreground focus-visible:ring-0 text-base h-11"
+                  />
                 </div>
               </div>
             </div>
@@ -169,66 +162,69 @@ export default function ToolsList() {
             <div className="space-y-16">
               {filteredCategories.length > 0 ? (
                 filteredCategories.map((category, idx) => (
-                  <section
-                    key={category.title}
-                    className="scroll-mt-20 animate-[fadeInUp_0.6s_ease-out_both]"
-                    style={{ animationDelay: `${idx * 0.1}s` }}
-                  >
-                    <div className="flex items-end gap-3 mb-8 border-b border-slate-200/50 dark:border-white/10 pb-4">
-                      <div className="p-3 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary dark:text-primary-400 shadow-sm border border-primary/10">
-                        <category.icon className="w-6 h-6" />
+                  <div key={category.title}>
+                    <section
+                      className="scroll-mt-20 animate-[fadeInUp_0.6s_ease-out_both]"
+                      style={{ animationDelay: `${idx * 0.1}s` }}
+                    >
+                      <div className="flex items-end gap-3 mb-8 border-b border-slate-200/50 dark:border-white/10 pb-4">
+                        <div className="p-3 rounded-xl bg-primary/10 text-primary shadow-sm border border-primary/20">
+                          <category.icon className="w-6 h-6" />
+                        </div>
+                        <div className="pb-1">
+                          <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                            {category.title}
+                          </h2>
+                          <p className="text-slate-500 dark:text-slate-400 text-sm">
+                            {category.description}
+                          </p>
+                        </div>
                       </div>
-                      <div className="pb-1">
-                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                          {category.title}
-                        </h2>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm">
-                          {category.description}
-                        </p>
-                      </div>
-                    </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                      {category.tools.map((tool) => (
-                        <Link 
-                          key={tool.href} 
-                          to={tool.href}
-                          className="group relative"
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          <div className="relative h-full glass-panel border border-white/60 dark:border-white/10 rounded-3xl p-6 hover:-translate-y-1.5 transition-all duration-300">
-                            {tool.badge && (
-                              <Badge className="absolute top-4 right-4 bg-gradient-to-r from-primary to-secondary hover:from-primary hover:to-secondary text-white border-0 text-[10px] px-2.5 h-6 shadow-sm">
-                                {tool.badge}
-                              </Badge>
-                            )}
-                            
-                            <div className="flex flex-col h-full">
-                              <div className="mb-5">
-                                <div className="w-14 h-14 rounded-2xl bg-slate-100/50 dark:bg-slate-800/50 border border-white/60 dark:border-white/5 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm">
-                                  {tool.icon ? <tool.icon className="w-7 h-7" /> : <Zap className="w-7 h-7" />}
-                                </div>
-                              </div>
-                              
-                              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary dark:group-hover:text-primary-400 transition-colors">
-                                {tool.name}
-                              </h3>
-                              
-                              {tool.desc && (
-                                <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-5 font-medium">
-                                  {tool.desc}
-                                </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                        {category.tools.map((tool) => (
+                          <Link 
+                            key={tool.href} 
+                            to={tool.href}
+                            className="group relative h-full bg-card border border-border rounded-xl p-6 hover:-translate-y-1 hover:shadow-md transition-all duration-200 block"
+                          >
+                              {tool.badge && (
+                                <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground border-0 text-[10px] px-2.5 h-6 shadow-sm">
+                                  {tool.badge}
+                                </Badge>
                               )}
                               
-                              <div className="mt-auto flex items-center text-sm font-bold text-primary dark:text-primary-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                                Open Tool <ArrowRight className="w-4 h-4 ml-1.5" />
+                              <div className="flex flex-col h-full">
+                                <div className="mb-5">
+                                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 shadow-sm">
+                                    {tool.icon ? <tool.icon className="w-6 h-6" /> : <Zap className="w-6 h-6" />}
+                                  </div>
+                                </div>
+                                
+                                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary dark:group-hover:text-primary-400 transition-colors">
+                                  {tool.name}
+                                </h3>
+                                
+                                {tool.desc && (
+                                  <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-5 font-medium">
+                                    {tool.desc}
+                                  </p>
+                                )}
+                                
+                                <div className="mt-auto flex items-center text-sm font-bold text-primary dark:text-primary-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                  Open Tool <ArrowRight className="w-4 h-4 ml-1.5" />
+                                </div>
                               </div>
-                            </div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </section>
+                            </Link>
+                        ))}
+                      </div>
+                    </section>
+                    {idx === 0 && (
+                      <div className="w-full relative py-4 flex justify-center border-b border-slate-200/50 dark:border-white/10">
+                        <AdUnit format="fluid" layoutKey="-gw-1+2a-9x+5y" />
+                      </div>
+                    )}
+                  </div>
                 ))
               ) : (
                 <div 

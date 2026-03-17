@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap");
+/* Fonts loaded via <link rel="preload"> in index.html — no @import needed */
 @import "./styles/design-system.css";
 
 @tailwind base;
@@ -7,60 +7,50 @@
 
 @layer base {
   :root {
-    /* Premium Vibrant Theme - Light Mode */
-    --background: 220 33% 98%; /* Soft, cool off-white */
-    --foreground: 222 47% 11%;
-    
-    --card: 0 0% 100%;
+    /* ===== Flat Design Color System ===== */
+    --background: 0 0% 98%;        /* #FAFAFA */
+    --foreground: 222 47% 11%;      /* #1E293B */
+
+    --card: 0 0% 100%;             /* #FFFFFF */
     --card-foreground: 222 47% 11%;
-    
+
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    
-    /* Primary: Vibrant Indigo */
-    --primary: 243 75% 59%;
-    --primary-foreground: 210 40% 98%;
-    
-    /* Secondary: Soft Purple/Violet mix */
-    --secondary: 262 83% 58%;
-    --secondary-foreground: 210 40% 98%;
-    
-    /* Muted: Clean light bluish-grey */
-    --muted: 214 32% 91%;
+
+    /* Primary: Indigo 600 */
+    --primary: 239 84% 67%;        /* #4F46E5 */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Slate 100 */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Muted: Slate 100/200 */
+    --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
-    
-    /* Accent: Playful Cyan/Teal */
-    --accent: 191 97% 41%;
-    --accent-foreground: 210 40% 98%;
-    
-    --destructive: 348 83% 47%;
-    --destructive-foreground: 210 40% 98%;
-    
+
+    /* Accent: Indigo 50 */
+    --accent: 226 100% 97%;
+    --accent-foreground: 239 84% 67%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 243 75% 59%;
-    
-    --radius: 1rem; /* More rounded, friendly edges */
+    --ring: 239 84% 67%;
 
-    /* Glassmorphism & Gradients */
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    
-    --gradient-hero: linear-gradient(135deg, hsl(243 75% 59%), hsl(262 83% 58%), hsl(191 97% 41%));
-    --gradient-card: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
-    --gradient-subtle: linear-gradient(135deg, hsl(243 75% 59% / 0.1), hsl(262 83% 58% / 0.1));
+    --radius: 0.5rem;
 
-    /* Premium Elegant Shadows */
-    --shadow-sm: 0 2px 8px -2px rgba(22, 23, 36, 0.05), 0 1px 4px -1px rgba(22, 23, 36, 0.02);
-    --shadow-md: 0 8px 16px -4px rgba(22, 23, 36, 0.08), 0 4px 8px -2px rgba(22, 23, 36, 0.04);
-    --shadow-lg: 0 16px 24px -4px rgba(22, 23, 36, 0.12), 0 8px 12px -4px rgba(22, 23, 36, 0.06);
-    --shadow-xl: 0 24px 48px -12px rgba(22, 23, 36, 0.16), 0 12px 24px -8px rgba(22, 23, 36, 0.08);
-    --shadow-glow: 0 0 20px -5px hsl(243 75% 59% / 0.4);
+    /* Clean shadows — no colored glows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
 
     /* Tool Colors */
     --tool-success: 142 76% 36%;
     --tool-warning: 38 92% 50%;
-    --tool-info: 243 75% 59%;
+    --tool-info: 239 84% 67%;
 
     /* Ad Placeholder */
     --ad-bg: 210 20% 96%;
@@ -73,54 +63,46 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 243 75% 59%;
+    --sidebar-ring: 239 84% 67%;
   }
 
   .dark {
-    /* Premium Vibrant Theme - Dark Mode */
-    --background: 224 71% 4%; /* Deep, rich space dark */
-    --foreground: 210 40% 98%;
+    --background: 222 47% 6%;       /* #0F172A */
+    --foreground: 210 40% 96%;      /* #F1F5F9 */
 
-    --card: 222 47% 7%; /* Slightly lighter than bg */
-    --card-foreground: 210 40% 98%;
+    --card: 217 33% 12%;            /* #1E293B */
+    --card-foreground: 210 40% 96%;
 
-    --popover: 222 47% 7%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 217 33% 12%;
+    --popover-foreground: 210 40% 96%;
 
-    /* Primary: Neon-ish Indigo for dark mode visibility */
-    --primary: 243 100% 75%;
-    --primary-foreground: 222 47% 11%;
+    /* Primary: Indigo 400 */
+    --primary: 235 85% 76%;         /* #818CF8 */
+    --primary-foreground: 222 47% 6%;
 
-    /* Secondary: Neon Violet */
-    --secondary: 262 100% 75%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 96%;
 
-    --muted: 223 47% 11%;
+    --muted: 217 33% 17%;
     --muted-foreground: 215 20% 65%;
 
-    /* Accent: Bright Cyan */
-    --accent: 191 100% 60%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 235 85% 76%;
 
-    --destructive: 348 100% 65%;
-    --destructive-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 223 47% 15%;
-    --input: 223 47% 15%;
-    --ring: 243 100% 75%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 235 85% 76%;
 
-    --glass-bg: rgba(15, 23, 42, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
 
-    --ad-bg: 223 47% 11%;
-    --ad-border: 223 47% 15%;
-    
-    --shadow-glow: 0 0 30px -10px hsl(243 100% 75% / 0.5);
+    --ad-bg: 217 33% 12%;
+    --ad-border: 217 33% 20%;
   }
-}
-.header-nav-btn {
-  @apply flex items-center gap-1.5 px-4 py-2 rounded-full
-         text-sm font-medium transition-all duration-300;
 }
 
 @layer base {
@@ -141,149 +123,53 @@
       sans-serif;
     font-feature-settings: "cv11", "ss01";
     font-optical-sizing: auto;
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease,
-      border-color 0.3s ease;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: "Outfit", system-ui, sans-serif;
     @apply font-semibold tracking-tight;
   }
 }
 
 @layer utilities {
-  .gradient-hero {
-    background: var(--gradient-hero);
+  .shadow-clean {
+    box-shadow: var(--shadow-md);
   }
-
-  .gradient-card {
-    background: var(--gradient-card);
-  }
-
-  .gradient-subtle {
-    background: var(--gradient-subtle);
-  }
-
-  /* Stunning Shadows */
-  .shadow-elegant {
-    box-shadow: var(--shadow-lg);
-  }
-  .shadow-elegant-sm {
+  .shadow-clean-sm {
     box-shadow: var(--shadow-sm);
   }
-  .shadow-elegant-hover {
-    box-shadow: var(--shadow-xl);
-  }
-
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
-  }
-
-  .text-gradient {
-    background: var(--gradient-hero);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .shadow-clean-lg {
+    box-shadow: var(--shadow-lg);
   }
 
   .ad-placeholder {
     background: hsl(var(--ad-bg));
     border: 2px dashed hsl(var(--ad-border));
   }
-  
-  /* Glassmorphism Classes */
-  .glass-panel {
-    @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-elegant;
-  }
-  .glass-pill {
-    @apply bg-white/50 dark:bg-slate-900/40 backdrop-blur-md border border-white/30 dark:border-white/10 shadow-sm rounded-full;
-  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
-
 ::-webkit-scrollbar-track {
   background: hsl(var(--muted));
-  border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.3);
-  border-radius: 4px;
+  background: hsl(var(--muted-foreground) / 0.2);
+  border-radius: 3px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.5);
+  background: hsl(var(--muted-foreground) / 0.4);
 }
 
-/* Animations */
-/* Animations - Simplified for Performance */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fade-up 0.3s ease-out forwards;
-}
-
-/* Removed heavy pulse and scale animations */
-
-/* Performance-optimized CSS animations (replace framer-motion JS animations) */
+/* Simple animations — one-shot only, no infinite loops */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes toastSlideIn {
-  from { opacity: 0; transform: translateY(50px) scale(0.8); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes mobileMenuSlideDown {
-  from { opacity: 0; transform: translateY(-10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }

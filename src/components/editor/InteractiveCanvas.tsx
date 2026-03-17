@@ -416,7 +416,7 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
 
   return (
     <div ref={containerRef} className="space-y-3 w-full">
-      <div className="flex items-center  gap-2">
+      <div className="flex items-center  gap-2 p-1">
         <Button
           size="sm"
           className="bg-red-500"
@@ -470,7 +470,7 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
       {isCropMode && (
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs font-medium text-muted-foreground">
+            <span className="text-xs font-medium text-muted-foreground ml-1">
               Aspect Ratio:
             </span>
             {ASPECT_RATIOS.map((ar) => (
@@ -532,7 +532,7 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
         onPointerUp={isCropMode ? onPointerUp : undefined}
         onPointerCancel={isCropMode ? onPointerUp : undefined}
       >
-        <div className="relative flex justify-center items-center p-2 bg-muted/30 min-h-[200px]">
+        <div className="relative flex justify-center items-center p-2  min-h-[200px]">
           <div
             className="relative"
             style={{ width: displayW, height: displayH }}
