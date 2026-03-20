@@ -56,7 +56,7 @@ export default function GMATPhotoSize() {
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
         <Header />
         <div className="mb-8">
-          <AdUnit slotId="8924617486" format="auto" />
+          <AdUnit type="sidebar" />
         </div>
         <main className="flex-1">
           <section className="py-12 md:py-16">
@@ -143,7 +143,7 @@ export default function GMATPhotoSize() {
             </div>
           </section>
           <div className="mb-8">
-            <AdUnit slotId="8924617486" format="auto" />
+            <AdUnit type="sidebar" />
           </div>
 
           {/* ================= SEO CONTENT ================= */}

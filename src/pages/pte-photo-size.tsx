@@ -120,7 +120,7 @@ export default function PTEPhotoSize() {
           </section>
 
               <div className="py-2">
-               <AdUnit slotId="8924610481" format="auto" />
+               <AdUnit type="sidebar" />
             </div>
           {/* ================= SEO CONTENT ================= */}
           <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">

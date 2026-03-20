@@ -119,7 +119,7 @@ export default function GREPhotoSize() {
             </div>
           </section>
   <div className="mb-8">
-            <AdUnit slotId="8924617486" format="auto" />
+            <AdUnit type="sidebar" />
           </div>
 
 

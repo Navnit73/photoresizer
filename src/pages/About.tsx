@@ -3,6 +3,7 @@ import { Users, Target, Zap, Globe, Heart, Code } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
+import AdUnit from '@/components/shared/AdUnit';
 
 export default function About() {
   return (
@@ -34,6 +35,11 @@ export default function About() {
               <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
                 We're on a mission to make photo editing simple, accessible, and completely private for everyone.
               </p>
+            </div>
+
+            {/* Ad - Blog Banner */}
+            <div className="flex justify-center mb-8">
+              <AdUnit type="blog" />
             </div>
 
             {/* Mission & Trust */}
@@ -146,6 +152,11 @@ export default function About() {
                 ))}
               </div>
             </section>
+
+            {/* Ad - Sidebar */}
+            <div className="flex justify-center mb-8">
+              <AdUnit type="sidebar" />
+            </div>
 
             {/* CTA */}
             <section

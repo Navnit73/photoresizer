@@ -120,7 +120,7 @@ export default function SATPhotoSize() {
           </section>
 
              <div className="py-2">
-                  <AdUnit slotId="8924610481" format="auto" />
+                  <AdUnit type="sidebar" />
                </div>
 
           {/* ================= SEO CONTENT ================= */}

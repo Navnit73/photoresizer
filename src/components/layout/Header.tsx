@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, startTransition } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
+import AdUnit from "@/components/shared/AdUnit";
 
 const toolsLinks = [
   { label: "Compress Image", href: "/compress-image" },
@@ -231,6 +232,9 @@ export function Header() {
 
       {/* Spacer */}
       <div className="h-14" />
+      <div className="w-full max-w-6xl mx-auto flex justify-center my-4 px-4 sm:px-6">
+        <AdUnit type="sidebar" />
+      </div>
     </>
   );
 }

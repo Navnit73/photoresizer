@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Mail, Clock, ShieldCheck, HelpCircle } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import AdUnit from '@/components/shared/AdUnit';
 
 export default function Contact() {
   return (
@@ -31,6 +32,11 @@ export default function Contact() {
               <p className="text-lg text-slate-600 dark:text-slate-300">
                 We're here to help and answer any question you might have.
               </p>
+            </div>
+
+            {/* Ad - Blog Banner */}
+            <div className="flex justify-center mb-8">
+              <AdUnit type="blog" />
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-16 animate-[fadeIn_0.6s_ease-out_0.2s_both]">
@@ -81,6 +87,11 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
+            </div>
+
+            {/* Ad - Sidebar */}
+            <div className="flex justify-center mb-8">
+              <AdUnit type="sidebar" />
             </div>
 
             {/* Quick Guarantees */}

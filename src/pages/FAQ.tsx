@@ -3,6 +3,7 @@ import { HelpCircle, ChevronDown } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useState } from "react";
+import AdUnit from '@/components/shared/AdUnit';
 
 const faqs = [
   {
@@ -129,11 +130,21 @@ export default function FAQ() {
               </p>
             </div>
 
+            {/* Ad - Blog Banner */}
+            <div className="flex justify-center mb-8">
+              <AdUnit type="blog" />
+            </div>
+
             {/* FAQs */}
             <div className="space-y-4">
               {faqs.map((faq, index) => (
                 <FAQItem key={index} {...faq} index={index} />
               ))}
+            </div>
+
+            {/* Ad - Sidebar */}
+            <div className="flex justify-center mt-12">
+              <AdUnit type="sidebar" />
             </div>
 
             {/* Contact */}

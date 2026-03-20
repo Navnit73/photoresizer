@@ -129,7 +129,7 @@ export default function BlogPage() {
 
         {/* AdSense Unit - Header */}
         <div className="mb-8 text-center">
-          <AdUnit type="header" />
+          <AdUnit type="blog" />
         </div>
 
         <div className="grid lg:grid-cols-[1fr_360px] gap-12 items-start">

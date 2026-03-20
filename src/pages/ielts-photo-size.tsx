@@ -120,7 +120,7 @@ export default function IELTSPhotoSize() {
           </section>
 
        <div className="py-2">
-            <AdUnit slotId="8924617486" format="auto" />
+            <AdUnit type="sidebar" />
           </div>
 
 
