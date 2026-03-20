@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 interface AdUnitProps {
-  slotId?: string; // Optional for now, but good to have
+  slotId?: string;
   format?: 'auto' | 'fluid' | 'rectangle' | 'horizontal' | 'vertical';
-  layoutKey?: string; // For In-feed ads
+  layoutKey?: string;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -16,7 +16,7 @@ declare global {
 }
 
 const AdUnit = ({
-  slotId = '8924610486', // Default slot, can be overridden
+  slotId = '8924610486',
   format = 'auto',
   layoutKey,
   className = '',
@@ -26,21 +26,36 @@ const AdUnit = ({
   const location = useLocation();
 
   useEffect(() => {
-    try {
-      if (adRef.current && !adRef.current.getAttribute('data-adsbygoogle-status')) {
-        // Safely access and initialize adsbygoogle
-        const adsbygoogle = (window as any).adsbygoogle = (window as any).adsbygoogle || [];
-        adsbygoogle.push({});
+    let retryCount = 0;
+    const maxRetries = 20; // retry up to ~2s for deferred script
+
+    const pushAd = () => {
+      try {
+        if (!adRef.current) return;
+
+        // Already initialized by AdSense — don't double-push
+        if (adRef.current.getAttribute('data-adsbygoogle-status')) return;
+
+        if (typeof window !== 'undefined' && window.adsbygoogle !== undefined) {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } else if (retryCount < maxRetries) {
+          // AdSense script is deferred — wait and retry
+          retryCount++;
+          setTimeout(pushAd, 100);
+        } else {
+          console.warn('AdSense: script did not load in time.');
+        }
+      } catch (e) {
+        console.error('AdSense error:', e);
       }
-    } catch (e) {
-      console.error('AdSense error:', e);
-    }
+    };
+
+    pushAd();
   }, [location.pathname]);
 
   return (
-    <div className={`ad-container my-4 text-center ${className}`}>
+    <div key={location.pathname} className={`ad-container my-4 text-center ${className}`}>
       <ins
-        key={location.pathname}
         ref={adRef}
         className="adsbygoogle"
         style={style}
