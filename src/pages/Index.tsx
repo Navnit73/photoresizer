@@ -110,7 +110,7 @@ const Index = () => {
                   </div>
                   
                   {/* Ad Slot 3: Sidebar */}
-                  <div className="hidden lg:block">
+                  <div className="py-3">
                      <AdUnit type="sidebar" />
                   </div>
                 </aside>
@@ -158,8 +158,8 @@ const Index = () => {
           )}
           
           {/* Ad Slot 2: Below Editor/Upload */}
-          <div className="mb-20">
-            <AdUnit type="blog" />
+          <div className="mb-2">
+            <AdUnit type="sidebar" />
           </div>
         </main>
 
