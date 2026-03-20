@@ -56,9 +56,9 @@ const Index = () => {
             </p>
             
             {/* Ad Slot 1: Below Hero */}
-            {/* <div className="mb-8">
+            <div className="mb-8">
                <AdUnit slotId="8924610486" format="auto" />
-            </div> */}
+            </div>
           </div>
 
           {!imageState.originalUrl ? (
@@ -110,9 +110,9 @@ const Index = () => {
                   </div>
                   
                   {/* Ad Slot 3: Sidebar */}
-                  {/* <div className="hidden lg:block">
+                  <div className="hidden lg:block">
                      <AdUnit slotId="8924610486" style={{ display: 'inline-block', width: '300px', height: '250px' }} />
-                  </div> */}
+                  </div>
                 </aside>
 
                 {/* ================= CANVAS AREA ================= */}
@@ -158,9 +158,9 @@ const Index = () => {
           )}
           
           {/* Ad Slot 2: Below Editor/Upload */}
-          {/* <div className="mb-20">
+          <div className="mb-20">
             <AdUnit slotId="8924610486" format="horizontal" />
-          </div> */}
+          </div>
         </main>
 
         <Suspense fallback={null}>

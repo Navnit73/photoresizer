@@ -11,6 +11,7 @@ import { InteractiveCanvas } from "@/components/editor/InteractiveCanvas";
 import { LivePreview } from "@/components/editor/LivePreview";
 import { DownloadButton } from "@/components/editor/DownloadButton";
 import { SEOContent50KB } from "@/components/sections/SEOContent50KB";
+import AdUnit from "@/components/shared/AdUnit";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -66,7 +67,10 @@ export default function ReducePhotoSize50KB() {
           {!imageState.originalUrl ? (
             /* ================= UPLOAD STATE ================= */
             <div className="max-w-2xl mx-auto animate-[fadeInUp_0.5s_ease-out]">
-              <UploadZone onFileSelect={loadImage} recentFile={lastUploadedFile} />
+              <UploadZone
+                onFileSelect={loadImage}
+                recentFile={lastUploadedFile}
+              />
             </div>
           ) : (
             /* ================= EDITOR STATE ================= */
@@ -100,12 +104,8 @@ export default function ReducePhotoSize50KB() {
 
               {/* Main Grid */}
               <div className="grid lg:grid-cols-[380px_1fr] gap-4 sm:gap-6">
-                
                 {/* SETTINGS COLUMN */}
                 <aside className="space-y-4 h-fit">
-                  
-               
-
                   {/* Standard Controls */}
                   <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-1 shadow-sm">
                     <EditorControls
@@ -154,20 +154,20 @@ export default function ReducePhotoSize50KB() {
                       imageState={imageState}
                       onCropApply={applyCrop}
                     />
-                    
+
                     <div className="fixed bottom-0 left-0 right-0 p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 z-50 lg:static lg:border-none lg:bg-transparent lg:p-0">
-                       <DownloadButton
-                          onDownload={() => processAndDownload(targetSize)}
-                          disabled={isProcessing}
-                        />
+                      <DownloadButton
+                        onDownload={() => processAndDownload(targetSize)}
+                        disabled={isProcessing}
+                      />
                     </div>
-                     <LivePreview imageState={imageState} />
+                    <LivePreview imageState={imageState} />
                   </div>
                 </section>
 
-          <div className="py-2">
-            <AmazonAd />
-          </div>
+                <div className="py-2">
+                  <AdUnit slotId="8924610481" format="auto" />
+                </div>
               </div>
             </div>
           )}

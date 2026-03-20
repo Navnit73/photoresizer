@@ -10,6 +10,7 @@ import * as pdfjsLib from "pdfjs-dist";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { Rnd } from "react-rnd";
 import { InternalLinks } from "@/components/shared/InternalLinks";
+import AdUnit from "@/components/shared/AdUnit";
 
 // Initialize worker for Vite
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
@@ -287,6 +288,9 @@ export default function PdfEditor() {
         <Header />
 
         <main className="flex-1 flex flex-col">
+          <div className="w-full flex justify-center py-2 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700 min-h-[100px]">
+            <AdUnit format="auto" />
+          </div>
           
           {/* Editor Toolbar */}
           <div className="w-full bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 p-4 sticky top-0 z-30 shadow-sm">

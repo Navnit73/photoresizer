@@ -10,6 +10,7 @@ import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import { InternalLinks } from "@/components/shared/InternalLinks";
 import { AmazonAd } from "@/components/shared/AmazonAd";
+import AdUnit from "@/components/shared/AdUnit";
 
 // Initialize worker for Vite
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
@@ -189,6 +190,9 @@ export default function PdfToJpg() {
               </div>
 
               <div className="max-w-4xl mx-auto bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 md:p-8 animate-[fadeInUp_0.5s_ease-out]">
+                <div className="w-full relative py-2 flex justify-center mb-6 min-h-[100px] bg-slate-50 dark:bg-slate-900/50 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800">
+                  <AdUnit format="fluid" layoutKey="-gw-1+2a-9x+5y" />
+                </div>
                 {!file ? (
                   <div
                     onClick={() => fileInputRef.current?.click()}

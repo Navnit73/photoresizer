@@ -11,6 +11,7 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InternalLinks } from "@/components/shared/InternalLinks";
 import { AmazonAd } from "@/components/shared/AmazonAd";
+import AdUnit from "@/components/shared/AdUnit";
 
 const relatedLinks = [
   { label: "IELTS Photo Size", href: "/ielts-photo-size" },
@@ -118,10 +119,9 @@ export default function PTEPhotoSize() {
             </div>
           </section>
 
-          <div className="py-2">
-            <AmazonAd />
-          </div>
-
+              <div className="py-2">
+               <AdUnit slotId="8924610481" format="auto" />
+            </div>
           {/* ================= SEO CONTENT ================= */}
           <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">
             <h2>The Importance of PTE Candidate Profiles</h2>

@@ -128,9 +128,9 @@ export default function BlogList() {
         </section>
 
         {/* AdSense Unit - Below Hero */}
-        {/* <div className="mb-12">
+        <div className="mb-12">
             <AdUnit />
-        </div> */}
+        </div>
 
         {/* ================= POSTS GRID ================= */}
         {filteredPosts.length > 0 ? (
