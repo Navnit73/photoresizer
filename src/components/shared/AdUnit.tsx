@@ -1,7 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
+type AdType = 'header' | 'blog' | 'sidebar';
+
 interface AdUnitProps {
+  /** High-level placement type. When set, overrides slotId/format/style. */
+  type?: AdType;
+  /** Fallback manual slot ID (used only when `type` is not provided). */
   slotId?: string;
   format?: 'auto' | 'fluid' | 'rectangle' | 'horizontal' | 'vertical';
   layoutKey?: string;
@@ -15,8 +20,36 @@ declare global {
   }
 }
 
+/** Per-placement ad configuration matching the AdSense slot definitions. */
+const AD_CONFIG: Record<AdType, {
+  slot: string;
+  style: React.CSSProperties;
+  format: 'auto' | 'fluid' | 'rectangle' | 'horizontal' | 'vertical';
+  fullWidthResponsive: boolean;
+}> = {
+  header: {
+    slot: '9972099494',
+    style: { display: 'inline-block', width: '728px', height: '90px' },
+    format: 'horizontal',
+    fullWidthResponsive: false,
+  },
+  blog: {
+    slot: '9132763063',
+    style: { display: 'inline-block', width: '728px', height: '90px' },
+    format: 'horizontal',
+    fullWidthResponsive: false,
+  },
+  sidebar: {
+    slot: '7120906578',
+    style: { display: 'block' },
+    format: 'auto',
+    fullWidthResponsive: true,
+  },
+};
+
 const AdUnit = ({
-  slotId = '8924610486',
+  type,
+  slotId = '9972099494',
   format = 'auto',
   layoutKey,
   className = '',
@@ -24,6 +57,13 @@ const AdUnit = ({
 }: AdUnitProps) => {
   const adRef = useRef<HTMLModElement>(null);
   const location = useLocation();
+
+  // Resolve config from type preset or manual props
+  const cfg = type ? AD_CONFIG[type] : null;
+  const resolvedSlot   = cfg ? cfg.slot   : slotId;
+  const resolvedStyle  = cfg ? cfg.style  : style;
+  const resolvedFormat = cfg ? cfg.format : format;
+  const resolvedFwr    = cfg ? cfg.fullWidthResponsive : true;
 
   useEffect(() => {
     let retryCount = 0;
@@ -58,11 +98,11 @@ const AdUnit = ({
       <ins
         ref={adRef}
         className="adsbygoogle"
-        style={style}
+        style={resolvedStyle}
         data-ad-client="ca-pub-2980455227951378"
-        data-ad-slot={slotId}
-        data-ad-format={format}
-        data-full-width-responsive="true"
+        data-ad-slot={resolvedSlot}
+        data-ad-format={resolvedFormat}
+        data-full-width-responsive={resolvedFwr ? 'true' : 'false'}
         {...(layoutKey ? { 'data-ad-layout-key': layoutKey } : {})}
       ></ins>
     </div>
