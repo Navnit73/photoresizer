@@ -127,6 +127,11 @@ export default function BlogPage() {
           <span className="text-slate-900 dark:text-white font-semibold">{post.category}</span>
         </nav>
 
+        {/* AdSense Unit - Header */}
+        <div className="mb-8 text-center">
+          <AdUnit type="header" />
+        </div>
+
         <div className="grid lg:grid-cols-[1fr_360px] gap-12 items-start">
           
           {/* ================= MAIN CONTENT ================= */}
@@ -177,7 +182,7 @@ export default function BlogPage() {
 
             {/* AdSense Unit - Top of Content */}
             <div className="mb-10">
-               <AdUnit />
+               <AdUnit type="blog" />
             </div>
 
             {/* SPECIFICATION CARDS - DYNAMIC RENDERING */}
@@ -299,7 +304,7 @@ export default function BlogPage() {
 
             {/* AdSense Unit - Bottom of Content */}
             <div className="mt-10">
-               <AdUnit />
+               <AdUnit type="blog"/>
             </div>
 
             {/* FAQ SECTION */}
@@ -412,6 +417,11 @@ export default function BlogPage() {
                  </Button>
                </div>
              </div>
+
+            {/* AdSense Unit - Sidebar */}
+            <div className="w-full">
+              <AdUnit type="sidebar" />
+            </div>
 
           </aside>
 
