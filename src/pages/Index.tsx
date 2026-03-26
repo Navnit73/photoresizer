@@ -124,7 +124,7 @@ const Index = () => {
                 </aside>
 
                 {/* ================= CANVAS AREA ================= */}
-                <section className="order-1 lg:order-2 bg-card rounded-2xl border border-border p-3 sm:p-4 shadow-sm">
+                <section className="order-1 lg:order-2 bg-card rounded-2xl border border-border p-3 sm:p-4 shadow-sm w-full max-w-full overflow-hidden">
                   
                   {/* -------- MOBILE -------- */}
                   <div className="block lg:hidden space-y-4">

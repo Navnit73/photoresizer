@@ -124,7 +124,7 @@ export const LivePreview = memo(function LivePreview({ imageState }: LivePreview
   );
 
   return (
-    <div className="rounded-xl border border-border bg-card shadow-sm p-4 space-y-4">
+    <div className="w-full p-4 space-y-4">
       {/* Header */}
       <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
         <Eye className="w-4 h-4 text-primary" />
@@ -138,12 +138,12 @@ export const LivePreview = memo(function LivePreview({ imageState }: LivePreview
       </div>
 
       {/* Preview Image */}
-      <div className="flex justify-center  rounded-lg p-2">
+      <div className="flex justify-center p-2">
         <div
-          className="relative rounded-lg overflow-hidden border border-border shadow-sm"
+          className="relative rounded-lg overflow-hidden max-w-full"
           style={{
             width: imageState.width * scale,
-            height: imageState.height * scale,
+            aspectRatio: `${imageState.width} / ${imageState.height}`,
             background:
               imageState.backgroundColor === 'transparent'
                 ? 'repeating-conic-gradient(#e5e7eb 0% 25%, #f9fafb 0% 50%) 50% / 16px 16px'

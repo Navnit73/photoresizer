@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect, useCallback, memo } from "react";
 import { ImageState } from "@/types/editor";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, X, RotateCcw, Crop, Move, Lock, Unlock } from "lucide-react";
 
@@ -34,7 +33,7 @@ const MIN_CANVAS_HEIGHT = 200;
 const MAX_CANVAS_W = 520;
 const MAX_CANVAS_H = 400;
 // Padding inside the card
-const CANVAS_PADDING = 16;
+const CANVAS_PADDING = 8;
 
 // Haptic feedback helper
 const hapticFeedback = (style: "light" | "medium" | "heavy" = "light") => {
@@ -525,9 +524,9 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
         </div>
       )}
 
-      <Card
+      <div
         ref={cardRef}
-        className="relative overflow-hidden w-full"
+        className="relative overflow-hidden w-full py-2 bg-transparent"
         onPointerMove={isCropMode ? onPointerMove : undefined}
         onPointerUp={isCropMode ? onPointerUp : undefined}
         onPointerCancel={isCropMode ? onPointerUp : undefined}
@@ -598,7 +597,7 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
             )}
           </div>
         </div>
-      </Card>
+      </div>
 
  <div className="flex justify-center w-full">
 

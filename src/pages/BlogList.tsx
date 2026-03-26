@@ -71,8 +71,8 @@ export default function BlogList() {
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-16">
         
         {/* ================= HERO SECTION ================= */}
-        <section className="text-center mb-20 relative">
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-100/50 dark:bg-blue-900/10 blur-[120px] rounded-full pointer-events-none" />
+        <section className="text-center mb-20 relative overflow-hidden px-2">
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[400px] bg-blue-100/50 dark:bg-blue-900/10 blur-[120px] rounded-full pointer-events-none" />
 
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6 border border-blue-100 dark:border-blue-800">
             <BookOpen className="w-4 h-4" />

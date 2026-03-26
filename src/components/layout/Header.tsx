@@ -229,9 +229,9 @@ export function Header() {
           </div>
         )}
       </header>
-
-     
-  
+      
+      {/* Spacer to prevent content from hiding under the fixed header */}
+      <div className="h-14" />
     </>
   );
 }

@@ -296,7 +296,7 @@ export default function BlogPage() {
                            prose-blockquote:border-l-[6px] prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50/50 dark:prose-blockquote:bg-blue-900/20 prose-blockquote:py-6 prose-blockquote:px-8 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:font-medium prose-blockquote:text-slate-800 dark:prose-blockquote:text-slate-200 prose-blockquote:my-10
                            prose-img:rounded-xl prose-img:shadow-lg prose-img:my-10
                            marker:text-blue-500
-                           prose-table:border-collapse prose-table:border prose-table:border-slate-200 dark:prose-table:border-slate-800 prose-table:my-10
+                           prose-table:block prose-table:overflow-x-auto prose-table:w-full prose-table:whitespace-nowrap md:prose-table:whitespace-normal prose-table:border-collapse prose-table:border prose-table:border-slate-200 dark:prose-table:border-slate-800 prose-table:my-10
                            prose-th:bg-slate-50 dark:prose-th:bg-slate-800/50 prose-th:p-3 prose-th:text-left prose-th:font-bold
                            prose-td:p-3 prose-td:border prose-td:border-slate-200 dark:prose-td:border-slate-800"
               />

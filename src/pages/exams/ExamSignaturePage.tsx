@@ -148,7 +148,7 @@ function ExamSignaturePageContent({ exam }: { exam: ExamData }) {
                       <EditorControls imageState={imageState} isProcessing={isProcessing} onUpdateDimensions={updateDimensions} onRotate={setRotation} onQualityChange={setQuality} onFormatChange={setFormat} onApplyPreset={applyPreset} />
                     </div>
 
-                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 w-full max-w-full overflow-hidden">
                       <div className="hidden lg:grid lg:grid-cols-2 gap-2">
                         <div><InteractiveCanvas imageState={imageState} onCropApply={applyCrop} /></div>
                         <div>
