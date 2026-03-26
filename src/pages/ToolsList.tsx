@@ -30,6 +30,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { ExamDirectory } from "@/components/shared/ExamDirectory";
 
 // Interface for tool objects
 interface Tool {
@@ -242,6 +243,7 @@ export default function ToolsList() {
           </div>
         </main>
         
+        <ExamDirectory />
         <Footer />
       </div>
     </>

@@ -12,6 +12,9 @@ import { Header } from "@/components/layout/Header";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import AdUnit from "@/components/shared/AdUnit";
+import { ExamDirectory } from "@/components/shared/ExamDirectory";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 // Lazy-load below-fold content
 const ContentSections = lazy(() => import("@/components/sections/ContentSections").then(m => ({ default: m.ContentSections })));
@@ -51,9 +54,14 @@ const Index = () => {
               <br />
               <span className="text-primary">perfectly every time</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">
+            <p className="text-lg md:text-xl text-muted-foreground mb-6">
               The ultimate tool for SSC, UPSC, and government exams. Resize to exact dimensions or KB limits instantly in your browser.
             </p>
+            <div className="flex justify-center mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              <Link to="/more-tools" className="inline-flex items-center gap-2 bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-full font-semibold transition-colors">
+                View All State & Central Exam Resizer Tools <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
             
             {/* Ad Slot 1: Below Hero */}
             <div className="mb-8">
@@ -166,6 +174,8 @@ const Index = () => {
         <Suspense fallback={null}>
           <ContentSections />
         </Suspense>
+        
+        <ExamDirectory />
         
         <Suspense fallback={null}>
           <Footer />
