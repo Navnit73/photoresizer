@@ -10,7 +10,7 @@ const SSCPhotoResizer = lazy(() => import('@/pages/ssc-photo-resizer'));
 const UPSCPhotoSize = lazy(() => import('@/pages/upsc-photo-size'));
 const ReducePhotoSize50KB = lazy(() => import('@/pages/reduce-photo-size-50kb'));
 const SignatureResizeIBPS = lazy(() => import('@/pages/signature-resize-ibps'));
-const BlogPage = lazy(() => import('@/pages/BlogPage'));
+const DynamicPageResolver = lazy(() => import('@/pages/DynamicPageResolver'));
 const BlogList = lazy(() => import('@/pages/BlogList'));
 
 // Lazy load new SEO pages for better performance
@@ -117,8 +117,8 @@ export function AppRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<BlogList />} />
 
-        {/* Dynamic Blog Pages */}
-        <Route path="/:slug" element={<BlogPage />} />
+        {/* Dynamic Pages: Exam Photo/Signature Resizer + Blog */}
+        <Route path="/:slug" element={<DynamicPageResolver />} />
         
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
