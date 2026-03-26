@@ -230,11 +230,8 @@ export function Header() {
         )}
       </header>
 
-      {/* Spacer */}
-      <div className="h-14" />
-      <div className="w-full max-w-6xl mx-auto flex justify-center my-4 px-4 sm:px-6">
-        <AdUnit type="sidebar" />
-      </div>
+     
+  
     </>
   );
 }
