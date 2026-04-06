@@ -252,6 +252,11 @@ export function ContentSections() {
                 Use our automated preset buttons! Instead of manually typing dimensions, simply select the "SSC" or "PAN Card" preset. The tool will auto-crop your image to the correct aspect ratio and apply the ideal <strong>photo resizer kb</strong> compression instantly.
               </p>
             </div>
+
+            <h3 className="text-xl font-semibold mt-8 mb-4">Need AI-Powered US Visa & Passport Photos?</h3>
+            <p>
+              If you are applying for a US Visa, check out our dedicated AI tool at <a href="https://www.usvisaphotoai.pro/" className="text-primary hover:underline font-medium" title="US Visa Photo AI">US Visa Photo AI</a>. It uses advanced biometric scanning to ensure 100% compliance with State Department guidelines. You can easily create a perfectly validated <a href="https://www.usvisaphotoai.pro/us-visa-photo" className="text-primary hover:underline font-medium" title="US Visa Photo Maker">US Visa Photo</a> and a compliant <a href="https://www.usvisaphotoai.pro/us-passport-photo" className="text-primary hover:underline font-medium" title="US Passport Photo Maker">US Passport Photo</a> instantly, ensuring your application is accepted on the very first try.
+            </p>
           </div>
         </section>
         {/* ========================================================================================================= */}
