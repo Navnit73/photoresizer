@@ -15,7 +15,6 @@ const staticPages = [
   { path: '/jpeg-to-jpg', priority: '0.9', changefreq: 'monthly' },
   { path: '/jpg-to-png', priority: '0.9', changefreq: 'monthly' },
   { path: '/resize-photo-20kb', priority: '0.9', changefreq: 'monthly' },
-  { path: '/resize-photo-50kb', priority: '0.9', changefreq: 'monthly' },
   { path: '/passport-photo-editor', priority: '0.9', changefreq: 'monthly' },
   { path: '/ssc-photo-resizer', priority: '0.9', changefreq: 'monthly' },
   { path: '/upsc-photo-size', priority: '0.9', changefreq: 'monthly' },
@@ -28,7 +27,6 @@ const staticPages = [
   { path: '/split-pdf', priority: '0.9', changefreq: 'monthly' },
   { path: '/jpg-to-pdf', priority: '0.9', changefreq: 'monthly' },
   { path: '/pdf-to-jpg', priority: '0.9', changefreq: 'monthly' },
-  { path: '/pdf-editor', priority: '0.9', changefreq: 'monthly' },
   
   // Phase 4: Visa Tools
   { path: '/us-visa-photo', priority: '0.9', changefreq: 'monthly' },

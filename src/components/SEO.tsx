@@ -24,11 +24,11 @@ export function SEO({
   author = "Photo Resizer Pro",
   structuredData
 }: SEOProps) {
+  const siteUrl = "https://www.photoresizer.co.in";
   const canonicalUrl = typeof window !== "undefined"
-      ? (url || window.location.origin + window.location.pathname)
+      ? (url || `${siteUrl}${window.location.pathname === "/" ? "" : window.location.pathname}`)
       : "";
 
-  const siteUrl = "https://www.photoresizer.co.in";
   const finalImage = image.startsWith("http") ? image : `${siteUrl}${image}`;
 
   /* -------------------- Default Schemas -------------------- */
