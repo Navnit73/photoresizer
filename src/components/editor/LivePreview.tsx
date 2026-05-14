@@ -46,10 +46,15 @@ export const LivePreview = memo(function LivePreview({ imageState }: LivePreview
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'high';
 
+        // Yield to main thread before loading image and drawing to avoid blocking interactions
+        await new Promise(resolve => setTimeout(resolve, 10));
+
         const img = new Image();
         img.crossOrigin = 'anonymous';
 
-        img.onload = () => {
+        img.onload = async () => {
+          // Yield again inside onload before doing heavy drawing
+          await new Promise(resolve => setTimeout(resolve, 10));
           const radians = (imageState.rotation * Math.PI) / 180;
           const isRotated90or270 =
             imageState.rotation === 90 || imageState.rotation === 270;

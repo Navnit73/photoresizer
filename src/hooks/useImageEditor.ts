@@ -8,6 +8,8 @@ interface CropData {
   height: number;
 }
 
+const yieldToMain = () => new Promise(resolve => setTimeout(resolve, 10));
+
 const initialState: ImageState = {
   file: null,
   originalUrl: null,
@@ -179,6 +181,9 @@ export function useImageEditor() {
       setIsProcessing(true);
       saveToHistory(imageState);
 
+      // Yield to main thread to allow UI to paint loading states before heavy processing
+      await yieldToMain();
+
       try {
         const img = new Image();
         img.crossOrigin = "anonymous";
@@ -279,6 +284,9 @@ export function useImageEditor() {
   const processImage = useCallback(
     async (targetFileSizeKB?: number): Promise<Blob | null> => {
       if (!imageState.originalUrl) return null;
+
+      // Yield to main thread before heavy canvas processing
+      await yieldToMain();
 
       try {
         const img = new Image();

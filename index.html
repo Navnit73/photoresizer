@@ -256,10 +256,20 @@
         })(window, document, "clarity", "script", "uu67di7l76");
       }
 
+      let interactionTimer;
+      function handleInteraction() {
+        if (scriptsLoaded) return;
+        
+        // Yield to the browser to paint the interaction first (fixes INP)
+        if (!interactionTimer) {
+          interactionTimer = setTimeout(loadDeferredScripts, 150);
+        }
+      }
+
       // Load external scripts ONLY after first explicit user interaction to prevent INP penalties
       ["scroll", "mousemove", "touchstart", "click", "keydown"].forEach(
         (event) => {
-          window.addEventListener(event, loadDeferredScripts, {
+          window.addEventListener(event, handleInteraction, {
             once: true,
             passive: true,
           });
