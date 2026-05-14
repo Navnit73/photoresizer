@@ -10,7 +10,7 @@ import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InternalLinks } from "@/components/shared/InternalLinks";
-import { AmazonAd } from "@/components/shared/AmazonAd";
+
 import AdUnit from "@/components/shared/AdUnit";
 
 const relatedLinks = [
@@ -123,9 +123,7 @@ export default function SSCPhotoResizer() {
             </div>
           </section>
 
-          <div className="py-2">
-            <AmazonAd />
-          </div>
+     
 
           {/* ================= SEO CONTENT ================= */}
           <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">

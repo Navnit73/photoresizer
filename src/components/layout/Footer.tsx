@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FileImage, Shield, Zap, Globe } from "lucide-react";
 import AdUnit from "@/components/shared/AdUnit";
-import { AmazonAd } from "@/components/shared/AmazonAd";
+
 
 export function Footer() {
   return (
@@ -10,7 +10,7 @@ export function Footer() {
       style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }}
     >
       {/* Amazon Text Banner Unit */}
-      <AmazonAd variant="banner" startIndex={4} />
+     
 
       <div className="container relative z-10 px-4 py-16">
         <div className="grid grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-12 mb-12">
@@ -43,16 +43,7 @@ export function Footer() {
                   US Visa Photo AI
                 </a>
               </li>
-              <li>
-                <a href="https://www.usvisaphotoai.pro/us-visa-photo" target="_blank" rel="noopener" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" title="US Visa Photo Editor">
-                  US Visa Photo
-                </a>
-              </li>
-              <li>
-                <a href="https://www.usvisaphotoai.pro/us-passport-photo" target="_blank" rel="noopener" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" title="US Passport Photo Maker">
-                  US Passport Photo
-                </a>
-              </li>
+         
             </ul>
           </div>
 

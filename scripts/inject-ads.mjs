@@ -36,13 +36,9 @@ for (const file of files) {
     const lastImportMatch = importMatches[importMatches.length - 1];
     const insertPos = lastImportMatch.index + lastImportMatch[0].length;
 
-    content =
-      content.slice(0, insertPos) +
-      '\nimport { AmazonAd } from "@/components/shared/AmazonAd";' +
-      content.slice(insertPos);
+    content = content.slice(0, insertPos) + "\n" + content.slice(insertPos);
   } else {
-    content =
-      'import { AmazonAd } from "@/components/shared/AmazonAd";\n' + content;
+    content = "\n" + content;
   }
 
   // 2. Add Component after the first </section>

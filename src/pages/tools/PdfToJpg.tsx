@@ -9,7 +9,7 @@ import * as pdfjsLib from "pdfjs-dist";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import { InternalLinks } from "@/components/shared/InternalLinks";
-import { AmazonAd } from "@/components/shared/AmazonAd";
+
 import AdUnit from "@/components/shared/AdUnit";
 
 // Initialize worker for Vite
@@ -308,10 +308,7 @@ export default function PdfToJpg() {
             </div>
           </section>
 
-          <div className="py-2">
-            <AmazonAd />
-          </div>
-
+  
           {/* ================= SEO CONTENT ================= */}
           <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">
              <h2>Convert Uneditable PDFs into Versatile JPG Images</h2>

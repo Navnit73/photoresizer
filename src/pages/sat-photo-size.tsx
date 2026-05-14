@@ -10,7 +10,7 @@ import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InternalLinks } from "@/components/shared/InternalLinks";
-import { AmazonAd } from "@/components/shared/AmazonAd";
+
 import AdUnit from "@/components/shared/AdUnit";
 
 const relatedLinks = [

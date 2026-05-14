@@ -11,7 +11,7 @@ import { DownloadButton } from "@/components/editor/DownloadButton";
 import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InternalLinks } from "@/components/shared/InternalLinks";
-import { AmazonAd } from "@/components/shared/AmazonAd";
+
 import AdUnit from "@/components/shared/AdUnit";
 import { getExamBySlug, getRelatedExams, type ExamData } from "@/data/examPages";
 import { useEffect } from "react";
@@ -168,8 +168,7 @@ function ExamPhotoPageContent({ exam }: { exam: ExamData }) {
             </div>
           </section>
 
-          <div className="py-2"><AmazonAd /></div>
-
+  
           <AdUnit type="blog" />
 
           {/* ================= SEO CONTENT ================= */}

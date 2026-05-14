@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { PDFDocument } from "pdf-lib";
 import { InternalLinks } from "@/components/shared/InternalLinks";
-import { AmazonAd } from "@/components/shared/AmazonAd";
+
 import AdUnit from "@/components/shared/AdUnit";
 
 const relatedLinks = [
@@ -331,10 +331,7 @@ export default function MergePdf() {
             </div>
           </section>
 
-          <div className="py-2">
-            <AmazonAd />
-          </div>
-
+      
           {/* ================= SEO CONTENT ================= */}
           <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">
             <h2>Combine Multiple PDF Files Seamlessly</h2>

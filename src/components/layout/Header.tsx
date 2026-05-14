@@ -140,17 +140,7 @@ export function Header() {
                 >
                   Categories
                 </Link>
-                <a
-                  href="https://www.usvisaphotoai.pro/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
-                >
-                  US Visa AI
-                  <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-semibold uppercase">
-                    New
-                  </span>
-                </a>
+               
                 <Link
                   to="/blog"
                   className="px-3 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
