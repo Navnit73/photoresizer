@@ -169,6 +169,55 @@ const Index = () => {
           <div className="mb-2">
             <AdUnit type="sidebar" />
           </div>
+
+          <div style={{ border: "1px solid #eee", padding: "22px", borderRadius: "14px", background: "#f9fafc", textAlign: "center", marginTop: "20px", marginBottom: "40px", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>
+            <h3 style={{ fontSize: "20px", fontWeight: 600, marginBottom: "10px", color: "#111827" }}>
+              Didn’t crack your government exam? Your journey doesn’t end here 🌍
+            </h3>
+            <p style={{ fontSize: "14px", color: "#555", marginBottom: "18px", lineHeight: 1.6 }}>
+              Thousands of students and professionals are exploring opportunities abroad for higher studies, jobs, and travel. 
+              The first step? Get your documents ready — starting with a perfect visa or passport photo.
+            </p>
+            <div style={{ marginBottom: "10px" }}>
+              <a 
+                href="https://www.pixpassport.com/" 
+                target="_blank" 
+                rel="dofollow noopener noreferrer"
+                style={{ display: "inline-block", margin: "6px", padding: "10px 16px", background: "#111827", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
+                Visit PixPassport
+              </a>
+            </div>
+            <div>
+              <a 
+                href="https://www.pixpassport.com/schengen-visa-photo-editor" 
+                target="_blank" 
+                rel="dofollow noopener noreferrer"
+                style={{ display: "inline-block", margin: "6px", padding: "10px 16px", background: "#4f46e5", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
+                Schengen Visa Photo Tool
+              </a>
+              <a 
+                href="https://www.pixpassport.com/us-visa-photo-editor" 
+                target="_blank" 
+                rel="dofollow noopener noreferrer"
+                style={{ display: "inline-block", margin: "6px", padding: "10px 16px", background: "#2563eb", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
+                US Visa Photo Tool
+              </a>
+              <a 
+                href="https://www.pixpassport.com/uk-visa-photo-editor" 
+                target="_blank" 
+                rel="dofollow noopener noreferrer"
+                style={{ display: "inline-block", margin: "6px", padding: "10px 16px", background: "#059669", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
+                UK Visa Photo Tool
+              </a>
+              <a 
+                href="https://www.pixpassport.com/australia-visa-photo-editor" 
+                target="_blank" 
+                rel="dofollow noopener noreferrer"
+                style={{ display: "inline-block", margin: "6px", padding: "10px 16px", background: "#dc2626", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
+                Australia Visa Photo Tool
+              </a>
+            </div>
+          </div>
         </main>
 
         <Suspense fallback={null}>
