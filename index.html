@@ -225,6 +225,15 @@
           "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2980455227951378";
         ads.crossOrigin = "anonymous";
         ads.async = true;
+        ads.onload = function () {
+          // Enable page-level ads (anchor/vignette Auto Ad formats)
+          (window.adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2980455227951378",
+            enable_page_level_ads: true,
+          });
+          // Notify AdUnit components that AdSense is ready
+          window.dispatchEvent(new Event("adsense-ready"));
+        };
         document.head.appendChild(ads);
 
         // Google Analytics

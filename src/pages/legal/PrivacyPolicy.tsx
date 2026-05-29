@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Shield, Lock, Eye, Database, Globe, UserCheck } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import AdUnit from "@/components/shared/AdUnit";
 
 export default function PrivacyPolicy() {
   return (
@@ -37,6 +38,9 @@ export default function PrivacyPolicy() {
                 Last updated: February 5, 2026
               </p>
             </div>
+
+            {/* Ad Unit */}
+            <AdUnit type="sidebar" />
 
             {/* Key Points */}
             <div className="grid md:grid-cols-3 gap-6 mb-12 animate-[fadeIn_0.6s_ease-out_0.2s_both]">
@@ -96,6 +100,8 @@ export default function PrivacyPolicy() {
                   <li>✗ We do not sell your data to third parties</li>
                 </ul>
               </section>
+
+              <AdUnit type="in-article" />
 
               <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                 <h2 className="flex items-center gap-3 text-2xl font-bold mb-4 text-slate-900 dark:text-white">

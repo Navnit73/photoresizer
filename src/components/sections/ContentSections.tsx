@@ -4,6 +4,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import AdUnit from '@/components/shared/AdUnit'
+
 import {
   Accordion,
   AccordionContent,
@@ -191,6 +193,8 @@ export function ContentSections() {
           </div>
         </div>
 
+        <AdUnit type="in-article" />
+
         {/* IMAGE CONVERTER SEO */}
         <section className="max-w-5xl mx-auto text-sm text-muted-foreground space-y-4">
           <h2 className="text-xl sm:text-2xl font-bold text-center text-foreground">
@@ -260,6 +264,8 @@ export function ContentSections() {
           </div>
         </section>
         {/* ========================================================================================================= */}
+
+        <AdUnit type="in-article" />
 
         {/* FAQ */}
         <div className="max-w-3xl mx-auto">

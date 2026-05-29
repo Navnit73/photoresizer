@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { FileText, AlertCircle, Ban, CheckCircle } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import AdUnit from "@/components/shared/AdUnit";
 
 export default function TermsOfService() {
   return (
@@ -36,6 +37,8 @@ export default function TermsOfService() {
                 Last updated: February 5, 2026
               </p>
             </div>
+
+            <AdUnit type="sidebar" />
 
             <div
               className="space-y-8 animate-[fadeIn_0.6s_ease-out_0.2s_both]"
@@ -88,6 +91,8 @@ export default function TermsOfService() {
                   <strong>Important:</strong> While we strive to meet government photo requirements, we recommend always verifying that your processed images meet the specific requirements of your target application.
                 </p>
               </section>
+
+              <AdUnit type="in-article" />
 
               <section className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
                 <h2 className="flex items-center gap-3 text-2xl font-bold mb-4 text-slate-900 dark:text-white">

@@ -148,6 +148,29 @@
   }
 }
 
+/* ===== Ad Container Styles ===== */
+.ad-container {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;        /* prevent ad overflow on mobile */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  min-height: 100px;       /* prevent CLS when ads load */
+}
+
+.ad-container .adsbygoogle {
+  max-width: 100%;         /* ensure ad never overflows its parent */
+}
+
+/* Slightly smaller spacing on mobile */
+@media (max-width: 640px) {
+  .ad-container {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    min-height: 50px;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

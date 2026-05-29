@@ -11,6 +11,9 @@ export function Footer() {
     >
       {/* Amazon Text Banner Unit */}
      
+      <div className="max-w-7xl mx-auto px-4 pt-6">
+        <AdUnit type="blog" />
+      </div>
 
       <div className="container relative z-10 px-4 py-16">
         <div className="grid grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-12 mb-12">
