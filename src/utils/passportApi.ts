@@ -1,0 +1,166 @@
+export interface ExternalCountry {
+  country_code: string;
+  country_name: string;
+  document_type: string;
+  dimensions: string;
+}
+
+export interface ExternalProcessResponse {
+  status: string;
+  result_id: string;
+  image_url: string;
+  print_sheet_url: string;
+  preview_url: string;
+  dimensions: string;
+  format: string;
+  size_kb: number;
+  metrics: {
+    head_height_pct: number;
+    eye_position_pct: number;
+    top_margin_pct: number;
+    background_valid: boolean;
+    background_corrected: boolean;
+  };
+}
+
+// Point to the secure Vercel API proxy routes instead of direct backend IP
+const PROXY_API_BASE_URL = "/api";
+
+export async function fetchExternalCountries(): Promise<ExternalCountry[]> {
+  try {
+    const response = await fetch(`${PROXY_API_BASE_URL}/countries`, {
+      headers: {
+        accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch countries: ${response.status} ${response.statusText}`
+      );
+    }
+
+    const data: unknown = await response.json();
+
+    // Guard: the API must return an array
+    if (!Array.isArray(data)) {
+      console.error(
+        "fetchExternalCountries: unexpected response shape (expected array)",
+        data
+      );
+      return [];
+    }
+
+    return data as ExternalCountry[];
+  } catch (error) {
+    console.error("Error fetching external countries:", error);
+    return [];
+  }
+}
+
+export const countryMapping: Record<string, string> = {
+  algeria: "DZ",
+  argentina: "AR",
+  australia: "AU",
+  austria: "AT",
+  belgium: "BE",
+  bulgaria: "BG",
+  canada: "CA",
+  china: "CN",
+  croatia: "HR",
+  czechia: "CZ",
+  denmark: "DK",
+  estonia: "EE",
+  finland: "FI",
+  france: "FR",
+  germany: "DE",
+  greece: "GR",
+  hungary: "HU",
+  iceland: "IS",
+  india: "IN",
+  indonesia: "ID",
+  iran: "IR",
+  ireland: "IE",
+  iraq: "IQ",
+  italy: "IT",
+  japan: "JP",
+  kazakhstan: "KZ",
+  latvia: "LV",
+  lithuania: "LT",
+  luxembourg: "LU",
+  malta: "MT",
+  mexico: "MX",
+  netherlands: "NL",
+  "new-zealand": "NZ",
+  norway: "NO",
+  poland: "PL",
+  portugal: "PT",
+  romania: "RO",
+  "schengen-area": "EU",
+  "schengen-visa": "EU",
+  schengen: "EU",
+  uae: "AE",
+  singapore: "SG",
+  slovakia: "SK",
+  slovenia: "SI",
+  "south-korea": "KR",
+  spain: "ES",
+  sweden: "SE",
+  switzerland: "CHE",
+  thailand: "TH",
+  turkey: "TR",
+  "united-arab-emirates": "AE",
+  uk: "GB",
+  "united-kingdom": "GB",
+  us: "US",
+  usa: "US",
+  general: "US",
+};
+
+export async function processExternalPhoto(
+  imageFile: Blob | File,
+  countryCode: string,
+  documentType: string = "passport",
+  extraFields: Record<string, string> = {}
+): Promise<ExternalProcessResponse> {
+  const formData = new FormData();
+  formData.append("image", imageFile);
+  formData.append("country_code", countryCode);
+  // NOTE: documentType param is accepted but the API always uses "passport".
+  // Kept for forward-compatibility; change the hardcoded value if the API
+  // starts honouring the document_type field.
+  formData.append("document_type", "passport");
+
+  for (const [key, value] of Object.entries(extraFields)) {
+    formData.append(key, value);
+  }
+
+  const response = await fetch(`${PROXY_API_BASE_URL}/process`, {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+    },
+    body: formData,
+  });
+
+  if (!response.ok) {
+    // Try to surface a structured error from the response body.
+    const errorData = await response.json().catch(() => ({})) as Record<string, unknown>;
+    const message =
+      (typeof errorData.detail === "string" && errorData.detail) ||
+      (typeof errorData.error === "string" && errorData.error) ||
+      `Processing failed: ${response.status} ${response.statusText}`;
+    throw new Error(message);
+  }
+
+  const data: unknown = await response.json();
+
+  // Basic shape guard to catch silent API contract breaks early.
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    throw new Error(
+      "Unexpected response from the photo-processing API — expected a JSON object"
+    );
+  }
+
+  return data as ExternalProcessResponse;
+}

@@ -37,8 +37,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/passport-photo-editor" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
-                  Passport Photo
+                <Link to="/passport-photo-maker" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Passport Photo Maker
+                </Link>
+              </li>
+              <li>
+                <Link to="/passport-size-photo-maker" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Passport Size Photo
+                </Link>
+              </li>
+              <li>
+                <Link to="/passport-photo-app" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Passport Photo App
                 </Link>
               </li>
               <li>
@@ -46,7 +56,6 @@ export function Footer() {
                   US Visa Photo AI
                 </a>
               </li>
-         
             </ul>
           </div>
 

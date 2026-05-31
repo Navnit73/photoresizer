@@ -54,11 +54,21 @@ const toolCategories: {
     description: "Most used photo editing tools",
     tools: [
       { name: "Compress Image", href: "/compress-image", icon: Minimize2, desc: "Reduce file size efficiently", badge: "Hot" },
-      { name: "Passport Photo Maker", href: "/passport-photo-editor", icon: UserSquare2, desc: "Create passport size photos", badge: "New" },
+      { name: "Passport Photo Maker", href: "/passport-photo-maker", icon: UserSquare2, desc: "Create passport size photos", badge: "New" },
       { name: "SSC Photo Resizer", href: "/ssc-photo-resizer", icon: FileCheck, desc: "Resize for SSC exams" },
       { name: "JPEG to JPG", href: "/jpeg-to-jpg", icon: FileType, desc: "Convert JPEG to JPG format" },
     ]
-
+  },
+  {
+    title: "Passport & Visa Tools",
+    icon: UserSquare2,
+    description: "Biometric photo generators for passports and visas",
+    tools: [
+      { name: "Passport Photo Maker", href: "/passport-photo-maker", icon: UserSquare2, desc: "AI passport photo editor", badge: "AI" },
+      { name: "Passport Size Photo Maker", href: "/passport-size-photo-maker", icon: Printer, desc: "Create 35x45mm & 2x2\" prints" },
+      { name: "Passport Photo App", href: "/passport-photo-app", icon: Smartphone, desc: "Mobile biometric photo booth" },
+      { name: "US Visa Photo Tool", href: "/us-visa-photo", icon: FileCheck, desc: "Create 600x600 px visa photos" },
+    ]
   },
   {
     title: "Resize by Dimensions",

@@ -19,6 +19,9 @@ const CompressImage = lazy(() => import('@/pages/tools/CompressImage'));
 const JpgToPng = lazy(() => import('@/pages/tools/JpgToPng'));
 const ResizePhoto20KB = lazy(() => import('@/pages/tools/ResizePhoto20KB'));
 const PassportPhotoEditor = lazy(() => import('@/pages/tools/PassportPhotoEditor'));
+const PassportPhotoMaker = lazy(() => import('@/pages/tools/PassportPhotoMaker'));
+const PassportSizePhotoMaker = lazy(() => import('@/pages/tools/PassportSizePhotoMaker'));
+const PassportPhotoApp = lazy(() => import('@/pages/tools/PassportPhotoApp'));
 
 // Foreign Exam Pages
 const IELTSPhotoSize = lazy(() => import('@/pages/ielts-photo-size'));
@@ -83,6 +86,9 @@ export function AppRoutes() {
         <Route path="/jpg-to-png" element={<JpgToPng />} />
         <Route path="/resize-photo-20kb" element={<ResizePhoto20KB />} />
         <Route path="/passport-photo-editor" element={<PassportPhotoEditor />} />
+        <Route path="/passport-photo-maker" element={<PassportPhotoMaker />} />
+        <Route path="/passport-size-photo-maker" element={<PassportSizePhotoMaker />} />
+        <Route path="/passport-photo-app" element={<PassportPhotoApp />} />
         
         {/* Foreign Exam SEO Pages */}
         <Route path="/ielts-photo-size" element={<IELTSPhotoSize />} />
