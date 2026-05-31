@@ -173,7 +173,20 @@ function ExamPhotoPageContent({ exam }: { exam: ExamData }) {
 
           {/* ================= SEO CONTENT ================= */}
           <article className="prose prose-slate dark:prose-invert max-w-4xl mx-auto px-4 py-12 lg:prose-lg">
-            <h2>Resize Photo for {exam.name} {year} — Official Requirements</h2>
+            <h2>Resize Photo for {exam.name} {year} — Official Requirements (Updated)</h2>
+
+            {exam.slug === "ctet" && (
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-6 rounded-2xl mb-8 shadow-sm">
+                <h4 className="font-bold text-blue-800 dark:text-blue-300 mt-0 flex items-center gap-2">
+                  <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded-md uppercase tracking-wider">Update 2026</span>
+                  CTET July/December Session Guidelines
+                </h4>
+                <p className="text-blue-900 dark:text-blue-200 mb-0 leading-relaxed text-base">
+                  For the upcoming <strong>CTET 2026</strong> session, CBSE strictly requires the uploaded photograph to be between <strong>10 KB and 100 KB</strong> in size, with dimensions of <strong>3.5 cm (width) x 4.5 cm (height)</strong>. The signature must be between <strong>3 KB and 30 KB</strong>. Ensure your photo has a plain white background and is taken without spectacles.
+                </p>
+              </div>
+            )}
+
             <p>
               Are you preparing to submit your <strong>{exam.fullName}</strong> application form? The {exam.organization} strictly enforces
               photograph specifications on its online registration portal. Uploading a photo that does not conform to the exact dimensions,
