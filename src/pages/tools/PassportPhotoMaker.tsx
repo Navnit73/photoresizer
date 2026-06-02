@@ -32,21 +32,24 @@ const FEATURES = [
     title: "1-Click AI Cropping",
     description:
       "Computer vision instantly detects your eyes and chin to crop the photo to exact dimensional requirements, saving you minutes of manual adjustment in desktop editors.",
-    color: "bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400",
+    color:
+      "bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400",
   },
   {
     icon: Shield,
     title: "Official Background Correction",
     description:
       "Our background-removal engine separates you from any backdrop and replaces it with the official white or off-white colour required by each government — no green screen needed.",
-    color: "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400",
+    color:
+      "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400",
   },
   {
     icon: Printer,
     title: "Print-Ready 4×6 Grid",
     description:
       "Generates a high-resolution 4×6 inch print sheet containing multiple copies of your photo — ready to print at any pharmacy, print shop, or home inkjet printer.",
-    color: "bg-amber-50 dark:bg-amber-950/30 text-amber-600 dark:text-amber-400",
+    color:
+      "bg-amber-50 dark:bg-amber-950/30 text-amber-600 dark:text-amber-400",
   },
   {
     icon: Lock,
@@ -92,11 +95,29 @@ const HOW_TO_STEPS = [
 ];
 
 const COUNTRIES_SUPPORTED = [
-  "United States", "Canada", "United Kingdom", "Australia",
-  "New Zealand", "India", "Germany", "France", "Italy",
-  "Spain", "Netherlands", "Switzerland", "Japan", "South Korea",
-  "Singapore", "UAE", "Saudi Arabia", "Qatar", "Nepal",
-  "Bangladesh", "Pakistan", "China", "Schengen Area",
+  "United States",
+  "Canada",
+  "United Kingdom",
+  "Australia",
+  "New Zealand",
+  "India",
+  "Germany",
+  "France",
+  "Italy",
+  "Spain",
+  "Netherlands",
+  "Switzerland",
+  "Japan",
+  "South Korea",
+  "Singapore",
+  "UAE",
+  "Saudi Arabia",
+  "Qatar",
+  "Nepal",
+  "Bangladesh",
+  "Pakistan",
+  "China",
+  "Schengen Area",
 ];
 
 const FAQS = [
@@ -154,7 +175,13 @@ const INTERNAL_LINKS = [
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
-function TrustBadge({ icon: Icon, label }: { icon: React.FC<any>; label: string }) {
+function TrustBadge({
+  icon: Icon,
+  label,
+}: {
+  icon: React.FC<any>;
+  label: string;
+}) {
   return (
     <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
       <span className="p-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
@@ -173,9 +200,7 @@ function FeatureCard({
 }: (typeof FEATURES)[0]) {
   return (
     <div className="flex gap-4 p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow duration-200">
-      <div
-        className={`p-3 rounded-xl shrink-0 h-fit ${color}`}
-      >
+      <div className={`p-3 rounded-xl shrink-0 h-fit ${color}`}>
         <Icon className="w-5 h-5" />
       </div>
       <div>
@@ -190,11 +215,7 @@ function FeatureCard({
   );
 }
 
-function StepCard({
-  step,
-  title,
-  description,
-}: (typeof HOW_TO_STEPS)[0]) {
+function StepCard({ step, title, description }: (typeof HOW_TO_STEPS)[0]) {
   return (
     <div className="relative flex gap-5">
       <div className="flex flex-col items-center">
@@ -254,12 +275,16 @@ export default function PassportPhotoMaker() {
               </div>
 
               <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-5 leading-tight">
-                Free Online{" "}
+                Online Passport Photo{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
-                  Passport Photo Maker
+                  Maker
                 </span>
               </h1>
-
+              <section id="tool" className="pb-8">
+                <div className="container px-0">
+                  <PassportApiTool />
+                </div>
+              </section>
               <p className="text-base md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
                 No expensive photo booths. No complex editors. Let our advanced
                 AI format your portrait to official biometric standards —
@@ -286,11 +311,6 @@ export default function PassportPhotoMaker() {
           </section>
 
           {/* ── Tool ── */}
-          <section id="tool" className="pb-20">
-            <div className="container px-4">
-              <PassportApiTool />
-            </div>
-          </section>
 
           {/* ── Features ── */}
           <section className="py-16 bg-white/60 dark:bg-slate-900/40 border-y border-slate-100 dark:border-slate-800">
@@ -467,8 +487,8 @@ export default function PassportPhotoMaker() {
                 Our serverless AI engine uses computer vision to measure exact
                 ratios — checking, for instance, whether your head height falls
                 within the mandatory 50%–69% vertical boundary. It then
-                constructs a multi-photo print sheet formatted for standard
-                4×6 inch photographic paper, allowing you to print at a local
+                constructs a multi-photo print sheet formatted for standard 4×6
+                inch photographic paper, allowing you to print at a local
                 pharmacy for a fraction of the cost of a traditional photo
                 studio session.
               </p>

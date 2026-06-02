@@ -143,25 +143,25 @@ export default function PassportSizePhotoMaker() {
           <section className="py-14 md:py-20">
             <div className="container px-4 max-w-4xl mx-auto text-center">
 
-              <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/50 text-blue-600 dark:text-blue-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 bg-accent dark:bg-primary/10 border border-primary/20 dark:border-primary/30 text-primary text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
                 <Star className="w-3.5 h-3.5 fill-current" />
                 Updated for 2026 Government Standards
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-5 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-extrabold text-card-foreground tracking-tight mb-5 leading-tight">
                 Online{" "}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-indigo-600 dark:from-primary dark:to-indigo-400 bg-clip-text text-transparent">
                   Passport Size Photo Maker
                 </span>
               </h1>
 
-              <p className="text-base md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
                 Perfectly format your photo to exact dimensions — 35×45 mm,
                 2×2 inch, 3.5×4.5 cm, or any international standard — with
                 background replacement and biometric compliance in seconds.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-4 mb-10 text-sm text-slate-600 dark:text-slate-300">
+              <div className="flex flex-wrap justify-center gap-4 mb-10 text-sm text-muted-foreground">
                 {[
                   { icon: ShieldCheck, label: "ICAO Biometric Compliant" },
                   { icon: Lock, label: "Privacy-Safe — No Storage" },
@@ -177,13 +177,13 @@ export default function PassportSizePhotoMaker() {
                 ))}
               </div>
 
-              <a
+              {/* <a
                 href="#tool"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm px-6 py-3 rounded-xl shadow-lg shadow-primary/20 transition-all duration-200"
               >
                 <Camera className="w-4 h-4" />
                 Resize My Photo Now — Free
-              </a>
+              </a> */}
             </div>
           </section>
 
@@ -195,13 +195,13 @@ export default function PassportSizePhotoMaker() {
           </section>
 
           {/* ── Features ─────────────────────────────────────────────────────── */}
-          <section className="py-14 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+          <section className="py-14 bg-card border-y border-border">
             <div className="container px-4 max-w-5xl mx-auto">
               <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-card-foreground mb-3">
                   Official Multi-Size Support
                 </h2>
-                <p className="text-slate-500 dark:text-slate-400 text-sm max-w-xl mx-auto">
+                <p className="text-muted-foreground text-sm max-w-xl mx-auto">
                   Every format, every country, handled automatically.
                 </p>
               </div>
@@ -224,23 +224,23 @@ export default function PassportSizePhotoMaker() {
           </section>
 
           {/* ── Size Table ───────────────────────────────────────────────────── */}
-          <section className="py-14 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+          <section className="py-14 bg-card border-y border-border">
             <div className="container px-4 max-w-4xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-card-foreground mb-3">
                   Standard Passport Photo Dimensions by Country (2026)
                 </h2>
-                <p className="text-sm text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+                <p className="text-sm text-muted-foreground max-w-xl mx-auto">
                   Government specifications are updated periodically. Below are
                   the current official requirements for the most common
                   destinations.
                 </p>
               </div>
 
-              <div className="overflow-x-auto rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
+              <div className="overflow-x-auto rounded-2xl border border-border shadow-clean-sm">
                 <table className="w-full text-left border-collapse text-sm">
                   <thead>
-                    <tr className="bg-slate-50 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 font-semibold text-xs uppercase tracking-wider">
+                    <tr className="bg-muted text-muted-foreground font-semibold text-xs uppercase tracking-wider">
                       <th className="py-3.5 px-5">Country</th>
                       <th className="py-3.5 px-5">Official Size</th>
                       <th className="py-3.5 px-5">Background</th>
@@ -251,16 +251,16 @@ export default function PassportSizePhotoMaker() {
                     {sizeTable.map((row, idx) => (
                       <tr
                         key={idx}
-                        className="border-t border-slate-100 dark:border-slate-800 hover:bg-slate-50/60 dark:hover:bg-slate-800/30 text-slate-700 dark:text-slate-300 transition-colors"
+                        className="border-t border-border hover:bg-muted/60 text-muted-foreground transition-colors"
                       >
-                        <td className="py-3.5 px-5 font-bold text-slate-800 dark:text-slate-100">
+                        <td className="py-3.5 px-5 font-bold text-card-foreground">
                           {row.country}
                         </td>
-                        <td className="py-3.5 px-5 font-mono text-xs text-blue-600 dark:text-blue-400">
+                        <td className="py-3.5 px-5 font-mono text-xs text-primary">
                           {row.size}
                         </td>
                         <td className="py-3.5 px-5">{row.bg}</td>
-                        <td className="py-3.5 px-5 text-slate-500 dark:text-slate-400">
+                        <td className="py-3.5 px-5 text-muted-foreground">
                           {row.purpose}
                         </td>
                       </tr>
@@ -422,23 +422,23 @@ export default function PassportSizePhotoMaker() {
           </section>
 
           {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-          <section className="py-14 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+          <section className="py-14 bg-card border-y border-border">
             <div className="container px-4 max-w-3xl mx-auto">
               <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-card-foreground mb-3">
                   Frequently Asked Questions
                 </h2>
               </div>
-              <div className="bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 rounded-2xl px-6 divide-y divide-slate-100 dark:divide-slate-800">
+              <div className="bg-muted border border-border rounded-2xl px-6 divide-y divide-border">
                 {faqs.map((item, i) => (
                   <div key={i} className="py-5">
-                    <h3 className="font-semibold text-sm text-slate-800 dark:text-slate-100 mb-1.5 flex items-start gap-2">
-                      <span className="text-blue-500 font-bold shrink-0">
+                    <h3 className="font-semibold text-sm text-card-foreground mb-1.5 flex items-start gap-2">
+                      <span className="text-primary font-bold shrink-0">
                         Q{i + 1}.
                       </span>
                       {item.q}
                     </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed pl-7">
+                    <p className="text-sm text-muted-foreground leading-relaxed pl-7">
                       {item.a}
                     </p>
                   </div>
@@ -450,17 +450,17 @@ export default function PassportSizePhotoMaker() {
           {/* ── CTA Banner ───────────────────────────────────────────────────── */}
           <section className="py-14">
             <div className="container px-4 max-w-2xl mx-auto text-center">
-              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-10 text-white shadow-2xl shadow-blue-500/20">
+              <div className="bg-gradient-to-r from-primary to-indigo-600 rounded-3xl p-10 text-primary-foreground shadow-2xl shadow-primary/20">
                 <h2 className="text-2xl md:text-3xl font-extrabold mb-3">
                   Create Your Passport Size Photo Now
                 </h2>
-                <p className="text-blue-100 mb-7 text-sm leading-relaxed max-w-md mx-auto">
+                <p className="text-primary-foreground/80 mb-7 text-sm leading-relaxed max-w-md mx-auto">
                   Free, instant, and fully compliant with 2026 government
                   standards. No account required.
                 </p>
                 <a
                   href="#tool"
-                  className="inline-flex items-center gap-2 bg-white text-blue-700 font-bold text-sm px-7 py-3.5 rounded-xl shadow-md hover:bg-blue-50 transition-all duration-200"
+                  className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-bold text-sm px-7 py-3.5 rounded-xl shadow-md hover:bg-primary-foreground/90 transition-all duration-200"
                 >
                   <Zap className="w-4 h-4" />
                   Resize My Photo — Free

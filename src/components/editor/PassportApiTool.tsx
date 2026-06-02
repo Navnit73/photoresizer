@@ -2,14 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import {
   Check,
   Download,
-  FileImage,
-  HelpCircle,
   Info,
   Printer,
   RefreshCw,
+  Search,
   ShieldCheck,
   Upload,
-  UserCheck,
+  X,
   AlertTriangle,
   Zap,
   Globe,
@@ -18,7 +17,6 @@ import {
   ImageIcon,
   ChevronDown,
 } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import {
   fetchExternalCountries,
@@ -70,19 +68,19 @@ const MetricBar = ({
 }) => (
   <div className="space-y-2">
     <div className="flex justify-between items-center">
-      <span className="flex items-center gap-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+      <span className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
         {label}
         <span className="sr-only">{tooltip}</span>
       </span>
-      <span className="text-sm font-bold text-gray-800">{Math.round(value)}%</span>
+      <span className="text-sm font-bold text-card-foreground">{Math.round(value)}%</span>
     </div>
-    <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+    <div className="w-full bg-muted h-1.5 rounded-full overflow-hidden">
       <div
-        className="h-full rounded-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-700"
+        className="h-full rounded-full bg-gradient-to-r from-primary to-primary/80 transition-all duration-700"
         style={{ width: `${Math.min(value, 100)}%` }}
       />
     </div>
-    <p className="text-[10px] text-gray-400">{standard}</p>
+    <p className="text-[10px] text-muted-foreground/70">{standard}</p>
   </div>
 );
 
@@ -106,6 +104,9 @@ export function PassportApiTool() {
   const [countries, setCountries] = useState<ExternalCountry[]>([]);
   const [isLoadingCountries, setIsLoadingCountries] = useState(true);
   const [selectedCountryCode, setSelectedCountryCode] = useState("US");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [isDragOver, setIsDragOver] = useState(false);
@@ -138,6 +139,23 @@ export function PassportApiTool() {
   }, []);
 
   const activeCountry = countries.find((c) => c.country_code === selectedCountryCode);
+
+  const filteredCountries = countries.filter((c) =>
+    c.country_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    c.country_code.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.country-dropdown-container')) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   const validateAndSetFile = (file: File) => {
     if (!file.type.startsWith("image/")) {
@@ -247,27 +265,24 @@ export function PassportApiTool() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
-   
+    <div className="min-h-screen bg-background font-sans">
 
       <div className="max-w-2xl mx-auto px-4 py-6 space-y-4 pb-16">
 
         {/* ── Hero Section ── */}
-        <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
+        <div className="bg-card rounded-2xl border border-border p-5 shadow-clean-sm">
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-blue-600 flex items-center justify-center shrink-0 mt-0.5">
-              <Sparkles className="w-5 h-5 text-white" />
-            </div>
+           
             <div className="flex-1 min-w-0">
-              <h1 className="text-lg font-bold text-gray-900 leading-tight">
+              <h1 className="text-lg font-bold text-card-foreground leading-tight">
                 Biometric Passport & Visa Photo Maker
               </h1>
-              <p className="text-sm text-gray-500 mt-1 leading-relaxed">
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
                 Government-compliant photos for 150+ countries — background removed, auto-cropped, print-ready.
               </p>
-              <div className="flex flex-wrap gap-2 mt-3">
+              <div className="flex flex-wrap gap-2 mt-3 ">
                 {["Background Removed", "Auto-Crop", "Print-Ready"].map((t) => (
-                  <span key={t} className="inline-flex items-center gap-1 text-[11px] font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full border border-green-100">
+                  <span key={t} className="inline-flex items-center gap-1 text-[11px] font-semibold text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2 py-0.5 rounded-full border border-green-100 dark:border-green-900">
                     <Check className="w-2.5 h-2.5" />
                     {t}
                   </span>
@@ -278,38 +293,109 @@ export function PassportApiTool() {
         </div>
 
         {/* ── Country Selector ── */}
-        <div className="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
-          <div className="flex items-center gap-2 mb-3">
-            <Globe className="w-4 h-4 text-blue-500" />
-            <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Country Preset</span>
+        <div className="bg-card rounded-2xl border border-border p-4 shadow-clean-sm">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <Globe className="w-4 h-4 text-primary" />
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Select Country</span>
+            </div>
+            {activeCountry && (
+              <span className="text-[10px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-md">
+                {activeCountry.country_code}
+              </span>
+            )}
           </div>
           {isLoadingCountries ? (
-            <div className="h-11 bg-gray-100 rounded-xl animate-pulse" />
+            <div className="h-12 bg-muted rounded-xl animate-pulse" />
           ) : (
             <div className="relative">
-              <select
-                value={selectedCountryCode}
-                onChange={(e) => setSelectedCountryCode(e.target.value)}
-                className="w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 pr-10 text-sm font-medium text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+              <div
+                className="flex items-center gap-2 w-full bg-muted/50 dark:bg-muted border border-input rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent transition-all cursor-text"
+                onClick={() => document.getElementById("country-search-input")?.focus()}
               >
-                {countries.map((c) => (
-                  <option key={c.country_code} value={c.country_code}>
-                    {c.country_name} ({c.country_code})
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                <Search className="w-4 h-4 text-muted-foreground shrink-0" />
+                <input
+                  id="country-search-input"
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setShowDropdown(true);
+                  }}
+                  onFocus={() => setShowDropdown(true)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && filteredCountries.length > 0) {
+                      const match = filteredCountries[0];
+                      setSelectedCountryCode(match.country_code);
+                      setSearchQuery(match.country_name);
+                      setShowDropdown(false);
+                    }
+                    if (e.key === "ArrowDown") {
+                      e.preventDefault();
+                      setHighlightedIndex(0);
+                    }
+                  }}
+                  placeholder="Search 150+ countries..."
+                  className="flex-1 bg-transparent text-sm font-medium text-card-foreground placeholder:text-muted-foreground/50 focus:outline-none"
+                />
+                {searchQuery ? (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSearchQuery("");
+                      setShowDropdown(false);
+                    }}
+                    className="text-muted-foreground hover:text-card-foreground transition-colors"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                )}
+              </div>
+
+              {/* Custom Dropdown */}
+              {showDropdown && filteredCountries.length > 0 && (
+                <div className="absolute z-50 w-full mt-2 bg-card border border-border rounded-xl shadow-clean-lg max-h-64 overflow-y-auto country-dropdown-container">
+                  {filteredCountries.slice(0, 50).map((c, index) => (
+                    <button
+                      key={c.country_code}
+                      onClick={() => {
+                        setSelectedCountryCode(c.country_code);
+                        setSearchQuery(c.country_name);
+                        setShowDropdown(false);
+                      }}
+                      onMouseEnter={() => setHighlightedIndex(index)}
+                      className={`w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors flex items-center justify-between ${
+                        highlightedIndex === index ? "bg-muted" : ""
+                      } ${
+                        selectedCountryCode === c.country_code
+                          ? "bg-primary/10 text-primary font-semibold"
+                          : "text-card-foreground"
+                      }`}
+                    >
+                      <span>{c.country_name}</span>
+                      <span className="text-xs text-muted-foreground">{c.country_code}</span>
+                    </button>
+                  ))}
+                  {filteredCountries.length > 50 && (
+                    <div className="px-4 py-2 text-xs text-muted-foreground text-center border-t border-border">
+                      Showing 50 of {filteredCountries.length} results
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
           {activeCountry && (
             <div className="flex flex-wrap gap-2 mt-3">
-              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-lg capitalize">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-accent dark:bg-primary/10 border border-primary/20 dark:border-primary/30 px-2.5 py-1 rounded-lg capitalize">
                 🎯 {activeCountry.document_type}
               </span>
-              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-lg">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-accent dark:bg-primary/10 border border-primary/20 dark:border-primary/30 px-2.5 py-1 rounded-lg">
                 📏 {activeCountry.dimensions}
               </span>
-              <span className="inline-flex items-center gap-1.5 text-xs text-gray-400 px-1">
+              <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground px-1">
                 <Info className="w-3 h-3" /> DPI auto-configured
               </span>
             </div>
@@ -323,20 +409,20 @@ export function PassportApiTool() {
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
-            className={`bg-white rounded-2xl border-2 border-dashed shadow-sm cursor-pointer transition-all duration-200 p-8 flex flex-col items-center text-center select-none ${
+            className={`bg-card rounded-2xl border-2 border-dashed shadow-clean-sm cursor-pointer transition-all duration-200 p-8 flex flex-col items-center text-center select-none ${
               isDragOver
-                ? "border-blue-400 bg-blue-50 scale-[0.99]"
-                : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
+                ? "border-primary bg-accent"
+                : "border-input hover:border-primary/50 hover:bg-accent"
             }`}
           >
-            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${isDragOver ? "bg-blue-100" : "bg-gray-100"}`}>
-              <ImageIcon className={`w-7 h-7 transition-colors duration-200 ${isDragOver ? "text-blue-500" : "text-gray-400"}`} />
+            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${isDragOver ? "bg-primary/10" : "bg-muted"}`}>
+              <ImageIcon className={`w-7 h-7 transition-colors duration-200 ${isDragOver ? "text-primary" : "text-muted-foreground"}`} />
             </div>
-            <p className="text-base font-bold text-gray-800">Drop your portrait here</p>
-            <p className="text-sm text-gray-400 mt-1">
-              or <span className="text-blue-500 font-semibold">browse files</span>
+            <p className="text-base font-bold text-card-foreground">Drop your portrait here</p>
+            <p className="text-sm text-muted-foreground mt-1">
+              or <span className="text-primary font-semibold">browse files</span>
             </p>
-            <p className="text-xs text-gray-300 mt-2">PNG · JPG · WebP — max 10 MB</p>
+            <p className="text-xs text-muted-foreground/60 mt-2">PNG · JPG · WebP — max 10 MB</p>
             <input
               type="file"
               ref={fileInputRef}
@@ -351,17 +437,17 @@ export function PassportApiTool() {
         {stage === "preview" && selectedFile && previewUrl && (
           <>
             {/* Photo preview card */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-gray-50">
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Your Photo</span>
+            <div className="bg-card rounded-2xl border border-border shadow-clean-sm overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Your Photo</span>
                 <button
                   onClick={() => fileInputRef.current?.click()}
-                  className="text-xs text-blue-500 font-semibold flex items-center gap-1 hover:underline"
+                  className="text-xs text-primary font-semibold flex items-center gap-1 hover:underline"
                 >
                   <Upload className="w-3 h-3" /> Change
                 </button>
               </div>
-              <div className="flex justify-center bg-gray-50 p-6">
+              <div className="flex justify-center bg-muted p-6">
                 <img
                   src={previewUrl}
                   alt="Uploaded portrait"
@@ -375,16 +461,16 @@ export function PassportApiTool() {
             </div>
 
             {/* Tips card */}
-            <div className="bg-amber-50 rounded-2xl border border-amber-100 p-4 flex gap-3">
-              <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-              <p className="text-xs text-amber-700 leading-relaxed">
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl border border-yellow-200 dark:border-yellow-800 p-4 flex gap-3">
+              <AlertTriangle className="w-4 h-4 text-yellow-600 dark:text-yellow-500 shrink-0 mt-0.5" />
+              <p className="text-xs text-yellow-700 dark:text-yellow-300 leading-relaxed">
                 <span className="font-bold">Best results:</span> Face camera directly, even lighting, plain background, no glasses, neutral expression.
               </p>
             </div>
 
             {/* What AI will do */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">What AI will do</p>
+            <div className="bg-card rounded-2xl border border-border shadow-clean-sm p-4">
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">What AI will do</p>
               <div className="grid grid-cols-2 gap-2">
                 {[
                   `Matches ${activeCountry?.country_name} rules`,
@@ -392,9 +478,9 @@ export function PassportApiTool() {
                   "Biometric face align",
                   "Generates print sheet",
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-xs text-gray-600">
-                    <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-                      <Check className="w-2.5 h-2.5 text-green-600" />
+                  <div key={item} className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <div className="w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/40 flex items-center justify-center shrink-0">
+                      <Check className="w-2.5 h-2.5 text-green-600 dark:text-green-400" />
                     </div>
                     {item}
                   </div>
@@ -406,7 +492,7 @@ export function PassportApiTool() {
             <div className="flex gap-3">
               <button
                 onClick={handleProcessImage}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 active:scale-[0.98] text-white font-bold rounded-2xl py-4 text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-200"
+                className="flex-1 bg-primary hover:bg-primary/90 active:scale-[0.98] text-primary-foreground font-bold rounded-2xl py-4 text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20"
               >
                 <Zap className="w-4 h-4" />
                 Process with AI
@@ -414,7 +500,7 @@ export function PassportApiTool() {
               </button>
               <button
                 onClick={handleReset}
-                className="px-5 py-4 rounded-2xl border border-gray-200 text-gray-500 text-sm font-semibold hover:bg-gray-50 active:scale-[0.98] transition-all"
+                className="px-5 py-4 rounded-2xl border border-input text-muted-foreground text-sm font-semibold hover:bg-muted active:scale-[0.98] transition-all"
               >
                 Cancel
               </button>
@@ -424,34 +510,34 @@ export function PassportApiTool() {
 
         {/* ── Stage: Processing ── */}
         {stage === "processing" && (
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 flex flex-col items-center text-center gap-6">
+          <div className="bg-card rounded-2xl border border-border shadow-clean-sm p-8 flex flex-col items-center text-center gap-6">
             <div className="relative">
-              <div className="w-20 h-20 rounded-full border-4 border-blue-100 flex items-center justify-center">
-                <RefreshCw className="w-8 h-8 text-blue-600 animate-spin" />
+              <div className="w-20 h-20 rounded-full border-4 border-primary/20 flex items-center justify-center">
+                <RefreshCw className="w-8 h-8 text-primary animate-spin" />
               </div>
-              <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                <Sparkles className="w-3 h-3 text-white" />
+              <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                <Sparkles className="w-3 h-3 text-primary-foreground" />
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-gray-900">Processing…</h3>
-              <p className="text-sm text-blue-500 font-medium mt-1 min-h-[20px]">{processingMsg}</p>
+              <h3 className="text-lg font-bold text-card-foreground">Processing…</h3>
+              <p className="text-sm text-primary font-medium mt-1 min-h-[20px]">{processingMsg}</p>
             </div>
             <div className="w-full space-y-2">
-              <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+              <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                 <div
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 h-full rounded-full transition-all duration-500 ease-out"
+                  className="bg-gradient-to-r from-primary to-primary/80 h-full rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${processingProgress}%` }}
                 />
               </div>
-              <div className="flex justify-between text-[11px] text-gray-400 font-semibold">
+              <div className="flex justify-between text-[11px] text-muted-foreground font-semibold">
                 <span>AI Analysis</span>
                 <span>{processingProgress}%</span>
               </div>
             </div>
-            <div className="flex flex-wrap justify-center gap-2 text-[11px] text-gray-400">
+            <div className="flex flex-wrap justify-center gap-2 text-[11px] text-muted-foreground">
               {["Facial Detection", "Background Removal", "Compliance Check"].map((s, i) => (
-                <span key={s} className={`px-2.5 py-1 rounded-full border ${processingProgress > i * 30 + 10 ? "border-blue-200 bg-blue-50 text-blue-600 font-semibold" : "border-gray-100 bg-gray-50"}`}>
+                <span key={s} className={`px-2.5 py-1 rounded-full border ${processingProgress > i * 30 + 10 ? "border-primary/30 bg-primary/10 text-primary font-semibold" : "border-input bg-muted"}`}>
                   {s}
                 </span>
               ))}
@@ -463,107 +549,77 @@ export function PassportApiTool() {
         {stage === "result" && result && (
           <>
             {/* Success banner */}
-            <div className="bg-green-50 border border-green-100 rounded-2xl p-4 flex items-center gap-3">
+            <div className="bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-900 rounded-2xl p-4 flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-green-500 flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="text-sm font-bold text-green-800">Government-Compliant!</p>
-                <p className="text-xs text-green-600">Your photo meets all {activeCountry?.country_name} biometric standards.</p>
+                <p className="text-sm font-bold text-green-800 dark:text-green-300">Government-Compliant!</p>
+                <p className="text-xs text-green-600 dark:text-green-500">Your photo meets all {activeCountry?.country_name} biometric standards.</p>
               </div>
             </div>
 
-            {/* Photo tabs */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-              <Tabs defaultValue="processed">
-                <TabsList className="flex w-full bg-gray-50 border-b border-gray-100 p-0 h-auto rounded-none">
-                  {[
-                    { value: "processed", label: "AI Photo", icon: UserCheck },
-                    { value: "preview", label: "Preview", icon: Zap },
-                    { value: "original", label: "Original", icon: FileImage },
-                  ].map(({ value, label, icon: Icon }) => (
-                    <TabsTrigger
-                      key={value}
-                      value={value}
-                      className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold py-3 rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:text-blue-600 data-[state=active]:bg-white text-gray-400 transition-all"
-                    >
-                      <Icon className="w-3.5 h-3.5" />
-                      {label}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
+            {/* Photo Comparison - Preview & Original Side by Side */}
+            <div className="bg-card rounded-2xl border border-border shadow-clean-sm p-5">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Photo Comparison</span>
+                <span className="text-[10px] font-bold bg-green-500 text-white px-2.5 py-1 rounded-full">✓ COMPLIANT</span>
+              </div>
 
-                <TabsContent value="processed" className="p-5 flex flex-col items-center gap-4 m-0">
-                  <div className="relative bg-gray-50 rounded-xl overflow-hidden w-full max-w-xs aspect-[3/4] flex items-center justify-center border border-gray-100">
-                    <img
-                      src={result.image_url}
-                      alt="AI processed passport photo"
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                      draggable={false}
-                      style={{ WebkitTouchCallout: "none" }}
-                      className="object-contain max-h-full max-w-full select-none pointer-events-none"
-                    />
-                    <span className="absolute top-2 right-2 text-[10px] font-bold bg-green-500 text-white px-2 py-0.5 rounded-full">✓ COMPLIANT</span>
-                  </div>
-                  <button
-                    onClick={() => handleDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`)}
-                    disabled={isDownloading}
-                    className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
-                  >
-                    <Download className="w-4 h-4" />
-                    {isDownloading ? "Preparing..." : "Download JPG"}
-                  </button>
-                </TabsContent>
-
-                <TabsContent value="preview" className="p-5 flex flex-col items-center gap-4 m-0">
-                  <div className="bg-gray-50 rounded-xl overflow-hidden w-full max-w-xs aspect-[3/4] flex items-center justify-center border border-gray-100">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Preview Image - Full Size */}
+                <div className="flex flex-col">
+                  <div className="bg-muted rounded-xl overflow-hidden border border-border flex items-center justify-center p-4">
                     <img
                       src={result.preview_url}
-                      alt="AI Preview"
+                      alt="Processed Preview"
                       onContextMenu={(e) => e.preventDefault()}
                       onDragStart={(e) => e.preventDefault()}
                       draggable={false}
                       style={{ WebkitTouchCallout: "none" }}
-                      className="object-contain max-h-full max-w-full select-none pointer-events-none"
+                      className="w-full h-auto object-contain select-none pointer-events-none rounded-lg"
                     />
                   </div>
-                  <button
-                    onClick={() => handleDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`)}
-                    disabled={isDownloading}
-                    className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
-                  >
-                    <Download className="w-4 h-4" />
-                    {isDownloading ? "Preparing..." : "Download JPG"}
-                  </button>
-                </TabsContent>
+                  <span className="text-[11px] font-semibold text-muted-foreground text-center mt-2">Processed</span>
+                </div>
 
-                <TabsContent value="original" className="p-5 flex flex-col items-center gap-4 m-0">
-                  <div className="bg-gray-50 rounded-xl overflow-hidden w-full max-w-xs aspect-[3/4] flex items-center justify-center border border-gray-100">
+                {/* Original Image - Full Size */}
+                <div className="flex flex-col">
+                  <div className="bg-muted rounded-xl overflow-hidden border border-border flex items-center justify-center p-4">
                     {previewUrl && (
                       <img
                         src={previewUrl}
-                        alt="Original upload"
+                        alt="Original Upload"
                         onContextMenu={(e) => e.preventDefault()}
                         onDragStart={(e) => e.preventDefault()}
                         draggable={false}
                         style={{ WebkitTouchCallout: "none" }}
-                        className="object-contain max-h-full max-w-full select-none pointer-events-none"
+                        className="w-full h-auto object-contain select-none pointer-events-none rounded-lg"
                       />
                     )}
                   </div>
-                </TabsContent>
-              </Tabs>
+                  <span className="text-[11px] font-semibold text-muted-foreground text-center mt-2">Original</span>
+                </div>
+              </div>
+
+              <button
+                onClick={() => handleDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`)}
+                disabled={isDownloading}
+                className="w-full mt-5 bg-primary hover:bg-primary/90 disabled:opacity-50 active:scale-[0.98] text-primary-foreground font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
+              >
+                <Download className="w-4 h-4" />
+                {isDownloading ? "Preparing..." : "Download JPG"}
+              </button>
             </div>
 
             {/* Biometric metrics */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 space-y-5">
+            <div className="bg-card rounded-2xl border border-border shadow-clean-sm p-5 space-y-5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-green-500" />
                   Biometric Analysis
                 </span>
-                <span className="text-xs font-bold text-green-600 bg-green-50 border border-green-100 px-2.5 py-1 rounded-lg">PASSED</span>
+                <span className="text-xs font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 border border-green-100 dark:border-green-900 px-2.5 py-1 rounded-lg">PASSED</span>
               </div>
               <div className="space-y-4">
                 <MetricBar label="Head Height Ratio" value={result.metrics.head_height_pct} standard="Standard: 50%–69%" tooltip="Ideal range: 50%–69% of total image height" />
@@ -571,7 +627,7 @@ export function PassportApiTool() {
                 <MetricBar label="Top Margin Gap" value={result.metrics.top_margin_pct} standard="Standard: 8%–15%" tooltip="Head-to-top border clearance: 8%–15%" />
               </div>
 
-              <div className="grid grid-cols-3 gap-2 pt-3 border-t border-gray-50">
+              <div className="grid grid-cols-3 gap-2 pt-3 border-t border-border">
                 {[
                   { label: "Dimensions", value: result.dimensions },
                   {
@@ -580,9 +636,9 @@ export function PassportApiTool() {
                   },
                   { label: "File Size", value: `${result.size_kb} KB` },
                 ].map(({ label, value }) => (
-                  <div key={label} className="bg-gray-50 rounded-xl p-3 text-center">
-                    <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider mb-1">{label}</p>
-                    <p className="text-xs font-bold text-gray-800 leading-tight">{value}</p>
+                  <div key={label} className="bg-muted rounded-xl p-3 text-center">
+                    <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider mb-1">{label}</p>
+                    <p className="text-xs font-bold text-card-foreground leading-tight">{value}</p>
                   </div>
                 ))}
               </div>
@@ -590,16 +646,16 @@ export function PassportApiTool() {
 
             {/* Print sheet download section */}
             {result.print_sheet_url && (
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+              <div className="bg-card rounded-2xl border border-border shadow-clean-sm p-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Printer className="w-4 h-4 text-blue-500" />
-                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">4×6 Print Sheet</span>
+                    <Printer className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">4×6 Print Sheet</span>
                   </div>
-                  <span className="text-[10px] text-gray-400">4 photos per sheet</span>
+                  <span className="text-[10px] text-muted-foreground">4 photos per sheet</span>
                 </div>
-                <p className="text-xs text-gray-400 mt-1 mb-4">Print at home on glossy photo paper — no studio needed.</p>
-                <div className="bg-gray-50 rounded-xl p-4 flex items-center justify-center">
+                <p className="text-xs text-muted-foreground mt-1 mb-4">Print at home on glossy photo paper — no studio needed.</p>
+                <div className="bg-muted rounded-xl p-4 flex items-center justify-center">
                   <img
                     src={result.print_sheet_url}
                     alt="4x6 Print Sheet Preview"
@@ -609,7 +665,7 @@ export function PassportApiTool() {
                 <button
                   onClick={handleDownloadPrintSheet}
                   disabled={isDownloading}
-                  className="w-full mt-4 bg-green-600 hover:bg-green-700 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3 text-sm flex items-center justify-center gap-2 transition-all"
+                  className="w-full mt-4 bg-green-500 hover:bg-green-600 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3 text-sm flex items-center justify-center gap-2 transition-all"
                 >
                   <Printer className="w-4 h-4" />
                   {isDownloading ? "Preparing..." : "Download 4×6 Print Sheet"}
@@ -618,16 +674,16 @@ export function PassportApiTool() {
             )}
 
             {/* Privacy note + reset */}
-            <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 flex gap-3">
-              <Info className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-              <p className="text-[11px] text-blue-600 leading-relaxed">
+            <div className="bg-accent border border-primary/20 dark:border-primary/40 rounded-2xl p-4 flex gap-3">
+              <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <p className="text-[11px] text-accent-foreground leading-relaxed">
                 Images are processed on ephemeral serverless nodes and never permanently stored, indexed, or linked to your identity.
               </p>
             </div>
 
             <button
               onClick={handleReset}
-              className="w-full bg-white hover:bg-gray-50 active:scale-[0.98] border border-gray-200 text-gray-600 font-semibold rounded-2xl py-4 text-sm flex items-center justify-center gap-2 transition-all"
+              className="w-full bg-card hover:bg-muted active:scale-[0.98] border border-input text-muted-foreground font-semibold rounded-2xl py-4 text-sm flex items-center justify-center gap-2 transition-all"
             >
               <RefreshCw className="w-4 h-4" />
               Start Over / Upload Another
