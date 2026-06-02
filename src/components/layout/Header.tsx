@@ -13,6 +13,7 @@ const toolsLinks = [
   { label: "Passport Photo Maker", href: "/passport-photo-maker" },
   { label: "Passport Size Photo Maker", href: "/passport-size-photo-maker" },
   { label: "Passport Photo App", href: "/passport-photo-app" },
+  { label: "Print Template", href: "/passport-photo-print-template-generator" },
   { label: "SSC Photo", href: "/ssc-photo-resizer" },
   { label: "UPSC Photo", href: "/upsc-photo-size" },
   { label: "IBPS Signature", href: "/signature-resize-ibps" },

@@ -209,13 +209,20 @@ const Index = () => {
                 style={{ display: "inline-block", margin: "6px", padding: "10px 16px", background: "#059669", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
                 UK Visa Photo Tool
               </a>
-              <a 
-                href="https://www.pixpassport.com/australia-visa-photo-editor" 
-                target="_blank" 
+              <a
+                href="https://www.pixpassport.com/australia-visa-photo-editor"
+                target="_blank"
                 rel="dofollow noopener noreferrer"
                 style={{ display: "inline-block", margin: "6px", padding: "10px 16px", background: "#dc2626", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
                 Australia Visa Photo Tool
               </a>
+            </div>
+            <div style={{ marginTop: "16px" }}>
+              <Link
+                to="/passport-photo-print-template-generator"
+                style={{ display: "inline-flex", alignItems: "center", gap: "6px", margin: "6px", padding: "10px 16px", background: "#059669", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
+                Passport Photo Print Template
+              </Link>
             </div>
           </div>
         </main>
