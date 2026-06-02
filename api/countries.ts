@@ -1,22 +1,17 @@
 // Node.js runtime required for direct IP access (Edge runtime blocks direct IP connections)
 
-export default async function handler(req: Request) {
-  if (req.method !== "GET" && req.method !== "OPTIONS") {
-    return new Response("Method Not Allowed", { status: 405 });
-  }
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
+}
 
-  // Handle CORS preflight request
-  if (req.method === "OPTIONS") {
-    return new Response(null, {
-      status: 204,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
-    });
-  }
-
+export async function GET(req: Request) {
   const apiBaseUrl = process.env.PASSPORT_API_URL || "http://51.21.152.238";
 
   try {
