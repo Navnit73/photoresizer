@@ -126,10 +126,7 @@ export async function processExternalPhoto(
   const formData = new FormData();
   formData.append("image", imageFile);
   formData.append("country_code", countryCode);
-  // NOTE: documentType param is accepted but the API always uses "passport".
-  // Kept for forward-compatibility; change the hardcoded value if the API
-  // starts honouring the document_type field.
-  formData.append("document_type", "passport");
+  formData.append("document_type", documentType);
 
   for (const [key, value] of Object.entries(extraFields)) {
     formData.append(key, value);

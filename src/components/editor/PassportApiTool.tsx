@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import {
-  Camera,
   Check,
   Download,
   FileImage,
@@ -19,8 +18,6 @@ import {
   ImageIcon,
   ChevronDown,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import {
@@ -75,7 +72,7 @@ const MetricBar = ({
     <div className="flex justify-between items-center">
       <span className="flex items-center gap-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">
         {label}
-        <HelpCircle className="w-3 h-3 text-gray-300 cursor-help" title={tooltip} />
+        <span className="sr-only">{tooltip}</span>
       </span>
       <span className="text-sm font-bold text-gray-800">{Math.round(value)}%</span>
     </div>
@@ -117,7 +114,8 @@ export function PassportApiTool() {
   const [processingMsg, setProcessingMsg] = useState("");
   const [processingProgress, setProcessingProgress] = useState(0);
   const [result, setResult] = useState<ExternalProcessResponse | null>(null);
-  const [selectOpen, setSelectOpen] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
+  const processingIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -132,6 +130,7 @@ export function PassportApiTool() {
       } catch {
         setCountries(FALLBACK_COUNTRIES);
         setSelectedCountryCode("US");
+        toast.error("Could not load country list — using default countries.");
       } finally {
         setIsLoadingCountries(false);
       }
@@ -169,13 +168,22 @@ export function PassportApiTool() {
     if (e.dataTransfer.files?.[0]) validateAndSetFile(e.dataTransfer.files[0]);
   };
 
+  // Cleanup function to clear the processing interval
+  const clearProcessingInterval = () => {
+    if (processingIntervalRef.current) {
+      clearInterval(processingIntervalRef.current);
+      processingIntervalRef.current = null;
+    }
+  };
+
   const handleProcessImage = async () => {
     if (!selectedFile) { toast.error("Please upload a photo first."); return; }
+    clearProcessingInterval();
     setStage("processing");
     setProcessingProgress(5);
     setProcessingMsg("Initialising AI pipeline…");
     let idx = 0;
-    const interval = setInterval(() => {
+    processingIntervalRef.current = setInterval(() => {
       if (idx < PROCESSING_STAGES.length) {
         const s = PROCESSING_STAGES[idx++];
         setProcessingProgress(s.progress);
@@ -184,7 +192,7 @@ export function PassportApiTool() {
     }, 1400);
     try {
       const response = await processExternalPhoto(selectedFile, selectedCountryCode);
-      clearInterval(interval);
+      clearProcessingInterval();
       setProcessingProgress(100);
       setProcessingMsg("Complete!");
       setTimeout(() => {
@@ -193,11 +201,15 @@ export function PassportApiTool() {
         toast.success("AI processing complete — photo is government-compliant!");
       }, 400);
     } catch (error: any) {
-      clearInterval(interval);
+      clearProcessingInterval();
       setStage("preview");
       toast.error(error?.message || "Processing failed. Ensure your face is fully visible and well-lit.");
     }
   };
+
+  useEffect(() => {
+    return () => clearProcessingInterval();
+  }, []);
 
   const handleReset = () => {
     if (previewUrl) URL.revokeObjectURL(previewUrl);
@@ -210,6 +222,7 @@ export function PassportApiTool() {
   };
 
   const handleDownload = async (url: string, filename: string) => {
+    setIsDownloading(true);
     try {
       const blob = await fetch(url).then((r) => r.blob());
       const localUrl = URL.createObjectURL(blob);
@@ -222,6 +235,14 @@ export function PassportApiTool() {
     } catch {
       window.open(url, "_blank");
       toast.info("Image opened in new tab. Long-press or right-click to save.");
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
+  const handleDownloadPrintSheet = () => {
+    if (result?.print_sheet_url) {
+      handleDownload(result.print_sheet_url, `${selectedCountryCode}_print_sheet_4x6.jpg`);
     }
   };
 
@@ -339,7 +360,6 @@ export function PassportApiTool() {
                 >
                   <Upload className="w-3 h-3" /> Change
                 </button>
-                <input type="file" ref={fileInputRef} className="hidden" accept="image/*" onChange={handleFileChange} />
               </div>
               <div className="flex justify-center bg-gray-50 p-6">
                 <img
@@ -488,10 +508,11 @@ export function PassportApiTool() {
                   </div>
                   <button
                     onClick={() => handleDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`)}
-                    className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 active:scale-[0.98] text-white font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
+                    disabled={isDownloading}
+                    className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
                   >
                     <Download className="w-4 h-4" />
-                    Download JPG
+                    {isDownloading ? "Preparing..." : "Download JPG"}
                   </button>
                 </TabsContent>
 
@@ -509,10 +530,11 @@ export function PassportApiTool() {
                   </div>
                   <button
                     onClick={() => handleDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`)}
-                    className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 active:scale-[0.98] text-white font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
+                    disabled={isDownloading}
+                    className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
                   >
                     <Download className="w-4 h-4" />
-                    Download JPG
+                    {isDownloading ? "Preparing..." : "Download JPG"}
                   </button>
                 </TabsContent>
 
@@ -565,6 +587,35 @@ export function PassportApiTool() {
                 ))}
               </div>
             </div>
+
+            {/* Print sheet download section */}
+            {result.print_sheet_url && (
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Printer className="w-4 h-4 text-blue-500" />
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">4×6 Print Sheet</span>
+                  </div>
+                  <span className="text-[10px] text-gray-400">4 photos per sheet</span>
+                </div>
+                <p className="text-xs text-gray-400 mt-1 mb-4">Print at home on glossy photo paper — no studio needed.</p>
+                <div className="bg-gray-50 rounded-xl p-4 flex items-center justify-center">
+                  <img
+                    src={result.print_sheet_url}
+                    alt="4x6 Print Sheet Preview"
+                    className="max-w-full max-h-32 object-contain rounded"
+                  />
+                </div>
+                <button
+                  onClick={handleDownloadPrintSheet}
+                  disabled={isDownloading}
+                  className="w-full mt-4 bg-green-600 hover:bg-green-700 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3 text-sm flex items-center justify-center gap-2 transition-all"
+                >
+                  <Printer className="w-4 h-4" />
+                  {isDownloading ? "Preparing..." : "Download 4×6 Print Sheet"}
+                </button>
+              </div>
+            )}
 
             {/* Privacy note + reset */}
             <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 flex gap-3">
