@@ -1,6 +1,4 @@
-export const config = {
-  runtime: "edge",
-};
+// Node.js runtime required for direct IP access (Edge runtime blocks direct IP connections)
 
 export default async function handler(req: Request) {
   if (req.method !== "POST" && req.method !== "OPTIONS") {
