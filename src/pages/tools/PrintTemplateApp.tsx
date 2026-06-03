@@ -21,19 +21,19 @@ export default function PrintTemplateApp() {
   const [imageObj, setImageObj] = useState<HTMLImageElement | null>(null);
   const [imageLoadError, setImageLoadError] = useState<string | null>(null);
 
-  const [paperSize, setPaperSize] = useState<keyof typeof PAPER_SIZES>("4x6");
+  const [paperSize, setPaperSize] = useState<keyof typeof PAPER_SIZES>("A4");
 
   const [photoSizes] = useState({
     "2x2": { name: "2×2 inch (US)", width: 51, height: 51 },
     "35x45": { name: "35×45 mm (Europe/UK/Aus)", width: 35, height: 45 },
   });
-  const [photoSize, setPhotoSize] = useState<string>("2x2");
+  const [photoSize, setPhotoSize] = useState<string>("35x45");
 
-  const [layoutCount, setLayoutCount] = useState<number>(6);
+  const [layoutCount, setLayoutCount] = useState<number>(20);
 
   const [cropLines, setCropLines] = useState<boolean>(true);
-  const [margin, setMargin] = useState<number>(10);
-  const [spacing, setSpacing] = useState<number>(2);
+  const [margin, setMargin] = useState<number>(5);
+  const [spacing, setSpacing] = useState<number>(0);
 
   // Handle Image Upload
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,7 +87,7 @@ export default function PrintTemplateApp() {
     const mmToPx = (mm: number) => (mm * DPI) / 25.4;
 
     const paper = PAPER_SIZES[paperSize];
-    const photo = (photoSizes as any)[photoSize] || PHOTO_SIZES["2x2"];
+    const photo = (photoSizes as any)[photoSize] || PHOTO_SIZES["35x45"];
 
     const cWidth = mmToPx(paper.width);
     const cHeight = mmToPx(paper.height);
