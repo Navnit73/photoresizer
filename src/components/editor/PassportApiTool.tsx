@@ -116,7 +116,13 @@ export function PassportApiTool() {
   const [processingProgress, setProcessingProgress] = useState(0);
   const [result, setResult] = useState<ExternalProcessResponse | null>(null);
   const [isDownloading, setIsDownloading] = useState(false);
+  const [isPaid, setIsPaid] = useState(false);
   const processingIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    const paid = localStorage.getItem("payment_success");
+    setIsPaid(!!paid);
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -570,13 +576,30 @@ export function PassportApiTool() {
               </div>
 
               <button
-                onClick={() => handleDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`)}
+                onClick={() => {
+                  if (!isPaid) {
+                    import("@/lib/razorpay").then(({ startPayment }) => {
+                      startPayment({
+                        email: "navnitrai5389@gmail.com",
+                        name: "Customer",
+                        onSuccess: () => setIsPaid(true),
+                      });
+                    });
+                    return;
+                  }
+                  handleDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`);
+                }}
                 disabled={isDownloading}
                 className="w-full mt-5 bg-primary hover:bg-primary/90 disabled:opacity-50 active:scale-[0.98] text-primary-foreground font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
               >
                 <Download className="w-4 h-4" />
-                {isDownloading ? "Preparing..." : "Download JPG"}
+                {isDownloading ? "Preparing..." : isPaid ? "Download JPG" : "Unlock HD Download"}
               </button>
+              {!isPaid && (
+                <p className="text-[11px] text-muted-foreground text-center mt-1">
+                  One-time payment • Instant access
+                </p>
+              )}
             </div>
 
             {/* Biometric metrics */}
@@ -630,12 +653,24 @@ export function PassportApiTool() {
                   />
                 </div>
                 <button
-                  onClick={handleDownloadPrintSheet}
+                  onClick={() => {
+                    if (!isPaid) {
+                      import("@/lib/razorpay").then(({ startPayment }) => {
+                        startPayment({
+                          email: "navnitrai5389@gmail.com",
+                          name: "Customer",
+                          onSuccess: () => setIsPaid(true),
+                        });
+                      });
+                      return;
+                    }
+                    handleDownloadPrintSheet();
+                  }}
                   disabled={isDownloading}
                   className="w-full mt-4 bg-green-500 hover:bg-green-600 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3 text-sm flex items-center justify-center gap-2 transition-all"
                 >
                   <Printer className="w-4 h-4" />
-                  {isDownloading ? "Preparing..." : "Download 4×6 Print Sheet"}
+                  {isDownloading ? "Preparing..." : isPaid ? "Download 4×6 Print Sheet" : "Unlock Print Sheet"}
                 </button>
               </div>
             )}
