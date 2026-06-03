@@ -116,6 +116,7 @@ const faqs = [
 const relatedLinks = [
   { label: "Passport Photo Maker", href: "/passport-photo-maker" },
   { label: "Passport Photo App", href: "/passport-photo-app" },
+  { label: "Passport Photo Print Template", href: "/passport-photo-print-template-generator" },
   { label: "UK Visa Photo Maker", href: "/uk-visa-photo" },
   { label: "US Visa Photo Tool", href: "/us-visa-photo" },
   { label: "SSC Photo Resizer", href: "/ssc-photo-resizer" },
@@ -158,6 +159,59 @@ export default function PassportSizePhotoMaker() {
           <section id="tool" className="pb-2">
             <div className="container px-1">
               <PassportApiTool />
+            </div>
+          </section>
+
+             {/* ── Example Showcase ────────────────────────────────────────────── */}
+          <section className="py-1">
+            <div className="container px-2 max-w-6xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-card-foreground mb-3">
+                  See Your Photo Transform
+                </h2>
+                <p className="text-muted-foreground text-sm max-w-xl mx-auto">
+                  From upload to print-ready — see the complete process with measurements and dimensions.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-3">
+                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
+                  <img
+                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008016/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_preview_ip9ogs.jpg"
+                    alt="Passport photo with measurements"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="p-4">
+                    <p className="text-sm font-bold text-card-foreground">AI Processing</p>
+                    <p className="text-xs text-muted-foreground mt-1">Face detection with biometric measurements applied</p>
+                  </div>
+                </div>
+                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
+                  <img
+                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008017/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_photo_eyp4a3.jpg"
+                    alt="Final compliant photo"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="p-4">
+                    <p className="text-sm font-bold text-card-foreground">Final Output</p>
+                    <p className="text-xs text-muted-foreground mt-1">Government-compliant photo with white background</p>
+                  </div>
+                </div>
+                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
+                  <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779076959/MakePassportPhoto_ph2uog.jpg"
+                      alt="4x6 print sheet"
+                      className="w-full h-auto object-cover"
+                    />
+                  </a>
+                  <div className="p-4">
+                    <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-card-foreground hover:text-primary transition-colors">
+                      Print Template
+                    </a>
+                    <p className="text-xs text-muted-foreground mt-1">Ready-to-print 4×6 inch sheet with crop guides</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
               <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
@@ -212,6 +266,8 @@ export default function PassportSizePhotoMaker() {
               </FeatureGrid>
             </div>
           </section>
+
+       
 
           {/* ── How To ───────────────────────────────────────────────────────── */}
           <section className="py-14">

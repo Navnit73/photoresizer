@@ -222,6 +222,70 @@ export default function PrintTemplateGenerator() {
             </div>
           </section>
 
+          {/* ── Example Showcase ─────────────────────────────────────── */}
+          <section className="py-12 sm:py-16 bg-slate-50 border-t border-slate-200">
+            <div className="container px-4 max-w-5xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+                  From Photo to Print — See the Results
+                </h2>
+                <p className="text-slate-600 max-w-2xl mx-auto">
+                  Upload your passport photo and generate a professional print sheet ready for submission.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                  <img
+                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008017/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_photo_eyp4a3.jpg"
+                    alt="Passport photo"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="p-4">
+                    <p className="text-sm font-bold text-slate-800">Step 1: Your Photo</p>
+                    <p className="text-xs text-slate-500 mt-1">Upload any compliant passport photo</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                  <img
+                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008016/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_preview_ip9ogs.jpg"
+                    alt="Photo with measurements"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="p-4">
+                    <p className="text-sm font-bold text-slate-800">Step 2: Layout Preview</p>
+                    <p className="text-xs text-slate-500 mt-1">AI generates perfect placement with crop guides</p>
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                  <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779076959/MakePassportPhoto_ph2uog.jpg"
+                      alt="4x6 print sheet"
+                      className="w-full h-auto object-cover"
+                    />
+                  </a>
+                  <div className="p-4">
+                    <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-slate-800 hover:text-lime-600 transition-colors">
+                      Step 3: Print Sheet
+                    </a>
+                    <p className="text-xs text-slate-500 mt-1">300 DPI print-ready template with crop lines</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center mt-10">
+                <Link
+                  to="#tool"
+                  className="inline-flex items-center gap-2 bg-lime-600 hover:bg-lime-700 text-white px-6 py-3 rounded-xl font-bold shadow-md transition-colors"
+                >
+                  <Printer className="w-4 h-4" />
+                  Generate Your Print Template Now
+                </Link>
+              </div>
+            </div>
+          </section>
+
           {/* ── How It Works ──────────────────────────────────────────────── */}
           <section className="py-12 sm:py-16 bg-slate-50 border-t border-slate-200">
             <div className="container px-4 max-w-4xl mx-auto">

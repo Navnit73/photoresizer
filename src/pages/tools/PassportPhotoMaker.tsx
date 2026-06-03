@@ -266,7 +266,7 @@ export default function PassportPhotoMaker() {
 
         <main className="flex-1">
           {/* ── Hero ── */}
-          <section className="py-14 md:py-20">
+          <section className="py-5 md:py-2">
             <div className="container px-4 max-w-4xl mx-auto text-center">
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/50 text-blue-600 dark:text-blue-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
@@ -280,37 +280,79 @@ export default function PassportPhotoMaker() {
                   Maker
                 </span>
               </h1>
-              <section id="tool" className="pb-8">
+              <section id="tool" className="pb-2">
                 <div className="container px-0">
                   <PassportApiTool />
                 </div>
               </section>
-              <p className="text-base md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
-                No expensive photo booths. No complex editors. Let our advanced
-                AI format your portrait to official biometric standards —
-                background removed, face auto-cropped, print grid ready.
-              </p>
+              
+         
 
-              {/* Trust badges */}
-              <div className="flex flex-wrap justify-center gap-4 mb-10">
-                <TrustBadge icon={ShieldCheck} label="Biometric Compliant" />
-                <TrustBadge icon={Lock} label="Privacy-Safe Processing" />
-                <TrustBadge icon={Globe} label="150+ Country Presets" />
-                <TrustBadge icon={Clock} label="Results in Seconds" />
-              </div>
-
-              {/* Scroll CTA */}
-              <a
-                href="#tool"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition-all duration-200"
-              >
-                <Camera className="w-4 h-4" />
-                Create My Passport Photo — Free
-              </a>
+            
             </div>
           </section>
 
-          {/* ── Tool ── */}
+         {/* ── Example Showcase ── */}
+          <section className="py-16">
+            <div className="container px-4 max-w-6xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                  How It Works — See the Results
+                </h2>
+                <p className="text-slate-500 dark:text-slate-400 text-sm max-w-xl mx-auto">
+                  From your uploaded photo to a government-compliant print sheet ready for submission.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-1">
+                <div className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg">
+                  <img
+                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008016/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_preview_ip9ogs.jpg"
+                    alt="Passport photo processing with measurements"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="p-4">
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Step 1: AI Processing</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Detects facial landmarks and applies correct dimensions</p>
+                  </div>
+                </div>
+                <div className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg">
+                  <img
+                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008017/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_photo_eyp4a3.jpg"
+                    alt="Final passport photo"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="p-4">
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Step 2: Final Output</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Government-compliant photo with correct background</p>
+                  </div>
+                </div>
+                <div className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg">
+                  <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779076959/MakePassportPhoto_ph2uog.jpg"
+                      alt="Print sheet with multiple passport photos"
+                      className="w-full h-auto object-cover"
+                    />
+                  </a>
+                  <div className="p-4">
+                    <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      Step 3: Print Template
+                    </a>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">4×6 inch print sheet with crop guides</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center mt-8">
+                <a
+                  href="#tool"
+                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition-all duration-200"
+                >
+                  <Camera className="w-4 h-4" />
+                  Create My Passport Photo Now
+                </a>
+              </div>
+            </div>
+          </section>
 
           {/* ── Features ── */}
           <section className="py-16 bg-white/60 dark:bg-slate-900/40 border-y border-slate-100 dark:border-slate-800">
@@ -329,8 +371,23 @@ export default function PassportPhotoMaker() {
                   <FeatureCard key={f.title} {...f} />
                 ))}
               </div>
+                   <p className="text-base md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+                No expensive photo booths. No complex editors. Let our advanced
+                AI format your portrait to official biometric standards —
+                background removed, face auto-cropped, print grid ready.
+              </p>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap justify-center gap-4 mb-10">
+                <TrustBadge icon={ShieldCheck} label="Biometric Compliant" />
+                <TrustBadge icon={Lock} label="Privacy-Safe Processing" />
+                <TrustBadge icon={Globe} label="150+ Country Presets" />
+                <TrustBadge icon={Clock} label="Results in Seconds" />
+              </div>
             </div>
           </section>
+
+        
 
           {/* ── How To ── */}
           <section className="py-16">
