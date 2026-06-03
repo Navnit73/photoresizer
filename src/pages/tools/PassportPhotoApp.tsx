@@ -49,7 +49,7 @@ const relatedLinks = [
   { label: "Passport Photo Maker", href: "/passport-photo-maker" },
   { label: "Passport Size Photo Maker", href: "/passport-size-photo-maker" },
   { label: "Passport Photo Print Template", href: "/passport-photo-print-template-generator" },
-  { label: "Canada Visa Photo Tool", href: "/canada-visa-photo" },
+  { label: "Canada Passport Photo Maker", href: "/canada-passport-photo-maker" },
   { label: "UPSC Photo Size Tool", href: "/upsc-photo-size" },
   { label: "Background Remover", href: "/background-remover" },
   { label: "Image Resizer", href: "/image-resizer" },

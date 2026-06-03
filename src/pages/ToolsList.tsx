@@ -67,7 +67,13 @@ const toolCategories: {
       { name: "Passport Photo Maker", href: "/passport-photo-maker", icon: UserSquare2, desc: "AI passport photo editor", badge: "AI" },
       { name: "Passport Size Photo Maker", href: "/passport-size-photo-maker", icon: Printer, desc: "Create 35x45mm & 2x2\" prints" },
       { name: "Passport Photo App", href: "/passport-photo-app", icon: Smartphone, desc: "Mobile biometric photo booth" },
-      { name: "US Visa Photo Tool", href: "/us-visa-photo", icon: FileCheck, desc: "Create 600x600 px visa photos" },
+      { name: "US Passport Photo Maker", href: "/us-passport-photo-maker", icon: UserSquare2, desc: "Create official 2x2\" US passport photos" },
+      { name: "UK Passport Photo Maker", href: "/uk-passport-photo-maker", icon: UserSquare2, desc: "Create 35x45mm UK passport photos" },
+      { name: "Canada Passport Photo Maker", href: "/canada-passport-photo-maker", icon: UserSquare2, desc: "Create 50x70mm Canada passport photos" },
+      { name: "Schengen Visa Photo Maker", href: "/schengen-visa-photo-maker", icon: FileCheck, desc: "Create 35x45mm Schengen visa photos" },
+      { name: "Australia Passport Photo Maker", href: "/australia-passport-photo-maker", icon: UserSquare2, desc: "Create 35x45mm Australia passport photos" },
+      { name: "India Passport Photo Maker", href: "/india-passport-photo-maker", icon: UserSquare2, desc: "Create 2x2\" / 35x45mm Indian passport photos" },
+      { name: "Nepal Passport Photo Maker", href: "/nepal-passport-photo-maker", icon: UserSquare2, desc: "Create 35x45mm Nepal passport photos" },
     ]
   },
   {

@@ -32,11 +32,14 @@ const PTEPhotoSize = lazy(() => import('@/pages/pte-photo-size'));
 const GREPhotoSize = lazy(() => import('@/pages/gre-photo-size'));
 const GMATPhotoSize = lazy(() => import('@/pages/gmat-photo-size'));
 
-// Visa Photo Tools
-const UsVisaPhoto = lazy(() => import('@/pages/us-visa-photo'));
-const CanadaVisaPhoto = lazy(() => import('@/pages/canada-visa-photo'));
-const UkVisaPhoto = lazy(() => import('@/pages/uk-visa-photo'));
-const AustraliaVisaPhoto = lazy(() => import('@/pages/australia-visa-photo'));
+// Passport & Visa Maker Pages
+const UsPassportPhotoMaker = lazy(() => import('@/pages/us-passport-photo-maker'));
+const UkPassportPhotoMaker = lazy(() => import('@/pages/uk-passport-photo-maker'));
+const CanadaPassportPhotoMaker = lazy(() => import('@/pages/canada-passport-photo-maker'));
+const SchengenVisaPhotoMaker = lazy(() => import('@/pages/schengen-visa-photo-maker'));
+const AustraliaPassportPhotoMaker = lazy(() => import('@/pages/australia-passport-photo-maker'));
+const IndiaPassportPhotoMaker = lazy(() => import('@/pages/india-passport-photo-maker'));
+const NepalPassportPhotoMaker = lazy(() => import('@/pages/nepal-passport-photo-maker'));
 
 // PDF Tools
 const PdfSizeReducer = lazy(() => import('@/pages/tools/PdfSizeReducer'));
@@ -100,11 +103,14 @@ export function AppRoutes() {
         <Route path="/gre-photo-size" element={<GREPhotoSize />} />
         <Route path="/gmat-photo-size" element={<GMATPhotoSize />} />
 
-        {/* Visa Photo Tools */}
-        <Route path="/us-visa-photo" element={<UsVisaPhoto />} />
-        <Route path="/canada-visa-photo" element={<CanadaVisaPhoto />} />
-        <Route path="/uk-visa-photo" element={<UkVisaPhoto />} />
-        <Route path="/australia-visa-photo" element={<AustraliaVisaPhoto />} />
+        {/* Passport & Visa Maker Pages */}
+        <Route path="/us-passport-photo-maker" element={<UsPassportPhotoMaker />} />
+        <Route path="/uk-passport-photo-maker" element={<UkPassportPhotoMaker />} />
+        <Route path="/canada-passport-photo-maker" element={<CanadaPassportPhotoMaker />} />
+        <Route path="/schengen-visa-photo-maker" element={<SchengenVisaPhotoMaker />} />
+        <Route path="/australia-passport-photo-maker" element={<AustraliaPassportPhotoMaker />} />
+        <Route path="/india-passport-photo-maker" element={<IndiaPassportPhotoMaker />} />
+        <Route path="/nepal-passport-photo-maker" element={<NepalPassportPhotoMaker />} />
         
         {/* PDF Tools */}
         <Route path="/pdf-size-reducer" element={<PdfSizeReducer />} />

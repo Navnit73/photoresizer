@@ -45,6 +45,7 @@ const FALLBACK_COUNTRIES: ExternalCountry[] = [
   { country_code: "CA", country_name: "Canada", document_type: "passport", dimensions: "50×70 mm" },
   { country_code: "AU", country_name: "Australia", document_type: "passport", dimensions: "35×45 mm" },
   { country_code: "EU", country_name: "Schengen Area", document_type: "visa", dimensions: "35×45 mm" },
+  { country_code: "NP", country_name: "Nepal", document_type: "passport", dimensions: "35×45 mm" },
   { country_code: "CN", country_name: "China", document_type: "passport", dimensions: "33×48 mm" },
   { country_code: "DE", country_name: "Germany", document_type: "passport", dimensions: "35×45 mm" },
   { country_code: "FR", country_name: "France", document_type: "passport", dimensions: "35×45 mm" },
@@ -85,7 +86,7 @@ const MetricBar = ({
 );
 
 // ─── Main Component ───────────────────────────────────────────────────────────
-export function PassportApiTool() {
+export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryCode?: string }) {
   // Block DevTools
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -103,7 +104,7 @@ export function PassportApiTool() {
 
   const [countries, setCountries] = useState<ExternalCountry[]>([]);
   const [isLoadingCountries, setIsLoadingCountries] = useState(true);
-  const [selectedCountryCode, setSelectedCountryCode] = useState("IN");
+  const [selectedCountryCode, setSelectedCountryCode] = useState(defaultCountryCode);
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
@@ -133,16 +134,25 @@ export function PassportApiTool() {
           ? [...list].sort((a, b) => a.country_name.localeCompare(b.country_name))
           : FALLBACK_COUNTRIES;
         setCountries(sorted);
-        setSelectedCountryCode(sorted.find((c) => c.country_code === "IN") ? "IN" : sorted[0].country_code);
+        const resolvedCode = sorted.find((c) => c.country_code === defaultCountryCode) ? defaultCountryCode : sorted[0].country_code;
+        setSelectedCountryCode(resolvedCode);
+        const active = sorted.find((c) => c.country_code === resolvedCode);
+        if (active) {
+          setSearchQuery(active.country_name);
+        }
       } catch {
         setCountries(FALLBACK_COUNTRIES);
-        setSelectedCountryCode("IN");
+        setSelectedCountryCode(defaultCountryCode);
+        const active = FALLBACK_COUNTRIES.find((c) => c.country_code === defaultCountryCode);
+        if (active) {
+          setSearchQuery(active.country_name);
+        }
         toast.error("Could not load country list — using default countries.");
       } finally {
         setIsLoadingCountries(false);
       }
     })();
-  }, []);
+  }, [defaultCountryCode]);
 
   const activeCountry = countries.find((c) => c.country_code === selectedCountryCode);
 
@@ -273,7 +283,7 @@ export function PassportApiTool() {
   return (
     <div className="min-h-screen  font-sans">
 
-      <div className="max-w-2xl mx-auto px-4 py-6 space-y-4 pb-16">
+      <div className="max-w-2xl mx-auto px-1 py-6 space-y-4 pb-8">
 
         {/* ── Hero Section ── */}
         <div className="bg-card rounded-2xl border border-border p-5 shadow-clean-sm">
@@ -595,7 +605,7 @@ export function PassportApiTool() {
                 className="w-full mt-5 bg-primary hover:bg-primary/90 disabled:opacity-50 active:scale-[0.98] text-primary-foreground font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
               >
                 <Download className="w-4 h-4" />
-                {isDownloading ? "Preparing..." : isPaid ? "Download JPG" : "Unlock HD Download"}
+                {isDownloading ? "Preparing..." : isPaid ? "Download Photo" : "Download HD Passport Photo + Print Sheet"}
               </button>
               {!isPaid && (
                 <p className="text-[11px] text-muted-foreground text-center mt-1">

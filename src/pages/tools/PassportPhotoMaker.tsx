@@ -166,7 +166,7 @@ const FAQS = [
 const INTERNAL_LINKS = [
   { label: "Passport Size Photo Maker", href: "/passport-size-photo-maker" },
   { label: "Passport Photo App", href: "/passport-photo-app" },
-  { label: "US Visa Photo Tool", href: "/us-visa-photo" },
+  { label: "US Passport Photo Maker", href: "/us-passport-photo-maker" },
   { label: "Reduce Photo Size to 50KB", href: "/reduce-photo-size-50kb" },
   { label: "Background Remover", href: "/background-remover" },
   { label: "Image Resizer", href: "/image-resizer" },

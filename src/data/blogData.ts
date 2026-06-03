@@ -288,8 +288,8 @@ export const blogData: BlogPost[] = [
     ],
     relatedLinks: [
       {
-        title: "US Visa Photo Generator (DS-160)",
-        path: "/us-visa-photo",
+        title: "US Passport Photo Maker",
+        path: "/us-passport-photo-maker",
       },
       {
         title: "DV Lottery Photo Tool 2027",

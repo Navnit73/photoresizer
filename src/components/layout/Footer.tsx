@@ -201,26 +201,41 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Visa Photo Tools</h3>
+            <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Passport & Visa Maker</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/us-visa-photo" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
-                  US Visa (600x600 px)
+                <Link to="/us-passport-photo-maker" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  US Passport Photo
                 </Link>
               </li>
               <li>
-                <Link to="/canada-visa-photo" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
-                  Canada Visa (50x70 mm)
+                <Link to="/uk-passport-photo-maker" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  UK Passport Photo
                 </Link>
               </li>
               <li>
-                <Link to="/uk-visa-photo" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
-                  UK Visa (35x45 mm)
+                <Link to="/canada-passport-photo-maker" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Canada Passport Photo
                 </Link>
               </li>
               <li>
-                <Link to="/australia-visa-photo" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
-                  Australia Visa Photo
+                <Link to="/schengen-visa-photo-maker" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Schengen Visa Photo
+                </Link>
+              </li>
+              <li>
+                <Link to="/australia-passport-photo-maker" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Australia Passport Photo
+                </Link>
+              </li>
+              <li>
+                <Link to="/india-passport-photo-maker" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  India Passport Photo
+                </Link>
+              </li>
+              <li>
+                <Link to="/nepal-passport-photo-maker" className="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                  Nepal Passport Photo
                 </Link>
               </li>
             </ul>
