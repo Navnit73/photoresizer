@@ -177,7 +177,7 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
             result.height = result.width / targetRatio;
           }
         } else {
-          // Height changed more, adjust width
+          // Height changed more, adjust widthd
           const newWidth = result.height * targetRatio;
 
           if (handle === "se") {
