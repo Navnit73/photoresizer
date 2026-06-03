@@ -103,7 +103,7 @@ export function PassportApiTool() {
 
   const [countries, setCountries] = useState<ExternalCountry[]>([]);
   const [isLoadingCountries, setIsLoadingCountries] = useState(true);
-  const [selectedCountryCode, setSelectedCountryCode] = useState("EU");
+  const [selectedCountryCode, setSelectedCountryCode] = useState("IN");
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
@@ -133,10 +133,10 @@ export function PassportApiTool() {
           ? [...list].sort((a, b) => a.country_name.localeCompare(b.country_name))
           : FALLBACK_COUNTRIES;
         setCountries(sorted);
-        setSelectedCountryCode(sorted.find((c) => c.country_code === "EU") ? "EU" : sorted[0].country_code);
+        setSelectedCountryCode(sorted.find((c) => c.country_code === "IN") ? "IN" : sorted[0].country_code);
       } catch {
         setCountries(FALLBACK_COUNTRIES);
-        setSelectedCountryCode("EU");
+        setSelectedCountryCode("IN");
         toast.error("Could not load country list — using default countries.");
       } finally {
         setIsLoadingCountries(false);
@@ -429,15 +429,17 @@ export function PassportApiTool() {
               or <span className="text-primary font-semibold">browse files</span>
             </p>
             <p className="text-xs text-muted-foreground/60 mt-2">PNG · JPG · WebP — max 10 MB</p>
-            <input
-              type="file"
-              ref={fileInputRef}
-              className="hidden"
-              accept="image/*"
-              onChange={handleFileChange}
-            />
           </div>
         )}
+
+        {/* Hidden file input - always mounted so ref works */}
+        <input
+          type="file"
+          ref={fileInputRef}
+          className="hidden"
+          accept="image/*"
+          onChange={handleFileChange}
+        />
 
         {/* ── Stage: Preview ── */}
         {stage === "preview" && selectedFile && previewUrl && (

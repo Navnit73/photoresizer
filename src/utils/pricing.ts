@@ -46,12 +46,12 @@ export const FIXED_PRICES: Record<string, { amount: number; symbol: string; deci
   DKK:  { amount: 39,    symbol: "kr",   decimals: 0, razorpayAmount: 39   },
 
   // Tier 3: ~50% Discount
-  INR:  { amount: 29,    symbol: "₹",    decimals: 0, razorpayAmount: 29   },
-  CNY:  { amount: 29,    symbol: "¥",    decimals: 0, razorpayAmount: 29   },
-  BRL:  { amount: 24,    symbol: "R$",   decimals: 0, razorpayAmount: 24   },
-  MXN:  { amount: 89,    symbol: "$",    decimals: 0, razorpayAmount: 89   },
-  TRY:  { amount: 99,    symbol: "₺",    decimals: 0, razorpayAmount: 99   },
-  ZAR:  { amount: 89,    symbol: "R",    decimals: 0, razorpayAmount: 89   },
+  INR:  { amount: 29,    symbol: "₹",    decimals: 0, razorpayAmount: 2900   },
+  CNY:  { amount: 29,    symbol: "¥",    decimals: 0, razorpayAmount: 2900   },
+  BRL:  { amount: 24,    symbol: "R$",   decimals: 0, razorpayAmount: 2400   },
+  MXN:  { amount: 89,    symbol: "$",    decimals: 0, razorpayAmount: 8900   },
+  TRY:  { amount: 99,    symbol: "₺",    decimals: 0, razorpayAmount: 9900   },
+  ZAR:  { amount: 89,    symbol: "R",    decimals: 0, razorpayAmount: 8900   },
   MYR:  { amount: 14.99, symbol: "RM",   decimals: 2, razorpayAmount: 1499 },
   THB:  { amount: 129,   symbol: "฿",    decimals: 0, razorpayAmount: 129  },
 
@@ -96,7 +96,12 @@ export function getClientTimezoneCurrency(): string {
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    if (tz.includes('Kolkata') || tz.includes('Calcutta')) return 'INR';
+    // India - check various patterns
+    if (tz.includes('Mumbai') || tz.includes('Mumbai') ||
+        tz.includes('Asia/Kolkata') || tz.includes('Asia/India') ||
+        tz.includes('Asia/Calcutta') || tz.startsWith('Asia/Kolkata') ||
+        tz.includes('Delhi') || tz.includes('Mumbai') || tz.includes('Chennai') ||
+        tz.includes('Bangalore')) return 'INR';
     if (tz.includes('London')) return 'GBP';
     if (tz.startsWith('Europe/')) {
       if (tz.includes('Zurich'))    return 'CHF';
