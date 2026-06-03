@@ -46,7 +46,7 @@ export const FIXED_PRICES: Record<string, { amount: number; symbol: string; deci
   DKK:  { amount: 39,    symbol: "kr",   decimals: 0, razorpayAmount: 39   },
 
   // Tier 3: ~50% Discount
-  INR:  { amount: 5,    symbol: "₹",    decimals: 0, razorpayAmount: 100  },
+  INR:  { amount: 29,    symbol: "₹",    decimals: 0, razorpayAmount: 29   },
   CNY:  { amount: 29,    symbol: "¥",    decimals: 0, razorpayAmount: 29   },
   BRL:  { amount: 24,    symbol: "R$",   decimals: 0, razorpayAmount: 24   },
   MXN:  { amount: 89,    symbol: "$",    decimals: 0, razorpayAmount: 89   },
