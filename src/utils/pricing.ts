@@ -20,7 +20,7 @@ export const COUNTRY_TO_CURRENCY: Record<string, string> = {
   AE: "AED", SA: "SAR", IL: "ILS", ZA: "ZAR", NG: "NGN", EG: "EGP",
 };
 
-// Fixed price mapping per currency (PPP-adjusted)
+// Fixed price mapping per currency (PPP-adjusted)hh
 export const FIXED_PRICES: Record<string, { amount: number; symbol: string; decimals: number; razorpayAmount: number }> = {
   // Tier 1: Base ($5.99)
   USD:  { amount: 5.99,  symbol: "$",    decimals: 2, razorpayAmount: 599 },
