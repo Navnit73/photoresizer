@@ -72,15 +72,16 @@ export default function PassportPhotoApp() {
               <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
                 Mobile-Friendly <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Passport Photo App</span>
               </h1>
+
+            <div className="mb-2">
+              <PassportApiTool />
+            </div>
               <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
                 Turn your smartphone into a professional biometric photo booth. Auto-crop and remove backgrounds on the go.
               </p>
             </div>
 
             {/* Core Interactive Tool */}
-            <div className="mb-20">
-              <PassportApiTool />
-            </div>
 
             {/* Features section */}
             <section className="py-12 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 p-8 shadow-md mb-16 max-w-5xl mx-auto">

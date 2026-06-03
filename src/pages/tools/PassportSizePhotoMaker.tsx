@@ -154,7 +154,12 @@ export default function PassportSizePhotoMaker() {
                   Passport Size Photo Maker
                 </span>
               </h1>
-
+    {/* ── Tool ─────────────────────────────────────────────────────────── */}
+          <section id="tool" className="pb-2">
+            <div className="container px-1">
+              <PassportApiTool />
+            </div>
+          </section>
               <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
                 Perfectly format your photo to exact dimensions — 35×45 mm,
                 2×2 inch, 3.5×4.5 cm, or any international standard — with
@@ -187,12 +192,7 @@ export default function PassportSizePhotoMaker() {
             </div>
           </section>
 
-          {/* ── Tool ─────────────────────────────────────────────────────────── */}
-          <section id="tool" className="pb-20">
-            <div className="container px-4">
-              <PassportApiTool />
-            </div>
-          </section>
+      
 
           {/* ── Features ─────────────────────────────────────────────────────── */}
           <section className="py-14 bg-card border-y border-border">

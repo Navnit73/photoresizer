@@ -103,7 +103,7 @@ export function PassportApiTool() {
 
   const [countries, setCountries] = useState<ExternalCountry[]>([]);
   const [isLoadingCountries, setIsLoadingCountries] = useState(true);
-  const [selectedCountryCode, setSelectedCountryCode] = useState("US");
+  const [selectedCountryCode, setSelectedCountryCode] = useState("EU");
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
@@ -127,10 +127,10 @@ export function PassportApiTool() {
           ? [...list].sort((a, b) => a.country_name.localeCompare(b.country_name))
           : FALLBACK_COUNTRIES;
         setCountries(sorted);
-        setSelectedCountryCode(sorted.find((c) => c.country_code === "US") ? "US" : sorted[0].country_code);
+        setSelectedCountryCode(sorted.find((c) => c.country_code === "EU") ? "EU" : sorted[0].country_code);
       } catch {
         setCountries(FALLBACK_COUNTRIES);
-        setSelectedCountryCode("US");
+        setSelectedCountryCode("EU");
         toast.error("Could not load country list — using default countries.");
       } finally {
         setIsLoadingCountries(false);
@@ -265,7 +265,7 @@ export function PassportApiTool() {
   };
 
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="min-h-screen  font-sans">
 
       <div className="max-w-2xl mx-auto px-4 py-6 space-y-4 pb-16">
 
@@ -460,33 +460,9 @@ export function PassportApiTool() {
               </div>
             </div>
 
-            {/* Tips card */}
-            <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl border border-yellow-200 dark:border-yellow-800 p-4 flex gap-3">
-              <AlertTriangle className="w-4 h-4 text-yellow-600 dark:text-yellow-500 shrink-0 mt-0.5" />
-              <p className="text-xs text-yellow-700 dark:text-yellow-300 leading-relaxed">
-                <span className="font-bold">Best results:</span> Face camera directly, even lighting, plain background, no glasses, neutral expression.
-              </p>
-            </div>
+           
 
-            {/* What AI will do */}
-            <div className="bg-card rounded-2xl border border-border shadow-clean-sm p-4">
-              <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">What AI will do</p>
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  `Matches ${activeCountry?.country_name} rules`,
-                  "Removes background",
-                  "Biometric face align",
-                  "Generates print sheet",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <div className="w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/40 flex items-center justify-center shrink-0">
-                      <Check className="w-2.5 h-2.5 text-green-600 dark:text-green-400" />
-                    </div>
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
+           
 
             {/* CTA */}
             <div className="flex gap-3">
@@ -548,16 +524,7 @@ export function PassportApiTool() {
         {/* ── Stage: Result ── */}
         {stage === "result" && result && (
           <>
-            {/* Success banner */}
-            <div className="bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-900 rounded-2xl p-4 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-green-500 flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-green-800 dark:text-green-300">Government-Compliant!</p>
-                <p className="text-xs text-green-600 dark:text-green-500">Your photo meets all {activeCountry?.country_name} biometric standards.</p>
-              </div>
-            </div>
+          
 
             {/* Photo Comparison - Preview & Original Side by Side */}
             <div className="bg-card rounded-2xl border border-border shadow-clean-sm p-5">
@@ -569,7 +536,7 @@ export function PassportApiTool() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Preview Image - Full Size */}
                 <div className="flex flex-col">
-                  <div className="bg-muted rounded-xl overflow-hidden border border-border flex items-center justify-center p-4">
+                  <div className="bg-muted rounded-xl overflow-hidden border border-border flex items-center justify-center p-1">
                     <img
                       src={result.preview_url}
                       alt="Processed Preview"
