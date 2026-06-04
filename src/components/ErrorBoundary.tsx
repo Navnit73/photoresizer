@@ -77,27 +77,20 @@ export class ErrorBoundary extends Component<Props, State> {
 
               {/* Action Buttons */}
               <div className="flex gap-3">
-                <Button
-                  onClick={this.handleReset}
-                  className="flex-1"
-                  variant="outline"
-                >
-                  <RefreshCw className="w-4 h-4 mr-2" />
-                  Try Again
-                </Button>
+              
                 <Button
                   onClick={this.handleGoHome}
                   className="flex-1"
                 >
                   <Home className="w-4 h-4 mr-2" />
-                  Go Home
+                  Try Again
                 </Button>
               </div>
 
               {/* Help Text */}
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-6">
                 If this problem persists, try clearing your browser cache or contact support at{' '}
-                <a href="mailto:support@photoresizer.co.in" className="text-primary hover:underline">
+                <a href="mailto:navnitrai5389@gmail.com" className="text-primary hover:underline">
                   support@photoresizer.co.in
                 </a>
               </p>
