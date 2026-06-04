@@ -197,7 +197,7 @@ export default function AustraliaPassportPhotoMaker() {
                   </div>
                 </div>
                 <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
-                  <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.photoresizer.co.in/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
                     <img
                       src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779076959/MakePassportPhoto_ph2uog.jpg"
                       alt="4x6 print sheet"
@@ -205,7 +205,7 @@ export default function AustraliaPassportPhotoMaker() {
                     />
                   </a>
                   <div className="p-4">
-                    <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-card-foreground hover:text-primary transition-colors">
+                    <a href="https://www.photoresizer.co.in/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-card-foreground hover:text-primary transition-colors">
                       Print Template
                     </a>
                     <p className="text-xs text-muted-foreground mt-1">Ready-to-print 4×6 inch sheet with crop guides</p>

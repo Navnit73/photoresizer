@@ -258,7 +258,7 @@ export default function PrintTemplateGenerator() {
                   </div>
                 </div>
                 <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-                  <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.photoresizer.co.in/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
                     <img
                       src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779076959/MakePassportPhoto_ph2uog.jpg"
                       alt="4x6 print sheet"
@@ -266,7 +266,7 @@ export default function PrintTemplateGenerator() {
                     />
                   </a>
                   <div className="p-4">
-                    <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-slate-800 hover:text-lime-600 transition-colors">
+                    <a href="https://www.photoresizer.co.in/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-slate-800 hover:text-lime-600 transition-colors">
                       Step 3: Print Sheet
                     </a>
                     <p className="text-xs text-slate-500 mt-1">300 DPI print-ready template with crop lines</p>

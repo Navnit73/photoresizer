@@ -285,14 +285,10 @@ export default function PassportPhotoMaker() {
                   <PassportApiTool />
                 </div>
               </section>
-              
-         
-
-            
             </div>
           </section>
 
-         {/* ── Example Showcase ── */}
+          {/* ── Example Showcase ── */}
           <section className="py-16">
             <div className="container px-4 max-w-6xl mx-auto">
               <div className="text-center mb-10">
@@ -300,7 +296,8 @@ export default function PassportPhotoMaker() {
                   How It Works — See the Results
                 </h2>
                 <p className="text-slate-500 dark:text-slate-400 text-sm max-w-xl mx-auto">
-                  From your uploaded photo to a government-compliant print sheet ready for submission.
+                  From your uploaded photo to a government-compliant print sheet
+                  ready for submission.
                 </p>
               </div>
               <div className="grid md:grid-cols-3 gap-1">
@@ -311,8 +308,12 @@ export default function PassportPhotoMaker() {
                     className="w-full h-auto object-cover"
                   />
                   <div className="p-4">
-                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Step 1: AI Processing</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Detects facial landmarks and applies correct dimensions</p>
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+                      Step 1: AI Processing
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                      Detects facial landmarks and applies correct dimensions
+                    </p>
                   </div>
                 </div>
                 <div className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg">
@@ -322,12 +323,20 @@ export default function PassportPhotoMaker() {
                     className="w-full h-auto object-cover"
                   />
                   <div className="p-4">
-                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Step 2: Final Output</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Government-compliant photo with correct background</p>
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+                      Step 2: Final Output
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                      Government-compliant photo with correct background
+                    </p>
                   </div>
                 </div>
                 <div className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg">
-                  <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.photoresizer.co.in/passport-photo-print-template-generator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img
                       src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779076959/MakePassportPhoto_ph2uog.jpg"
                       alt="Print sheet with multiple passport photos"
@@ -335,10 +344,17 @@ export default function PassportPhotoMaker() {
                     />
                   </a>
                   <div className="p-4">
-                    <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <a
+                      href="https://www.photoresizer.co.in/passport-photo-print-template-generator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    >
                       Step 3: Print Template
                     </a>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">4×6 inch print sheet with crop guides</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                      4×6 inch print sheet with crop guides
+                    </p>
                   </div>
                 </div>
               </div>
@@ -350,6 +366,84 @@ export default function PassportPhotoMaker() {
                   <Camera className="w-4 h-4" />
                   Create My Passport Photo Now
                 </a>
+              </div>
+            </div>
+          </section>
+          <section className="py-10">
+            <div className="container max-w-3xl mx-auto px-4">
+              <div className="bg-muted border border-border rounded-2xl p-6">
+                <h3 className="text-lg font-bold text-card-foreground mb-3">
+                  Try Other Passport Photo Tools
+                </h3>
+
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  If you're applying for international visas or passports, you
+                  can also use specialized tools for different countries and
+                  regions. These tools automatically apply official government
+                  requirements for size, background, and biometric alignment.
+                </p>
+
+                <ul className="list-disc pl-5 space-y-2 text-sm">
+                  <li>
+                    Create compliant photos with the{" "}
+                    <a
+                      href="https://www.pixpassport.com/australia-passport-photo-editor"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="text-primary font-medium hover:underline"
+                    >
+                      Australia Passport Photo Editor
+                    </a>
+                  </li>
+
+                  <li>
+                    Generate visa-ready images using the{" "}
+                    <a
+                      href="https://www.pixpassport.com/schengen-passport-photo-editor"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="text-primary font-medium hover:underline"
+                    >
+                      Schengen Passport Photo Editor
+                    </a>
+                  </li>
+
+                  <li>
+                    Get exact EU specifications with the{" "}
+                    <a
+                      href="https://www.pixpassport.com/france-passport-photo-editor"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="text-primary font-medium hover:underline"
+                    >
+                      France Passport Photo Tool
+                    </a>
+                  </li>
+
+                  <li>
+                    Create government-compliant images using the{" "}
+                    <a
+                      href="https://www.pixpassport.com/india-passport-photo-editor"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="text-primary font-medium hover:underline"
+                    >
+                      India Passport Photo Editor
+                    </a>
+                  </li>
+
+                  <li>
+                    Explore all tools on{" "}
+                    <a
+                      href="https://www.pixpassport.com/"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="text-primary font-semibold hover:underline"
+                    >
+                      PixPassport
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </section>
@@ -371,7 +465,7 @@ export default function PassportPhotoMaker() {
                   <FeatureCard key={f.title} {...f} />
                 ))}
               </div>
-                   <p className="text-base md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+              <p className="text-base md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
                 No expensive photo booths. No complex editors. Let our advanced
                 AI format your portrait to official biometric standards —
                 background removed, face auto-cropped, print grid ready.
@@ -386,8 +480,6 @@ export default function PassportPhotoMaker() {
               </div>
             </div>
           </section>
-
-        
 
           {/* ── How To ── */}
           <section className="py-16">

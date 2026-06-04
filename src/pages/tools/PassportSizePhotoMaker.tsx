@@ -66,16 +66,66 @@ const steps = [
 ];
 
 const sizeTable = [
-  { country: "India", size: "3.5 × 4.5 cm (35 × 45 mm)", bg: "White", purpose: "Passport, Visa, OCI Card" },
-  { country: "United States", size: "2 × 2 in (51 × 51 mm)", bg: "White", purpose: "Passport, DS-160, Green Card" },
-  { country: "United Kingdom", size: "35 × 45 mm", bg: "Light Grey / Cream", purpose: "Passport, Driving Licence" },
-  { country: "Canada", size: "50 × 70 mm", bg: "White", purpose: "Passport, Citizenship, PR Card" },
-  { country: "Australia", size: "35 × 45 mm", bg: "Light Grey / Plain", purpose: "Passport, Travel Visa" },
-  { country: "Schengen Area", size: "35 × 45 mm", bg: "Light Grey", purpose: "Schengen Visa Application" },
-  { country: "UAE", size: "40 × 60 mm", bg: "White", purpose: "Passport, Residence Visa" },
-  { country: "Japan", size: "35 × 45 mm", bg: "White / Plain", purpose: "Passport, Visa Application" },
-  { country: "China", size: "33 × 48 mm", bg: "White", purpose: "Passport, Tourist Visa" },
-  { country: "Singapore", size: "35 × 45 mm", bg: "White", purpose: "Passport, EP, S-Pass" },
+  {
+    country: "India",
+    size: "3.5 × 4.5 cm (35 × 45 mm)",
+    bg: "White",
+    purpose: "Passport, Visa, OCI Card",
+  },
+  {
+    country: "United States",
+    size: "2 × 2 in (51 × 51 mm)",
+    bg: "White",
+    purpose: "Passport, DS-160, Green Card",
+  },
+  {
+    country: "United Kingdom",
+    size: "35 × 45 mm",
+    bg: "Light Grey / Cream",
+    purpose: "Passport, Driving Licence",
+  },
+  {
+    country: "Canada",
+    size: "50 × 70 mm",
+    bg: "White",
+    purpose: "Passport, Citizenship, PR Card",
+  },
+  {
+    country: "Australia",
+    size: "35 × 45 mm",
+    bg: "Light Grey / Plain",
+    purpose: "Passport, Travel Visa",
+  },
+  {
+    country: "Schengen Area",
+    size: "35 × 45 mm",
+    bg: "Light Grey",
+    purpose: "Schengen Visa Application",
+  },
+  {
+    country: "UAE",
+    size: "40 × 60 mm",
+    bg: "White",
+    purpose: "Passport, Residence Visa",
+  },
+  {
+    country: "Japan",
+    size: "35 × 45 mm",
+    bg: "White / Plain",
+    purpose: "Passport, Visa Application",
+  },
+  {
+    country: "China",
+    size: "33 × 48 mm",
+    bg: "White",
+    purpose: "Passport, Tourist Visa",
+  },
+  {
+    country: "Singapore",
+    size: "35 × 45 mm",
+    bg: "White",
+    purpose: "Passport, EP, S-Pass",
+  },
 ];
 
 const faqs = [
@@ -116,7 +166,10 @@ const faqs = [
 const relatedLinks = [
   { label: "Passport Photo Maker", href: "/passport-photo-maker" },
   { label: "Passport Photo App", href: "/passport-photo-app" },
-  { label: "Passport Photo Print Template", href: "/passport-photo-print-template-generator" },
+  {
+    label: "Passport Photo Print Template",
+    href: "/passport-photo-print-template-generator",
+  },
   { label: "UK Passport Photo Maker", href: "/uk-passport-photo-maker" },
   { label: "US Passport Photo Maker", href: "/us-passport-photo-maker" },
   { label: "SSC Photo Resizer", href: "/ssc-photo-resizer" },
@@ -139,11 +192,9 @@ export default function PassportSizePhotoMaker() {
         <Header />
 
         <main className="flex-1">
-
           {/* ── Hero ─────────────────────────────────────────────────────────── */}
           <section className="py-14 md:py-20">
             <div className="container px-4 max-w-4xl mx-auto text-center">
-
               <div className="inline-flex items-center gap-2 bg-accent dark:bg-primary/10 border border-primary/20 dark:border-primary/30 text-primary text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
                 <Star className="w-3.5 h-3.5 fill-current" />
                 Updated for 2026 Government Standards
@@ -155,68 +206,88 @@ export default function PassportSizePhotoMaker() {
                   Passport Size Photo Maker
                 </span>
               </h1>
-    {/* ── Tool ─────────────────────────────────────────────────────────── */}
-          <section id="tool" className="pb-2">
-            <div className="container px-1">
-              <PassportApiTool />
-            </div>
-          </section>
+              {/* ── Tool ─────────────────────────────────────────────────────────── */}
+              <section id="tool" className="pb-2">
+                <div className="container px-1">
+                  <PassportApiTool />
+                </div>
+              </section>
 
-             {/* ── Example Showcase ────────────────────────────────────────────── */}
-          <section className="py-1">
-            <div className="container px-2 max-w-6xl mx-auto">
-              <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-extrabold text-card-foreground mb-3">
-                  See Your Photo Transform
-                </h2>
-                <p className="text-muted-foreground text-sm max-w-xl mx-auto">
-                  From upload to print-ready — see the complete process with measurements and dimensions.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-3 gap-3">
-                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
-                  <img
-                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008016/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_preview_ip9ogs.jpg"
-                    alt="Passport photo with measurements"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="p-4">
-                    <p className="text-sm font-bold text-card-foreground">AI Processing</p>
-                    <p className="text-xs text-muted-foreground mt-1">Face detection with biometric measurements applied</p>
+              {/* ── Example Showcase ────────────────────────────────────────────── */}
+              <section className="py-1">
+                <div className="container px-2 max-w-6xl mx-auto">
+                  <div className="text-center mb-10">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-card-foreground mb-3">
+                      See Your Photo Transform
+                    </h2>
+                    <p className="text-muted-foreground text-sm max-w-xl mx-auto">
+                      From upload to print-ready — see the complete process with
+                      measurements and dimensions.
+                    </p>
+                  </div>
+                  <div className="grid md:grid-cols-3 gap-3">
+                    <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
+                      <img
+                        src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008016/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_preview_ip9ogs.jpg"
+                        alt="Passport photo with measurements"
+                        className="w-full h-auto object-cover"
+                      />
+                      <div className="p-4">
+                        <p className="text-sm font-bold text-card-foreground">
+                          AI Processing
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Face detection with biometric measurements applied
+                        </p>
+                      </div>
+                    </div>
+                    <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
+                      <img
+                        src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008017/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_photo_eyp4a3.jpg"
+                        alt="Final compliant photo"
+                        className="w-full h-auto object-cover"
+                      />
+                      <div className="p-4">
+                        <p className="text-sm font-bold text-card-foreground">
+                          Final Output
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Government-compliant photo with white background
+                        </p>
+                      </div>
+                    </div>
+                    <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
+                      <a
+                        href="https://www.photoresizer.co.in/passport-photo-print-template-generator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779076959/MakePassportPhoto_ph2uog.jpg"
+                          alt="4x6 print sheet"
+                          className="w-full h-auto object-cover"
+                        />
+                      </a>
+                      <div className="p-4">
+                        <a
+                          href="https://www.photoresizer.co.in/passport-photo-print-template-generator"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-bold text-card-foreground hover:text-primary transition-colors"
+                        >
+                          Print Template
+                        </a>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Ready-to-print 4×6 inch sheet with crop guides
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
-                  <img
-                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008017/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_photo_eyp4a3.jpg"
-                    alt="Final compliant photo"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="p-4">
-                    <p className="text-sm font-bold text-card-foreground">Final Output</p>
-                    <p className="text-xs text-muted-foreground mt-1">Government-compliant photo with white background</p>
-                  </div>
-                </div>
-                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
-                  <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
-                    <img
-                      src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779076959/MakePassportPhoto_ph2uog.jpg"
-                      alt="4x6 print sheet"
-                      className="w-full h-auto object-cover"
-                    />
-                  </a>
-                  <div className="p-4">
-                    <a href="http://localhost:8080/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-card-foreground hover:text-primary transition-colors">
-                      Print Template
-                    </a>
-                    <p className="text-xs text-muted-foreground mt-1">Ready-to-print 4×6 inch sheet with crop guides</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+              </section>
               <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-                Perfectly format your photo to exact dimensions — 35×45 mm,
-                2×2 inch, 3.5×4.5 cm, or any international standard — with
+                Perfectly format your photo to exact dimensions — 35×45 mm, 2×2
+                inch, 3.5×4.5 cm, or any international standard — with
                 background replacement and biometric compliance in seconds.
               </p>
 
@@ -236,17 +307,87 @@ export default function PassportSizePhotoMaker() {
                 ))}
               </div>
 
-              {/* <a
-                href="#tool"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm px-6 py-3 rounded-xl shadow-lg shadow-primary/20 transition-all duration-200"
-              >
-                <Camera className="w-4 h-4" />
-                Resize My Photo Now — Free
-              </a> */}
+              <section className="py-10">
+                <div className="container max-w-3xl mx-auto px-4">
+                  <div className="bg-muted border border-border rounded-2xl p-6">
+                    <h3 className="text-lg font-bold text-card-foreground mb-3">
+                      Try Other Passport Photo Tools
+                    </h3>
+
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      If you're applying for international visas or passports,
+                      you can also use specialized tools for different countries
+                      and regions. These tools automatically apply official
+                      government requirements for size, background, and
+                      biometric alignment.
+                    </p>
+
+                    <ul className="list-disc pl-5 space-y-2 text-sm">
+                      <li>
+                        Create compliant photos with the{" "}
+                        <a
+                          href="https://www.pixpassport.com/australia-passport-photo-editor"
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="text-primary font-medium hover:underline"
+                        >
+                          Australia Passport Photo Editor
+                        </a>
+                      </li>
+
+                      <li>
+                        Generate visa-ready images using the{" "}
+                        <a
+                          href="https://www.pixpassport.com/schengen-passport-photo-editor"
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="text-primary font-medium hover:underline"
+                        >
+                          Schengen Passport Photo Editor
+                        </a>
+                      </li>
+
+                      <li>
+                        Get exact EU specifications with the{" "}
+                        <a
+                          href="https://www.pixpassport.com/france-passport-photo-editor"
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="text-primary font-medium hover:underline"
+                        >
+                          France Passport Photo Tool
+                        </a>
+                      </li>
+
+                      <li>
+                        Create government-compliant images using the{" "}
+                        <a
+                          href="https://www.pixpassport.com/india-passport-photo-editor"
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="text-primary font-medium hover:underline"
+                        >
+                          India Passport Photo Editor
+                        </a>
+                      </li>
+
+                      <li>
+                        Explore all tools on{" "}
+                        <a
+                          href="https://www.pixpassport.com/"
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="text-primary font-semibold hover:underline"
+                        >
+                          PixPassport
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
             </div>
           </section>
-
-      
 
           {/* ── Features ─────────────────────────────────────────────────────── */}
           <section className="py-14 bg-card border-y border-border">
@@ -266,8 +407,6 @@ export default function PassportSizePhotoMaker() {
               </FeatureGrid>
             </div>
           </section>
-
-       
 
           {/* ── How To ───────────────────────────────────────────────────────── */}
           <section className="py-14">
@@ -330,7 +469,6 @@ export default function PassportSizePhotoMaker() {
           {/* ── SEO Article ──────────────────────────────────────────────────── */}
           <section className="py-16">
             <article className="container px-4 max-w-3xl mx-auto prose prose-slate dark:prose-invert lg:prose-base">
-
               <h2>What Is a Passport Size Photo and Why Dimensions Matter</h2>
               <p>
                 A passport size photo is a precisely dimensioned portrait
@@ -343,15 +481,18 @@ export default function PassportSizePhotoMaker() {
               </p>
               <p>
                 Getting the dimensions exactly right is critical. Most
-                government agencies — including the US State Department, UK
-                HM Passport Office, and the Indian Ministry of External Affairs
-                — use automated optical recognition systems that reject photos
-                falling outside dimensional tolerances. A photo that is even
-                a few pixels too narrow or too tall can delay your application
-                by days or weeks.
+                government agencies — including the US State Department, UK HM
+                Passport Office, and the Indian Ministry of External Affairs —
+                use automated optical recognition systems that reject photos
+                falling outside dimensional tolerances. A photo that is even a
+                few pixels too narrow or too tall can delay your application by
+                days or weeks.
               </p>
 
-              <h2>How to Resize a Photo to Passport Dimensions Without Losing Quality</h2>
+              <h2>
+                How to Resize a Photo to Passport Dimensions Without Losing
+                Quality
+              </h2>
               <p>
                 Manually cropping an image in software like Photoshop or GIMP
                 often leads to measurement discrepancies. The reason is that
@@ -392,27 +533,27 @@ export default function PassportSizePhotoMaker() {
                 Position the camera at eye level — not above or below. Shooting
                 from above makes your chin appear smaller and narrows the face;
                 shooting from below distorts your nose. Place your phone or
-                camera on a tripod or shelf at the exact height of your eyes
-                and use the timer function for a sharp, blur-free shot.
+                camera on a tripod or shelf at the exact height of your eyes and
+                use the timer function for a sharp, blur-free shot.
               </p>
 
               <h3>Expression and Posture</h3>
               <p>
-                Keep a completely neutral expression: mouth closed, lips relaxed,
-                no smile. Both eyes must be fully open and looking directly into
-                the lens. Your head should be straight — not tilted, turned, or
-                angled. Any rotation beyond two degrees will flag an automated
-                biometric check.
+                Keep a completely neutral expression: mouth closed, lips
+                relaxed, no smile. Both eyes must be fully open and looking
+                directly into the lens. Your head should be straight — not
+                tilted, turned, or angled. Any rotation beyond two degrees will
+                flag an automated biometric check.
               </p>
 
               <h3>Hair and Accessories</h3>
               <p>
                 Hair must not cover your eyes, eyebrows, or forehead. The full
-                facial outline — from chin to hairline and ear to ear — must
-                be clearly visible. Remove glasses in almost all cases; the US,
-                UK, Canada, Schengen nations, and India all prohibit them.
-                Headwear is only permitted for documented religious observance,
-                and even then the face must be fully unobscured.
+                facial outline — from chin to hairline and ear to ear — must be
+                clearly visible. Remove glasses in almost all cases; the US, UK,
+                Canada, Schengen nations, and India all prohibit them. Headwear
+                is only permitted for documented religious observance, and even
+                then the face must be fully unobscured.
               </p>
 
               <h3>Clothing and Background Contrast</h3>
@@ -420,9 +561,9 @@ export default function PassportSizePhotoMaker() {
                 Avoid wearing white or very light clothing if your target
                 country mandates a white background — the lack of contrast
                 between your shoulders and the backdrop can confuse automated
-                face-detection algorithms. Dark or mid-tone clothing against
-                a white background produces the cleanest segmentation and the
-                most professional result.
+                face-detection algorithms. Dark or mid-tone clothing against a
+                white background produces the cleanest segmentation and the most
+                professional result.
               </p>
 
               <h2>Understanding DPI, Resolution, and Print Quality</h2>
@@ -456,9 +597,9 @@ export default function PassportSizePhotoMaker() {
                 If you prefer a lab, upload the 4×6 print sheet to any online
                 service (Snapfish, Shutterfly) or walk into a Boots, CVS,
                 Walgreens, or Fujifilm photo kiosk. Select a single 4×6 inch
-                print. The cost is typically under one dollar or one pound —
-                a fraction of what most high-street photo studios charge for
-                the same result.
+                print. The cost is typically under one dollar or one pound — a
+                fraction of what most high-street photo studios charge for the
+                same result.
               </p>
 
               <h2>Common Mistakes That Lead to Photo Rejections</h2>
@@ -473,7 +614,6 @@ export default function PassportSizePhotoMaker() {
                 compressed below the minimum quality threshold. Our tool
                 addresses all five automatically.
               </p>
-
             </article>
           </section>
 
@@ -529,7 +669,6 @@ export default function PassportSizePhotoMaker() {
           <div className="container px-4 pb-16">
             <InternalLinks links={relatedLinks} />
           </div>
-
         </main>
 
         <Footer />
