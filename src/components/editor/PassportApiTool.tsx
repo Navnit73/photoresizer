@@ -782,37 +782,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
               )}
             </div>
 
-            {/* Biometric metrics */}
-            <div className="bg-card rounded-2xl border border-border shadow-clean-sm p-5 space-y-5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-green-500" />
-                  Biometric Analysis
-                </span>
-                <span className="text-xs font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 border border-green-100 dark:border-green-900 px-2.5 py-1 rounded-lg">PASSED</span>
-              </div>
-              <div className="space-y-4">
-                <MetricBar label="Head Height Ratio" value={result.metrics.head_height_pct} standard="Standard: 50%–69%" tooltip="Ideal range: 50%–69% of total image height" />
-                <MetricBar label="Eye Position Ratio" value={result.metrics.eye_position_pct} standard="Standard: 56%–69%" tooltip="Ideal eye line: 56%–69% from bottom of image" />
-                <MetricBar label="Top Margin Gap" value={result.metrics.top_margin_pct} standard="Standard: 8%–15%" tooltip="Head-to-top border clearance: 8%–15%" />
-              </div>
-
-              <div className="grid grid-cols-3 gap-2 pt-3 border-t border-border">
-                {[
-                  { label: "Dimensions", value: result.dimensions },
-                  {
-                    label: "Background",
-                    value: result.metrics.background_valid ? "Valid" : result.metrics.background_corrected ? "Fixed by AI" : "Invalid",
-                  },
-                  { label: "File Size", value: `${result.size_kb} KB` },
-                ].map(({ label, value }) => (
-                  <div key={label} className="bg-muted rounded-xl p-3 text-center">
-                    <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider mb-1">{label}</p>
-                    <p className="text-xs font-bold text-card-foreground leading-tight">{value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+         
 
             {/* Print sheet download section */}
             {result.print_sheet_url && !isPaid && waitCountdown === null ? (
@@ -839,13 +809,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
                 </button>
               ) : null}
 
-            {/* Privacy note + reset */}
-            <div className="bg-accent border border-primary/20 dark:border-primary/40 rounded-2xl p-4 flex gap-3">
-              <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-              <p className="text-[11px] text-accent-foreground leading-relaxed">
-                Images are processed on ephemeral serverless nodes and never permanently stored, indexed, or linked to your identity.
-              </p>
-            </div>
+        
 
             <button
               onClick={handleReset}
