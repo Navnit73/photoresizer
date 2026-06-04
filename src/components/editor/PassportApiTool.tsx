@@ -16,6 +16,7 @@ import {
   Sparkles,
   ImageIcon,
   ChevronDown,
+  Users,
 } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -24,6 +25,7 @@ import {
   ExternalCountry,
   ExternalProcessResponse,
 } from "@/utils/passportApi";
+import { getLocalPrice } from "@/utils/pricing";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 type Stage = "idle" | "preview" | "processing" | "result";
@@ -89,6 +91,7 @@ const MetricBar = ({
 export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryCode?: string }) {
   // Block DevTools
   useEffect(() => {
+    console.log("[PassportApiTool] Mounted, priceInfo:", getLocalPrice());
     const handleKeyDown = (e: KeyboardEvent) => {
       if (
         e.key === "F12" ||
@@ -118,11 +121,61 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
   const [result, setResult] = useState<ExternalProcessResponse | null>(null);
   const [isDownloading, setIsDownloading] = useState(false);
   const [isPaid, setIsPaid] = useState(false);
+  const [showDownloadOptions, setShowDownloadOptions] = useState(false);
+  const [showPriceConfirm, setShowPriceConfirm] = useState(false);
+  const [waitCountdown, setWaitCountdown] = useState<number | null>(null);
+  const [fakeUsersCount, setFakeUsersCount] = useState(47);
+  const [fakeUsersChange, setFakeUsersChange] = useState<string>("");
+  const [priceInfo, setPriceInfo] = useState(getLocalPrice);
   const processingIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const waitIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const fakeUsersIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const paid = localStorage.getItem("payment_success");
     setIsPaid(!!paid);
+  }, []);
+
+  const clearWaitInterval = () => {
+    if (waitIntervalRef.current) {
+      clearInterval(waitIntervalRef.current);
+      waitIntervalRef.current = null;
+    }
+    setWaitCountdown(null);
+  };
+
+  // Fake live users counter that gradually increases/decreases
+  useEffect(() => {
+    const simulateUsers = () => {
+      const change = Math.floor(Math.random() * 17) - 5;
+      setFakeUsersCount((prev) => Math.max(12, prev + change));
+      if (change > 0) {
+        setFakeUsersChange(`+${change} in the last few minutes`);
+      } else if (change < 0) {
+        setFakeUsersChange(`${change} in the last few minutes`);
+      } else {
+        setFakeUsersChange("Active now");
+      }
+    };
+
+    const initTimeout = setTimeout(() => {
+      simulateUsers();
+      const scheduleNext = () => {
+        const delay = Math.floor(Math.random() * 17000) + 8000;
+        fakeUsersIntervalRef.current = setTimeout(() => {
+          simulateUsers();
+          scheduleNext();
+        }, delay);
+      };
+      scheduleNext();
+    }, 3000);
+
+    return () => {
+      clearTimeout(initTimeout);
+      if (fakeUsersIntervalRef.current) {
+        clearTimeout(fakeUsersIntervalRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -242,10 +295,16 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
   };
 
   useEffect(() => {
-    return () => clearProcessingInterval();
+    return () => {
+      clearProcessingInterval();
+      clearWaitInterval();
+    };
   }, []);
 
   const handleReset = () => {
+    clearWaitInterval();
+    setShowDownloadOptions(false);
+    setShowPriceConfirm(false);
     if (previewUrl) URL.revokeObjectURL(previewUrl);
     setSelectedFile(null);
     setPreviewUrl(null);
@@ -280,6 +339,26 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
     }
   };
 
+  const startFreeDownload = (url: string, filename: string) => {
+    clearWaitInterval();
+    setWaitCountdown(120);
+    waitIntervalRef.current = setInterval(() => {
+      setWaitCountdown((prev) => {
+        if (prev === null || prev <= 1) {
+          clearWaitInterval();
+          handleDownload(url, filename);
+          return null;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
+
+  const cancelFreeDownload = () => {
+    clearWaitInterval();
+    toast.info("Free download cancelled. You can still pay for instant access.");
+  };
+
   return (
     <div className="min-h-screen  font-sans">
 
@@ -288,7 +367,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
         {/* ── Hero Section ── */}
         <div className="bg-card rounded-2xl border border-border p-5 shadow-clean-sm">
           <div className="flex items-start gap-4">
-           
+
             <div className="flex-1 min-w-0">
               <h1 className="text-lg font-bold text-card-foreground leading-tight">
                 Biometric Passport & Visa Photo Maker
@@ -296,6 +375,20 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
               <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
                 Government-compliant photos for 150+ countries — background removed, auto-cropped, print-ready.
               </p>
+              <div className="flex items-center gap-2 mt-3">
+                <div className="flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <span className="text-xs font-bold text-green-600 dark:text-green-400">
+                    {fakeUsersCount} people
+                  </span>
+                </div>
+                {fakeUsersChange && (
+                  <span className="text-[10px] text-muted-foreground">· {fakeUsersChange}</span>
+                )}
+              </div>
               <div className="flex flex-wrap gap-2 mt-3 ">
                 {["Background Removed", "Auto-Crop", "Print-Ready"].map((t) => (
                   <span key={t} className="inline-flex items-center gap-1 text-[11px] font-semibold text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2 py-0.5 rounded-full border border-green-100 dark:border-green-900">
@@ -587,29 +680,104 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
                 </div>
               </div>
 
-              <button
-                onClick={() => {
-                  if (!isPaid) {
-                    import("@/lib/razorpay").then(({ startPayment }) => {
-                      startPayment({
-                        email: "navnitrai5389@gmail.com",
-                        name: "Customer",
-                        onSuccess: () => setIsPaid(true),
+              {showDownloadOptions && !isPaid ? (
+                <div className="mt-4 p-4 bg-muted/50 rounded-xl border border-border">
+                  <p className="text-sm font-semibold text-card-foreground mb-3">Choose download option:</p>
+                  <div className="space-y-2">
+                    <button
+                      onClick={() => {
+                        if (result) {
+                          startFreeDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`);
+                          setShowDownloadOptions(false);
+                        }
+                      }}
+                      className="w-full flex items-center justify-between bg-card hover:bg-muted border border-border rounded-xl px-4 py-3 text-left transition-all"
+                    >
+                      <div>
+                        <p className="text-sm font-semibold text-card-foreground">Wait 2 minutes</p>
+                        <p className="text-[11px] text-muted-foreground">Download for free</p>
+                      </div>
+                      <span className="text-xs text-muted-foreground font-semibold">FREE</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setShowDownloadOptions(false);
+                        setShowPriceConfirm(true);
+                      }}
+                      className="w-full flex items-center justify-between bg-primary/10 hover:bg-primary/20 border border-primary/30 rounded-xl px-4 py-3 text-left transition-all"
+                    >
+                      <div>
+                        <p className="text-sm font-semibold text-primary">Pay to download</p>
+                        <p className="text-[11px] text-muted-foreground">Instant access • One-time payment</p>
+                      </div>
+                      <span className="text-sm text-primary font-bold">{priceInfo.formatted}</span>
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => setShowDownloadOptions(false)}
+                    className="w-full mt-3 text-xs text-muted-foreground hover:text-card-foreground transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              ) : showPriceConfirm ? (
+                <div className="mt-4 p-4 bg-primary/5 border border-primary/30 rounded-xl">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-semibold text-card-foreground">Confirm Payment</span>
+                    <button onClick={() => setShowPriceConfirm(false)} className="text-muted-foreground hover:text-card-foreground">
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-3">You will be charged <span className="font-bold text-primary">{priceInfo.formatted}</span> via Razorpay</p>
+                  <button
+                    onClick={() => {
+                      console.log("[PassportApiTool] Pay clicked, priceInfo:", priceInfo);
+                      import("@/lib/razorpay").then(({ startPayment }) => {
+                        startPayment({
+                          email: "navnitrai5389@gmail.com",
+                          name: "Customer",
+                          onSuccess: () => setIsPaid(true),
+                        });
                       });
-                    });
-                    return;
-                  }
-                  handleDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`);
-                }}
-                disabled={isDownloading}
-                className="w-full mt-5 bg-primary hover:bg-primary/90 disabled:opacity-50 active:scale-[0.98] text-primary-foreground font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
-              >
-                <Download className="w-4 h-4" />
-                {isDownloading ? "Preparing..." : isPaid ? "Download Photo" : "Download HD Passport Photo + Print Sheet"}
-              </button>
+                      setShowPriceConfirm(false);
+                    }}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl py-3 text-sm flex items-center justify-center gap-2 transition-all"
+                  >
+                    <Zap className="w-4 h-4" />
+                    Pay {priceInfo.formatted}
+                  </button>
+                </div>
+              ) : waitCountdown !== null ? (
+                <div className="mt-4 p-4 bg-muted/50 rounded-xl border border-border text-center">
+                  <p className="text-sm font-semibold text-card-foreground mb-1">Free download in progress...</p>
+                  <p className="text-2xl font-bold text-primary">{waitCountdown}s</p>
+                  <p className="text-[11px] text-muted-foreground mt-1">Your download will start automatically</p>
+                  <button
+                    onClick={cancelFreeDownload}
+                    className="mt-3 text-xs text-muted-foreground hover:text-card-foreground underline transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => {
+                    if (!isPaid) {
+                      setShowDownloadOptions(true);
+                    } else {
+                      handleDownload(result.image_url, `${selectedCountryCode}_passport_photo.jpg`);
+                    }
+                  }}
+                  disabled={isDownloading}
+                  className="w-full mt-5 bg-primary hover:bg-primary/90 disabled:opacity-50 active:scale-[0.98] text-primary-foreground font-bold rounded-xl py-3.5 text-sm flex items-center justify-center gap-2 transition-all"
+                >
+                  <Download className="w-4 h-4" />
+                  {isDownloading ? "Preparing..." : isPaid ? "Download Photo" : `Download Photo`}
+                </button>
+              )}
               {!isPaid && (
                 <p className="text-[11px] text-muted-foreground text-center mt-1">
-                  One-time payment • Instant access
+                  HD Photo + 4×6 Print Sheet • One-time payment
                 </p>
               )}
             </div>
@@ -647,45 +815,29 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
             </div>
 
             {/* Print sheet download section */}
-            {result.print_sheet_url && (
-              <div className="bg-card rounded-2xl border border-border shadow-clean-sm p-5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Printer className="w-4 h-4 text-primary" />
-                    <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">4×6 Print Sheet</span>
-                  </div>
-                  <span className="text-[10px] text-muted-foreground">4 photos per sheet</span>
-                </div>
-                <p className="text-xs text-muted-foreground mt-1 mb-4">Print at home on glossy photo paper — no studio needed.</p>
-                <div className="bg-muted rounded-xl p-4 flex items-center justify-center">
-                  <img
-                    src={result.print_sheet_url}
-                    alt="4x6 Print Sheet Preview"
-                    className="max-w-full max-h-32 object-contain rounded"
-                  />
-                </div>
+            {result.print_sheet_url && !isPaid && waitCountdown === null ? (
                 <button
                   onClick={() => {
-                    if (!isPaid) {
-                      import("@/lib/razorpay").then(({ startPayment }) => {
-                        startPayment({
-                          email: "navnitrai5389@gmail.com",
-                          name: "Customer",
-                          onSuccess: () => setIsPaid(true),
-                        });
-                      });
-                      return;
+                    if (result?.print_sheet_url) {
+                      startFreeDownload(result.print_sheet_url, `${selectedCountryCode}_print_sheet_4x6.jpg`);
                     }
-                    handleDownloadPrintSheet();
                   }}
                   disabled={isDownloading}
-                  className="w-full mt-4 bg-green-500 hover:bg-green-600 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3 text-sm flex items-center justify-center gap-2 transition-all"
+                  className="w-full mt-4 bg-green-500/80 hover:bg-green-600 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3 text-sm flex items-center justify-center gap-2 transition-all"
                 >
                   <Printer className="w-4 h-4" />
-                  {isDownloading ? "Preparing..." : isPaid ? "Download 4×6 Print Sheet" : "Unlock Print Sheet"}
+                  {isDownloading ? "Preparing..." : "Download 4×6 Print Sheet (Free - 2 min wait)"}
                 </button>
-              </div>
-            )}
+              ) : result.print_sheet_url && !isPaid && waitCountdown === null && !showPriceConfirm ? (
+                <button
+                  onClick={() => setShowPriceConfirm(true)}
+                  disabled={isDownloading}
+                  className="w-full mt-4 bg-green-500/80 hover:bg-green-600 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3 text-sm flex items-center justify-center gap-2 transition-all"
+                >
+                  <Printer className="w-4 h-4" />
+                  {isDownloading ? "Preparing..." : `Unlock Print Sheet · ${priceInfo.formatted}`}
+                </button>
+              ) : null}
 
             {/* Privacy note + reset */}
             <div className="bg-accent border border-primary/20 dark:border-primary/40 rounded-2xl p-4 flex gap-3">

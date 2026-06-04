@@ -3,6 +3,8 @@ import { getLocalPrice } from "@/utils/pricing";
 interface StartPaymentParams {
   email?: string;
   name?: string;
+  amount?: number;
+  currency?: string;
   onSuccess?: (paymentId: string) => void;
   onDismiss?: () => void;
 }
@@ -10,17 +12,29 @@ interface StartPaymentParams {
 export const startPayment = ({
   email,
   name,
+  amount,
+  currency,
   onSuccess,
   onDismiss,
 }: StartPaymentParams = {}) => {
   const price = getLocalPrice();
+  const finalAmount = amount ?? price.razorpayAmount;
+  const finalCurrency = currency ?? price.currency;
+
+  console.log("[Razorpay] Price Debug:", {
+    detectedCurrency: price.currency,
+    detectedAmount: price.razorpayAmount,
+    finalCurrency,
+    finalAmount,
+    formatted: price.formatted
+  });
 
   const keyId = import.meta.env.VITE_RAZORPAY_KEY_ID || "rzp_live_SKJWoYJgKVXRjp";
 
   const options: RazorpayOptions = {
     key: keyId,
-    amount: price.razorpayAmount,
-    currency: price.currency,
+    amount: finalAmount,
+    currency: finalCurrency,
     name: "Photo Resizer Tool",
     description: "HD Passport Photo Download",
     handler: function (response) {

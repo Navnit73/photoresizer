@@ -95,6 +95,7 @@ export function getLocalPrice(): LocalPrice {
 export function getClientTimezoneCurrency(): string {
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    console.log("[Pricing] Detected timezone:", tz);
 
     // India - check various patterns
     if (tz.includes('Mumbai') || tz.includes('Mumbai') ||
@@ -103,14 +104,17 @@ export function getClientTimezoneCurrency(): string {
         tz.includes('Delhi') || tz.includes('Mumbai') || tz.includes('Chennai') ||
         tz.includes('Bangalore')) return 'INR';
     if (tz.includes('London')) return 'GBP';
+    if (tz.includes('Berlin') || tz.includes('Paris') || tz.includes('Madrid') ||
+        tz.includes('Rome') || tz.includes('Amsterdam') || tz.includes('Brussels') ||
+        tz.includes('Vienna') || tz.includes('Lisbon') || tz.includes('Dublin') ||
+        tz.includes('Athens') || tz.includes('Helsinki') || tz.includes('Warsaw') ||
+        tz.includes('Prague') || tz.includes('Budapest') || tz.includes('Vienna')) return 'EUR';
     if (tz.startsWith('Europe/')) {
       if (tz.includes('Zurich'))    return 'CHF';
       if (tz.includes('Stockholm'))  return 'SEK';
       if (tz.includes('Oslo'))       return 'NOK';
       if (tz.includes('Copenhagen'))  return 'DKK';
-      if (tz.includes('Warsaw'))     return 'PLN';
       if (tz.includes('Istanbul'))   return 'TRY';
-      if (tz.includes('Prague'))     return 'CZK';
       return 'EUR';
     }
     if (tz.includes('Toronto') || tz.includes('Vancouver')) return 'CAD';
