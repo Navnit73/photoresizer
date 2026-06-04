@@ -258,7 +258,14 @@ export default function PassportPhotoMaker() {
       <SEO
         title="Free Online Passport Photo Maker | AI-Compliant in Seconds"
         description="Create government-compliant passport & visa photos in seconds. AI auto-crops, removes background, and generates a print-ready 4×6 sheet for 150+ countries."
-        url="https://www.photoresizer.co.in/passport-photo-maker"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "Passport Photo Maker",
+          applicationCategory: "DesignApplication",
+          operatingSystem: "All",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }}
       />
 
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">

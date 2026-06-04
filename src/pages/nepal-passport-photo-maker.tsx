@@ -95,7 +95,14 @@ export default function NepalPassportPhotoMaker() {
       <SEO
         title="Nepal Passport Photo Maker | Create 35x45mm Photos Online"
         description="Free online Nepal passport photo maker. Instantly resize and crop your photo to the official 35x45 mm Nepalese standards. AI removes background & centers face."
-        url="https://www.photoresizer.co.in/nepal-passport-photo-maker"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "Nepal Passport Photo Maker",
+          applicationCategory: "DesignApplication",
+          operatingSystem: "All",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }}
       />
 
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">

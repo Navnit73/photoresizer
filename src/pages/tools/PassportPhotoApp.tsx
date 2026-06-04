@@ -74,7 +74,14 @@ export default function PassportPhotoApp() {
       <SEO
         title="Passport Photo App | Fast AI Portrait Editor Online"
         description="Free online passport photo app. Snap, auto-crop, remove backgrounds, and generate compliant visa and passport photos straight from your smartphone or PC."
-        url="https://www.photoresizer.co.in/passport-photo-app"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "Passport Photo App",
+          applicationCategory: "DesignApplication",
+          operatingSystem: "All",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }}
       />
 
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">

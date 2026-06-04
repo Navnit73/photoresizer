@@ -95,7 +95,14 @@ export default function CanadaPassportPhotoMaker() {
       <SEO
         title="Canada Passport Photo Maker | Create 50x70mm Photos Online"
         description="Free online Canada passport photo maker. Instantly resize and crop your photo to the official 50x70 mm Canadian standards. AI replaces background and structures dimensions."
-        url="https://www.photoresizer.co.in/canada-passport-photo-maker"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "Canada Passport Photo Maker",
+          applicationCategory: "DesignApplication",
+          operatingSystem: "All",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }}
       />
 
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">

@@ -132,7 +132,6 @@ export default function PrintTemplateGenerator() {
       <SEO
         title="Passport Photo Print Template Generator | Free 4×6 & A4 Layout"
         description="Create a printable passport photo sheet instantly. Upload one passport photo and generate multiple copies on 4×6, A4, or custom paper sizes. 100% free with 300 DPI output."
-        url="https://www.photoresizer.co.in/passport-photo-print-template-generator"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
