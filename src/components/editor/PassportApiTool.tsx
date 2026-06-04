@@ -341,7 +341,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
 
   const startFreeDownload = (url: string, filename: string) => {
     clearWaitInterval();
-    setWaitCountdown(120);
+    setWaitCountdown(300);
     waitIntervalRef.current = setInterval(() => {
       setWaitCountdown((prev) => {
         if (prev === null || prev <= 1) {
@@ -694,7 +694,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
                       className="w-full flex items-center justify-between bg-card hover:bg-muted border border-border rounded-xl px-4 py-3 text-left transition-all"
                     >
                       <div>
-                        <p className="text-sm font-semibold text-card-foreground">Wait 2 minutes</p>
+                        <p className="text-sm font-semibold text-card-foreground">Wait 5 minutes</p>
                         <p className="text-[11px] text-muted-foreground">Download for free</p>
                       </div>
                       <span className="text-xs text-muted-foreground font-semibold">FREE</span>
