@@ -796,7 +796,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
                   className="w-full mt-4 bg-green-500/80 hover:bg-green-600 disabled:opacity-50 active:scale-[0.98] text-white font-bold rounded-xl py-3 text-sm flex items-center justify-center gap-2 transition-all"
                 >
                   <Printer className="w-4 h-4" />
-                  {isDownloading ? "Preparing..." : "Download 4×6 Print Sheet (Free - 2 min wait)"}
+                  {isDownloading ? "Preparing..." : "Download 4×6 Print Sheet (Free - 3 min wait)"}
                 </button>
               ) : result.print_sheet_url && !isPaid && waitCountdown === null && !showPriceConfirm ? (
                 <button
