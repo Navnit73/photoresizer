@@ -119,6 +119,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
   const [processingMsg, setProcessingMsg] = useState("");
   const [processingProgress, setProcessingProgress] = useState(0);
   const [result, setResult] = useState<ExternalProcessResponse | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [isDownloading, setIsDownloading] = useState(false);
   const [isPaid, setIsPaid] = useState(false);
   const [showDownloadOptions, setShowDownloadOptions] = useState(false);
@@ -239,6 +240,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
     setSelectedFile(file);
     setPreviewUrl(URL.createObjectURL(file));
     setResult(null);
+    setErrorMsg(null);
     setStage("preview");
     toast.success(`"${file.name}" loaded successfully.`);
   };
@@ -266,6 +268,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
   const handleProcessImage = async () => {
     if (!selectedFile) { toast.error("Please upload a photo first."); return; }
     clearProcessingInterval();
+    setErrorMsg(null);
     setStage("processing");
     setProcessingProgress(5);
     setProcessingMsg("Initialising AI pipeline…");
@@ -290,7 +293,9 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
     } catch (error: any) {
       clearProcessingInterval();
       setStage("preview");
-      toast.error(error?.message || "Processing failed. Ensure your face is fully visible and well-lit.");
+      const errorMessage = error?.message || "Processing failed. Ensure your face is fully visible and well-lit.";
+      setErrorMsg(errorMessage);
+      toast.error(errorMessage);
     }
   };
 
@@ -309,6 +314,7 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
     setSelectedFile(null);
     setPreviewUrl(null);
     setResult(null);
+    setErrorMsg(null);
     setProcessingProgress(0);
     setProcessingMsg("");
     setStage("idle");
@@ -363,6 +369,19 @@ export function PassportApiTool({ defaultCountryCode = "IN" }: { defaultCountryC
     <div className="min-h-screen  font-sans">
 
       <div className="max-w-2xl mx-auto px-1 py-6 space-y-4 pb-8">
+
+        {errorMsg && (
+          <div className="bg-red-500 border border-red-600 text-white px-4 py-3 rounded-xl shadow-lg flex items-start gap-3 animate-in fade-in slide-in-from-top-2">
+            <AlertTriangle className="w-5 h-5 mt-0.5 shrink-0 text-white" />
+            <div className="flex-1">
+              <span className="block font-bold text-sm">Error Processing Photo</span>
+              <span className="block text-sm mt-0.5 opacity-90">{errorMsg}</span>
+            </div>
+            <button onClick={() => setErrorMsg(null)} className="text-white hover:text-red-100 transition-colors">
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
 
         {/* ── Hero Section ── */}
         <div className="bg-card rounded-2xl border border-border p-5 shadow-clean-sm">
