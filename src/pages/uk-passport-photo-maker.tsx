@@ -161,53 +161,58 @@ export default function UkPassportPhotoMaker() {
             </div>
           </section>
 
-          {/* ── Example Showcase ────────────────────────────────────────────── */}
-          <section className="py-1">
-            <div className="container px-2 max-w-6xl mx-auto">
+                              {/* ── Example Showcase ────────────────────────────────────────────── */}
+          <section className="py-14 bg-slate-50 dark:bg-slate-900/50 border-y border-border">
+            <div className="container px-4 max-w-5xl mx-auto">
               <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-3xl font-extrabold text-card-foreground mb-3">
                   See Your Photo Transform
                 </h2>
                 <p className="text-muted-foreground text-sm max-w-xl mx-auto">
-                  From upload to HMPO print-ready — the complete process with biometric measurements applied automatically.
+                  From upload to print-ready — see the complete process with measurements and dimensions.
                 </p>
               </div>
-              <div className="grid md:grid-cols-3 gap-3">
-                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
-                  <img
-                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008016/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_preview_ip9ogs.jpg"
-                    alt="UK passport photo with HMPO biometric measurements applied"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="p-4">
-                    <p className="text-sm font-bold text-card-foreground">AI Processing</p>
-                    <p className="text-xs text-muted-foreground mt-1">Face detection with HMPO biometric measurements applied</p>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="aspect-[3/4] relative bg-slate-100 dark:bg-slate-800">
+                    <img
+                      src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008016/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_preview_ip9ogs.jpg"
+                      alt="Passport photo with measurements"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-base font-bold text-card-foreground">AI Processing</p>
+                    <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">Face detection with biometric measurements applied</p>
                   </div>
                 </div>
-                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
-                  <img
-                    src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008017/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_photo_eyp4a3.jpg"
-                    alt="Final HMPO-compliant UK passport photo with light grey background"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="p-4">
-                    <p className="text-sm font-bold text-card-foreground">Final Output</p>
-                    <p className="text-xs text-muted-foreground mt-1">HMPO-compliant photo with light grey background, ready for GOV.UK upload</p>
+                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="aspect-[3/4] relative bg-slate-100 dark:bg-slate-800">
+                    <img
+                      src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779008017/c24d89b1-ab0e-4f1d-9035-5814bc7b91ca_photo_eyp4a3.jpg"
+                      alt="Final compliant photo"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-base font-bold text-card-foreground">Final Output</p>
+                    <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">Government-compliant photo with white background</p>
                   </div>
                 </div>
-                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-clean-sm">
-                  <a href="/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer">
+                <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <a href="https://www.photoresizer.co.in/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="block aspect-[3/4] relative bg-slate-100 dark:bg-slate-800 group overflow-hidden">
                     <img
                       src="https://res.cloudinary.com/dipzpwbbk/image/upload/v1779076959/MakePassportPhoto_ph2uog.jpg"
-                      alt="4x6 print sheet with four UK passport photos and crop guides"
-                      className="w-full h-auto object-cover"
+                      alt="4x6 print sheet"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </a>
-                  <div className="p-4">
-                    <a href="/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-card-foreground hover:text-primary transition-colors">
+                  <div className="p-5">
+                    <a href="https://www.photoresizer.co.in/passport-photo-print-template-generator" target="_blank" rel="noopener noreferrer" className="text-base font-bold text-card-foreground hover:text-primary transition-colors inline-flex items-center gap-1.5">
                       Print Template
+                      <span className="text-xs">↗</span>
                     </a>
-                    <p className="text-xs text-muted-foreground mt-1">Ready-to-print 4×6 sheet with four copies and crop guides — suitable for Post Office Check &amp; Send</p>
+                    <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">Ready-to-print 4×6 inch sheet with crop guides</p>
                   </div>
                 </div>
               </div>

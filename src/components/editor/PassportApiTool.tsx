@@ -880,7 +880,7 @@ export function PassportApiTool({
                         {priceInfo.formatted}
                       </span>
                     </button>
-                    <button
+                    {/* <button
                       onClick={() => {
                         if (result) {
                           startFreeDownload(
@@ -903,7 +903,7 @@ export function PassportApiTool({
                       <span className="text-xs text-muted-foreground font-semibold">
                         FREE
                       </span>
-                    </button>
+                    </button> */}
                   </div>
                   <button
                     onClick={() => setShowDownloadOptions(false)}
