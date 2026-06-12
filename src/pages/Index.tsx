@@ -28,11 +28,14 @@ const Index = () => {
     loadImage,
     updateDimensions,
     setRotation,
+    setBackgroundColor,
     setQuality,
     setFormat,
     applyPreset,
     applyCrop,
     undo,
+    removeBackground,
+    bgRemovalProgress,
     processAndDownload,
     reset,
     lastUploadedFile
@@ -114,6 +117,7 @@ const Index = () => {
                       onQualityChange={setQuality}
                       onFormatChange={setFormat}
                       onApplyPreset={applyPreset}
+                      onBackgroundColorChange={setBackgroundColor}
                     />
                   </div>
                   
@@ -124,12 +128,18 @@ const Index = () => {
                 </aside>
 
                 {/* ================= CANVAS AREA ================= */}
-                <section className="order-1 lg:order-2 bg-card rounded-2xl border border-border p-3 sm:p-4 shadow-sm w-full max-w-full overflow-hidden">
+                <section className="order-1 lg:order-2 bg-card rounded-xl border border-border p-1 sm:p-2  w-full max-w-full overflow-hidden">
                   
                   {/* -------- MOBILE -------- */}
                   <div className="block lg:hidden space-y-4">
                     <div className="rounded-xl overflow-hidden border border-border">
-                      <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                      <InteractiveCanvas 
+                        imageState={imageState} 
+                        onCropApply={applyCrop} 
+                        onRemoveBackground={removeBackground}
+                        isProcessing={isProcessing}
+                        bgRemovalProgress={bgRemovalProgress}
+                      />
                       <div className="border-t border-border">
                         <LivePreview imageState={imageState} />
                       </div>
@@ -140,13 +150,19 @@ const Index = () => {
                   </div>
 
                   {/* -------- DESKTOP -------- */}
-                  <div className="hidden lg:grid lg:grid-cols-2 gap-4">
+                  <div className="hidden lg:grid lg:grid-cols-2 gap-1">
                     <div className="space-y-3">
                       <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
                         Original Document
                       </div>
-                      <div className="border border-border rounded-xl overflow-hidden bg-muted/30">
-                        <InteractiveCanvas imageState={imageState} onCropApply={applyCrop} />
+                      <div className="border  rounded-xl overflow-hidden bg-muted/20">
+                        <InteractiveCanvas 
+                          imageState={imageState} 
+                          onCropApply={applyCrop} 
+                          onRemoveBackground={removeBackground}
+                          isProcessing={isProcessing}
+                          bgRemovalProgress={bgRemovalProgress}
+                        />
                       </div>
                     </div>
 

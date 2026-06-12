@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect, useCallback, memo } from "react";
 import { ImageState } from "@/types/editor";
 import { Button } from "@/components/ui/button";
-import { Check, X, RotateCcw, Crop, Move, Lock, Unlock } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
+import { Check, X, RotateCcw, Crop, Move, Lock, Unlock, Wand2 } from "lucide-react";
 
 interface CropData {
   x: number;
@@ -46,9 +47,15 @@ const hapticFeedback = (style: "light" | "medium" | "heavy" = "light") => {
 export const InteractiveCanvas = memo(function InteractiveCanvas({
   imageState,
   onCropApply,
+  onRemoveBackground,
+  isProcessing,
+  bgRemovalProgress,
 }: {
   imageState: ImageState;
   onCropApply: (crop: CropData) => void;
+  onRemoveBackground?: () => void;
+  isProcessing?: boolean;
+  bgRemovalProgress?: number;
 }) {
   const [isCropMode, setIsCropMode] = useState(false);
   const [activeHandle, setActiveHandle] = useState<Handle>(null);
@@ -423,10 +430,30 @@ export const InteractiveCanvas = memo(function InteractiveCanvas({
             hapticFeedback("medium");
             setIsCropMode(true);
           }}
+          disabled={isProcessing}
         >
           <Crop className="w-4 h-4 mr-2" />
           Crop
         </Button>
+        {onRemoveBackground && !isCropMode && (
+          <div className="flex flex-col gap-1 w-full max-w-[120px]">
+            <Button
+              size="sm"
+              variant="secondary"
+              onClick={() => {
+                hapticFeedback("medium");
+                onRemoveBackground();
+              }}
+              disabled={isProcessing}
+            >
+              <Wand2 className="w-4 h-4 mr-2" />
+              Remove BG
+            </Button>
+            {bgRemovalProgress !== undefined && bgRemovalProgress > 0 && bgRemovalProgress < 100 && (
+              <Progress value={bgRemovalProgress} className="h-1.5 w-full" />
+            )}
+          </div>
+        )}
         {isCropMode && (
           <div className="flex justify-center gap-2">
             <Button size="sm" onClick={applyCrop}>

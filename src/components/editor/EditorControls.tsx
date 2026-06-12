@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Maximize2, FileImage, Gauge, RotateCw, RotateCcw, Settings2 } from "lucide-react";
+import { Maximize2, FileImage, Gauge, RotateCw, RotateCcw, Settings2, Paintbrush } from "lucide-react";
 import { useState, useRef, useEffect, useCallback, memo } from "react";
 
 interface EditorControlsProps {
@@ -15,6 +15,7 @@ interface EditorControlsProps {
   onQualityChange: (quality: number) => void;
   onFormatChange: (format: "jpeg" | "png" | "webp") => void;
   onApplyPreset: (width: number, height: number) => void;
+  onBackgroundColorChange: (color: string) => void;
 }
 
 export const EditorControls = memo(function EditorControls({
@@ -25,6 +26,7 @@ export const EditorControls = memo(function EditorControls({
   onQualityChange,
   onFormatChange,
   onApplyPreset,
+  onBackgroundColorChange,
 }: EditorControlsProps) {
   const [lockAspectRatio, setLockAspectRatio] = useState(false);
 
@@ -201,6 +203,34 @@ export const EditorControls = memo(function EditorControls({
                 <RotateCw className="w-4 h-4" />
               </Button>
             </div>
+          </div>
+
+          {/* Background Color */}
+          <div className="space-y-1.5 col-span-2">
+            <Label className="text-xs text-muted-foreground flex items-center gap-1.5">
+              <Paintbrush className="w-3.5 h-3.5" />
+              Background Color
+            </Label>
+            <div className="flex gap-2 items-center">
+              <Input 
+                type="color" 
+                value={imageState.backgroundColor === "transparent" ? "#ffffff" : imageState.backgroundColor}
+                onChange={(e) => onBackgroundColorChange(e.target.value)}
+                className="w-12 h-9 p-1 bg-background border-border"
+                disabled={imageState.format === "png" && imageState.backgroundColor === "transparent"}
+              />
+              <Button 
+                variant={imageState.backgroundColor === "transparent" ? "default" : "outline"} 
+                size="sm"
+                onClick={() => onBackgroundColorChange("transparent")}
+                className="h-9"
+              >
+                Transparent
+              </Button>
+            </div>
+            <p className="text-[10px] text-muted-foreground">
+              Used when rotating, or when saving a transparent image as JPEG.
+            </p>
           </div>
         </div>
       </div>

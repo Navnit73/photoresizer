@@ -1,5 +1,6 @@
 import { useCallback, useState, useRef } from "react";
 import { ImageState } from "@/types/editor";
+import { removeBackground as imglyRemoveBackground } from "@imgly/background-removal";
 
 interface CropData {
   x: number;
@@ -41,6 +42,7 @@ export function useImageEditor() {
   const [history, setHistory] = useState<ImageState[]>([]);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const workerRef = useRef<Worker | null>(null);
+  const [bgRemovalProgress, setBgRemovalProgress] = useState(0);
 
   const saveToHistory = useCallback((state: ImageState) => {
     setHistory((prev) => [...prev.slice(-9), state]);
@@ -277,6 +279,51 @@ export function useImageEditor() {
     }
   }, [history]);
 
+  const removeBackground = useCallback(async () => {
+    if (!imageState.originalUrl) return;
+
+    setIsProcessing(true);
+    setBgRemovalProgress(1); // start progress
+    saveToHistory(imageState);
+
+    await yieldToMain();
+
+    try {
+      const response = await fetch(imageState.originalUrl);
+      const blob = await response.blob();
+      const file = new File([blob], "image.png", { type: "image/png" });
+
+      const progressMap = new Map<string, { current: number; total: number }>();
+      const resultBlob = await imglyRemoveBackground(file, {
+        progress: (key, current, total) => {
+          progressMap.set(key, { current, total });
+          let sumCurrent = 0;
+          let sumTotal = 0;
+          for (const val of progressMap.values()) {
+            sumCurrent += val.current;
+            sumTotal += val.total;
+          }
+          const pct = sumTotal > 0 ? Math.round((sumCurrent / sumTotal) * 100) : 0;
+          setBgRemovalProgress(Math.max(1, Math.min(99, pct)));
+        }
+      });
+      const newUrl = URL.createObjectURL(resultBlob);
+
+      setImageState((prev) => ({
+        ...prev,
+        originalUrl: newUrl,
+        editedUrl: newUrl,
+      }));
+      setBgRemovalProgress(100);
+      setTimeout(() => setBgRemovalProgress(0), 1000);
+    } catch (error) {
+      console.error("Error removing background:", error);
+      setBgRemovalProgress(0);
+    } finally {
+      setIsProcessing(false);
+    }
+  }, [imageState, saveToHistory]);
+
   /**
    * Enhanced image processing with progressive compression
    * Accurately hits target file sizes through iterative quality adjustment
@@ -503,6 +550,8 @@ export function useImageEditor() {
     applyPreset,
     applyCrop,
     undo,
+    removeBackground,
+    bgRemovalProgress,
     processAndDownload,
     generatePreview,
     reset,
