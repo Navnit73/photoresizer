@@ -12,6 +12,7 @@ import { Undo2, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InternalLinks } from "@/components/shared/InternalLinks";
 
+
 import AdUnit from "@/components/shared/AdUnit";
 import { getExamBySlug, getRelatedExams, type ExamData } from "@/data/examPages";
 import { useEffect } from "react";
@@ -168,7 +169,7 @@ function ExamSignaturePageContent({ exam }: { exam: ExamData }) {
             </div>
           </section>
 
-          <div className="py-2"><AmazonAd /></div>
+        
 
           <AdUnit type="blog" />
 
