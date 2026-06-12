@@ -48,6 +48,7 @@ const SplitPdf = lazy(() => import('@/pages/tools/SplitPdf'));
 const JpgToPdf = lazy(() => import('@/pages/tools/JpgToPdf'));
 const PdfToJpg = lazy(() => import('@/pages/tools/PdfToJpg'));
 // const PdfEditor = lazy(() => import('@/pages/tools/PdfEditor'));
+const RemoveBackground = lazy(() => import('@/pages/tools/RemoveBackground'));
 
 
 // Legal pages
@@ -112,6 +113,9 @@ export function AppRoutes() {
         <Route path="/india-passport-photo-maker" element={<IndiaPassportPhotoMaker />} />
         <Route path="/nepal-passport-photo-maker" element={<NepalPassportPhotoMaker />} />
         
+        {/* Background Removal */}
+        <Route path="/remove-background" element={<RemoveBackground />} />
+
         {/* PDF Tools */}
         <Route path="/pdf-size-reducer" element={<PdfSizeReducer />} />
         <Route path="/merge-pdf" element={<MergePdf />} />

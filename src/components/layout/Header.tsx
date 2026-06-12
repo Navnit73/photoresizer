@@ -5,6 +5,7 @@ import { useTheme } from "@/hooks/useTheme";
 import AdUnit from "@/components/shared/AdUnit";
 
 const toolsLinks = [
+  { label: "Remove Background", href: "/remove-background" },
   { label: "Compress Image", href: "/compress-image" },
   { label: "JPEG to JPG", href: "/jpeg-to-jpg" },
   { label: "JPG to PNG", href: "/jpg-to-png" },

@@ -24,6 +24,11 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  // Exclude ONNX/background-removal from dep pre-bundling so dynamic
+  // imports like "onnxruntime-web/webgpu" resolve at runtime correctly.
+  optimizeDeps: {
+    exclude: ['@imgly/background-removal', 'onnxruntime-web'],
+  },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
