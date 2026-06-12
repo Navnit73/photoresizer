@@ -1,4 +1,5 @@
 import { getLocalPrice } from "@/utils/pricing";
+import { sendGA4PurchaseEvent, getGA4ClientId } from "./ga4";
 
 interface StartPaymentParams {
   email?: string;
@@ -39,6 +40,24 @@ export const startPayment = ({
     description: "HD Passport Photo Download",
     handler: function (response) {
       localStorage.setItem("payment_success", response.razorpay_payment_id);
+      
+      // GA4 Purchase Event Tracking
+      const ga4Items = [{
+        item_id: "HD_PASSPORT_PHOTO",
+        item_name: "HD Passport Photo Download",
+        price: price.amount,
+        quantity: 1,
+        item_category: "Digital Good"
+      }];
+
+      sendGA4PurchaseEvent({
+        clientId: getGA4ClientId(),
+        transactionId: response.razorpay_payment_id,
+        amount: price.amount,
+        currency: finalCurrency,
+        items: ga4Items
+      });
+
       onSuccess?.(response.razorpay_payment_id);
     },
     prefill: {
