@@ -1,5 +1,6 @@
 import { useCallback, useState, useId } from "react";
 import { Upload, Check, ShieldCheck, Images, ImagePlus } from "lucide-react";
+import { processHeicFile } from "@/utils/heicHelper";
 
 interface BgRemovalUploadZoneProps {
   mode: "single" | "bulk";
@@ -8,10 +9,10 @@ interface BgRemovalUploadZoneProps {
   disabled?: boolean;
 }
 
-const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/jpg"];
+const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/jpg", "image/heic", "image/heif"];
 
 function isValidImage(file: File): boolean {
-  return ACCEPTED_TYPES.includes(file.type) || file.type.startsWith("image/");
+  return ACCEPTED_TYPES.includes(file.type) || file.type.startsWith("image/") || file.name.toLowerCase().endsWith(".heic") || file.name.toLowerCase().endsWith(".heif");
 }
 
 export function BgRemovalUploadZone({
@@ -22,21 +23,32 @@ export function BgRemovalUploadZone({
 }: BgRemovalUploadZoneProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isConverting, setIsConverting] = useState(false);
   const [dragCount, setDragCount] = useState(0);
   const inputId = useId();
 
   const dispatchFiles = useCallback(
-    (files: File[]) => {
+    async (files: File[]) => {
       if (files.length === 0) return;
       setIsLoading(true);
-      setTimeout(() => {
-        if (mode === "bulk" && onFilesSelect) {
-          onFilesSelect(files);
-        } else {
-          onFileSelect(files[0]);
-        }
-        setIsLoading(false);
-      }, 200);
+
+      const hasHeic = files.some(
+        (f) =>
+          f.name.toLowerCase().endsWith(".heic") ||
+          f.name.toLowerCase().endsWith(".heif")
+      );
+      if (hasHeic) setIsConverting(true);
+
+      const processedFiles = await Promise.all(files.map(processHeicFile));
+
+      if (hasHeic) setIsConverting(false);
+
+      if (mode === "bulk" && onFilesSelect) {
+        onFilesSelect(processedFiles);
+      } else {
+        onFileSelect(processedFiles[0]);
+      }
+      setIsLoading(false);
     },
     [mode, onFileSelect, onFilesSelect]
   );
@@ -159,8 +171,12 @@ export function BgRemovalUploadZone({
                 : "text-slate-900 dark:text-white"
             }`}
           >
-            {isDragging
-              ? isBulk ? "Drop images here!" : "Drop it here!"
+            {isConverting
+              ? "Converting HEIC..."
+              : isDragging
+              ? isBulk
+                ? "Drop images here!"
+                : "Drop it here!"
               : isLoading
               ? "Loading…"
               : isBulk
@@ -168,7 +184,9 @@ export function BgRemovalUploadZone({
               : "Upload an image"}
           </h2>
           <p className="text-slate-500 dark:text-slate-400 text-sm max-w-xs mx-auto leading-relaxed">
-            {isDragging
+            {isConverting
+              ? "This might take a moment..."
+              : isDragging
               ? "Release to start background removal"
               : isBulk
               ? "Drag & drop multiple images or tap to browse"
@@ -178,7 +196,7 @@ export function BgRemovalUploadZone({
 
         {/* Format badge */}
         <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-3.5 py-1.5 rounded-full">
-          <span className="font-medium">JPG · PNG · WEBP</span>
+          <span className="font-medium">JPG · PNG · WEBP · HEIC</span>
           <span className="w-1 h-1 rounded-full bg-slate-400" />
           <span>{isBulk ? "Up to 20 images" : "Up to 25 MB"}</span>
         </div>
@@ -194,7 +212,7 @@ export function BgRemovalUploadZone({
       <input
         id={inputId}
         type="file"
-        accept="image/jpeg,image/png,image/webp,image/jpg"
+        accept="image/jpeg,image/png,image/webp,image/jpg,.heic,.heif"
         multiple={isBulk}
         onChange={handleFileInput}
         disabled={disabled}

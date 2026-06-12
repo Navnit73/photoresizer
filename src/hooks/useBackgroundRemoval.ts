@@ -93,14 +93,25 @@ export function useBackgroundRemoval(): UseBackgroundRemovalReturn {
     });
 
     try {
+      const progressMap = new Map<string, { current: number; total: number }>();
       const blob = await imglyRemoveBackground(file, {
-        progress: (_key: string, current: number, total: number) => {
-          // Bug fix 3: guard on both cancelledRef AND generation so a stale
-          // progress callback from a previous file never overwrites new state.
+        progress: (key: string, current: number, total: number) => {
           if (cancelledRef.current || generationRef.current !== gen) return;
-          const pct = total > 0 ? Math.round((current / total) * 100) : 0;
-          setOverallProgress(pct);
-          setSingleResult((prev) => (prev ? { ...prev, progress: pct } : prev));
+          progressMap.set(key, { current, total });
+          
+          let sumCurrent = 0;
+          let sumTotal = 0;
+          for (const val of progressMap.values()) {
+            sumCurrent += val.current;
+            sumTotal += val.total;
+          }
+          
+          const pct = sumTotal > 0 ? Math.round((sumCurrent / sumTotal) * 100) : 0;
+          // Clamp to 99% until fully done
+          const clamped = Math.min(99, pct);
+          
+          setOverallProgress(clamped);
+          setSingleResult((prev) => (prev ? { ...prev, progress: clamped } : prev));
         },
       });
 
@@ -165,20 +176,28 @@ export function useBackgroundRemoval(): UseBackgroundRemovalReturn {
       setBulkResults([...items]);
 
       try {
+        const progressMap = new Map<string, { current: number; total: number }>();
         const blob = await imglyRemoveBackground(files[i], {
-          progress: (_key: string, current: number, progressTotal: number) => {
+          progress: (key: string, current: number, progressTotal: number) => {
             if (cancelledRef.current || generationRef.current !== gen) return;
-            const itemPct =
-              progressTotal > 0 ? Math.round((current / progressTotal) * 100) : 0;
-            items[i] = { ...items[i], progress: itemPct };
+            progressMap.set(key, { current, total: progressTotal });
+            
+            let sumCurrent = 0;
+            let sumTotal = 0;
+            for (const val of progressMap.values()) {
+              sumCurrent += val.current;
+              sumTotal += val.total;
+            }
+            
+            const itemPct = sumTotal > 0 ? Math.round((sumCurrent / sumTotal) * 100) : 0;
+            const clampedPct = Math.min(99, itemPct);
+            
+            items[i] = { ...items[i], progress: clampedPct };
             setBulkResults([...items]);
 
-            // Bug fix 5: overall progress calculation was slightly wrong when
-            // doneCount=0 and itemPct=0 — it produced NaN-adjacent values.
-            // Clamp to [0,100] and use Math.round consistently.
             const globalPct = Math.min(
               100,
-              Math.round(((doneCount + itemPct / 100) / total) * 100)
+              Math.round(((doneCount + clampedPct / 100) / total) * 100)
             );
             setOverallProgress(globalPct);
           },

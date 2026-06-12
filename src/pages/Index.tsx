@@ -223,6 +223,11 @@ const Index = () => {
                 style={{ display: "inline-flex", alignItems: "center", gap: "6px", margin: "6px", padding: "10px 16px", background: "#059669", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
                 Passport Photo Print Template
               </Link>
+              <Link
+                to="/bg-removal"
+                style={{ display: "inline-flex", alignItems: "center", gap: "6px", margin: "6px", padding: "10px 16px", background: "#7c3aed", color: "#fff", borderRadius: "8px", textDecoration: "none", fontSize: "14px" }}>
+                AI Background Remover
+              </Link>
             </div>
           </div>
         </main>

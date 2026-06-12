@@ -4,6 +4,7 @@ import type { BgRemovalResult } from "@/hooks/useBackgroundRemoval";
 
 interface BgRemovalPreviewProps {
   result: BgRemovalResult;
+  bgColor?: string;
 }
 
 const CHECKER_BG = `
@@ -13,7 +14,7 @@ const CHECKER_BG = `
   linear-gradient(-45deg, transparent 75%, #d4d4d4 75%)
 `.trim();
 
-export function BgRemovalPreview({ result }: BgRemovalPreviewProps) {
+export function BgRemovalPreview({ result, bgColor = "transparent" }: BgRemovalPreviewProps) {
   const [sliderPos, setSliderPos] = useState(50);
   const [showOriginal, setShowOriginal] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -84,13 +85,13 @@ export function BgRemovalPreview({ result }: BgRemovalPreviewProps) {
         )}
       </div>
 
-      {/* Main container */}
       <div
         ref={containerRef}
         className="relative w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 select-none"
         style={{
           aspectRatio: "4 / 3",
-          backgroundImage: CHECKER_BG,
+          backgroundImage: bgColor === "transparent" ? CHECKER_BG : "none",
+          backgroundColor: bgColor !== "transparent" ? (bgColor === "white" ? "#ffffff" : bgColor) : undefined,
           backgroundSize: "16px 16px",
           backgroundPosition: "0 0, 0 8px, 8px -8px, -8px 0px",
           touchAction: "none",

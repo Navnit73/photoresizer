@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   Scissors,
@@ -74,7 +75,21 @@ const HOW_TO_STEPS = [
 
 // ── Component ────────────────────────────────────────────────────────
 
-export default function RemoveBackground() {
+export interface RemoveBackgroundProps {
+  seoTitle?: string;
+  seoDescription?: string;
+  h1Title?: React.ReactNode;
+  heroDescription?: string;
+  seoArticle?: React.ReactNode;
+}
+
+export default function RemoveBackground({
+  seoTitle = "Remove Background from Image Free — AI Background Remover | PhotoResizer",
+  seoDescription = "Free AI background remover. Remove backgrounds in your browser instantly. Bulk processing, transparent PNG, custom colors. 100% private — no uploads.",
+  h1Title,
+  heroDescription = "AI-powered, runs entirely in your browser. Single image or bulk — always free, always private.",
+  seoArticle,
+}: RemoveBackgroundProps) {
   const {
     singleResult,
     removeSingleBackground,
@@ -90,6 +105,17 @@ export default function RemoveBackground() {
   const [activeTab, setActiveTab] = useState<"single" | "bulk">("single");
   const [selectedBulkIndex, setSelectedBulkIndex] = useState<number | null>(null);
   const bulkStartTime = useRef<number | null>(null);
+
+  // Lifted state from BgRemovalControls
+  const [bgSelection, setBgSelection] = useState<string>("transparent");
+  const [customColor, setCustomColor] = useState<string>("#6366F1");
+
+  const resolvedBgColor = useCallback((): BgColor => {
+    if (bgSelection === "_custom") return customColor;
+    if (bgSelection === "transparent") return "transparent";
+    if (bgSelection === "white") return "white";
+    return bgSelection;
+  }, [bgSelection, customColor]);
 
   const hasUploaded =
     activeTab === "single" ? singleResult !== null : bulkResults.length > 0;
@@ -172,14 +198,9 @@ export default function RemoveBackground() {
   return (
     <>
       <Helmet>
-        <title>
-          Remove Background from Image Free — AI Background Remover | PhotoResizer
-        </title>
-        <meta
-          name="description"
-          content="Free AI background remover. Remove backgrounds in your browser instantly. Bulk processing, transparent PNG, custom colors. 100% private — no uploads."
-        />
-        <link rel="canonical" href="https://www.photoresizer.co.in/remove-background" />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        {/* We can omit canonical or make it dynamic if needed, but since we have 17 landing pages, we should point canonical to their own URLs or omit. We'll let Helmet handle it dynamically if we want, or just omit canonical for these landing pages to let them index. */}
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900">
@@ -193,11 +214,20 @@ export default function RemoveBackground() {
               AI Background Remover
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight mb-4">
-              Remove image<br className="hidden sm:block" /> backgrounds instantly
+              {h1Title || (
+                <>
+                  Remove image<br className="hidden sm:block" /> backgrounds instantly
+                </>
+              )}
             </h1>
-            <p className="text-slate-500 dark:text-slate-400 text-base sm:text-lg max-w-lg mx-auto">
-              AI-powered, runs entirely in your browser. Single image or bulk — always free, always private.
+            <p className="text-slate-500 dark:text-slate-400 text-base sm:text-lg max-w-lg mx-auto mb-6">
+              {heroDescription}
             </p>
+            <div className="flex justify-center animate-[fadeInUp_0.4s_ease-out]">
+              <Link to="/" className="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 bg-violet-50 dark:bg-violet-900/20 px-4 py-2 rounded-lg transition-colors border border-violet-100 dark:border-violet-800">
+                Need to crop or resize? Go to Image Resizer <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -277,10 +307,14 @@ export default function RemoveBackground() {
                         onDownloadSingle={handleDownloadSingle}
                         onDownloadAll={handleDownloadAll}
                         onReset={handleReset}
+                        bgSelection={bgSelection as any}
+                        setBgSelection={setBgSelection as any}
+                        customColor={customColor}
+                        setCustomColor={setCustomColor}
                       />
                     </div>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 order-1 lg:order-2">
-                      <BgRemovalPreview result={singleResult} />
+                      <BgRemovalPreview result={singleResult} bgColor={resolvedBgColor()} />
                     </div>
                   </div>
                 </div>
@@ -326,6 +360,10 @@ export default function RemoveBackground() {
                         onDownloadSingle={handleDownloadSingle}
                         onDownloadAll={handleDownloadAll}
                         onReset={handleReset}
+                        bgSelection={bgSelection as any}
+                        setBgSelection={setBgSelection as any}
+                        customColor={customColor}
+                        setCustomColor={setCustomColor}
                       />
                     </div>
 
@@ -341,7 +379,7 @@ export default function RemoveBackground() {
 
                       {selectedBulkItem && (
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
-                          <BgRemovalPreview result={selectedBulkItem} />
+                          <BgRemovalPreview result={selectedBulkItem} bgColor={resolvedBgColor()} />
                         </div>
                       )}
                     </div>
@@ -435,6 +473,17 @@ export default function RemoveBackground() {
               </div>
             </div>
           </section>
+
+          {/* ═══════ SEO Article (Optional) ═══════ */}
+          {seoArticle && (
+            <section className="py-12 md:py-16 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
+              <div className="container px-4 max-w-4xl mx-auto">
+                <div className="prose prose-slate dark:prose-invert max-w-none">
+                  {seoArticle}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* ═══════ FAQ ═══════ */}
           <article className="max-w-3xl mx-auto px-4 py-12 md:py-16 space-y-6">

@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
-import { Upload, Image as ImageIcon, Check, ShieldCheck } from "lucide-react";
+import { Upload, Image as ImageIcon, Check, ShieldCheck, Loader2 } from "lucide-react";
+import { processHeicFile } from "@/utils/heicHelper";
 
 interface UploadZoneProps {
   onFileSelect: (file: File) => void;
@@ -9,18 +10,35 @@ interface UploadZoneProps {
 export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [isValidFile, setIsValidFile] = useState(false);
+  const [isConverting, setIsConverting] = useState(false);
+
+  const processFile = async (file: File) => {
+    const isHeic = file.name.toLowerCase().endsWith(".heic") || file.name.toLowerCase().endsWith(".heif");
+    if (isHeic) {
+      setIsConverting(true);
+    }
+    const processed = await processHeicFile(file);
+    if (isHeic) {
+      setIsConverting(false);
+    }
+    
+    // Check type after processing since it might have been converted to jpeg
+    if (processed.type.startsWith("image/") || processed.name.toLowerCase().endsWith(".jpg")) {
+      setIsValidFile(true);
+      setTimeout(() => {
+        onFileSelect(processed);
+        setIsValidFile(false);
+      }, 300);
+    }
+  };
 
   const handleDrop = useCallback(
     (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       setIsDragging(false);
       const file = e.dataTransfer.files[0];
-      if (file && file.type.startsWith("image/")) {
-        setIsValidFile(true);
-        setTimeout(() => {
-          onFileSelect(file);
-          setIsValidFile(false);
-        }, 300);
+      if (file) {
+        processFile(file);
       }
     },
     [onFileSelect]
@@ -39,11 +57,7 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
       if (file) {
-        setIsValidFile(true);
-        setTimeout(() => {
-          onFileSelect(file);
-          setIsValidFile(false);
-        }, 300);
+        processFile(file);
       }
     },
     [onFileSelect]
@@ -122,14 +136,18 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
                   : "text-foreground"
               }`}
             >
-              {isDragging
+              {isConverting
+                ? "Converting HEIC..."
+                : isDragging
                 ? "Drop it here!"
                 : isValidFile
                 ? "Loading Image..."
                 : "Upload an Image"}
             </h2>
             <p className="text-muted-foreground text-sm max-w-sm mx-auto">
-              {isDragging
+              {isConverting
+                ? "This might take a moment..."
+                : isDragging
                 ? "Release to upload"
                 : "Drag & drop or click to browse your files"}
             </p>
@@ -137,7 +155,7 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
 
           {/* File Info */}
           <div className="flex items-center gap-2 text-xs text-muted-foreground bg-background border border-border px-3 py-1.5 rounded-full mt-2">
-            <span>JPG, PNG, WEBP</span>
+            <span>JPG, PNG, WEBP, HEIC</span>
             <span className="w-1 h-1 rounded-full bg-muted-foreground/30" />
             <span>Up to 50MB</span>
           </div>
@@ -151,7 +169,7 @@ export function UploadZone({ onFileSelect, recentFile }: UploadZoneProps) {
 
         <input
           type="file"
-          accept="image/jpeg,image/png,image/webp,image/jpg"
+          accept="image/jpeg,image/png,image/webp,image/jpg,.heic,.heif"
           onChange={handleFileInput}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
         />

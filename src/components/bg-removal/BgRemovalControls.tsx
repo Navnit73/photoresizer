@@ -23,10 +23,14 @@ interface BgRemovalControlsProps {
   onDownloadSingle: (bgColor: BgColor, format: OutputFormat, quality: number) => void;
   onDownloadAll: (bgColor: BgColor, format: OutputFormat, quality: number) => void;
   onReset: () => void;
+  bgSelection: InternalBgSelection;
+  setBgSelection: (bg: InternalBgSelection) => void;
+  customColor: string;
+  setCustomColor: (color: string) => void;
 }
 
 // Bug fix: "custom" is an internal UI state, never passed as BgColor directly
-type InternalBgSelection = "transparent" | "white" | "#000000" | "#EF4444" | "#3B82F6" | "#22C55E" | "_custom";
+export type InternalBgSelection = "transparent" | "white" | "#000000" | "#EF4444" | "#3B82F6" | "#22C55E" | "_custom";
 
 const BG_PRESETS: { label: string; value: InternalBgSelection; hex?: string }[] = [
   { label: "Transparent", value: "transparent" },
@@ -71,9 +75,11 @@ export function BgRemovalControls({
   onDownloadSingle,
   onDownloadAll,
   onReset,
+  bgSelection,
+  setBgSelection,
+  customColor,
+  setCustomColor,
 }: BgRemovalControlsProps) {
-  const [bgSelection, setBgSelection] = useState<InternalBgSelection>("transparent");
-  const [customColor, setCustomColor] = useState("#6366F1");
   const [format, setFormat] = useState<OutputFormat>("image/png");
   const [quality, setQuality] = useState(92);
 

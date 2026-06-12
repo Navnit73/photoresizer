@@ -49,6 +49,7 @@ const JpgToPdf = lazy(() => import('@/pages/tools/JpgToPdf'));
 const PdfToJpg = lazy(() => import('@/pages/tools/PdfToJpg'));
 // const PdfEditor = lazy(() => import('@/pages/tools/PdfEditor'));
 const RemoveBackground = lazy(() => import('@/pages/tools/RemoveBackground'));
+const BgRemovalLanding = lazy(() => import('@/pages/seo/BgRemovalLanding'));
 
 
 // Legal pages
@@ -113,9 +114,26 @@ export function AppRoutes() {
         <Route path="/india-passport-photo-maker" element={<IndiaPassportPhotoMaker />} />
         <Route path="/nepal-passport-photo-maker" element={<NepalPassportPhotoMaker />} />
         
-        {/* Background Removal */}
+        {/* Background Removal Core */}
         <Route path="/remove-background" element={<RemoveBackground />} />
 
+        {/* Background Removal SEO Pages */}
+        <Route path="/bg-removal" element={<BgRemovalLanding />} />
+        <Route path="/free-background-remover" element={<BgRemovalLanding />} />
+        <Route path="/remove-background-from-image-free" element={<BgRemovalLanding />} />
+        <Route path="/background-eraser" element={<BgRemovalLanding />} />
+        <Route path="/photo-background-remover" element={<BgRemovalLanding />} />
+        <Route path="/remove-background-from-logo" element={<BgRemovalLanding />} />
+        <Route path="/picture-background-remover" element={<BgRemovalLanding />} />
+        <Route path="/delete-background" element={<BgRemovalLanding />} />
+        <Route path="/background-remover-png" element={<BgRemovalLanding />} />
+        <Route path="/change-picture-background" element={<BgRemovalLanding />} />
+        <Route path="/photo-background-changer" element={<BgRemovalLanding />} />
+        <Route path="/clear-background" element={<BgRemovalLanding />} />
+        <Route path="/remove-background-hd-quality" element={<BgRemovalLanding />} />
+        <Route path="/high-quality-background-remover" element={<BgRemovalLanding />} />
+        <Route path="/delete-background-from-photo" element={<BgRemovalLanding />} />
+        <Route path="/delete-background-from-picture" element={<BgRemovalLanding />} />
         {/* PDF Tools */}
         <Route path="/pdf-size-reducer" element={<PdfSizeReducer />} />
         <Route path="/merge-pdf" element={<MergePdf />} />
