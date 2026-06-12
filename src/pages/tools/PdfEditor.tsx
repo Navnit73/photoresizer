@@ -289,7 +289,8 @@ export default function PdfEditor() {
 
         <main className="flex-1 flex flex-col">
           <div className="w-full flex justify-center py-2 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700 min-h-[100px]">
-            <AdUnit type="sidebar" />
+                              {/* <AdUnit type="sidebar" /> */}
+
           </div>
           
           {/* Editor Toolbar */}

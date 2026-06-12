@@ -166,7 +166,8 @@ export default function ReducePhotoSize50KB() {
                 </section>
 
                 <div className="py-2">
-                  <AdUnit type="sidebar" />
+                                    {/* <AdUnit type="sidebar" /> */}
+
                 </div>
               </div>
             </div>

@@ -40,7 +40,8 @@ export default function PrivacyPolicy() {
             </div>
 
             {/* Ad Unit */}
-            <AdUnit type="sidebar" />
+                              {/* <AdUnit type="sidebar" /> */}
+
 
             {/* Key Points */}
             <div className="grid md:grid-cols-3 gap-6 mb-12 animate-[fadeIn_0.6s_ease-out_0.2s_both]">

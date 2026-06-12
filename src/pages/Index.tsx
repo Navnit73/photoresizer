@@ -68,7 +68,8 @@ const Index = () => {
             
             {/* Ad Slot 1: Below Hero */}
             <div className="mb-8">
-               <AdUnit type="sidebar" />
+                                 {/* <AdUnit type="sidebar" /> */}
+
             </div>
           </div>
 
@@ -123,7 +124,8 @@ const Index = () => {
                   
                   {/* Ad Slot 3: Sidebar */}
                   <div className="py-3">
-                     <AdUnit type="sidebar" />
+                                       {/* <AdUnit type="sidebar" /> */}
+
                   </div>
                 </aside>
 
@@ -183,7 +185,8 @@ const Index = () => {
           
           {/* Ad Slot 2: Below Editor/Upload */}
           <div className="mb-2">
-            <AdUnit type="sidebar" />
+                              {/* <AdUnit type="sidebar" /> */}
+
           </div>
 
           <div style={{ border: "1px solid #eee", padding: "22px", borderRadius: "14px", background: "#f9fafc", textAlign: "center", marginTop: "20px", marginBottom: "40px", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>

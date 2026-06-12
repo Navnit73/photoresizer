@@ -129,7 +129,8 @@ export default function BlogList() {
 
         {/* AdSense Unit - Below Hero */}
         <div className="mb-12">
-            <AdUnit type="sidebar" />
+                              {/* <AdUnit type="sidebar" /> */}
+
         </div>
 
         {/* ================= POSTS GRID ================= */}

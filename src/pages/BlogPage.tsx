@@ -528,7 +528,8 @@ export default function BlogPage() {
             {/* Share Card */}
             <div className="w-full">
             
-                <AdUnit type="sidebar" />
+                                  {/* <AdUnit type="sidebar" /> */}
+
             
             </div>
           </aside>

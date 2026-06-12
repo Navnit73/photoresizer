@@ -155,7 +155,8 @@ export default function About() {
 
             {/* Ad - Sidebar */}
             <div className="flex justify-center mb-8">
-              <AdUnit type="sidebar" />
+                                {/* <AdUnit type="sidebar" /> */}
+
             </div>
 
             {/* CTA */}

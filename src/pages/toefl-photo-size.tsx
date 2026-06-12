@@ -87,7 +87,8 @@ export default function TOEFLPhotoSize() {
                   <div className="grid lg:grid-cols-[400px_1fr] gap-3">
                     <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 lg:sticky lg:top-20 max-h-[85vh] overflow-y-auto flex flex-col gap-4">
                       <div className="w-full relative py-2 flex justify-center min-h-[100px] bg-slate-50 dark:bg-slate-900/50 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 shrink-0">
-                        <AdUnit type="sidebar" />
+                                          {/* <AdUnit type="sidebar" /> */}
+
                       </div>
                       <EditorControls
                         imageState={imageState}

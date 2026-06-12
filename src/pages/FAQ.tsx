@@ -144,7 +144,8 @@ export default function FAQ() {
 
             {/* Ad - Sidebar */}
             <div className="flex justify-center mt-12">
-              <AdUnit type="sidebar" />
+                                {/* <AdUnit type="sidebar" /> */}
+
             </div>
 
             {/* Contact */}

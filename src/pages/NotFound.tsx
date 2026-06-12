@@ -26,7 +26,8 @@ const NotFound = () => {
 
         {/* Even 404 pages get traffic — monetize them */}
         <div className="w-full max-w-2xl">
-          <AdUnit type="sidebar" />
+                            {/* <AdUnit type="sidebar" /> */}
+
         </div>
       </main>
 

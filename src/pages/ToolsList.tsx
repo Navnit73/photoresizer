@@ -238,7 +238,8 @@ export default function ToolsList() {
                     </section>
                     {(idx === 0 || idx === 2) && (
                       <div className="w-full relative py-4 flex justify-center border-b border-slate-200/50 dark:border-white/10">
-                        <AdUnit type="sidebar" />
+                                          {/* <AdUnit type="sidebar" /> */}
+
                       </div>
                     )}
                   </div>

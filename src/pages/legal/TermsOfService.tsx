@@ -38,7 +38,8 @@ export default function TermsOfService() {
               </p>
             </div>
 
-            <AdUnit type="sidebar" />
+                              {/* <AdUnit type="sidebar" /> */}
+
 
             <div
               className="space-y-8 animate-[fadeIn_0.6s_ease-out_0.2s_both]"

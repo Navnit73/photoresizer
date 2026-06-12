@@ -141,7 +141,8 @@ export default function JpegToJpg() {
                     {/* Settings Panel */}
                     <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 lg:sticky lg:top-20 max-h-[85vh] overflow-y-auto">
                       <div className="w-full relative py-2 flex justify-center mb-4 min-h-[100px] bg-slate-50 dark:bg-slate-900/50 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800">
-                        <AdUnit type="sidebar" />
+                                          {/* <AdUnit type="sidebar" /> */}
+
                       </div>
                       <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-2">
                         Settings
