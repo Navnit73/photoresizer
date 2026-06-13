@@ -15,7 +15,7 @@ interface SEOProps {
 
 export function SEO({
   title = "Free Photo Resizer, Compressor & Editor for SSC, UPSC & Exams",
-  description = "Free online photo resizer, compressor and image editor for SSC, UPSC, IBPS, Banking, Railway and all government exams. Reduce photo size to 20KB, 50KB or exact dimensions like 200x230px. Supports Passport, PAN, Aadhaar, Visa photos. 100% free & private.",
+  description = "Free online photo resizer, compressor and image editor for global passport/visa forms, SSC, UPSC, IBPS, and government exams. Reduce photo size to 20KB, 50KB or exact dimensions like 200x230px. 100% free & private.",
   type = 'website',
   image = "https://www.photoresizer.co.in/og-image.png", // Default OG Image
   url,
@@ -44,7 +44,7 @@ export function SEO({
     offers: {
       "@type": "Offer",
       price: "0",
-      priceCurrency: "INR",
+      priceCurrency: "USD",
       availability: "https://schema.org/InStock"
     },
     author: {
@@ -61,6 +61,8 @@ export function SEO({
       <meta name="description" content={description} />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" href={canonicalUrl} hreflang="x-default" />
+      <link rel="alternate" href={canonicalUrl} hreflang="en" />
 
       {/* ---------- Open Graph ---------- */}
       <meta property="og:type" content={type} />
