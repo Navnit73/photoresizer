@@ -4,31 +4,49 @@ import { ChevronDown, Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import AdUnit from "@/components/shared/AdUnit";
 
-const toolsLinks = [
+// Global tools (no country prefix in label) — shown first
+const globalToolsLinks = [
   { label: "Remove Background", href: "/remove-background" },
   { label: "Compress Image", href: "/compress-image" },
   { label: "JPEG to JPG", href: "/jpeg-to-jpg" },
   { label: "JPG to PNG", href: "/jpg-to-png" },
-  { label: "Resize to 20KB", href: "/resize-photo-20kb" },
-  { label: "Passport Photo Editor", href: "/passport-photo-editor" },
+  { label: "JPG to PDF", href: "/jpg-to-pdf" },
+  { label: "PDF to JPG", href: "/pdf-to-jpg" },
+  { label: "PDF Size Reducer", href: "/pdf-size-reducer" },
+  { label: "Merge PDF", href: "/merge-pdf" },
+  { label: "Split PDF", href: "/split-pdf" },
+];
+
+// Passport / visa tools — global
+const passportToolsLinks = [
+  { label: "US Passport Photo", href: "/us-passport-photo-maker" },
+  { label: "UK Passport Photo", href: "/uk-passport-photo-maker" },
+  { label: "Canada Passport Photo", href: "/canada-passport-photo-maker" },
+  { label: "Australia Passport Photo", href: "/australia-passport-photo-maker" },
+  { label: "Schengen Visa Photo", href: "/schengen-visa-photo-maker" },
+  { label: "India Passport Photo", href: "/india-passport-photo-maker" },
+  { label: "Nepal Passport Photo", href: "/nepal-passport-photo-maker" },
   { label: "Passport Photo Maker", href: "/passport-photo-maker" },
-  { label: "Passport Size Photo Maker", href: "/passport-size-photo-maker" },
-  { label: "Passport Photo App", href: "/passport-photo-app" },
-  { label: "Print Template", href: "/passport-photo-print-template-generator" },
-  { label: "SSC Photo", href: "/ssc-photo-resizer" },
-  { label: "UPSC Photo", href: "/upsc-photo-size" },
-  { label: "IBPS Signature", href: "/signature-resize-ibps" },
+  { label: "Passport Photo Editor", href: "/passport-photo-editor" },
+  { label: "Print Template (4x6)", href: "/passport-photo-print-template-generator" },
+];
+
+// International test / exam photos — global
+const examToolsLinks = [
   { label: "IELTS Photo", href: "/ielts-photo-size" },
   { label: "TOEFL Photo", href: "/toefl-photo-size" },
   { label: "SAT Photo", href: "/sat-photo-size" },
   { label: "PTE Photo", href: "/pte-photo-size" },
   { label: "GRE Photo", href: "/gre-photo-size" },
   { label: "GMAT Photo", href: "/gmat-photo-size" },
-  { label: "PDF Size Reducer", href: "/pdf-size-reducer" },
-  { label: "Merge PDF", href: "/merge-pdf" },
-  { label: "Split PDF", href: "/split-pdf" },
-  { label: "JPG to PDF", href: "/jpg-to-pdf" },
-  { label: "PDF to JPG", href: "/pdf-to-jpg" },
+];
+
+// India-specific — shown last, clearly marked
+const indiaToolsLinks = [
+  { label: "SSC Photo", href: "/ssc-photo-resizer" },
+  { label: "UPSC Photo", href: "/upsc-photo-size" },
+  { label: "IBPS Signature", href: "/signature-resize-ibps" },
+  { label: "Resize to 20KB", href: "/resize-photo-20kb" },
 ];
 
 function ToolsDropdown() {
@@ -43,6 +61,24 @@ function ToolsDropdown() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  const renderGroup = (label: string, items: { label: string; href: string }[]) => (
+    <div className="py-1.5">
+      <div className="px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70">
+        {label}
+      </div>
+      {items.map((t) => (
+        <Link
+          key={t.href}
+          to={t.href}
+          onClick={() => setOpen(false)}
+          className="block px-4 py-1.5 text-sm text-foreground/70 hover:bg-muted hover:text-foreground transition-colors"
+        >
+          {t.label}
+        </Link>
+      ))}
+    </div>
+  );
+
   return (
     <div className="relative" ref={ref}>
       <button
@@ -54,18 +90,15 @@ function ToolsDropdown() {
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-1 w-52 bg-card border border-border rounded-lg shadow-lg overflow-hidden z-50">
-          <div className="max-h-80 overflow-y-auto py-1">
-            {toolsLinks.map((t) => (
-              <Link
-                key={t.href}
-                to={t.href}
-                onClick={() => setOpen(false)}
-                className="block px-4 py-2 text-sm text-foreground/70 hover:bg-muted hover:text-foreground transition-colors"
-              >
-                {t.label}
-              </Link>
-            ))}
+        <div className="absolute top-full left-0 mt-1 w-60 bg-card border border-border rounded-lg shadow-lg overflow-hidden z-50">
+          <div className="max-h-[28rem] overflow-y-auto">
+            {renderGroup("Tools", globalToolsLinks)}
+            <div className="border-t border-border" />
+            {renderGroup("Passport & Visa Photos", passportToolsLinks)}
+            <div className="border-t border-border" />
+            {renderGroup("Exam & Test Photos", examToolsLinks)}
+            <div className="border-t border-border" />
+            {renderGroup("🇮🇳 India — Exams & IDs", indiaToolsLinks)}
           </div>
         </div>
       )}

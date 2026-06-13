@@ -23,11 +23,11 @@ export const COUNTRY_TO_CURRENCY: Record<string, string> = {
 // Fixed price mapping per currency (PPP-adjusted)hh
 export const FIXED_PRICES: Record<string, { amount: number; symbol: string; decimals: number; razorpayAmount: number }> = {
   // Tier 1: Base ($5.99)
-  USD:  { amount: 5.99,  symbol: "$",    decimals: 2, razorpayAmount: 599 },
-  EUR:  { amount: 5.99,  symbol: "€",    decimals: 2, razorpayAmount: 599 },
-  GBP:  { amount: 5.99,  symbol: "£",    decimals: 2, razorpayAmount: 599 },
-  CHF:  { amount: 5.99,  symbol: "CHF",  decimals: 2, razorpayAmount: 599 },
-  CAD:  { amount: 5.99,  symbol: "C$",   decimals: 2, razorpayAmount: 599 },
+  USD:  { amount: 4.99,  symbol: "$",    decimals: 2, razorpayAmount: 599 },
+  EUR:  { amount: 4.99,  symbol: "€",    decimals: 2, razorpayAmount: 599 },
+  GBP:  { amount: 4.99,  symbol: "£",    decimals: 2, razorpayAmount: 599 },
+  CHF:  { amount: 4.99,  symbol: "CHF",  decimals: 2, razorpayAmount: 599 },
+  CAD:  { amount: 4.99,  symbol: "C$",   decimals: 2, razorpayAmount: 599 },
   AUD:  { amount: 5.99,  symbol: "A$",   decimals: 2, razorpayAmount: 599 },
   NZD:  { amount: 5.99,  symbol: "NZ$", decimals: 2, razorpayAmount: 599 },
   JPY:  { amount: 899,   symbol: "¥",    decimals: 0, razorpayAmount: 899 },

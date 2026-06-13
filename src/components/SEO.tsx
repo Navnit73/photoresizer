@@ -64,6 +64,16 @@ export function SEO({
       <link rel="alternate" href={canonicalUrl} hreflang="x-default" />
       <link rel="alternate" href={canonicalUrl} hreflang="en" />
 
+      {/* Add locale signals */}
+      <meta property="og:locale" content="en_IN" />
+      <meta property="og:locale:alternate" content="en_US" />
+      <meta property="og:locale:alternate" content="en_GB" />
+      <meta property="og:locale:alternate" content="en_AU" />
+      <meta property="og:locale:alternate" content="en_CA" />
+
+      <meta name="content-language" content="en" />
+      <meta httpEquiv="Content-Language" content="en" />
+
       {/* ---------- Open Graph ---------- */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />

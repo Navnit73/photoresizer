@@ -53,16 +53,16 @@ const Index = () => {
           {/* Hero Section */}
           <div className="py-12 md:py-20 text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight mb-6">
-              Resize your photos 
+              Resize your photos
               <br />
               <span className="text-primary">perfectly every time</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-6">
-              The ultimate tool for SSC, UPSC, and government exams. Resize to exact dimensions or KB limits instantly in your browser.
+              The ultimate free online photo resizer, image compressor & editor. Resize to exact dimensions or KB limits for passports, visas, IDs, and government forms — instantly in your browser.
             </p>
             <div className="flex justify-center mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <Link to="/more-tools" className="inline-flex items-center gap-2 bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-full font-semibold transition-colors">
-                View All State & Central Exam Resizer Tools <ArrowRight className="w-4 h-4" />
+                View All Photo & Document Resizer Tools <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
             
@@ -191,7 +191,7 @@ const Index = () => {
 
           <div style={{ border: "1px solid #eee", padding: "22px", borderRadius: "14px", background: "#f9fafc", textAlign: "center", marginTop: "20px", marginBottom: "40px", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>
             <h3 style={{ fontSize: "20px", fontWeight: 600, marginBottom: "10px", color: "#111827" }}>
-              Didn’t crack your government exam? Your journey doesn’t end here 🌍
+              Need a passport or visa photo? We support 100+ countries 🌍
             </h3>
             <p style={{ fontSize: "14px", color: "#555", marginBottom: "18px", lineHeight: 1.6 }}>
               Thousands of students and professionals are exploring opportunities abroad for higher studies, jobs, and travel. 
