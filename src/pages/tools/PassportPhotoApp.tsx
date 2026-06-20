@@ -1,7 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PassportApiTool } from "@/components/editor/PassportApiTool";
+import { PassportClientTool } from "@/components/editor/PassportClientTool";
 import { InternalLinks } from "@/components/shared/InternalLinks";
 import { FeatureCard, FeatureGrid } from "@/components/shared/FeatureCard";
 import { HowToGuide } from "@/components/shared/HowToGuide";
@@ -99,7 +99,7 @@ export default function PassportPhotoApp() {
               </h1>
 
               <div className="mb-2">
-                <PassportApiTool />
+                <PassportClientTool />
               </div>
               <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
                 Turn your smartphone into a professional biometric photo booth.

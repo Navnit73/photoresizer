@@ -1,7 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PassportApiTool } from "@/components/editor/PassportApiTool";
+import { PassportClientTool } from "@/components/editor/PassportClientTool";
 import { InternalLinks } from "@/components/shared/InternalLinks";
 import { FeatureCard, FeatureGrid } from "@/components/shared/FeatureCard";
 import { HowToGuide } from "@/components/shared/HowToGuide";
@@ -149,7 +149,7 @@ export default function NepalPassportPhotoMaker() {
           {/* ── Tool ─────────────────────────────────────────────────────────── */}
           <section id="tool" className="pb-12">
             <div className="container px-4 max-w-4xl mx-auto">
-              <PassportApiTool defaultCountryCode="NP" />
+              <PassportClientTool defaultCountryCode="NP" />
             </div>
           </section>
                     {/* ── Example Showcase ────────────────────────────────────────────── */}

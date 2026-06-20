@@ -1,7 +1,7 @@
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PassportApiTool } from "@/components/editor/PassportApiTool";
+import { PassportClientTool } from "@/components/editor/PassportClientTool";
 import { InternalLinks } from "@/components/shared/InternalLinks";
 import {
   Camera,
@@ -289,7 +289,7 @@ export default function PassportPhotoMaker() {
               </h1>
               <section id="tool" className="pb-2">
                 <div className="container px-0">
-                  <PassportApiTool />
+                  <PassportClientTool />
                 </div>
               </section>
             </div>
