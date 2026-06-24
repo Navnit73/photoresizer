@@ -12,7 +12,7 @@ export default function About() {
         <title>About Us - Photo Resizer | Free Online Image Editor</title>
         <meta
           name="description"
-          content="Learn about Photo Resizer - a free, privacy-focused online image editing tool for resizing, compressing, and converting photos for government forms and applications."
+          content="Learn about Photo Resizer - a free, privacy-focused online image editing tool for resizing, compressing, and converting photos for government forms and..."
         />
         <link rel="canonical" href="https://www.photoresizer.co.in/about" />
       </Helmet>

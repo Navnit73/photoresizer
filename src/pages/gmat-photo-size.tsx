@@ -41,8 +41,7 @@ export default function GMATPhotoSize() {
     <>
       <Helmet>
         <title>
-          GMAT Photo Maker Online | Exact Resizing & Cropping Securely
-        </title>
+          GMAT Photo Maker Online | Exact Resizing &...</title>
         <meta
           name="description"
           content="Process your specific GMAT candidate test photo. Crop securely to accurate technical dimensions and handle background requirements immediately online."

@@ -47,8 +47,12 @@ function ExamPhotoPageContent({ exam }: { exam: ExamData }) {
   relatedLinks.push({ label: `${exam.name} Signature Resizer`, href: `/${exam.slug}-signature-resizer` });
 
   const canonicalUrl = `https://www.photoresizer.co.in/${exam.slug}-photo-resizer`;
-  const title = `${exam.name} Photo Resizer ${year} | Resize Photo for ${exam.name}`;
-  const description = `Free online ${exam.name} photo resizer tool. Resize, crop and compress your photo to exact ${exam.organization} specifications (${exam.photoSpecs.width} × ${exam.photoSpecs.height}, ${exam.photoSpecs.minSize}–${exam.photoSpecs.maxSize}). 100% free, no watermark.`;
+  
+  let title = `${exam.name} Photo Resizer ${year} | Resize Photo`;
+  if (title.length > 60) title = `${exam.name} Photo Resizer ${year}`;
+  
+  let description = `Free ${exam.name} photo resizer. Resize and compress to exact ${exam.organization} specs (${exam.photoSpecs.width} × ${exam.photoSpecs.height}, ${exam.photoSpecs.minSize}–${exam.photoSpecs.maxSize}). 100% free.`;
+  if (description.length > 155) description = description.substring(0, 152).trim() + "...";
 
   const faqSchema = {
     "@context": "https://schema.org",

@@ -48,8 +48,12 @@ function ExamSignaturePageContent({ exam }: { exam: ExamData }) {
   relatedLinks.push({ label: `${exam.name} Photo Resizer`, href: `/${exam.slug}-photo-resizer` });
 
   const canonicalUrl = `https://www.photoresizer.co.in/${exam.slug}-signature-resizer`;
-  const title = `${exam.name} Signature Resizer ${year} | Resize Signature for ${exam.name}`;
-  const description = `Free online ${exam.name} signature resizer tool. Resize, crop and compress your signature to exact ${exam.organization} specifications (${exam.signatureSpecs.width} × ${exam.signatureSpecs.height}, ${exam.signatureSpecs.minSize}–${exam.signatureSpecs.maxSize}). 100% free, no watermark.`;
+  
+  let title = `${exam.name} Signature Resizer ${year} | Resize Signature`;
+  if (title.length > 60) title = `${exam.name} Signature Resizer ${year}`;
+  
+  let description = `Free ${exam.name} signature resizer. Resize and compress to exact ${exam.organization} specs (${exam.signatureSpecs.width} × ${exam.signatureSpecs.height}, ${exam.signatureSpecs.minSize}–${exam.signatureSpecs.maxSize}). 100% free.`;
+  if (description.length > 155) description = description.substring(0, 152).trim() + "...";
 
   const faqSchema = {
     "@context": "https://schema.org",

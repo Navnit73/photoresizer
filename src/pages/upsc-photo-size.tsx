@@ -41,7 +41,7 @@ export default function UPSCPhotoSize() {
   return (
     <>
       <Helmet>
-        <title>UPSC Exam Photo Size & Dimensions | UPSC Photo Resizer Online</title>
+        <title>UPSC Exam Photo Size & Dimensions | UPSC Photo Resizer...</title>
         <meta
           name="description"
           content="Check UPSC exam photo dimensions and resize photo online for UPSC CSE, CDS, NDA and other exams. Compress to required size without quality loss."

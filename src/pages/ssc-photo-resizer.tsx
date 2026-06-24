@@ -43,7 +43,7 @@ export default function SSCPhotoResizer() {
         <title>SSC CGL Photo Resizer 2026 | Resize Photo for SSC CGL</title>
         <meta
           name="description"
-          content="Easily resize photo for SSC CGL 2026. Crop to 3.5cm x 4.5cm and compress image size between 20KB to 50KB exactly per official Staff Selection Commission guidelines."
+          content="Easily resize photo for SSC CGL 2026. Crop to 3.5cm x 4.5cm and compress image size between 20KB to 50KB exactly per official Staff Selection..."
         />
         <link rel="canonical" href="https://www.photoresizer.co.in/ssc-photo-resizer" />
       </Helmet>

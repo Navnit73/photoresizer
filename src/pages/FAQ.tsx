@@ -105,7 +105,7 @@ export default function FAQ() {
         <title>FAQ - Frequently Asked Questions | Photo Resizer</title>
         <meta
           name="description"
-          content="Find answers to common questions about Photo Resizer. Learn about privacy, supported formats, compression accuracy, and how to resize photos for government forms."
+          content="Find answers to common questions about Photo Resizer. Learn about privacy, supported formats, compression accuracy, and how to resize photos for..."
         />
         <link rel="canonical" href="https://www.photoresizer.co.in/faq" />
       </Helmet>
