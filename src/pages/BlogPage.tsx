@@ -99,6 +99,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 font-sans selection:bg-blue-100 selection:text-blue-900">
       <SEO
+        url={`https://www.photoresizer.co.in/blog/${post.slug}`}
         title={post.metaTitle}
         description={post.metaDescription}
         type="article"

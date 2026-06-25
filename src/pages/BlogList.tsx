@@ -62,6 +62,7 @@ export default function BlogList() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 font-sans selection:bg-blue-100 selection:text-blue-900">
       <SEO 
+        url="https://www.photoresizer.co.in/blog"
         title="Form Photo Specifications & Guidelines Blog | Photo Resizer Pro"
         description="Complete guide for government exam photo and signature requirements. UPSC, SSC, IBPS, and State exam photo specifications explanations and resizing tips. Updated 2026."
       />

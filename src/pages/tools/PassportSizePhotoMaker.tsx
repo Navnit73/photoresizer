@@ -183,6 +183,7 @@ export default function PassportSizePhotoMaker() {
   return (
     <>
       <SEO
+        url="https://www.photoresizer.co.in/passport-size-photo-maker"
         title="Passport Size Photo Maker | 35×45mm, 2×2 Inch & All Formats"
         description="Free passport size photo maker for 2026. Instantly resize to 35×45mm, 2×2 inch, 3.5×4.5cm or any international standard. AI crops, removes background & generates print sheet."
         structuredData={{

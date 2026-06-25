@@ -93,6 +93,7 @@ export default function UsPassportPhotoMaker() {
   return (
     <>
       <SEO
+        url="https://www.photoresizer.co.in/us-passport-photo-maker"
         title="US Passport Photo Maker | Create 2x2 Inch Photos Online"
         description="Free online US passport photo maker. Instantly resize and crop your photo to the official 2x2 inch (51x51 mm) standard. AI removes background & generates print sheets."
         structuredData={{

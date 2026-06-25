@@ -112,6 +112,7 @@ export default function IndiaPassportPhotoMaker() {
   return (
     <>
       <SEO
+        url="https://www.photoresizer.co.in/india-passport-photo-maker"
         title="India Passport Photo Maker 2026 | 35×45mm ICAO Compliant — Free Online Tool"
         description="Create a compliant Indian passport photo for 2026. Updated to the September 2025 MEA mandate: 35×45mm (630×810px), 80–85% face coverage, pure white background. Free, instant, Passport Seva ready."
         structuredData={{

@@ -110,6 +110,7 @@ export default function AustraliaPassportPhotoMaker() {
   return (
     <>
       <SEO
+        url="https://www.photoresizer.co.in/australia-passport-photo-maker"
         title="Australia Passport Photo Maker 2026 | Free DFAT-Compliant 35×45mm Tool"
         description="Create a compliant Australian passport photo online in seconds. 35×45mm, 826×1062px, plain white background, DFAT & ICAO standards. Free digital download + 4×6 print sheet."
         structuredData={{

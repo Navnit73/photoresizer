@@ -101,6 +101,7 @@ export default function UkPassportPhotoMaker() {
   return (
     <>
       <SEO
+        url="https://www.photoresizer.co.in/uk-passport-photo-maker"
         title="UK Passport Photo Maker 2026 | Free Online HMPO 35×45mm Tool"
         description="Create a compliant UK passport photo in seconds. Free online tool sized to the official HMPO 35×45mm standard. AI applies light-grey background, enforces 29–34mm head height, and exports a GOV.UK DIVS-ready JPEG. No glasses needed — we handle the rules."
         structuredData={{

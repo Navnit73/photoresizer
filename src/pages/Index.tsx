@@ -43,7 +43,7 @@ const Index = () => {
 
   return (
     <>
-      <SEO />
+      <SEO url="https://www.photoresizer.co.in" />
 
       <div className="min-h-screen flex flex-col bg-background relative selection:bg-primary/20">
         <Header />

@@ -256,6 +256,7 @@ export default function PassportPhotoMaker() {
   return (
     <>
       <SEO
+        url="https://www.photoresizer.co.in/passport-photo-maker"
         title="Free Online Passport Photo Maker | AI-Compliant in Seconds"
         description="Create government-compliant passport & visa photos in seconds. AI auto-crops, removes background, and generates a print-ready 4×6 sheet for 150+ countries."
         structuredData={{

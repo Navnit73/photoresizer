@@ -101,6 +101,7 @@ export default function SchengenVisaPhotoMaker() {
   return (
     <>
       <SEO
+        url="https://www.photoresizer.co.in/schengen-visa-photo-maker"
         title="Schengen Visa Photo Maker 2026 | Free Online 35×45mm Tool"
         description="Create a compliant Schengen visa photo in seconds. Free online tool resizes your photo to the official 35×45 mm (413×531 px) standard for all 29 Schengen countries. AI background removal, ICAO-verified, VFS-ready JPEG download."
         structuredData={{
